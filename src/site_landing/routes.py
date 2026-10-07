@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 site_landing = Blueprint("site_landing", __name__, static_folder="static", template_folder="../templates")
 
@@ -9,7 +9,7 @@ def index():
     For loging on, the user will need to provide her/his email address and click the logon button.
     :return:
     """
-    return render_template("site/index.html")
+    return render_template("site_landing/index.html")
 
 
 @site_landing.route("/login", methods=["GET", "POST"])
@@ -23,16 +23,23 @@ def login():
     """
     return render_template("user_home.html")
 
-@site_landing.route("/register", methods=["POST"])
+@site_landing.route("/register", methods=["GET","POST"])
 def register():
     """
-    After the user provided her/his email address and clicked login, this route is activated.
-    If the provided email address is registered, the user is forwarded to the user_home, with all
-    relevant information about progress on adventures take and a possibility to select a new adventure
-    or continue an ongoing one.
+    When the user clicks to register , the user get's a form. This request is received as a GET request.
+    As a result, the user will receive the registration form.
+
+    After the user filled the form this route is activated with a POST request. The received data is analyzed and
+    if all is ok, the entry is stored in the DB.
     :return:
     """
-    return render_template("user_home.html")
+    if request.method == "GET":
+        return render_template("site_landing/registration.html")
+    email = request.form.get("email")
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    print(email, first_name, last_name)
+    return render_template("site_landing/user_home.html")
 
 @site_landing.route("/<new_user>/confirm_registration", methods=["POST"])
 def confirm_registration(new_user:int):

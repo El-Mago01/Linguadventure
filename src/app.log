@@ -242,3 +242,87 @@
 07-Oct-26 15:04:37 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 15:04:37] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
 07-Oct-26 15:04:37 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 15:04:37] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
 07-Oct-26 15:04:37 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 15:04:37] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=roludRyl9EbOh8PUBv9N HTTP/1.1" 200 -
+07-Oct-26 22:35:25 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+07-Oct-26 22:35:25 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+07-Oct-26 22:35:25 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 22:35:25 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 22:35:25 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 22:35:43 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:35:43] "GET / HTTP/1.1" 200 -
+07-Oct-26 22:35:45 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:35:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+07-Oct-26 22:36:01 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:36:01] "[31m[1mGET /register HTTP/1.1[0m" 405 -
+07-Oct-26 22:36:01 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:36:01] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+07-Oct-26 22:36:51 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+07-Oct-26 22:36:51 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+07-Oct-26 22:36:51 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 22:36:51 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 22:36:51 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 22:36:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:36:57] "GET / HTTP/1.1" 200 -
+07-Oct-26 22:36:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:36:57] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+07-Oct-26 22:37:00 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:00] "[35m[1mGET /register HTTP/1.1[0m" 500 -
+07-Oct-26 22:37:00 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:00] "GET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+07-Oct-26 22:37:00 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:00] "GET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+07-Oct-26 22:37:00 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:00] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=1BCQP9Bw7os0ILtqYPFG HTTP/1.1" 200 -
+07-Oct-26 22:37:00 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:00] "GET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+07-Oct-26 22:37:50 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+07-Oct-26 22:37:50 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 22:37:50 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 22:37:50 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 22:37:55 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:55] "GET / HTTP/1.1" 200 -
+07-Oct-26 22:37:55 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:55] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+07-Oct-26 22:37:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:57] "[35m[1mGET /register HTTP/1.1[0m" 500 -
+07-Oct-26 22:37:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:57] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+07-Oct-26 22:37:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:57] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+07-Oct-26 22:37:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:37:57] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=l3hEcCqslXiAZZhEtOwD HTTP/1.1" 200 -
+07-Oct-26 22:39:37 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:39:37] "GET /register HTTP/1.1" 200 -
+07-Oct-26 22:39:37 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:39:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+07-Oct-26 22:43:16 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:43:16] "POST /register HTTP/1.1" 200 -
+07-Oct-26 22:43:16 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 22:43:16] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+07-Oct-26 22:49:59 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+07-Oct-26 22:49:59 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 22:49:59 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 22:49:59 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 22:58:29 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+07-Oct-26 22:58:29 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 22:58:30 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 22:58:30 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 23:07:38 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+07-Oct-26 23:07:38 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 23:38:03 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+07-Oct-26 23:38:03 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+07-Oct-26 23:38:03 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 23:38:03 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 23:38:03 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 23:38:10 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:38:10] "GET /register HTTP/1.1" 200 -
+07-Oct-26 23:38:10 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:38:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+07-Oct-26 23:38:24 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:38:24] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+07-Oct-26 23:38:24 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:38:24] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+07-Oct-26 23:38:24 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:38:24] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+07-Oct-26 23:38:24 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:38:24] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=G7wjHmgnhpj92qeDZL6S HTTP/1.1" 200 -
+07-Oct-26 23:38:24 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:38:24] "[36mGET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+07-Oct-26 23:48:31 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+07-Oct-26 23:48:31 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 23:48:32 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 23:48:32 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 23:48:36 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:48:36] "GET /register HTTP/1.1" 200 -
+07-Oct-26 23:48:36 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:48:36] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+07-Oct-26 23:48:48 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:48:48] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+07-Oct-26 23:48:48 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:48:48] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+07-Oct-26 23:48:48 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:48:48] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+07-Oct-26 23:48:48 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:48:48] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=YmcS4MHc9LiZCPMAPPQV HTTP/1.1" 200 -
+07-Oct-26 23:52:18 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+07-Oct-26 23:52:18 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 23:52:18 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 23:52:18 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 23:56:47 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:56:47] "GET /register HTTP/1.1" 200 -
+07-Oct-26 23:56:47 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:56:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+07-Oct-26 23:56:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:56:57] "POST /register HTTP/1.1" 200 -
+07-Oct-26 23:56:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:56:57] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -

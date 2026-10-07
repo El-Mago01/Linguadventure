@@ -1,0 +1,554 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My LinguAdventure</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="min-h-screen bg-slate-950 text-white">
+
+    <!-- Background decoration -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-teal-500/10 blur-3xl"></div>
+        <div class="absolute top-1/3 -right-40 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl"></div>
+    </div>
+
+
+    <!-- Navigation -->
+    <header class="border-b border-white/10 bg-slate-950/80 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+
+            <a href="#"
+               class="text-xl font-bold tracking-tight">
+                Lingu<span class="text-teal-400">Adventure</span>
+            </a>
+
+            <nav class="hidden items-center gap-8 text-sm text-slate-400 md:flex">
+
+                <a href="#"
+                   class="text-white">
+                    Home
+                </a>
+
+                <a href="#"
+                   class="transition hover:text-white">
+                    Adventures
+                </a>
+
+                <a href="#"
+                   class="transition hover:text-white">
+                    My Journey
+                </a>
+
+            </nav>
+
+            <!-- User -->
+            <div class="flex items-center gap-3">
+
+                <div class="hidden text-right sm:block">
+                    <p class="text-sm font-medium">Martin</p>
+                    <p class="text-xs text-slate-500">Learning Portuguese</p>
+                </div>
+
+                <div class="flex h-10 w-10 items-center justify-center rounded-full
+                            bg-teal-400 font-bold text-slate-950">
+                    M
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Main -->
+    <main class="mx-auto max-w-7xl px-6 py-10">
+
+
+        <!-- Welcome -->
+        <section class="mb-10">
+
+            <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-teal-400">
+                Welcome back
+            </p>
+
+            <h1 class="text-4xl font-bold tracking-tight md:text-5xl">
+                Ready for your next adventure, Martin?
+            </h1>
+
+            <p class="mt-4 max-w-2xl text-lg text-slate-400">
+                Your story is waiting. Continue where you left off or discover
+                somewhere new.
+            </p>
+
+        </section>
+
+
+        <!-- Main dashboard grid -->
+        <div class="grid gap-6 lg:grid-cols-3">
+
+
+            <!-- Current adventure -->
+            <section class="overflow-hidden rounded-2xl border border-white/10
+                            bg-gradient-to-br from-teal-400/15 to-cyan-400/5
+                            lg:col-span-2">
+
+                <div class="p-7 md:p-9">
+
+                    <div class="mb-6 flex items-start justify-between">
+
+                        <div>
+                            <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-teal-400">
+                                Continue your adventure
+                            </p>
+
+                            <h2 class="text-3xl font-bold">
+                                Lost in Lisbon
+                            </h2>
+                        </div>
+
+                        <span class="rounded-full bg-teal-400/10 px-3 py-1
+                                     text-xs font-semibold text-teal-300">
+                            In progress
+                        </span>
+
+                    </div>
+
+
+                    <p class="max-w-2xl leading-relaxed text-slate-300">
+                        You arrived in Lisbon, but your luggage didn't.
+                        After speaking with the airport employee, a mysterious
+                        message has sent you into the old streets of Alfama...
+                    </p>
+
+
+                    <!-- Current story state -->
+                    <div class="mt-7 rounded-xl border border-white/10 bg-slate-950/40 p-5">
+
+                        <p class="mb-1 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                            Where you left off
+                        </p>
+
+                        <p class="font-medium text-slate-200">
+                            Scene 3 — The café in Alfama
+                        </p>
+
+                        <p class="mt-2 text-sm italic text-slate-400">
+                            “The waiter seems to know something about your missing suitcase...”
+                        </p>
+
+                    </div>
+
+
+                    <!-- Progress -->
+                    <div class="mt-7">
+
+                        <div class="mb-2 flex justify-between text-sm">
+                            <span class="text-slate-400">Adventure progress</span>
+                            <span class="font-medium">40%</span>
+                        </div>
+
+                        <div class="h-2 overflow-hidden rounded-full bg-white/10">
+                            <div class="h-full w-2/5 rounded-full bg-teal-400"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-8">
+                        <a href="#"
+                           class="inline-flex items-center rounded-xl bg-teal-400
+                                  px-6 py-3 font-semibold text-slate-950
+                                  transition hover:bg-teal-300">
+                            Continue adventure →
+                        </a>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Language progress -->
+            <section class="rounded-2xl border border-white/10 bg-white/5 p-7">
+
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-teal-400">
+                    Your Portuguese
+                </p>
+
+                <div class="mt-5 flex items-end gap-3">
+
+                    <span class="text-5xl font-bold">
+                        A2
+                    </span>
+
+                    <span class="mb-1 text-sm text-slate-400">
+                        Elementary
+                    </span>
+
+                </div>
+
+
+                <div class="mt-8 space-y-5">
+
+                    <!-- Speaking -->
+                    <div>
+                        <div class="mb-2 flex justify-between text-sm">
+                            <span class="text-slate-300">Speaking</span>
+                            <span class="text-slate-500">68%</span>
+                        </div>
+
+                        <div class="h-2 rounded-full bg-white/10">
+                            <div class="h-2 w-[68%] rounded-full bg-teal-400"></div>
+                        </div>
+                    </div>
+
+
+                    <!-- Vocabulary -->
+                    <div>
+                        <div class="mb-2 flex justify-between text-sm">
+                            <span class="text-slate-300">Vocabulary</span>
+                            <span class="text-slate-500">74%</span>
+                        </div>
+
+                        <div class="h-2 rounded-full bg-white/10">
+                            <div class="h-2 w-[74%] rounded-full bg-teal-400"></div>
+                        </div>
+                    </div>
+
+
+                    <!-- Grammar -->
+                    <div>
+                        <div class="mb-2 flex justify-between text-sm">
+                            <span class="text-slate-300">Grammar</span>
+                            <span class="text-slate-500">55%</span>
+                        </div>
+
+                        <div class="h-2 rounded-full bg-white/10">
+                            <div class="h-2 w-[55%] rounded-full bg-teal-400"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <a href="#"
+                   class="mt-8 inline-block text-sm font-medium text-teal-400
+                          transition hover:text-teal-300">
+                    View learning journey →
+                </a>
+
+            </section>
+
+        </div>
+
+
+        <!-- Second row -->
+        <div class="mt-6 grid gap-6 lg:grid-cols-3">
+
+
+            <!-- Learning focus -->
+            <section class="rounded-2xl border border-white/10 bg-white/5 p-7">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-teal-400">
+                    Current learning focus
+                </p>
+
+                <h2 class="mt-3 text-xl font-semibold">
+                    Past tense
+                </h2>
+
+                <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                    You handled everyday vocabulary well, but describing what
+                    happened earlier was sometimes difficult.
+                </p>
+
+
+                <div class="mt-6 rounded-xl bg-slate-900 p-4">
+
+                    <p class="text-xs uppercase tracking-wider text-slate-500">
+                        Next adventure
+                    </p>
+
+                    <p class="mt-2 text-sm text-slate-300">
+                        We'll naturally give you a few more opportunities to
+                        talk about things that happened in the past.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Recent activity -->
+            <section class="rounded-2xl border border-white/10 bg-white/5 p-7">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-teal-400">
+                    Recent activity
+                </p>
+
+
+                <div class="mt-6 space-y-5">
+
+                    <div class="border-b border-white/10 pb-4">
+
+                        <div class="flex items-center justify-between">
+
+                            <p class="font-medium">
+                                Lost in Lisbon
+                            </p>
+
+                            <span class="text-xs text-slate-500">
+                                Yesterday
+                            </span>
+
+                        </div>
+
+                        <p class="mt-1 text-sm text-slate-400">
+                            12 minute conversation
+                        </p>
+
+                    </div>
+
+
+                    <div class="border-b border-white/10 pb-4">
+
+                        <div class="flex items-center justify-between">
+
+                            <p class="font-medium">
+                                Lost in Lisbon
+                            </p>
+
+                            <span class="text-xs text-slate-500">
+                                3 days ago
+                            </span>
+
+                        </div>
+
+                        <p class="mt-1 text-sm text-slate-400">
+                            9 minute conversation
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="flex items-center justify-between">
+
+                            <p class="font-medium">
+                                Café Encounter
+                            </p>
+
+                            <span class="text-xs text-slate-500">
+                                Last week
+                            </span>
+
+                        </div>
+
+                        <p class="mt-1 text-sm text-slate-400">
+                            Adventure completed ✓
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Stats -->
+            <section class="rounded-2xl border border-white/10 bg-white/5 p-7">
+
+                <p class="text-sm font-semibold uppercase tracking-wider text-teal-400">
+                    Your journey
+                </p>
+
+
+                <div class="mt-6 grid grid-cols-2 gap-4">
+
+                    <div class="rounded-xl bg-slate-900 p-4">
+                        <p class="text-3xl font-bold">
+                            7
+                        </p>
+
+                        <p class="mt-1 text-xs text-slate-500">
+                            Sessions
+                        </p>
+                    </div>
+
+
+                    <div class="rounded-xl bg-slate-900 p-4">
+                        <p class="text-3xl font-bold">
+                            64
+                        </p>
+
+                        <p class="mt-1 text-xs text-slate-500">
+                            Minutes spoken
+                        </p>
+                    </div>
+
+
+                    <div class="rounded-xl bg-slate-900 p-4">
+                        <p class="text-3xl font-bold">
+                            2
+                        </p>
+
+                        <p class="mt-1 text-xs text-slate-500">
+                            Adventures
+                        </p>
+                    </div>
+
+
+                    <div class="rounded-xl bg-slate-900 p-4">
+                        <p class="text-3xl font-bold">
+                            38
+                        </p>
+
+                        <p class="mt-1 text-xs text-slate-500">
+                            New words
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- Suggested adventures -->
+        <section class="mt-12">
+
+            <div class="mb-6 flex items-end justify-between">
+
+                <div>
+                    <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-teal-400">
+                        Where to next?
+                    </p>
+
+                    <h2 class="text-2xl font-bold">
+                        More adventures
+                    </h2>
+                </div>
+
+                <a href="#"
+                   class="hidden text-sm text-slate-400 transition hover:text-white sm:block">
+                    Explore all adventures →
+                </a>
+
+            </div>
+
+
+            <div class="grid gap-6 md:grid-cols-3">
+
+
+                <!-- Adventure -->
+                <article class="group rounded-2xl border border-white/10 bg-white/5 p-6
+                                transition hover:-translate-y-1 hover:border-teal-400/40">
+
+                    <div class="mb-5 text-3xl">
+                        ☕
+                    </div>
+
+                    <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-teal-400">
+                        Everyday life
+                    </p>
+
+                    <h3 class="text-xl font-semibold">
+                        The Wrong Coffee
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                        A simple coffee order turns into something rather more
+                        complicated than expected.
+                    </p>
+
+                    <a href="#"
+                       class="mt-6 inline-block text-sm font-medium text-teal-400">
+                        Start adventure →
+                    </a>
+
+                </article>
+
+
+                <!-- Adventure -->
+                <article class="group rounded-2xl border border-white/10 bg-white/5 p-6
+                                transition hover:-translate-y-1 hover:border-teal-400/40">
+
+                    <div class="mb-5 text-3xl">
+                        🚆
+                    </div>
+
+                    <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-teal-400">
+                        Travel
+                    </p>
+
+                    <h3 class="text-xl font-semibold">
+                        Last Train to Porto
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                        Your train leaves soon, but your ticket seems to have
+                        a rather inconvenient problem.
+                    </p>
+
+                    <a href="#"
+                       class="mt-6 inline-block text-sm font-medium text-teal-400">
+                        Start adventure →
+                    </a>
+
+                </article>
+
+
+                <!-- Adventure -->
+                <article class="group rounded-2xl border border-white/10 bg-white/5 p-6
+                                transition hover:-translate-y-1 hover:border-teal-400/40">
+
+                    <div class="mb-5 text-3xl">
+                        🎉
+                    </div>
+
+                    <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-teal-400">
+                        Social
+                    </p>
+
+                    <h3 class="text-xl font-semibold">
+                        An Unexpected Invitation
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                        Someone you've just met invites you to a party.
+                        There's only one small problem...
+                    </p>
+
+                    <a href="#"
+                       class="mt-6 inline-block text-sm font-medium text-teal-400">
+                        Start adventure →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="mt-16 border-t border-white/10 py-8 text-center text-sm text-slate-600">
+
+            LinguAdventure — Don't study a language. Live it.
+
+        </footer>
+
+    </main>
+
+</body>
+</html>
+```

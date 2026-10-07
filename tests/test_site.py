@@ -4,12 +4,13 @@ import os
 from data_manager import DataManager, StudentStorageError
 
 """
-Test cases for site landing:
+Test cases for site landing, tested from DataManager perspective:
 1 A user lands on the site
 1.1 user receives welcoming site page 
 1.2 New user registers as Student
-    1.2.1 Data of new user is retrieved
-    
+    1.2.1 Data of new student is retrieved
+    1.2.2 Data of non-existent student is handled
+    1.2.3 Bad input data is handled
 1.3 New user register as student with existing email address
 1.4 New user register without an email address
 1.5 New user register without a first name
@@ -35,7 +36,6 @@ Test cases for site landing:
 @pytest.fixture
 def test_init(test_app):
     test_app, test_db = test_app
-    print("\n>>> ENTERING TEST_INIT")
     client = test_app.test_client()
     database_file = "data/test_db.sqlite"
     # if os.path.exists(database_file):
@@ -74,7 +74,6 @@ def test_1_1_a_user_on_site(test_init):
 
 def test_1_2_store_new_student(test_init):
     test_app, client, database_file, registration_info = test_init
-    print(type(registration_info))
     dm = DataManager()
     new_student = dm.add_student(registration_info=registration_info)
     print("INSTANCE PATH:", test_app.instance_path)
@@ -87,15 +86,51 @@ def test_1_2_store_new_student(test_init):
 
 def test_1_2_1_fetch_stored_student_info(test_init):
     test_app, client, database_file, registration_info = test_init
-    print(type(registration_info))
     dm = DataManager()
     new_student = dm.add_student(registration_info=registration_info)
     assert new_student is not None
     assert dm.student_exists(new_student.email) == True    #This time using the email address
     verified_stored_student = dm.get_student(registration_info["email"])
-    assert new_student is not None
     assert verified_stored_student is not None
     assert new_student.student_id == verified_stored_student.get("student_id","-1")
+    verified_stored_student = dm.get_student(new_student.student_id)
+    assert verified_stored_student is not None
+    assert new_student.student_id == verified_stored_student.get("student_id", "-1")
+    verified_stored_student = dm.get_student(new_student)
+    assert verified_stored_student is not None
+    assert new_student.student_id == verified_stored_student.get("student_id", "-1")
+    assert os.path.exists(database_file)
+    assert new_student.email == registration_info["email"]
+
+def test_1_2_2_handle_non_existing_student(test_init):
+    test_app, client, database_file, registration_info = test_init
+    dm = DataManager()
+    new_student = dm.add_student(registration_info=registration_info)
+    assert new_student is not None
+    assert new_student.email == registration_info["email"]
+    verified_stored_student = dm.get_student("")
+    assert verified_stored_student is None
+    assert os.path.exists(database_file)
+
+def test_1_2_3_bad_input_data_is_handled(test_init):
+    test_app, client, database_file, registration_info = test_init
+    print(type(registration_info))
+    dm = DataManager()
+    new_student = dm.add_student(registration_info=registration_info)
+    assert new_student is not None
+    assert dm.student_exists(new_student.email) == True    #This time using the email address
+    assert dm.student_exists("") == False
+    assert dm.student_exists(-1) == False
+    assert dm.student_exists({}) == False
+    verified_stored_student = dm.get_student(registration_info["email"])
+    assert verified_stored_student is not None
+    assert new_student.student_id == verified_stored_student.get("student_id","-1")
+    verified_stored_student = dm.get_student({})
+    assert verified_stored_student is None
+    verified_stored_student = dm.get_student(-1)
+    assert verified_stored_student is None
+    assert new_student is not None
+
     assert os.path.exists(database_file)
     assert new_student.email == registration_info["email"]
 

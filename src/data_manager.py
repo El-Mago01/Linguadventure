@@ -67,13 +67,13 @@ class DataManager:
         for student in all_students:
             if isinstance(received_student_data, Student):
                 if student.student_id == received_student_data.student_id:
-                    return dict(student)
+                    return student.serialize()
             if isinstance(received_student_data, int):
                 if student.student_id == received_student_data:
-                    return dict(student)
+                    return student.serialize()
             if isinstance(received_student_data, str):
                 if student.email == received_student_data:
-                    return dict(student.serialize())
+                    return student.serialize()
         return None
 
     def student_exists(self, received_student_data) -> bool:
@@ -136,7 +136,7 @@ class DataManager:
         if new_student.first_name == "" or new_student.last_name == "":
             logging.warning("No valid first or last name received")
             raise StudentStorageError("No valid first or last name received")
-        if new_student.target_language == "":
+        if new_student.target_language == "" or new_student.original_language == "":
             logging.warning("No valid first or last name received")
             raise StudentStorageError("No valid first or last name received")
         new_student.age = registration_info.get("age", "")
@@ -147,15 +147,15 @@ class DataManager:
         db.session.commit()
         return new_student
 
-    def delete_student(self, student_data: int | str) -> tuple:
+    def delete_student(self, student_data: int | str | Student) -> tuple:
         """
         Deletes the provided Student from the db. Associated movies will be automatically
         deleted due to cascade mapping on Student.movies relationship.
         """
-        if isinstance(student_data, int):
-            student_id_to_delete = student_data
-        elif isinstance(student_data, str):
-            student_id_to_delete = student_data
+        if isinstance(student_data, int):     # expect
+            student_to_delete = student_data
+        elif isinstance(student_data, str):   # expect email address as input
+            student_to_delete = self.get_student(student_data)
         else:
             return (
                 None,
