@@ -77,3 +77,168 @@
 02-Oct-26 11:30:43 - werkzeug - INFO -  * Restarting with stat
 02-Oct-26 11:30:43 - werkzeug - WARNING -  * Debugger is active!
 02-Oct-26 11:30:43 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+02-Oct-26 13:16:08 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/app.py', reloading
+02-Oct-26 13:16:08 - werkzeug - INFO -  * Restarting with stat
+02-Oct-26 13:16:08 - werkzeug - WARNING -  * Debugger is active!
+02-Oct-26 13:16:08 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+02-Oct-26 13:17:52 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/app.py', reloading
+02-Oct-26 13:17:52 - werkzeug - INFO -  * Restarting with stat
+02-Oct-26 14:35:51 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+02-Oct-26 14:35:51 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+02-Oct-26 14:35:51 - werkzeug - INFO -  * Restarting with stat
+02-Oct-26 14:35:51 - werkzeug - WARNING -  * Debugger is active!
+02-Oct-26 14:35:51 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+02-Oct-26 18:10:18 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+02-Oct-26 18:10:18 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+02-Oct-26 18:10:18 - werkzeug - INFO -  * Restarting with stat
+02-Oct-26 18:10:18 - werkzeug - WARNING -  * Debugger is active!
+02-Oct-26 18:10:18 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+02-Oct-26 18:10:27 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:10:27] "[35m[1mGET / HTTP/1.1[0m" 500 -
+02-Oct-26 18:10:27 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:10:27] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Oct-26 18:10:27 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:10:27] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Oct-26 18:10:27 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:10:27] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=654bhN6atvvYqzlKKF1t HTTP/1.1" 200 -
+02-Oct-26 18:10:28 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:10:28] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Oct-26 18:11:41 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/app.py', reloading
+02-Oct-26 18:11:42 - werkzeug - INFO -  * Restarting with stat
+02-Oct-26 18:11:42 - werkzeug - WARNING -  * Debugger is active!
+02-Oct-26 18:11:42 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+02-Oct-26 18:11:42 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:11:42] "[35m[1mGET / HTTP/1.1[0m" 500 -
+02-Oct-26 18:11:42 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:11:42] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Oct-26 18:11:42 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:11:42] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Oct-26 18:11:42 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:11:42] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=ak4duv6Fo4jtyuQyRJJy HTTP/1.1" 200 -
+02-Oct-26 18:14:41 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+02-Oct-26 18:14:41 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+02-Oct-26 18:14:41 - werkzeug - INFO -  * Restarting with stat
+02-Oct-26 18:14:42 - werkzeug - WARNING -  * Debugger is active!
+02-Oct-26 18:14:42 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+02-Oct-26 18:14:45 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:14:45] "GET / HTTP/1.1" 200 -
+02-Oct-26 18:15:19 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:15:19] "[31m[1mGET /login HTTP/1.1[0m" 405 -
+02-Oct-26 18:15:52 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+02-Oct-26 18:15:52 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+02-Oct-26 18:15:52 - werkzeug - INFO -  * Restarting with stat
+02-Oct-26 18:15:53 - werkzeug - WARNING -  * Debugger is active!
+02-Oct-26 18:15:53 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+02-Oct-26 18:15:58 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:15:58] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+02-Oct-26 18:15:58 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:15:58] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+02-Oct-26 18:15:58 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:15:58] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+02-Oct-26 18:15:58 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:15:58] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=g0Yq0G08SMFKPD3xvEsV HTTP/1.1" 200 -
+02-Oct-26 18:15:58 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:15:58] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+02-Oct-26 18:20:08 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:20:08] "GET / HTTP/1.1" 200 -
+02-Oct-26 18:21:22 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+02-Oct-26 18:21:22 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+02-Oct-26 18:21:22 - werkzeug - INFO -  * Restarting with stat
+02-Oct-26 18:21:23 - werkzeug - WARNING -  * Debugger is active!
+02-Oct-26 18:21:23 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+02-Oct-26 18:21:24 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:21:24] "GET / HTTP/1.1" 200 -
+02-Oct-26 18:22:16 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:22:16] "GET / HTTP/1.1" 200 -
+02-Oct-26 18:22:18 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:22:18] "GET / HTTP/1.1" 200 -
+02-Oct-26 18:22:29 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:22:29] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+02-Oct-26 18:22:29 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:22:29] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Oct-26 18:22:29 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:22:29] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Oct-26 18:22:29 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 18:22:29] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=k1hz2a1qFNSM1Lf5PHKR HTTP/1.1" 200 -
+02-Oct-26 20:12:21 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/data_manager.py', reloading
+02-Oct-26 20:12:22 - werkzeug - INFO -  * Restarting with stat
+05-Oct-26 19:16:32 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+05-Oct-26 19:16:32 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+05-Oct-26 19:16:32 - werkzeug - INFO -  * Restarting with stat
+05-Oct-26 19:16:32 - werkzeug - WARNING -  * Debugger is active!
+05-Oct-26 19:16:32 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+05-Oct-26 19:18:09 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+05-Oct-26 19:18:09 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+05-Oct-26 19:18:09 - werkzeug - INFO -  * Restarting with stat
+05-Oct-26 19:18:09 - werkzeug - WARNING -  * Debugger is active!
+05-Oct-26 19:18:09 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+05-Oct-26 19:18:13 - werkzeug - INFO - 127.0.0.1 - - [05/Oct/2026 19:18:13] "GET / HTTP/1.1" 200 -
+07-Oct-26 13:30:06 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+07-Oct-26 13:30:06 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+07-Oct-26 13:30:06 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 13:30:06 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 13:30:06 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 14:35:18 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+07-Oct-26 14:35:18 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+07-Oct-26 14:35:18 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 14:35:18 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 14:35:18 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 14:35:22 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:35:22] "[35m[1mGET / HTTP/1.1[0m" 500 -
+07-Oct-26 14:35:30 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:35:30] "[35m[1mGET / HTTP/1.1[0m" 500 -
+07-Oct-26 14:35:30 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:35:30] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+07-Oct-26 14:35:30 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:35:30] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+07-Oct-26 14:35:30 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:35:30] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=Mx0o1lX4vKKk1LJApUJH HTTP/1.1" 200 -
+07-Oct-26 14:35:30 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:35:30] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+07-Oct-26 14:36:26 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site/routes.py', reloading
+07-Oct-26 14:36:27 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 14:50:47 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+07-Oct-26 14:50:47 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+07-Oct-26 14:50:47 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 14:50:47 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 14:50:47 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 14:51:00 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:51:00] "[35m[1mGET / HTTP/1.1[0m" 500 -
+07-Oct-26 14:51:00 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:51:00] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+07-Oct-26 14:51:00 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:51:00] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+07-Oct-26 14:51:00 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:51:00] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=GRVcqt2TOx3NOJzQEnEN HTTP/1.1" 200 -
+07-Oct-26 14:52:38 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+07-Oct-26 14:52:38 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+07-Oct-26 14:52:38 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 14:52:38 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 14:52:38 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 14:52:45 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:52:45] "[35m[1mGET / HTTP/1.1[0m" 500 -
+07-Oct-26 14:52:45 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:52:45] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+07-Oct-26 14:52:45 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:52:45] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+07-Oct-26 14:52:45 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:52:45] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=xjVE7iMv73zz7UXONnM5 HTTP/1.1" 200 -
+07-Oct-26 14:53:28 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+07-Oct-26 14:53:28 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+07-Oct-26 14:53:28 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 14:53:28 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 14:53:28 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 14:53:31 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:53:31] "[35m[1mGET / HTTP/1.1[0m" 500 -
+07-Oct-26 14:53:31 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:53:31] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+07-Oct-26 14:53:31 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:53:31] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+07-Oct-26 14:53:31 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 14:53:31] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=EfUKyO19godtKOkycdm9 HTTP/1.1" 200 -
+07-Oct-26 15:04:33 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+07-Oct-26 15:04:33 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+07-Oct-26 15:04:33 - werkzeug - INFO -  * Restarting with stat
+07-Oct-26 15:04:33 - werkzeug - WARNING -  * Debugger is active!
+07-Oct-26 15:04:33 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+07-Oct-26 15:04:37 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 15:04:37] "[35m[1mGET / HTTP/1.1[0m" 500 -
+07-Oct-26 15:04:37 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 15:04:37] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+07-Oct-26 15:04:37 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 15:04:37] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+07-Oct-26 15:04:37 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 15:04:37] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=roludRyl9EbOh8PUBv9N HTTP/1.1" 200 -

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguAdventure — Learn a language by living the story</title>
+
+    <!-- Tailwind v4 Play CDN: development/learning only -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --color-adventure-50: #f0fdfa;
+            --color-adventure-100: #ccfbf1;
+            --color-adventure-500: #14b8a6;
+            --color-adventure-600: #0d9488;
+            --color-adventure-700: #0f766e;
+            --color-night-900: #172033;
+            --color-night-950: #0d1424;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased">
+
+<header class="absolute inset-x-0 top-0 z-50">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+        <a href="{{ url_for('site_landing.index') }}" class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-adventure-500 text-xl font-black text-white shadow-lg">
+                L
+            </div>
+            <span class="text-xl font-bold tracking-tight text-white">
+                Lingu<span class="text-teal-300">Adventure</span>
+            </span>
+        </a>
+
+        <button
+            type="button"
+            onclick="openLoginModal()"
+            class="rounded-full border border-white/30 px-5 py-2.5
+                   text-sm font-semibold text-white transition
+                   hover:border-white hover:bg-white/10">
+            Log in
+        </button>
+    </nav>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section class="relative isolate overflow-hidden bg-night-950">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute -left-32 top-24 h-96 w-96 rounded-full bg-teal-500/20 blur-3xl"></div>
+            <div class="absolute right-0 top-0 h-[32rem] w-[32rem] rounded-full bg-indigo-500/20 blur-3xl"></div>
+            <div class="absolute bottom-0 left-1/2 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl"></div>
+        </div>
+
+        <div class="mx-auto grid min-h-[760px] max-w-7xl items-center gap-16 px-6 pb-20 pt-36 lg:grid-cols-2 lg:px-8 lg:pt-28">
+            <div>
+                <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-300/20 bg-teal-300/10 px-4 py-2 text-sm font-medium text-teal-200">
+                    <span class="h-2 w-2 rounded-full bg-teal-300"></span>
+                    Your next conversation is an adventure
+                </div>
+
+                <h1 class="max-w-3xl text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+                    Don't study a language.
+                    <span class="text-teal-300">Live it.</span>
+                </h1>
+
+                <p class="mt-7 max-w-xl text-lg leading-8 text-slate-300 sm:text-xl">
+                    Step into interactive stories where you speak with AI characters,
+                    solve real-life situations and learn naturally as the adventure unfolds.
+                </p>
+
+                <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+                    <a href="{{ url_for('site_landing.register') }}"
+                       class="rounded-full bg-teal-400 px-7 py-3.5 text-center font-bold text-night-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-teal-300">
+                        Start your adventure →
+                    </a>
+                    <a href="#how-it-works"
+                       class="rounded-full border border-white/20 px-7 py-3.5 text-center font-semibold text-white transition hover:bg-white/10">
+                        See how it works
+                    </a>
+                </div>
+
+                <p class="mt-5 text-sm text-slate-400">
+                    No grammar drills to start. Just choose a story and begin speaking.
+                </p>
+            </div>
+
+            <!-- Mock adventure card: no external image needed -->
+            <div class="relative mx-auto w-full max-w-lg">
+                <div class="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-r from-teal-400/20 to-indigo-500/20 blur-2xl"></div>
+
+                <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 p-3 shadow-2xl backdrop-blur-xl">
+                    <div class="rounded-[1.5rem] bg-white p-6 sm:p-8">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Your adventure</p>
+                                <h2 class="mt-2 text-2xl font-black text-slate-900">Lost in Lisbon</h2>
+                            </div>
+                            <div class="shrink-0 rounded-full bg-teal-50 px-3 py-1 text-xs font-bold text-teal-700">
+                                Scene 2 of 5
+                            </div>
+                        </div>
+
+                        <p class="mt-5 leading-7 text-slate-600">
+                            Your backpack has disappeared. You return to the café where
+                            you had breakfast and find Miguel behind the counter...
+                        </p>
+
+                        <div class="mt-7 flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xl">☕</div>
+                            <div>
+                                <p class="font-bold text-slate-900">Miguel</p>
+                                <p class="text-sm text-slate-500">Café employee · friendly · humorous</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl rounded-bl-sm bg-night-950 p-5 text-white">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-teal-300">Miguel</p>
+                            <p class="mt-2 text-lg">“Olá! Você voltou. Está tudo bem?”</p>
+                        </div>
+
+                        <div class="mt-5 flex items-center gap-3">
+                            <button type="button"
+                                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-teal-500 text-xl text-white shadow-md transition hover:bg-teal-600"
+                                    aria-label="Speak">
+                                ●
+                            </button>
+                            <div class="flex h-12 flex-1 items-center rounded-full border border-slate-200 bg-slate-50 px-5 text-sm text-slate-400">
+                                Speak to Miguel...
+                            </div>
+                        </div>
+
+                        <p class="mt-4 text-center text-xs text-slate-400">
+                            The story adapts to what you say — and to how you learn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="bg-white py-24 sm:py-28">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl text-center">
+                <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-600">How it works</p>
+                <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
+                    Your language becomes the key to the story.
+                </h2>
+                <p class="mt-5 text-lg leading-8 text-slate-600">
+                    You aren't completing exercises. You're trying to get somewhere,
+                    discover something, convince someone or solve a problem.
+                </p>
+            </div>
+
+            <div class="mt-16 grid gap-6 md:grid-cols-3">
+                <article class="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+                    <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-100 text-xl font-black text-teal-700">1</div>
+                    <h3 class="text-xl font-bold text-slate-900">Choose your adventure</h3>
+                    <p class="mt-3 leading-7 text-slate-600">
+                        Travel, work, everyday life or a mystery. Enter a situation where speaking has a purpose.
+                    </p>
+                </article>
+
+                <article class="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+                    <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-100 text-xl font-black text-indigo-700">2</div>
+                    <h3 class="text-xl font-bold text-slate-900">Talk to the characters</h3>
+                    <p class="mt-3 leading-7 text-slate-600">
+                        Serious, funny, impatient or charming — every character has a personality and reacts to what you say.
+                    </p>
+                </article>
+
+                <article class="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+                    <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-xl font-black text-amber-700">3</div>
+                    <h3 class="text-xl font-bold text-slate-900">Grow while you play</h3>
+                    <p class="mt-3 leading-7 text-slate-600">
+                        LinguAdventure remembers your progress and adapts future conversations to what you already know and what needs practice.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="bg-slate-100 py-24">
+        <div class="mx-auto max-w-5xl px-6 text-center lg:px-8">
+            <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-600">Learn differently</p>
+
+            <blockquote class="mt-5 text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">
+                “The language is not the adventure.
+                <span class="text-teal-600">The language enables the adventure.</span>”
+            </blockquote>
+
+            <p class="mx-auto mt-7 max-w-2xl text-lg leading-8 text-slate-600">
+                A beginner and an advanced learner can enter the same café, hotel or workplace.
+                LinguAdventure changes the conversation to meet you where you are — while keeping you inside the same story.
+            </p>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="bg-night-950 py-24">
+        <div class="mx-auto max-w-4xl px-6 text-center lg:px-8">
+            <h2 class="text-4xl font-black tracking-tight text-white sm:text-5xl">
+                Ready to see where the story takes you?
+            </h2>
+
+            <p class="mx-auto mt-5 max-w-2xl text-lg text-slate-300">
+                Create your learner profile, choose an adventure and start your first conversation.
+            </p>
+
+            <div class="mt-9">
+                <a href="{{ url_for('site_landing.register') }}"
+                   class="inline-block rounded-full bg-teal-400 px-8 py-4 font-bold text-night-950 transition hover:-translate-y-0.5 hover:bg-teal-300">
+                    Create your account →
+                </a>
+            </div>
+
+            <p class="mt-5 text-sm text-slate-400">
+                Already exploring?
+                <a href="{{ url_for('site_landing.login') }}" class="font-semibold text-teal-300 hover:text-teal-200">
+                    Log in
+                </a>
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="border-t border-white/10 bg-night-950">
+    <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <p>© 2026 LinguAdventure</p>
+        <p>Learn by speaking. Continue for the story.</p>
+    </div>
+</footer>
+<!-- Login Modal -->
+<div id="loginModal"
+     class="fixed inset-0 z-50 hidden items-center justify-center">
+
+    <!-- Dark transparent background -->
+    <div
+        class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm"
+        onclick="closeLoginModal()">
+    </div>
+
+    <!-- Modal window -->
+    <div class="relative z-10 mx-4 w-full max-w-md
+                rounded-3xl bg-white p-8 shadow-2xl">
+
+        <!-- Close button -->
+        <button
+            type="button"
+            onclick="closeLoginModal()"
+            class="absolute right-5 top-5 text-2xl
+                   text-slate-400 hover:text-slate-700">
+            &times;
+        </button>
+
+        <p class="text-sm font-bold uppercase tracking-[0.2em]
+                  text-teal-600">
+            Welcome back
+        </p>
+
+        <h2 class="mt-2 text-3xl font-black text-slate-900">
+            Continue your adventure
+        </h2>
+
+        <p class="mt-3 text-slate-500">
+            Enter your email address to continue where you left off.
+        </p>
+
+        <form action="{{ url_for('site_landing.login') }}"
+              method="POST"
+              class="mt-7">
+
+            <label for="email"
+                   class="text-sm font-semibold text-slate-700">
+                Email address
+            </label>
+
+            <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="you@example.com"
+                class="mt-2 w-full rounded-xl border border-slate-300
+                       px-4 py-3 outline-none transition
+                       focus:border-teal-500 focus:ring-4
+                       focus:ring-teal-500/10">
+
+            <button
+                type="submit"
+                class="mt-5 w-full rounded-full bg-teal-500
+                       px-6 py-3 font-bold text-white
+                       transition hover:bg-teal-600">
+                Continue adventure →
+            </button>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function openLoginModal() {
+        const modal = document.getElementById("loginModal");
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+    }
+
+    function closeLoginModal() {
+        const modal = document.getElementById("loginModal");
+
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+    }
+</script>

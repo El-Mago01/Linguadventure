@@ -1,5 +1,5 @@
 """
-This module contains the handling of movie and user data which is modeled in the models-module.
+This module contains the handling of movie and Student data which is modeled in the models-module.
 It creates an abstraction layer for the app-module by providing an interface tailored for
 the storage of the data or fetching of movie related data externally by movie_data_fetcher-module
 The service requests will come from the app-module. The data_manager takes of the fulfillment
@@ -12,19 +12,9 @@ from sqlalchemy import func, or_
 from sqlalchemy.exc import IntegrityError, OperationalError
 
 import re
-from models import db, Adventure, Student
+from models import db, Adventure, Student, Student_Adventure
 # from movie_data_fetcher import fetch_movie_general_data, fetch_movie_data
 
-
-def normalize_year(year_val) -> int | None:
-    if year_val is None:
-        return None
-    if isinstance(year_val, int):
-        return year_val
-    match = re.search(r"\d{4}", str(year_val))
-    if match:
-        return int(match.group())
-    return None
 
 logging.basicConfig(
     filename="app.log",
@@ -33,6 +23,9 @@ logging.basicConfig(
     datefmt="%d-%b-%y %H:%M:%S",
 )
 
+class StudentStorageError(Exception):
+    pass
+
 
 class DataManager:
     """
@@ -40,191 +33,194 @@ class DataManager:
     Data manager controls all the db services and the fetching of the required data
     and storing them in the right format
 
-    Knows HOW to retrieve movies/user information
-    Knows HOW to store movies/user data
-    Knows HOW to update movies/user data
-    Knows HOW to delete movies/user data
+    Knows HOW to retrieve adventure/scene/session/student information
+    Knows HOW to store adventure/scene/session/student data
+    Knows HOW to update adventure/scene/session/student data
+    Knows HOW to delete adventure/scene/session/student data
     """
 
     def __init__(self):
-        self.active_user = None
+        self.is_active = True
 
     # =========================================================================
-    # All class definitions related to user management
+    # All class definitions related to Student management
     # =========================================================================
-    def get_all_users(self) -> list[User]:
+    def get_all_students(self) -> list[Student]:
         """
-        derive all users from the db.
-        :return: a list of users
+        derive all Students from the db.
+        :return: a list of Students
         """
-        stmt = db.select(User).order_by(User.user_name.asc())
-        users = db.session.execute(stmt).scalars().all()
-        return list(users)
+        stmt = db.select(Student).order_by(Student.last_name.asc())
+        students = db.session.execute(stmt).scalars().all()
+        return list(students)
 
-    def get_active_user(self) -> User|None:
+    def get_student(self, received_student_data) -> dict|None:
         """
-        returns the active user (class User)
+        Returns the student information based on received student data.
+        :param received_student_data:
+                - a str: received_student_data contains the email address
+                - an int: recieved_student_data contains the student_id
+                - a Student object: received_student_data contains a Student object
         :return:
         """
-        return self.active_user
-
-    def set_active_user(self, user_id: int):
-        """
-        Activates the User related to the received user_id
-        :param user_id:
-        :return:
-        """
-        if not isinstance(user_id, int):
-            return None
-        if self.user_exists(user_id):
-            stmt = db.select(User).where(User.user_id == user_id)
-            user = db.session.execute(stmt).scalars().all()
-            if len(user) == 1:
-                print(user, type(user))
-                self.active_user = user[0]
-                return user[0]
-            return None
+        all_students = self.get_all_students()
+        for student in all_students:
+            if isinstance(received_student_data, Student):
+                if student.student_id == received_student_data.student_id:
+                    return dict(student)
+            if isinstance(received_student_data, int):
+                if student.student_id == received_student_data:
+                    return dict(student)
+            if isinstance(received_student_data, str):
+                if student.email == received_student_data:
+                    return dict(student.serialize())
         return None
 
-    def unset_active_user(self):
-        self.active_user = None
-
-    def user_exists(self, received_user) -> bool:
+    def student_exists(self, received_student_data) -> bool:
         """
-        Checks if the received user exists in the user table
-        :param received_user can be:
-        - a string to compare on user_name
-        - an int to compare on user_id
-        - a User object to compare the object
+        Checks if the received student exists in the student table
+        :param received_student_data: data can be:
+        - a string to compare on email address
+        - an int to compare on Student_id
+        - a student object to compare the object
 
-        comparassion with the existing User objects in the DB
+        comparison with the existing Student objects in the DB
         :return:
         """
-        all_users = self.get_all_users()
-        if isinstance(received_user, int):
-            for user in all_users:
-                if user.user_id == received_user:
+        all_students = self.get_all_students()
+        if isinstance(received_student_data, int):
+            for student in all_students:
+                if student.student_id == received_student_data:
                     return True
-        if isinstance(received_user, str):
-            for user in all_users:
-                if user.user_name == received_user:
+        if isinstance(received_student_data, str):
+            for student in all_students:
+                if student.email == received_student_data:
                     return True
-        if isinstance(received_user, User):
-            for user in all_users:
-                if user.user_id == received_user.user_id:
+        if isinstance(received_student_data, Student):
+            for student in all_students:
+                if Student.student_id == received_student_data.student_id:
                     return True
         return False
 
-    def add_user(self, user_name: str) -> tuple:
+    def add_student(self, registration_info: dict) -> Student|None:
         """
-        Upon request to add a new user to the db, first it is checked if perhaps the
-        user_name already exists in the db. if so, return that user with result code -1
+        Upon request to add a new Student to the db, first it is checked if perhaps the
+        email address already exists in the db. if so, return with result code -1
 
-        if it is a new user, the user will be stored in the db and the new_user object
+        if it is a new student, the student will be stored in the db and the new_Student object
         will be returned
-        :param user_name:
+        :param registration_info (which includes the email address)
         :return:
         """
-        if not isinstance(user_name, str):
-            return None, "Received user name is not a string"
-        new_user = User(user_name=user_name)
-        stmt = db.select(User).where(User.user_name == user_name)
-        existing_users = db.session.execute(stmt).scalars().all()
-        for user in existing_users:
-            if user_name == user.user_name:
-                print("Name already exist in userDB: ", user.user_name)
-                return user, -1
-        # store the new user_name
-        db.session.add(new_user)
-        db.session.commit()
-        print("added User, type():", new_user)
-        return new_user, 0
+        if not isinstance(registration_info, dict):
+            raise StudentStorageError("Received registration info is not a dict")
+        logging.info(f"Request received to add a new user to the DB with email address: {registration_info.get('email_address','')}")
+        email_address = registration_info.get("email", "")
+        if not email_address:
+            logging.warning(
+                f"Request received to add a new user without a valid email address.")
 
-    def delete_user(self, user_data: int | str) -> tuple:
+            raise StudentStorageError("No valid email address received")
+        new_student = Student(email=email_address)
+        stmt = db.select(Student).where(Student.email == email_address)
+        existing_students = db.session.execute(stmt).scalars().all()
+        for student in existing_students:
+            if email_address == student.email:
+                logging.warning(f"Email address already exists in StudentDB: {student.email}")
+                raise StudentStorageError("Email address already exists in StudentDB")
+        # store the new Student_name
+        new_student.first_name = registration_info.get("first_name", "")
+        new_student.last_name = registration_info.get("last_name", "")
+        new_student.target_language = registration_info.get("target_language", "")
+        new_student.original_language = registration_info.get("original_language", "")
+        if new_student.first_name == "" or new_student.last_name == "":
+            logging.warning("No valid first or last name received")
+            raise StudentStorageError("No valid first or last name received")
+        if new_student.target_language == "":
+            logging.warning("No valid first or last name received")
+            raise StudentStorageError("No valid first or last name received")
+        new_student.age = registration_info.get("age", "")
+        new_student.gender = registration_info.get("gender", "")
+        new_student.occupation = registration_info.get("occupation", "")
+        new_student.current_level = registration_info.get("current_level", "")
+        db.session.add(new_student)
+        db.session.commit()
+        return new_student
+
+    def delete_student(self, student_data: int | str) -> tuple:
         """
-        Deletes the provided user from the db. Associated movies will be automatically
-        deleted due to cascade mapping on User.movies relationship.
+        Deletes the provided Student from the db. Associated movies will be automatically
+        deleted due to cascade mapping on Student.movies relationship.
         """
-        if isinstance(user_data, int):
-            user_id_to_delete = user_data
-        elif isinstance(user_data, str):
-            active_user = self.get_active_user()
-            if active_user is not None:
-                if active_user.user_name == user_data:
-                    user_id_to_delete = active_user.user_id
-                else:
-                    return None, "Active user name and received name do not match"
-            else:
-                return (
-                    None,
-                    "Active user is not set. Please select an active user first.",
-                )
+        if isinstance(student_data, int):
+            student_id_to_delete = student_data
+        elif isinstance(student_data, str):
+            student_id_to_delete = student_data
         else:
             return (
                 None,
-                f"Programming error, received {user_data} should be an integer or a string."
+                f"Programming error, received {student_data} should be an integer or a string."
             )
-
         try:
-            stmt = db.select(User).where(User.user_id == user_id_to_delete)
-            user_to_delete = db.session.execute(stmt).scalars().one_or_none()
-            if user_to_delete is None:
-                return None, f"No user found with the provided user ID: {user_id_to_delete}"
+            stmt = db.select(Student).where(Student.student_id == student_id_to_delete)
+            student_to_delete = db.session.execute(stmt).scalars().one_or_none()
+            if student_to_delete is None:
+                return None, f"No Student found with the provided Student ID: {student_id_to_delete}"
             
-            db.session.delete(user_to_delete)
+            db.session.delete(student_to_delete)
             db.session.commit()
-            
-            if self.active_user is not None:
-                if self.active_user.user_id == user_to_delete.user_id:
-                    self.unset_active_user()
-            return user_to_delete, f"User {user_to_delete.user_name} deleted successfully!"
+            return student_to_delete, f"Student {student_to_delete.first_name} deleted successfully!"
 
         except Exception as e:
             db.session.rollback()
-            logging.error(f"Error while deleting user: {e}")
-            return None, "Error while deleting user and associated movies. Rollback executed"
+            logging.error(f"Error while deleting Student: {e}")
+            return None, "Error while deleting Student and associated movies. Rollback executed"
 
 
-    def update_user(self, user_id: int, new_user_name: str) -> User | None:
+    def update_Student(self, student_id: int, updated_info: dict) -> Student | None:
         """
-        Update the user_name of the User object that has the provided user_id
-        :param user_id:
-        :param new_user_name:
+        Update the Student_name of the Student object that has the provided Student_id
+        :param Student_id:
+        :param new_Student_name:
         :return:
         """
-        if not isinstance(user_id, int):
+        if not isinstance(student_id, int):
             return None
-        if not isinstance(new_user_name, str):
+        if not isinstance(updated_info, dict):
             return None
-        stmt = db.select(User).where(User.user_id == user_id)
-        user_to_update = db.session.execute(stmt).scalars().all()
-        if len(user_to_update) != 1:
+        stmt = db.select(Student).where(Student.student_id == student_id)
+        student_to_update = db.session.execute(stmt).scalars().all()
+        if len(student_to_update) != 1:
             return None
-        active_user = self.get_active_user()
-        if active_user is not None:
-            if active_user.user_id == user_id:
-                active_user.user_name = new_user_name
-        user_to_update[0].user_name = new_user_name
+
+        student_to_update[0].first_name = updated_info.get("first_name","")
+        student_to_update[1].last_name = updated_info.get("last_name", "")
+        student_to_update[2].target_language = updated_info.get("target_language", "")
+        student_to_update[3].original_language = updated_info.get("original_language", "")
+        student_to_update[4].age = updated_info.get("age", "")
+        student_to_update[5].gender = updated_info.get("gender", "")
+        student_to_update[6].occupation = updated_info.get("occupation", "")
+        student_to_update[7].current_level = updated_info.get("current_level", "")
         db.session.commit()
-        return user_to_update[0]
+        return student_to_update
 
     # =========================================================================
     # All class definitions related to movie management
     # =========================================================================
 
-    def fetch_matching_movies(self, movie_title) -> list[Movie]:
+    def fetch_adventures(self, student_id) -> list[Adventure]:
         """
         Interface function for searching for movies with a specific title within the imdb web-site.
         The search is actually performed by the movie_data_fetcher module.
         :param movie_title:
         :return:
         """
-        if not isinstance(movie_title, str):
+        if not isinstance(student_id, int):
             return []
-        if movie_title == "":
+        if student_id < 0:
             return []
-        potential_movies = fetch_movie_general_data(movie_title)
-        return potential_movies
+        all_adventures = fetch_all_adventures(student_id)
+        return all_adventures
 
     def create_movie(self, imdbID: str) -> tuple:
         """
@@ -240,10 +236,10 @@ class DataManager:
         if not isinstance(imdbID, str):
             return None, "received imdbID is not a string"
         movie_details = fetch_movie_data(imdbID)
-        user = self.get_active_user()
-        if user is None:
-            return None, "Error: active user is not set. Please select an active user first"
-        user_id = user.user_id
+        Student = self.get_active_Student()
+        if Student is None:
+            return None, "Error: active Student is not set. Please select an active Student first"
+        Student_id = Student.Student_id
         if len(movie_details) != 0:
             new_movie = Movie(
                 title=movie_details.get("Title", ""),
@@ -251,7 +247,7 @@ class DataManager:
                 IMDB_id=imdbID,
                 year=normalize_year(movie_details.get("Year", "")),
                 poster_url=movie_details.get("Poster", ""),
-                user_id=user_id
+                Student_id=Student_id
             )
             return (
                 new_movie, f"Movie {
@@ -268,7 +264,7 @@ class DataManager:
         :return: boolean -> True if movie exists, False otherwise
         """
 
-        act_usr = self.get_active_user()
+        act_usr = self.get_active_Student()
         if act_usr is None:
             return False
         if isinstance(a_movie_id, int):
@@ -276,7 +272,7 @@ class DataManager:
         elif isinstance(a_movie_id, str):
             stmt = db.select(Movie).where(
                 Movie.IMDB_id == a_movie_id,
-                Movie.user_id == act_usr.user_id
+                Movie.Student_id == act_usr.Student_id
             )
         else:
             return False
@@ -287,21 +283,21 @@ class DataManager:
             return True
         return False
 
-    def title_exists(self, title: str, active_user_id: int) -> bool:
+    def title_exists(self, title: str, active_Student_id: int) -> bool:
         """
         Checks if the received title exists in the database. Only used for manually added movies
         :param title
-        :param active_user_id: Is needed to check if the title exists in the db for THIS specific user
+        :param active_Student_id: Is needed to check if the title exists in the db for THIS specific Student
         :return: boolean -> True if movie with this title exists, False otherwise
         """
-        if not isinstance(active_user_id, int) or active_user_id < 0:
+        if not isinstance(active_Student_id, int) or active_Student_id < 0:
             return False
         if not isinstance(title, str) or len(title) == 0:
             return False
         stmt = (
             db.select(Movie)
             .where(
-                Movie.user_id == active_user_id,
+                Movie.Student_id == active_Student_id,
                 Movie.title == title,
             )
         )
@@ -336,18 +332,18 @@ class DataManager:
         """
         if len(movie.get("title", "")) == 0:
             return None, "Movie can not be stored: Movie title can not be empty"
-        if self.title_exists(movie.get("title", ""), self.active_user.user_id):
+        if self.title_exists(movie.get("title", ""), self.active_Student.Student_id):
             return None, "Movie can not be stored: Movie title already exists"
-        user = self.get_active_user()
-        if user is None:
-            return None, "Error: active user is not set. Please select an active user first"
+        Student = self.get_active_Student()
+        if Student is None:
+            return None, "Error: active Student is not set. Please select an active Student first"
         new_movie = Movie(
             title=movie.get("title", ""),
             director=movie.get("director", ""),
             IMDB_id=movie.get("IMDB_id", ""),
             year=normalize_year(movie.get("year", "")),
             poster_url=movie.get("poster_url", ""),
-            user_id=user.user_id,
+            Student_id=Student.Student_id,
         )
         try:
             db.session.add(new_movie)
@@ -358,31 +354,31 @@ class DataManager:
         print("added movie:", new_movie)
         return None, "Manually added movie stored successfully"
 
-    def get_all_movies_of_user(
-        self, user_id:int, sorting_command: dict
-    ) -> list[Movie | None]:
+    def get_all_movies_of_student(
+        self, Student_id:int, sorting_command: dict
+    ) -> list[Student | None]:
         """
-        returns a list of all movies for the active user
+        returns a list of all movies for the active Student
         :return:
         """
-        if not isinstance(user_id, int):
+        if not isinstance(Student_id, int):
             return []
-        if not self.user_exists(user_id):
+        if not self.student_exists(Student_id):
             return []
         sort_by = sorting_command.get("sort_by", "movies")
         direction = sorting_command.get("direction", "asc")
         
-        stmt = db.select(Movie).where(Movie.user_id == user_id)
+        stmt = db.select(Adventure).where(Student_Adventure.student_id == Student_id)
         if sort_by == "movies":
             if direction == "asc":
-                stmt = stmt.order_by(Movie.title.asc())
+                stmt = stmt.order_by(Adventure.title.asc())
             else:
-                stmt = stmt.order_by(Movie.title.desc())
+                stmt = stmt.order_by(Adventure.title.desc())
         else:
             if direction == "asc":
-                stmt = stmt.order_by(Movie.director.asc())
+                stmt = stmt.order_by(Adventure.creator.asc())
             else:
-                stmt = stmt.order_by(Movie.director.desc())
+                stmt = stmt.order_by(Adventure.creator.desc())
                 
         movies = db.session.execute(stmt).scalars().all()
         return list(movies)
@@ -404,56 +400,21 @@ class DataManager:
         movie = db.session.execute(stmt).scalars().one()
         return movie
 
-    def search_for_titles_and_directors(
-        self, query: str, sorting_command: dict
-    ) -> list[Movie | None]:
-        """
-        Enables the search in the database using "%like%" SQL search, case-insensitive.
-        The outcome is sorted based upon user demands
-        :param query: the searchstring
-        :param sorting_command: user demands for sorting the output
-        :return: a list of Movie objects that matches the query and sorting command
-        """
-        act_usr = self.get_active_user()
-        user_id = act_usr.user_id if act_usr else -1
-        query = "%" + query.strip().lower() + "%"
-        sort_by = sorting_command.get("sort_by", "movies")
-        direction = sorting_command.get("direction", "asc")
-        
-        stmt = db.select(Movie).where(
-            Movie.user_id == user_id,
-            or_(
-                func.lower(Movie.title).like(query),
-                func.lower(Movie.director).like(query)
-            )
-        )
-        if sort_by == "title":
-            if direction == "asc":
-                stmt = stmt.order_by(Movie.title.asc())
-            else:
-                stmt = stmt.order_by(Movie.title.desc())
-        else:
-            if direction == "asc":
-                stmt = stmt.order_by(Movie.director.asc())
-            else:
-                stmt = stmt.order_by(Movie.director.desc())
-                
-        search_result = db.session.execute(stmt).scalars().all()
-        return list(search_result)
 
-    def delete_movie(self, movie_id:int, commit:bool=True) -> Movie | None:
-        """
-        Deletes the movie from the movies table
 
-        :param movie_id: movie identifier
+    def delete_adventure(self, adventure_id:int, commit:bool=True) -> Adventure | None:
+        """
+        Deletes the adventure from the adventure table
+
+        :param adventure_id: adventure identifier
         :param commit: An indicator if the commit should be given or if the commit will be
                        done outside of this function
 
-        :return: The Movie object fitting the movie_id or None if the movie does not exist in the DB
+        :return: The Adventure object fitting the adventure_id or None if the adventure does not exist in the DB
         """
-        if not isinstance(movie_id, int):
+        if not isinstance(adventure_id, int):
             return None
-        stmt = db.select(Movie).where(Movie.movie_id == movie_id)
+        stmt = db.select(Adventure).where(Adventure.adventure_id == adventure_id)
         movie_to_delete = db.session.execute(stmt).scalars().one_or_none()
         if movie_to_delete is None:
             return None
@@ -463,7 +424,7 @@ class DataManager:
                 db.session.commit()
         except OperationalError:
             logging.error(
-                f"Fatal error while deleting movie {movie_id} from database")
+                f"Fatal error while deleting movie {adventure_id} from database")
             db.session.rollback()
             return None
 

@@ -29,7 +29,8 @@ class Student(db.Model):
     student_id = db.Column(
         db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True
     )
-    name = db.Column(db.String(100), nullable=False)
+    first_name = db.Column(db.String(100), nullable=False)
+    last_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
     gender = db.Column(db.String(10), nullable=False)
     age = db.Column(db.Integer, nullable=False)
@@ -42,10 +43,26 @@ class Student(db.Model):
     # movies = db.relationship("Movie", backref="user", cascade="all, delete-orphan")
 
     def __repr__(self):
-        return f"{self.student_id}: {self.name},\n"
+        return f"{self.student_id}: {self.first_name} {self.last_name},\n"
 
     def __str__(self):
-        return f"{self.student_id}: {self.name},\n"
+        return f"{self.student_id}: {self.first_name} {self.last_name},\n"
+
+    def serialize(self):
+        student_data = {}
+        student_data["first_name"] = self.first_name
+        student_data["last_name"] = self.last_name
+        student_data["email"] = self.email
+        student_data["gender"] = self.gender
+        student_data["age"] = self.age
+        student_data["occupation"] = self.occupation
+        student_data["original_language"] = self.original_language
+        student_data["target_language"] = self.target_language
+        student_data["current_level"] = self.current_level
+        student_data["is_admin"] = self.is_admin
+        student_data["is_active"] = self.is_active
+        student_data["student_id"] = self.student_id
+        return student_data
 
 # ================================================================================
 # Movie class (inheriting from db.Model class)
