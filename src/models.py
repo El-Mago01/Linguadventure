@@ -9,7 +9,7 @@ The service requests will come from the app-module. The data_manager will
 take care of the fulfillment of these requests by using the partners models and
 movie_data_fetcher.
 """
-
+import datetime
 from flask_sqlalchemy import SQLAlchemy
 
 # from app import app
@@ -32,8 +32,9 @@ class Student(db.Model):
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
-    gender = db.Column(db.String(10), nullable=False)
-    age = db.Column(db.Integer, nullable=False)
+    gender = db.Column(db.String(10))
+    registration_date = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now(datetime.UTC))
+    age = db.Column(db.Integer)
     occupation = db.Column(db.String(100))
     original_language = db.Column(db.String(100))
     target_language = db.Column(db.String(100))
@@ -59,6 +60,7 @@ class Student(db.Model):
         student_data["original_language"] = self.original_language
         student_data["target_language"] = self.target_language
         student_data["current_level"] = self.current_level
+        student_data["registration_date"] = self.registration_date
         student_data["is_admin"] = self.is_admin
         student_data["is_active"] = self.is_active
         student_data["student_id"] = self.student_id

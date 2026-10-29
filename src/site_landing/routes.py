@@ -1,7 +1,9 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, abort
+from src.data_manager import DataManager, StudentStorageError
+from helper_functions import is_valid_email_address, promote_to_admin
 
 site_landing = Blueprint("site_landing", __name__, static_folder="static", template_folder="../templates")
-
+dm = DataManager()
 @site_landing.route("/", methods=["GET"])
 def index():
     """
@@ -35,21 +37,39 @@ def register():
     """
     if request.method == "GET":
         return render_template("site_landing/registration.html")
-    email = request.form.get("email")
+    email = request.form.get("email","")
+    if not is_valid_email_address(email):
+        return render_template("site_landing/registration.html", message="Invalid email address")
+
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
-    print(email, first_name, last_name)
+    new_student = {}
+    new_student["first_name"] = first_name
+    new_student["last_name"] = last_name
+    new_student["email"] = email
+    new_student["target_language"] = request.form.get("target_language")
+    new_student["original_language"] = request.form.get("original_language")
+    new_student["age"] = request.form.get("age")
+    new_student["gender"] = request.form.get("gender")
+    new_student["occupation"] = request.form.get("occupation")
+    new_student["current_level"] = request.form.get("current_level")
+    try:
+        stored_student = dm.add_student(new_student)
+    except StudentStorageError as e:
+        return render_template("site_landing/registration.html", message=str(e))
+    promote_to_admin(email) # if the student's email address appears in the list of admin users, then promote this user
+
     return render_template("site_landing/user_home.html")
 
-@site_landing.route("/<new_user>/confirm_registration", methods=["POST"])
-def confirm_registration(new_user:int):
-    """
-    After the new student registered with email address, the student receives a confirmation email with a link.
-    Clicking on this link this route is activated and the registration status is changed to confirmed.
-    :param new_user:
-    :return:
-    """
-    return render_template("index.html")
+# @site_landing.route("/<new_user>/confirm_registration", methods=["POST"])
+# def confirm_registration(new_user:int):
+#     """
+#     After the new student registered with email address, the student receives a confirmation email with a link.
+#     Clicking on this link this route is activated and the registration status is changed to confirmed.
+#     :param new_user:
+#     :return:
+#     """
+#     return render_template("index.html")
 
 
 @site_landing.route("/<user_id>", methods=["POST"])
@@ -59,30 +79,30 @@ def user_home(user_id:int):
     :param user_id:
     :return:
     """
-    return render_template("user_home.html")
+    return render_template("site_landing/user_home.html")
 
 
-@site_landing.route("/<user_id>/profile", methods=["GET"])
+@site_landing.route("/view_profile/<user_id>", methods=["GET"])
 def view_profile(user_id:int):
     """
     Student gets the possibility to view her/his profile page and the possibility to click change profile.
     :param user_id:
     :return:
     """
-    return render_template("user_home.html")
+    return render_template("site_landing/user_home.html")
 
 
-@site_landing.route("/<user_id>/update_profile", methods=["POST"])
+@site_landing.route("/update_profile/<user_id>", methods=["POST"])
 def update_profile(user_id:int):
     """
     The student or admin can change the items in the profile (e.g. profession, email-address etc)
     :param user_id:
     :return:
     """
-    return render_template("user_home.html")
+    return render_template("site_landing/user_home.html")
 
 
-@site_landing.route("/<user_id>/delete", methods=["POST"])
+@site_landing.route("/delete_user/<int:user_id>/", methods=["DELETE"])
 def delete_profile(user_id:int):
     """
     In case the user wants to de-register her/him-self. Or in case an admin chooses to de-register a student.
@@ -90,4 +110,12 @@ def delete_profile(user_id:int):
     :param user_id:
     :return:
     """
-    return render_template("index.html")
+
+    if not isinstance(user_id, int):
+        abort(400)
+
+    if user_id < 0:
+        abort(404)
+
+    dm.delete_student(user_id)
+    return render_template("site_landing/index.html")

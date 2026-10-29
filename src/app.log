@@ -326,3 +326,1251 @@
 07-Oct-26 23:56:47 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:56:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
 07-Oct-26 23:56:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:56:57] "POST /register HTTP/1.1" 200 -
 07-Oct-26 23:56:57 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2026 23:56:57] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 09:50:35 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+08-Oct-26 09:50:35 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 09:50:35 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 09:50:35 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 10:39:50 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 10:39:50 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 10:39:50 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 10:39:50 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 10:39:50 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 10:40:00 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:40:00] "GET / HTTP/1.1" 200 -
+08-Oct-26 10:40:04 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:40:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 10:40:06 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:40:06] "GET /register HTTP/1.1" 200 -
+08-Oct-26 10:40:06 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:40:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 10:40:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:40:20] "POST /register HTTP/1.1" 200 -
+08-Oct-26 10:40:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:40:20] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 10:42:45 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 10:42:45 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 10:42:45 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 10:42:47 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 10:42:47 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 10:43:04 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:43:04] "GET /register HTTP/1.1" 200 -
+08-Oct-26 10:43:04 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:43:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 10:43:57 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 10:43:57 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:43:57] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 10:43:57 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:43:57] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 10:43:57 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:43:57] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 10:43:57 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:43:57] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=nxpu0BtCZRYc36SizvyA HTTP/1.1" 200 -
+08-Oct-26 10:44:14 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+08-Oct-26 10:44:14 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 10:44:16 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 10:44:16 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 10:48:26 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+08-Oct-26 10:48:26 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 10:48:29 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 10:48:29 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 10:48:44 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 10:48:44 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 10:48:44 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 10:48:44 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 10:48:44 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 10:51:01 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+08-Oct-26 10:51:01 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 10:51:01 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 10:51:01 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 10:51:10 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:51:10] "GET /register HTTP/1.1" 200 -
+08-Oct-26 10:51:10 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:51:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 10:51:20 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 10:51:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:51:20] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 10:51:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:51:20] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 10:51:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:51:20] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 10:51:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 10:51:20] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=WN8vVnzh2smg6v4jiIWN HTTP/1.1" 200 -
+08-Oct-26 11:01:08 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/data_manager.py', reloading
+08-Oct-26 11:01:09 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 11:01:09 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 11:01:09 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 11:11:43 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/data_manager.py', reloading
+08-Oct-26 11:11:44 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 11:11:44 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 11:11:44 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 11:17:50 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 11:17:50 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 11:17:50 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 11:17:52 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 11:17:52 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 11:17:52 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:17:52] "GET /register HTTP/1.1" 200 -
+08-Oct-26 11:17:52 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:17:52] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:22:18 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+08-Oct-26 11:22:19 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 11:22:21 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 11:22:21 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 11:22:39 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:22:39] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:22:41 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:25:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:25:38] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 11:25:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:25:38] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 11:25:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:25:38] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 11:25:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:25:38] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=rCLOb7SifhhXZBM13dAP HTTP/1.1" 200 -
+08-Oct-26 11:25:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:25:38] "[36mGET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+08-Oct-26 11:26:14 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:26:14] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:26:15 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:27:03 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:27:03] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 11:27:03 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:27:03] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 11:27:03 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:27:03] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 11:27:03 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:27:03] "[36mGET /register?__debugger__=yes&cmd=resource&f=console.png&s=rCLOb7SifhhXZBM13dAP HTTP/1.1[0m" 304 -
+08-Oct-26 11:27:55 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 11:27:55 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 11:27:55 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 11:27:57 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 11:27:57 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 11:27:57 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:27:57] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:27:58 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:28:14 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:28:42 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:28:42] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 11:28:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:28:47] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 11:28:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:28:47] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 11:28:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:28:47] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 11:28:48 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:28:48] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=rLziYbidZaSt4uWZdHC6 HTTP/1.1" 200 -
+08-Oct-26 11:29:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:29:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:30:04 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:30:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:30:20] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 11:30:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:30:20] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 11:30:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:30:20] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 11:30:20 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:30:20] "[36mGET /register?__debugger__=yes&cmd=resource&f=console.png&s=rLziYbidZaSt4uWZdHC6 HTTP/1.1[0m" 304 -
+08-Oct-26 11:31:19 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/models.py', reloading
+08-Oct-26 11:31:19 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 11:31:21 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 11:31:21 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 11:31:21 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:31:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:31:23 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:31:39 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:31:39] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 11:31:39 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:31:39] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 11:31:39 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:31:39] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 11:31:39 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:31:39] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=Jl7mXKrF64a77FOgXGQ7 HTTP/1.1" 200 -
+08-Oct-26 11:32:22 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 11:32:22 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 11:32:22 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 11:32:24 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 11:32:24 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 11:32:24 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:32:24] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:32:26 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:32:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:32:47] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 11:32:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:32:47] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 11:32:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:32:47] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 11:32:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:32:47] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=omUkXOMF1fncz0zfXxxm HTTP/1.1" 200 -
+08-Oct-26 11:33:54 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/data_manager.py', reloading
+08-Oct-26 11:33:54 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 11:33:56 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 11:33:56 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 11:33:56 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:33:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:33:56 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:33:59 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:34:44 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:34:44] "POST /register HTTP/1.1" 200 -
+08-Oct-26 11:34:44 - root - WARNING - Email address already exists in StudentDB: martin.gorren@gmail.com
+08-Oct-26 11:34:44 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:34:44] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 11:34:44 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:34:44] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 11:34:44 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:34:44] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 11:34:44 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:34:44] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=h1cbSgNFn9Pjgt5l49wj HTTP/1.1" 200 -
+08-Oct-26 11:35:50 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:35:50] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:35:50 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+08-Oct-26 11:35:51 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 11:35:52 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 11:35:52 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 11:36:11 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 11:36:30 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:36:30] "POST /register HTTP/1.1" 200 -
+08-Oct-26 11:36:30 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:36:30] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 11:36:43 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 11:36:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 12:10:32 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/routes.py', reloading
+08-Oct-26 12:10:32 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 12:10:34 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 12:10:34 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 12:12:49 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/routes.py', reloading
+08-Oct-26 12:12:49 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 12:12:51 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 12:12:51 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 12:18:59 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 12:18:59] "GET /register HTTP/1.1" 200 -
+08-Oct-26 12:18:59 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 12:18:59] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 12:19:04 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 12:19:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 13:57:29 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 13:57:29] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:40:16 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/routes.py', reloading
+08-Oct-26 14:40:16 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 14:40:18 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 14:40:18 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 14:41:41 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:41:41] "GET /register HTTP/1.1" 200 -
+08-Oct-26 14:41:41 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:41:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:42:06 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 14:42:19 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:42:19] "POST /register HTTP/1.1" 200 -
+08-Oct-26 14:42:19 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:42:19] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:42:58 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/routes.py', reloading
+08-Oct-26 14:42:58 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 14:43:00 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 14:43:00 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 14:43:01 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:43:01] "[31m[1mGET /hello HTTP/1.1[0m" 405 -
+08-Oct-26 14:43:01 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:43:01] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:44:02 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:44:02] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:45:34 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/routes.py', reloading
+08-Oct-26 14:45:35 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 14:45:37 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 14:45:37 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 14:45:37 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:45:37] "[31m[1mGET /hello HTTP/1.1[0m" 405 -
+08-Oct-26 14:45:37 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:45:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:47:09 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+08-Oct-26 14:47:09 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 14:47:11 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 14:47:11 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 14:47:11 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:47:14 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 14:47:18 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:18] "[31m[1mGET /hello HTTP/1.1[0m" 405 -
+08-Oct-26 14:47:18 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:18] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:47:21 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:21] "GET /register HTTP/1.1" 200 -
+08-Oct-26 14:47:21 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:47:29 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 14:47:44 - root - WARNING - Email address already exists in StudentDB: regiane@gorren.com
+08-Oct-26 14:47:44 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:44] "POST /register HTTP/1.1" 200 -
+08-Oct-26 14:47:44 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:44] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 14:47:44 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:44] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:47:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:47] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 14:47:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:47] "GET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+08-Oct-26 14:47:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:47] "GET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+08-Oct-26 14:47:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:47] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=VrhDsK0Ivr4CSTinqbqu HTTP/1.1" 200 -
+08-Oct-26 14:47:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:47:47] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+08-Oct-26 14:48:10 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:48:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:48:10 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/routes.py', reloading
+08-Oct-26 14:48:10 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 14:48:12 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 14:48:12 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 14:48:42 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:48:42] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 14:48:42 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:48:42] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 14:48:42 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:48:42] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 14:48:42 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:48:42] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=Sevw8TVJg2cj80bcp6Rv HTTP/1.1" 200 -
+08-Oct-26 14:49:12 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:49:12] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:49:13 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/routes.py', reloading
+08-Oct-26 14:49:13 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 14:49:15 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 14:49:15 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 14:49:15 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:49:15] "GET /1/2/1 HTTP/1.1" 200 -
+08-Oct-26 14:49:15 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 14:49:15] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 14:52:16 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/routes.py', reloading
+08-Oct-26 14:52:17 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 15:09:31 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 15:09:31 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 15:09:31 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 15:09:31 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 15:09:31 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 15:09:39 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:09:39] "GET /register HTTP/1.1" 200 -
+08-Oct-26 15:09:39 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:09:39] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 15:10:03 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 15:10:03 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 15:10:03 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 15:10:07 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 15:10:07 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 15:10:10 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:10:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 15:10:13 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:10:13] "GET /register HTTP/1.1" 200 -
+08-Oct-26 15:10:13 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:10:13] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 15:10:18 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:10:18] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 15:11:05 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+08-Oct-26 15:11:06 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:11:06] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 15:11:06 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:11:06] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 15:11:06 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:11:06] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 15:11:06 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:11:06] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=KhbTgyZpkMxQctEiT0PW HTTP/1.1" 200 -
+08-Oct-26 15:11:06 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:11:06] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+08-Oct-26 15:40:38 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 15:40:38 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 15:40:38 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 15:40:39 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 15:40:39 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 15:41:02 - root - INFO - Request received to add a new user to the DB with email address: 
+08-Oct-26 15:41:02 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:41:02] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+08-Oct-26 15:41:02 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:41:02] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 15:41:02 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:41:02] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 15:41:02 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:41:02] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=DoOu8ouEeZt4obT0yXGv HTTP/1.1" 200 -
+08-Oct-26 15:41:02 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:41:02] "[36mGET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+08-Oct-26 15:41:27 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+08-Oct-26 15:41:27 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:41:27] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 15:41:27 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:41:27] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 15:41:27 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:41:27] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 15:41:27 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:41:27] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=DoOu8ouEeZt4obT0yXGv HTTP/1.1" 200 -
+08-Oct-26 15:43:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+08-Oct-26 15:43:29 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:43:29] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 15:43:29 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:43:29] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 15:43:29 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:43:29] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 15:43:29 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:43:29] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=DoOu8ouEeZt4obT0yXGv HTTP/1.1[0m" 304 -
+08-Oct-26 15:43:29 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:43:29] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+08-Oct-26 15:44:16 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 15:44:16 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 15:44:16 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 15:44:17 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 15:44:17 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 15:44:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 15:44:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:44:38] "GET /1/2/1 HTTP/1.1" 200 -
+08-Oct-26 15:44:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 15:44:38] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 16:01:15 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 16:01:15 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 16:01:15 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 16:01:15 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 16:01:15 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 16:01:36 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 16:01:37 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 16:01:37] "GET /1/2/1 HTTP/1.1" 200 -
+08-Oct-26 16:01:37 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 16:01:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+08-Oct-26 17:45:04 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/routes.py', reloading
+08-Oct-26 17:45:04 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:07:17 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 18:07:17 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 18:07:17 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:07:18 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:07:18 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:07:46 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/openai_gpt_4o_mini.py', reloading
+08-Oct-26 18:07:47 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:07:47 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:07:47 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:07:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:07:47] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 18:07:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:07:47] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 18:07:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:07:47] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 18:07:47 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:07:47] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=Ai64WIKfV4OugR9aA7as HTTP/1.1" 200 -
+08-Oct-26 18:09:13 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:09:13] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 18:09:13 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:09:13] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 18:09:13 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:09:13] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 18:09:13 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:09:13] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=Ai64WIKfV4OugR9aA7as HTTP/1.1[0m" 304 -
+08-Oct-26 18:09:14 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/session.py', reloading
+08-Oct-26 18:09:14 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:09:14 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:09:14 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:12:39 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/session.py', reloading
+08-Oct-26 18:12:40 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:12:40 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:12:40 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:12:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+08-Oct-26 18:12:52 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:12:52] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 18:12:52 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:12:52] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 18:12:52 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:12:52] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 18:12:52 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:12:52] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=365MzmPPwdaDK6sP8bdl HTTP/1.1" 200 -
+08-Oct-26 18:13:07 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 18:13:07 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 18:13:07 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:13:11 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:13:11 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:15:18 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+08-Oct-26 18:15:18 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:15:18] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 18:15:18 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:15:18] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 18:15:18 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:15:18] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 18:15:18 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:15:18] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=en7zFslsxcLxTo5zdIoQ HTTP/1.1" 200 -
+08-Oct-26 18:15:36 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/session.py', reloading
+08-Oct-26 18:15:37 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:15:41 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:15:41 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:16:21 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+08-Oct-26 18:16:21 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:16:21] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 18:16:21 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:16:21] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 18:16:21 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:16:21] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 18:16:21 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:16:21] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=g1jLbaO4gGKBrry1weG9 HTTP/1.1" 200 -
+08-Oct-26 18:18:24 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+08-Oct-26 18:18:24 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:18:24] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 18:18:24 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:18:24] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 18:18:24 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:18:24] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 18:18:24 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:18:24] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=g1jLbaO4gGKBrry1weG9 HTTP/1.1[0m" 304 -
+08-Oct-26 18:18:28 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/session.py', reloading
+08-Oct-26 18:18:28 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:18:32 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:18:32 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:20:24 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/session.py', reloading
+08-Oct-26 18:20:24 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:20:28 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:20:28 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:21:30 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:24:13 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/session.py', reloading
+08-Oct-26 18:24:14 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:24:18 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:24:18 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:24:27 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 18:24:27 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 18:24:27 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:24:31 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:24:31 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:24:57 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:25:45 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:25:45] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 18:25:45 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:25:45] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 18:25:45 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:25:45] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 18:25:45 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:25:45] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=1S0MHU4hAL6qhgFhmLTu HTTP/1.1" 200 -
+08-Oct-26 18:25:45 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:25:45] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+08-Oct-26 18:27:52 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/session.py', reloading
+08-Oct-26 18:27:52 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:27:56 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:27:56 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:28:12 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:29:53 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:30:26 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:30:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:30:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:30:31 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:30:33 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:30:34 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:30:34 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:30:57 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:30:59 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:31:00 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:31:00 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:31:24 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:31:26 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:31:26 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:31:26 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:31:49 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:31:51 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:31:53 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:31:53 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:31:53 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:32:17 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:32:19 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:32:19 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:32:19 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:32:43 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:32:43 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:32:43 - openai._base_client - INFO - Retrying request in 7.104000 seconds (retry 1 of 2)
+08-Oct-26 18:33:03 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:33:03 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:33:03 - openai._base_client - INFO - Retrying request in 5.265000 seconds (retry 1 of 2)
+08-Oct-26 18:33:20 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:33:20 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:33:20 - openai._base_client - INFO - Retrying request in 9.966000 seconds (retry 1 of 2)
+08-Oct-26 18:33:42 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:33:43 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:33:43 - openai._base_client - INFO - Retrying request in 11.996000 seconds (retry 1 of 2)
+08-Oct-26 18:34:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:34:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:34:07 - openai._base_client - INFO - Retrying request in 14.676000 seconds (retry 1 of 2)
+08-Oct-26 18:34:37 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:34:37 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:34:37 - openai._base_client - INFO - Retrying request in 13.665000 seconds (retry 1 of 2)
+08-Oct-26 18:35:03 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:35:03 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:35:03 - openai._base_client - INFO - Retrying request in 19.944000 seconds (retry 1 of 2)
+08-Oct-26 18:35:37 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:35:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:35:38 - openai._base_client - INFO - Retrying request in 20.203000 seconds (retry 1 of 2)
+08-Oct-26 18:36:10 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:36:11 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:36:11 - openai._base_client - INFO - Retrying request in 24.793000 seconds (retry 1 of 2)
+08-Oct-26 18:36:47 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:36:48 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:36:48 - openai._base_client - INFO - Retrying request in 28.537000 seconds (retry 1 of 2)
+08-Oct-26 18:37:30 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:37:31 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:37:31 - openai._base_client - INFO - Retrying request in 29.498000 seconds (retry 1 of 2)
+08-Oct-26 18:38:12 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:38:13 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:38:13 - openai._base_client - INFO - Retrying request in 35.823000 seconds (retry 1 of 2)
+08-Oct-26 18:38:48 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/session.py', reloading
+08-Oct-26 18:38:48 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 18:38:52 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 18:38:52 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 18:39:27 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:39:27 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:39:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:39:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:39:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:39:28 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:39:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:39:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:39:29 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:39:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:39:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:39:52 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:39:53 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:39:53 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:39:53 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:40:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:40:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:40:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:40:16 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:40:17 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:40:17 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:40:40 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:40:40 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:40:40 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:40:41 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:40:41 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:40:41 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:41:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:41:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:41:04 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:41:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:41:05 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:41:05 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:41:27 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:41:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:41:28 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:41:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:41:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:41:28 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:41:51 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:41:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:41:52 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:41:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:41:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:41:52 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:42:15 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:42:15 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:42:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:42:16 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:42:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:42:16 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:42:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:42:38 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 2 of 2)
+08-Oct-26 18:42:39 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:42:40 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:42:40 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:42:40 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:43:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:43:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:43:02 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 2 of 2)
+08-Oct-26 18:43:03 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:43:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:43:04 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:43:26 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:43:26 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:43:26 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:43:26 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:43:26 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 2 of 2)
+08-Oct-26 18:43:49 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:43:49 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:43:49 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:43:49 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:43:50 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:43:50 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:44:13 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:44:13 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:44:13 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+08-Oct-26 18:44:13 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:44:14 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:44:14 - openai._base_client - INFO - Retrying request in 0.712000 seconds (retry 1 of 2)
+08-Oct-26 18:44:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:44:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:44:16 - openai._base_client - INFO - Retrying request in 10.089000 seconds (retry 1 of 2)
+08-Oct-26 18:44:36 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:44:36 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:44:36 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:44:36 - openai._base_client - INFO - Retrying request in 1.342000 seconds (retry 1 of 2)
+08-Oct-26 18:44:36 - openai._base_client - INFO - Retrying request in 0.546000 seconds (retry 2 of 2)
+08-Oct-26 18:44:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:44:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:44:38] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 18:44:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:44:38] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+08-Oct-26 18:44:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:44:38] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+08-Oct-26 18:44:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:44:38] "GET /1/2/1?__debugger__=yes&cmd=resource&f=console.png&s=o3BQRPaSkYrEnpujRHyy HTTP/1.1" 200 -
+08-Oct-26 18:44:38 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:44:38] "[36mGET /1/2/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+08-Oct-26 18:44:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:44:38 - openai._base_client - INFO - Retrying request in 12.218000 seconds (retry 2 of 2)
+08-Oct-26 18:45:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:45:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:45:02 - openai._base_client - INFO - Retrying request in 2.337000 seconds (retry 1 of 2)
+08-Oct-26 18:45:05 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:45:06 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:45:06 - openai._base_client - INFO - Retrying request in 14.166000 seconds (retry 1 of 2)
+08-Oct-26 18:45:31 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:45:31 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:45:31 - openai._base_client - INFO - Retrying request in 5.684000 seconds (retry 1 of 2)
+08-Oct-26 18:45:48 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:45:48 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:45:48 - openai._base_client - INFO - Retrying request in 7.321000 seconds (retry 1 of 2)
+08-Oct-26 18:46:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:46:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:46:07 - openai._base_client - INFO - Retrying request in 8.695000 seconds (retry 1 of 2)
+08-Oct-26 18:46:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:46:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:46:28 - openai._base_client - INFO - Retrying request in 10.166000 seconds (retry 1 of 2)
+08-Oct-26 18:46:55 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:46:55 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:46:55 - openai._base_client - INFO - Retrying request in 7.194000 seconds (retry 1 of 2)
+08-Oct-26 18:47:14 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:47:14 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:47:14 - openai._base_client - INFO - Retrying request in 14.671000 seconds (retry 1 of 2)
+08-Oct-26 18:47:40 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:47:40 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:47:40 - openai._base_client - INFO - Retrying request in 16.512000 seconds (retry 1 of 2)
+08-Oct-26 18:48:08 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:48:09 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:48:09 - openai._base_client - INFO - Retrying request in 18.167000 seconds (retry 1 of 2)
+08-Oct-26 18:48:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:48:39 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:48:39 - openai._base_client - INFO - Retrying request in 20.664000 seconds (retry 1 of 2)
+08-Oct-26 18:49:11 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:49:11 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:49:11 - openai._base_client - INFO - Retrying request in 22.872000 seconds (retry 1 of 2)
+08-Oct-26 18:49:45 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:49:46 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:49:46 - openai._base_client - INFO - Retrying request in 25.197000 seconds (retry 1 of 2)
+08-Oct-26 18:50:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:50:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:50:29 - openai._base_client - INFO - Retrying request in 21.063000 seconds (retry 1 of 2)
+08-Oct-26 18:51:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:51:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:51:02 - openai._base_client - INFO - Retrying request in 29.802000 seconds (retry 1 of 2)
+08-Oct-26 18:51:43 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:51:44 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:51:44 - openai._base_client - INFO - Retrying request in 32.590000 seconds (retry 1 of 2)
+08-Oct-26 18:52:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:52:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:52:28 - openai._base_client - INFO - Retrying request in 35.485000 seconds (retry 1 of 2)
+08-Oct-26 18:53:15 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:53:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:53:16 - openai._base_client - INFO - Retrying request in 39.956000 seconds (retry 1 of 2)
+08-Oct-26 18:54:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:54:08 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:54:08 - openai._base_client - INFO - Retrying request in 46.678000 seconds (retry 1 of 2)
+08-Oct-26 18:55:09 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 18:55:09 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:55:09 - openai._base_client - INFO - Retrying request in 0.384967 seconds (retry 1 of 2)
+08-Oct-26 18:55:10 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:55:10 - openai._base_client - INFO - Retrying request in 0.998951 seconds (retry 2 of 2)
+08-Oct-26 18:55:11 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+08-Oct-26 18:55:11 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 18:55:11] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+08-Oct-26 23:30:26 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:31:21 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:32:59 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:33:35 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:34:33 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:35:13 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:36:26 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+08-Oct-26 23:36:26 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+08-Oct-26 23:36:26 - werkzeug - INFO -  * Restarting with stat
+08-Oct-26 23:36:30 - werkzeug - WARNING -  * Debugger is active!
+08-Oct-26 23:36:30 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+08-Oct-26 23:36:53 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:37:50 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:38:18 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:38:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:39:33 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:40:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:40:43 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:41:09 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:41:37 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:42:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+08-Oct-26 23:42:25 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 23:42:25] "GET /1/2/1 HTTP/1.1" 200 -
+08-Oct-26 23:42:25 - werkzeug - INFO - 127.0.0.1 - - [08/Oct/2026 23:42:25] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+09-Oct-26 10:11:18 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/agent.py', reloading
+09-Oct-26 10:11:18 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 10:11:22 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 10:11:22 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 10:26:12 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/play/agent.py', reloading
+09-Oct-26 10:26:13 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 10:26:17 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 10:26:17 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 10:43:05 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/adventures/adventure.py', reloading
+09-Oct-26 10:43:05 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 11:46:06 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+09-Oct-26 11:46:06 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09-Oct-26 11:46:06 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 11:46:10 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 11:46:10 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 11:46:30 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:47:03 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:47:23 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:49:26 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+09-Oct-26 11:49:26 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09-Oct-26 11:49:26 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 11:49:30 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 11:49:30 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 11:51:20 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+09-Oct-26 11:51:20 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09-Oct-26 11:51:20 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 11:51:24 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 11:51:24 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 11:51:49 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:54:01 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+09-Oct-26 11:54:01 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09-Oct-26 11:54:01 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 11:54:02 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 11:54:02 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 11:54:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:54:17 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:54:17 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:54:18 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:54:18 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:54:18 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:54:18 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:54:18 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:54:18 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:54:20 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:54:20 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:54:41 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:54:41 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:54:41 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:54:41 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:54:41 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 2 of 2)
+09-Oct-26 11:54:43 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:54:43 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:54:43 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:55:03 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:55:03 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 11:55:03] "[35m[1mGET /1/2/1 HTTP/1.1[0m" 500 -
+09-Oct-26 11:55:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:55:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:55:04 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:55:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:55:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:55:07 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:55:27 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:55:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:55:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:55:29 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:55:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:55:29 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 2 of 2)
+09-Oct-26 11:55:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:55:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:55:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:55:52 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:55:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:55:52 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:56:15 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:56:15 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 2 of 2)
+09-Oct-26 11:56:15 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:56:15 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:56:15 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:56:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:56:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:56:38 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:56:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:56:39 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:56:39 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:57:01 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:57:01 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:57:01 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:57:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:57:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:57:02 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:57:25 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:57:25 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:57:25 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:57:25 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:57:25 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:57:25 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:57:48 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:57:48 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:57:48 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:57:48 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:57:49 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:57:49 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:58:11 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:58:12 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:58:12 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:58:12 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:58:12 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:58:12 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:58:34 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:58:35 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:58:35 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:58:35 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:58:35 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:58:35 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:58:58 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:58:58 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:58:58 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:58:59 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:58:59 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 11:58:59 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 11:59:21 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:59:21 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 11:59:21] "GET /1/2/1 HTTP/1.1" 200 -
+09-Oct-26 11:59:22 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 11:59:22] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+09-Oct-26 11:59:22 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 11:59:22 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 11:59:22] "GET /1/2/1 HTTP/1.1" 200 -
+09-Oct-26 12:09:38 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 12:09:38] "GET / HTTP/1.1" 200 -
+09-Oct-26 12:09:39 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 12:09:39] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+09-Oct-26 12:09:54 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 12:09:54] "GET /register HTTP/1.1" 200 -
+09-Oct-26 12:09:54 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 12:09:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+09-Oct-26 12:10:28 - root - INFO - Request received to add a new user to the DB with email address: 
+09-Oct-26 12:10:28 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 12:10:28] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+09-Oct-26 12:10:28 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 12:10:28] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+09-Oct-26 12:10:28 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 12:10:28] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+09-Oct-26 12:10:28 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 12:10:28] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=RutEWGPjOBnmADByqfHI HTTP/1.1" 200 -
+09-Oct-26 12:12:47 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 12:12:47] "GET / HTTP/1.1" 200 -
+09-Oct-26 12:13:01 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:13:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:13:02 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:13:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:13:05 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:13:05 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 12:13:05 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 12:13:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:13:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:13:30 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 12:13:30 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 12:13:53 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:13:54 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:13:54 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 12:13:54 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 12:14:18 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:14:19 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:14:20 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 12:14:20 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 12:14:43 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:14:44 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 12:14:44 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 12:14:44 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 22:25:30 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+09-Oct-26 22:25:30 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09-Oct-26 22:25:30 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 22:28:32 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 22:28:32 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 22:28:42 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/app.py', reloading
+09-Oct-26 22:28:43 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 22:28:57 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 22:28:57 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 22:30:15 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+09-Oct-26 22:30:15 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09-Oct-26 22:30:15 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 22:30:28 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 22:30:28 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 22:33:22 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+09-Oct-26 22:33:22 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09-Oct-26 22:33:22 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 22:33:22 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 22:33:22 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 22:40:09 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+09-Oct-26 22:40:09 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09-Oct-26 22:40:09 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 22:40:10 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 22:40:10 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 22:40:39 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 22:40:39] "GET / HTTP/1.1" 200 -
+09-Oct-26 22:40:40 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 22:40:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+09-Oct-26 22:40:42 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 22:40:42] "GET /register HTTP/1.1" 200 -
+09-Oct-26 22:40:42 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 22:40:42] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+09-Oct-26 22:40:47 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 22:40:48 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 22:40:49 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 22:40:51 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 22:40:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 22:40:52 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 22:40:52 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 22:40:54 - root - INFO - Request received to add a new user to the DB with email address: 
+09-Oct-26 22:40:54 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 22:40:54] "POST /register HTTP/1.1" 200 -
+09-Oct-26 22:40:54 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2026 22:40:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+09-Oct-26 22:41:15 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 22:41:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 22:41:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 22:41:16 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 22:41:40 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 22:41:41 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+09-Oct-26 22:41:41 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+09-Oct-26 22:41:41 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+09-Oct-26 22:42:01 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+09-Oct-26 22:42:01 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+09-Oct-26 22:42:01 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 22:42:05 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 22:42:05 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+09-Oct-26 22:48:54 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/app.py', reloading
+09-Oct-26 22:48:55 - werkzeug - INFO -  * Restarting with stat
+09-Oct-26 22:48:59 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+09-Oct-26 22:48:59 - werkzeug - WARNING -  * Debugger is active!
+09-Oct-26 22:48:59 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 12:45:59 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 12:45:59 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 12:45:59 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 12:45:59 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 12:45:59 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 12:46:06 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 12:46:07 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 12:46:08 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 12:46:09 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 12:46:10 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 12:46:11 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 12:46:11 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 12:46:24 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 12:46:25 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 12:46:25 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 12:46:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 12:46:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 12:46:38 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 12:46:44 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 12:46:44 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 12:46:44 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 12:46:45 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 12:46:45 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 12:46:46 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 12:46:46 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 12:46:46 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 12:46:48 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 12:46:48] "GET / HTTP/1.1" 200 -
+10-Oct-26 12:46:49 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 12:46:49] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 12:46:56 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 12:46:56 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 12:46:56 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 12:46:56 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 12:46:56 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 12:46:58 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 12:46:58] "GET /register HTTP/1.1" 200 -
+10-Oct-26 12:46:58 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 12:46:58] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 12:47:09 - root - INFO - Request received to add a new user to the DB with email address: 
+10-Oct-26 12:47:09 - root - WARNING - Email address already exists in StudentDB: martin.gorren@gmail.com
+10-Oct-26 12:47:09 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 12:47:09] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+10-Oct-26 12:47:09 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 12:47:09] "[36mGET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+10-Oct-26 12:47:09 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 12:47:09] "[36mGET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+10-Oct-26 12:47:09 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 12:47:09] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=UHZLOYtHL7g0gjyfPOqd HTTP/1.1" 200 -
+10-Oct-26 12:48:51 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+10-Oct-26 12:48:51 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 12:48:52 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 12:48:52 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 12:58:10 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+10-Oct-26 12:58:10 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 17:12:11 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 17:12:11 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 17:12:11 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 17:12:11 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 17:12:11 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 17:12:13 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:12:13] "GET /register HTTP/1.1" 200 -
+10-Oct-26 17:12:13 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:12:13] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:12:25 - root - INFO - Request received to add a new user to the DB with email address: 
+10-Oct-26 17:12:25 - root - WARNING - Email address already exists in StudentDB: martin.gorren@gmail.com
+10-Oct-26 17:12:25 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:12:25] "POST /register HTTP/1.1" 200 -
+10-Oct-26 17:12:25 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:12:25] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:13:46 - root - INFO - Request received to add a new user to the DB with email address: 
+10-Oct-26 17:13:46 - root - WARNING - Email address already exists in StudentDB: martin.gorren@gmail.com
+10-Oct-26 17:13:46 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:13:46] "POST /register HTTP/1.1" 200 -
+10-Oct-26 17:13:46 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:13:46] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:13:56 - root - INFO - Request received to add a new user to the DB with email address: 
+10-Oct-26 17:13:56 - root - WARNING - Email address already exists in StudentDB: martin.gorren@gmail.com
+10-Oct-26 17:13:56 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:13:56] "POST /register HTTP/1.1" 200 -
+10-Oct-26 17:13:56 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:13:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:15:06 - root - INFO - Request received to add a new user to the DB with email address: 
+10-Oct-26 17:15:06 - root - WARNING - Email address already exists in StudentDB: martin.gorren@gmail.com
+10-Oct-26 17:15:06 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:15:06] "POST /register HTTP/1.1" 200 -
+10-Oct-26 17:15:06 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:15:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:15:56 - root - INFO - Request received to add a new user to the DB with email address: 
+10-Oct-26 17:15:56 - root - WARNING - Email address already exists in StudentDB: martin.gorren@gmail.com
+10-Oct-26 17:15:56 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:15:56] "POST /register HTTP/1.1" 200 -
+10-Oct-26 17:15:56 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:15:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:16:36 - root - INFO - Request received to add a new user to the DB with email address: 
+10-Oct-26 17:16:36 - root - WARNING - Email address already exists in StudentDB: martin.gorren@gmail.com
+10-Oct-26 17:16:36 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:16:36] "POST /register HTTP/1.1" 200 -
+10-Oct-26 17:16:36 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:16:36] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:16:54 - root - INFO - Request received to add a new user to the DB with email address: 
+10-Oct-26 17:16:54 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:16:54] "POST /register HTTP/1.1" 200 -
+10-Oct-26 17:16:54 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:16:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:27:19 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 17:27:19 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 17:27:19 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 17:27:20 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 17:27:20 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 17:27:23 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:27:23] "GET / HTTP/1.1" 200 -
+10-Oct-26 17:27:23 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:27:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:27:27 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:27:27] "GET /register HTTP/1.1" 200 -
+10-Oct-26 17:27:27 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:27:27] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:27:40 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+10-Oct-26 17:27:40 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+10-Oct-26 17:27:40 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+10-Oct-26 17:27:40 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:27:40] "POST /register HTTP/1.1" 200 -
+10-Oct-26 17:27:40 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:27:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:28:26 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/app.py', reloading
+10-Oct-26 17:28:26 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 17:28:27 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 17:28:27 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 17:28:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:28:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:28:30 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:28:32 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:28:32 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:28:32 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:28:50 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 17:28:50 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 17:28:50 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 17:28:50 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 17:28:50 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 17:29:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:29:17 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:29:17 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:29:19 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:29:20 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:29:20 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:29:33 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:29:33 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:29:33 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:29:41 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:29:41] "GET / HTTP/1.1" 200 -
+10-Oct-26 17:29:43 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 17:29:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 17:29:46 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:29:47 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:29:47 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:30:00 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:30:00 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:30:00 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:30:14 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:30:14 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:30:14 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:30:27 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:30:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:30:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:30:29 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:30:42 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:30:42 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:30:42 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:30:55 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:30:55 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:30:55 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:31:09 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:31:09 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:31:09 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:31:24 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:31:24 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:31:24 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 17:31:37 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 17:31:37 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 17:31:37 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 19:25:20 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 19:25:20 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 19:25:20 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 19:25:21 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 19:25:21 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 19:25:28 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:25:28] "GET / HTTP/1.1" 200 -
+10-Oct-26 19:25:28 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:25:28] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:25:32 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:25:32] "GET /register HTTP/1.1" 200 -
+10-Oct-26 19:25:32 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:25:32] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:25:43 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+10-Oct-26 19:25:43 - root - WARNING - Email address already exists in StudentDB: martin.gorren@gmail.com
+10-Oct-26 19:25:43 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:25:43] "POST /register HTTP/1.1" 200 -
+10-Oct-26 19:25:43 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:25:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:26:11 - root - INFO - Request received to add a new user to the DB with email address: regiane@example.com
+10-Oct-26 19:26:11 - root - INFO - Successfull storage of new user with email address regiane@example.com has user id 2.
+10-Oct-26 19:26:11 - root - INFO - User with regiane@example.com has been promoted to admin
+10-Oct-26 19:26:11 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:26:11] "POST /register HTTP/1.1" 200 -
+10-Oct-26 19:26:11 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:26:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:26:18 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 19:26:19 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 19:26:20 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 19:26:22 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 19:26:23 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 19:26:23 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 19:26:23 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 19:26:36 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 19:26:37 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 19:26:37 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 19:26:50 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+10-Oct-26 19:26:50 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+10-Oct-26 19:26:50 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+10-Oct-26 19:27:13 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 19:27:13 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 19:27:13 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 19:27:14 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 19:27:14 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 19:27:17 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:27:17] "GET /register HTTP/1.1" 200 -
+10-Oct-26 19:27:17 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:27:17] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:27:33 - root - INFO - Request received to add a new user to the DB with email address: regiane@example.com
+10-Oct-26 19:27:33 - root - WARNING - Email address already exists in StudentDB: regiane@example.com
+10-Oct-26 19:27:33 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:27:33] "POST /register HTTP/1.1" 200 -
+10-Oct-26 19:27:33 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:27:33] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:27:50 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:27:50] "GET / HTTP/1.1" 200 -
+10-Oct-26 19:27:50 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:27:50] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:29:01 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 19:29:01 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 19:29:01 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 19:29:06 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 19:29:06 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 19:37:03 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:37:03] "GET /register HTTP/1.1" 200 -
+10-Oct-26 19:37:03 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:37:03] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:37:03 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+10-Oct-26 19:37:03 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 19:37:07 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 19:37:07 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 19:37:21 - root - INFO - Request received to add a new user to the DB with email address: frank.bak@example.com
+10-Oct-26 19:37:21 - root - INFO - Successfull storage of new user with email address frank.bak@example.com has user id 3.
+10-Oct-26 19:40:27 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 19:40:27 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 19:40:27 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 19:40:32 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 19:40:32 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 19:40:35 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:40:35] "GET /register HTTP/1.1" 200 -
+10-Oct-26 19:40:35 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:40:35] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:41:04 - root - INFO - Request received to add a new user to the DB with email address: rene.hop@example.com
+10-Oct-26 19:41:04 - root - INFO - Successfull storage of new user with email address rene.hop@example.com has user id 4.
+10-Oct-26 19:41:39 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:41:39] "POST /register HTTP/1.1" 200 -
+10-Oct-26 19:41:39 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 19:41:39] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 19:51:14 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+10-Oct-26 19:51:14 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 19:51:18 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 19:51:18 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 20:11:41 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+10-Oct-26 20:11:41 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 20:11:45 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 20:11:45 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 20:12:45 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:12:45] "[35m[1mGET /3/delete HTTP/1.1[0m" 500 -
+10-Oct-26 20:12:45 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:12:45] "GET /3/delete?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+10-Oct-26 20:12:45 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:12:45] "GET /3/delete?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+10-Oct-26 20:12:45 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:12:45] "GET /3/delete?__debugger__=yes&cmd=resource&f=console.png&s=4EnJBPb2CJqwFbYQpsu5 HTTP/1.1" 200 -
+10-Oct-26 20:12:45 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:12:45] "GET /3/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+10-Oct-26 20:17:07 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/adventures/routes.py', reloading
+10-Oct-26 20:17:07 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 20:17:11 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 20:17:11 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 20:18:17 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/adventures/routes.py', reloading
+10-Oct-26 20:18:17 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 20:18:21 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 20:18:21 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 20:18:21 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:18:21] "[31m[1mGET /3/delete HTTP/1.1[0m" 405 -
+10-Oct-26 20:18:21 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:18:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 20:18:23 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:18:23] "[31m[1mGET /3/delete HTTP/1.1[0m" 405 -
+10-Oct-26 20:18:23 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:18:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 20:22:07 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+10-Oct-26 20:22:07 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 20:22:11 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 20:22:11 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 20:22:13 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:22:13] "[33mGET /delete/3 HTTP/1.1[0m" 404 -
+10-Oct-26 20:22:13 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:22:13] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 20:22:37 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:22:37] "[33mGET /delete_user/3 HTTP/1.1[0m" 404 -
+10-Oct-26 20:22:37 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 20:22:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+10-Oct-26 23:29:35 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+10-Oct-26 23:29:35 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 23:29:39 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 23:29:39 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 23:29:42 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:29:42] "[32mGET /delete_user/3 HTTP/1.1[0m" 308 -
+10-Oct-26 23:37:59 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 23:37:59 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 23:37:59 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 23:38:04 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 23:38:04 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 23:38:04 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:38:04] "[33mDELETE /delete_users/3 HTTP/1.1[0m" 404 -
+10-Oct-26 23:38:48 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:38:48] "[32mDELETE /delete_user/3 HTTP/1.1[0m" 308 -
+10-Oct-26 23:54:09 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 23:54:09 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 23:54:09 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 23:54:10 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 23:54:10 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 23:54:18 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 23:54:18 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 23:54:18 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 23:54:23 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 23:54:23 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 23:54:26 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:54:26] "[32mDELETE /delete_user/3 HTTP/1.1[0m" 308 -
+10-Oct-26 23:54:26 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:54:26] "[35m[1mDELETE /delete_user/3/ HTTP/1.1[0m" 500 -
+10-Oct-26 23:55:42 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:55:42] "[32mDELETE /delete_user/3 HTTP/1.1[0m" 308 -
+10-Oct-26 23:55:42 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:55:42] "[33mDELETE /delete_user/3/ HTTP/1.1[0m" 404 -
+10-Oct-26 23:56:36 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:56:36] "[32mDELETE /delete_user/3 HTTP/1.1[0m" 308 -
+10-Oct-26 23:56:36 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:56:36] "[33mDELETE /delete_user/3/ HTTP/1.1[0m" 404 -
+10-Oct-26 23:57:32 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:57:32] "[32mDELETE /delete_user/3 HTTP/1.1[0m" 308 -
+10-Oct-26 23:58:12 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+10-Oct-26 23:58:12 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+10-Oct-26 23:58:12 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 23:58:17 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 23:58:17 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 23:58:23 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:58:23] "[33mDELETE /delete_user/3 HTTP/1.1[0m" 404 -
+10-Oct-26 23:58:51 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+10-Oct-26 23:58:52 - werkzeug - INFO -  * Restarting with stat
+10-Oct-26 23:58:56 - werkzeug - WARNING -  * Debugger is active!
+10-Oct-26 23:58:56 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+10-Oct-26 23:58:58 - werkzeug - INFO - 127.0.0.1 - - [10/Oct/2026 23:58:58] "[32mDELETE /delete_user/3 HTTP/1.1[0m" 308 -
+11-Oct-26 00:06:58 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+11-Oct-26 00:06:58 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+11-Oct-26 00:06:58 - werkzeug - INFO -  * Restarting with stat
+11-Oct-26 00:07:03 - werkzeug - WARNING -  * Debugger is active!
+11-Oct-26 00:07:03 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+11-Oct-26 00:07:03 - werkzeug - INFO - 127.0.0.1 - - [11/Oct/2026 00:07:03] "[32mDELETE /delete_user/3 HTTP/1.1[0m" 308 -
+11-Oct-26 00:07:17 - root - INFO - Request received to delete user with student ID: 3
+11-Oct-26 00:07:37 - root - INFO - Deletion successful. Student with student ID: 3 is deleted
+11-Oct-26 00:07:41 - werkzeug - INFO - 127.0.0.1 - - [11/Oct/2026 00:07:41] "[35m[1mDELETE /delete_user/3/ HTTP/1.1[0m" 500 -
+11-Oct-26 00:10:30 - werkzeug - INFO -  * Detected change in '/home/mago/My_Code/AI_Engineering_Project/Linguadventure/src/site_landing/routes.py', reloading
+11-Oct-26 00:10:30 - werkzeug - INFO -  * Restarting with stat
+11-Oct-26 00:10:35 - werkzeug - WARNING -  * Debugger is active!
+11-Oct-26 00:10:35 - werkzeug - INFO -  * Debugger PIN: 132-266-882
+11-Oct-26 00:10:39 - werkzeug - INFO - 127.0.0.1 - - [11/Oct/2026 00:10:39] "[32mDELETE /delete_user/4 HTTP/1.1[0m" 308 -
+11-Oct-26 00:10:57 - root - INFO - Request received to delete user with student ID: 4
+11-Oct-26 00:11:16 - root - INFO - Deletion successful. Student with student ID: 4 is deleted
+11-Oct-26 00:11:21 - werkzeug - INFO - 127.0.0.1 - - [11/Oct/2026 00:11:21] "DELETE /delete_user/4/ HTTP/1.1" 200 -

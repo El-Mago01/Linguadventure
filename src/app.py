@@ -13,13 +13,15 @@ Important clarification. The jargon in this application distinguishes 3 types of
 import os
 from dotenv import load_dotenv
 from flask import Flask, render_template
-from data_manager import DataManager, db
+from data_manager import DataManager, db, logging
 from src.site_landing import site_landing
 from src.adventures import adventures
 from src.admin import admin
 from src.play import play
 from src.learning import learning
 from src.wrapup import wrapup
+from errors import register_error_handlers
+from helper_functions import promote_admin_users
 
 
 dm = DataManager()
@@ -49,6 +51,7 @@ def create_app(database_uri=None):
     this_app.register_blueprint(learning)
     this_app.register_blueprint(admin)
 
+    register_error_handlers(this_app)
     return this_app
 
 app = create_app()
@@ -60,6 +63,7 @@ app.secret_key = os.getenv("OPENAI_API_KEY")
 with app.app_context():
     db.create_all()
 
+    promote_admin_users()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
