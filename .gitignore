@@ -1,0 +1,11 @@
+.idea/
+.venv/
+.pytest_cache/
+data/test_db.sqlite
+app.log
+__pycache__/
+__init__.py
+.gitignore
+.env
+*.pyc
+*/log_file.txt
