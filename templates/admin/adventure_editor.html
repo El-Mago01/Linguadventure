@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinguAdventure · Adventure Editor</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body{background:#071322;color:#edf5f7;font-family:ui-sans-serif,system-ui,sans-serif}
+  .panel{background:#102235;border:1px solid #284154;border-radius:20px}
+  .field{width:100%;background:#091a2b;border:1px solid #365064;border-radius:11px;padding:11px 13px;color:#f0f9fa;outline:none}
+  .field:focus{border-color:#2dd4bf;box-shadow:0 0 0 3px #2dd4bf20}
+  label{display:block;font-size:.85rem;color:#bbd0d9;margin-bottom:7px;font-weight:600}
+  .hint{font-size:.75rem;color:#8da5b2;margin-top:5px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;padding:10px 17px;font-weight:650;cursor:pointer}
+  .btn-primary{background:#2dd4bf;color:#06222a}.btn-primary:hover{background:#5eead4}
+  .btn-ghost{background:#183047;border:1px solid #38556a;color:#d7e9ec}.btn-ghost:hover{background:#244159}
+  .scene-item{width:100%;text-align:left;border:1px solid #2c4557;border-radius:13px;padding:13px 14px;background:#0b1c2c}
+  .scene-item[aria-current="true"]{border-color:#2dd4bf;background:#12383e}
+  .pill{border:1px solid #276f6d;background:#103b3b;color:#7ce8d9;border-radius:999px;padding:4px 10px;font-size:.72rem}
+  textarea{resize:vertical}
+</style>
+</head>
+<body class="min-h-screen">
+<header class="border-b border-slate-700/70 bg-[#09192a]">
+  <div class="mx-auto max-w-7xl px-5 py-5 flex flex-wrap items-center justify-between gap-3">
+    <div><a href="#" class="text-2xl font-extrabold tracking-tight">Lingu<span class="text-teal-400">Adventure</span></a><span class="ml-4 text-sm text-slate-400">/ Administration / Adventure Editor</span></div>
+    <span class="pill">Prototype · Local edits only</span>
+  </div>
+</header>
+<main class="max-w-7xl mx-auto px-5 py-9">
+  <div class="flex flex-wrap items-end justify-between gap-5 mb-8">
+    <div><p class="text-teal-300 text-xs tracking-[.22em] uppercase font-bold mb-2">Build the story</p><h1 class="text-3xl md:text-4xl font-bold">Adventure Editor</h1><p class="text-slate-400 mt-3">Define the adventure, then build its scenes one by one.</p></div>
+    <div class="flex flex-wrap gap-2"><button class="btn btn-ghost" type="button" id="resetBtn">↺ Reset example</button><button class="btn btn-primary" type="button" id="exportBtn">↓ Export JSON</button></div>
+  </div>
+  <div class="grid lg:grid-cols-[310px_minmax(0,1fr)] gap-6 items-start">
+    <aside class="space-y-5">
+      <section class="panel p-5">
+        <div class="flex justify-between items-center mb-4"><h2 class="font-bold text-lg">Adventure outline</h2><span id="sceneCount" class="pill">1 scene</span></div>
+        <button type="button" id="overviewBtn" class="scene-item mb-3" aria-current="true"><div class="font-semibold">✦ Adventure overview</div><div class="text-xs text-slate-400 mt-1">Setting, premise and goals</div></button>
+        <div id="sceneList" class="space-y-2"></div>
+        <button type="button" class="btn btn-ghost w-full mt-3" id="addSceneBtn">＋ Add a scene</button>
+      </section>
+      <section class="panel p-5"><h3 class="font-bold mb-2">A simple starting point</h3><p class="text-sm text-slate-400 leading-relaxed">Keep the story structure here. Detailed character profiles, adaptive rules and branching can come later.</p></section>
+    </aside>
+    <div class="space-y-5">
+      <section id="overviewPanel" class="panel p-6 md:p-8">
+        <div class="flex justify-between items-start gap-3 mb-7"><div><p class="text-teal-300 uppercase tracking-widest text-xs font-bold mb-2">01 / Overview</p><h2 class="text-2xl font-bold">Adventure details</h2></div><span class="pill">Draft</span></div>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="md:col-span-2"><label for="title">Adventure title *</label><input class="field" id="title" required maxlength="120"></div>
+          <div><label for="language">Target language *</label><select class="field" id="language"><option>Portuguese</option><option>English</option><option>Dutch</option><option>German</option><option>Spanish</option><option>French</option></select></div>
+          <div><label for="level">Target level *</label><select class="field" id="level"><option>A1</option><option selected>A1–A2</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option></select></div>
+          <div><label for="minutes">Approx. minutes per scene</label><input class="field" id="minutes" type="number" min="1" max="120"></div>
+          <div><label>Scenes</label><div id="countDisplay" class="field text-teal-300 font-semibold">1 scene</div><p class="hint">Automatically calculated</p></div>
+          <div class="md:col-span-2"><label for="setting">Setting</label><textarea class="field" id="setting" rows="2"></textarea></div>
+          <div class="md:col-span-2"><label for="premise">Story premise</label><textarea class="field" id="premise" rows="4"></textarea></div>
+          <div class="md:col-span-2"><label for="intro">Introduction shown to the student</label><textarea class="field" id="intro" rows="3"></textarea></div>
+          <div class="md:col-span-2"><label for="objectives">Learning objectives</label><textarea class="field" id="objectives" rows="3" placeholder="One objective per line"></textarea><p class="hint">One objective per line</p></div>
+          <div class="md:col-span-2"><label for="characters">Main characters</label><textarea class="field" id="characters" rows="3" placeholder="One character per line"></textarea><p class="hint">For now, just their names and roles</p></div>
+          <div class="md:col-span-2"><label for="cliffhanger">Adventure ending / cliffhanger (optional)</label><textarea class="field" id="cliffhanger" rows="2"></textarea></div>
+        </div>
+      </section>
+      <section id="scenePanel" class="panel p-6 md:p-8 hidden">
+        <div class="flex justify-between items-start gap-3 mb-7"><div><p class="text-teal-300 uppercase tracking-widest text-xs font-bold mb-2" id="sceneEyebrow">02 / Scene</p><h2 class="text-2xl font-bold">Scene editor</h2></div><button class="btn btn-ghost text-sm" type="button" id="deleteSceneBtn">Delete scene</button></div>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="md:col-span-2"><label for="sceneTitle">Scene title *</label><input class="field" id="sceneTitle" maxlength="120"></div>
+          <div><label for="sceneLocation">Location</label><input class="field" id="sceneLocation"></div>
+          <div><label for="sceneCharacters">Characters in this scene</label><input class="field" id="sceneCharacters" placeholder="e.g. Miguel — café employee"></div>
+          <div class="md:col-span-2"><label for="sceneSituation">Starting situation</label><textarea class="field" id="sceneSituation" rows="3"></textarea></div>
+          <div><label for="sceneStoryGoal">Story objective</label><textarea class="field" id="sceneStoryGoal" rows="3"></textarea></div>
+          <div><label for="sceneStudentGoal">Student objective</label><textarea class="field" id="sceneStudentGoal" rows="3"></textarea></div>
+          <div class="md:col-span-2"><label for="sceneIntro">Opening text shown to the student</label><textarea class="field" id="sceneIntro" rows="3"></textarea></div>
+          <div class="md:col-span-2"><label for="sceneLanguage">Language objectives</label><textarea class="field" id="sceneLanguage" rows="3" placeholder="One objective per line"></textarea></div>
+          <div><label for="sceneVocabulary">Target vocabulary</label><textarea class="field" id="sceneVocabulary" rows="3"></textarea></div>
+          <div><label for="sceneGrammar">Target grammar</label><textarea class="field" id="sceneGrammar" rows="3"></textarea></div>
+          <div class="md:col-span-2"><label for="sceneMust">Must happen</label><textarea class="field" id="sceneMust" rows="4" placeholder="One event per line"></textarea></div>
+          <div class="md:col-span-2"><label for="sceneMustNot">Must not happen</label><textarea class="field" id="sceneMustNot" rows="3" placeholder="One restriction per line"></textarea></div>
+          <div class="md:col-span-2"><label for="sceneSteps">Scene steps (simple outline)</label><textarea class="field" id="sceneSteps" rows="5" placeholder="One step per line"></textarea></div>
+          <div class="md:col-span-2"><label for="sceneExit">What the student should know at the end</label><textarea class="field" id="sceneExit" rows="3"></textarea></div>
+          <div class="md:col-span-2"><label for="sceneEnding">Ending / transition to the next scene</label><textarea class="field" id="sceneEnding" rows="3"></textarea></div>
+        </div>
+      </section>
+      <div class="flex flex-wrap items-center justify-between gap-3 px-1"><span id="status" class="text-sm text-slate-400" role="status">Example data loaded. Changes are not yet saved to a server.</span><button class="btn btn-primary" id="saveBtn" type="button">Save draft in browser</button></div>
+    </div>
+  </div>
+  <footer class="text-center text-xs text-slate-500 py-10">LinguAdventure · Don't study a language. Live it.</footer>
+</main>
+<script>
+const example=()=>({title:'The Lost Backpack',language:'Portuguese',level:'A1–A2',minutes:'5',setting:'Lisbon. The student is spending a week in the city for work.',premise:'Shortly after arriving at the hotel, the student discovers their backpack is missing. It contains a laptop needed for work. They retrace their steps, visit a café, speak to a taxi driver, and eventually learn that another traveler took it by mistake.',intro:'You have just arrived in Lisbon. Your backpack is missing, and your work laptop is inside. Can you find out what happened?',objectives:'Asking simple questions\nDescribing objects\nUnderstanding directions\nNumbers and prices\nIntroduction to the past tense\nTravel vocabulary',characters:'Sofia — hotel receptionist\nMiguel — café employee\nRui — taxi driver\nEmma — another traveler',cliffhanger:'The backpack is recovered, but something unexpected inside introduces the next adventure.',scenes:[{title:'The Café',location:'Small café near Rossio station, Lisbon',characters:'Miguel — café employee',situation:'The student returns to the café where they had breakfast and asks about their missing backpack.',storyGoal:'Discover that Miguel saw someone leave with a similar backpack.',studentGoal:'Ask Miguel whether he has seen the backpack.',intro:'You enter the café near Rossio station. Miguel is working behind the counter.',language:'Describing objects\nColors\nPossessives\nAsking “Have you seen...?”\nBasic past-tense exposure',vocabulary:'mochila, preta, grande, pequena, ontem, viu, mesa, perder',grammar:'você viu; eu vi',must:'Miguel remembers the student.\nMiguel did not find the backpack.\nAnother traveler carried a similar backpack.\nThe traveler left in a taxi.',mustNot:'Miguel knows who took the backpack.\nMiguel knows where the traveler went.\nThe backpack is found in this scene.\nMiguel leaves with the student.',steps:'Greet the student.\nMake brief small talk.\nGuide the conversation toward the missing backpack.\nAsk the student to describe the backpack and its contents.\nMention a different backpack left behind.\nRecall seeing a traveler with a similar backpack.\nContact the taxi driver, who agrees to come to the café.',exit:'Another traveler had a similar backpack and left the café in a taxi.',ending:'Miguel suddenly remembers: “I think I know the taxi driver...”'}]});
+let data=example(),selected=-1;
+const overviewFields=['title','language','level','minutes','setting','premise','intro','objectives','characters','cliffhanger'];
+const sceneFields={sceneTitle:'title',sceneLocation:'location',sceneCharacters:'characters',sceneSituation:'situation',sceneStoryGoal:'storyGoal',sceneStudentGoal:'studentGoal',sceneIntro:'intro',sceneLanguage:'language',sceneVocabulary:'vocabulary',sceneGrammar:'grammar',sceneMust:'must',sceneMustNot:'mustNot',sceneSteps:'steps',sceneExit:'exit',sceneEnding:'ending'};
+const el=id=>document.getElementById(id);
+function capture(){if(selected===-1){for(const k of overviewFields)data[k]=el(k).value;}else if(data.scenes[selected]){for(const [id,k] of Object.entries(sceneFields))data.scenes[selected][k]=el(id).value;}}
+function render(){el('overviewPanel').classList.toggle('hidden',selected!==-1);el('scenePanel').classList.toggle('hidden',selected===-1);el('overviewBtn').setAttribute('aria-current',String(selected===-1));el('sceneCount').textContent=data.scenes.length+' scene'+(data.scenes.length===1?'':'s');el('countDisplay').textContent=el('sceneCount').textContent;el('sceneList').replaceChildren();data.scenes.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='scene-item';b.setAttribute('aria-current',String(selected===i));const t=document.createElement('div');t.className='font-semibold';t.textContent=`Scene ${i+1} · ${s.title||'Untitled scene'}`;const d=document.createElement('div');d.className='text-xs text-slate-400 mt-1';d.textContent=s.location||'Location not set';b.append(t,d);b.addEventListener('click',()=>navigate(i));el('sceneList').append(b);});if(selected===-1){for(const k of overviewFields)el(k).value=data[k]??'';}else{el('sceneEyebrow').textContent=`02 / Scene ${selected+1}`;for(const [id,k] of Object.entries(sceneFields))el(id).value=data.scenes[selected][k]??'';}}
+function navigate(n){capture();selected=n;render();}
+el('overviewBtn').addEventListener('click',()=>navigate(-1));
+el('addSceneBtn').addEventListener('click',()=>{capture();data.scenes.push(Object.fromEntries(Object.values(sceneFields).map(k=>[k,''])));selected=data.scenes.length-1;render();el('sceneTitle').focus();});
+el('deleteSceneBtn').addEventListener('click',()=>{if(!confirm('Delete this scene from the draft?'))return;data.scenes.splice(selected,1);selected=-1;render();});
+el('saveBtn').addEventListener('click',()=>{capture();try{localStorage.setItem('linguadventure_editor_draft',JSON.stringify(data));el('status').textContent='Draft saved in this browser. Not yet stored in your Flask database.';}catch(e){el('status').textContent='Browser storage unavailable. Use Export JSON to keep a copy.';}});
+el('exportBtn').addEventListener('click',()=>{capture();const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='linguadventure_adventure_draft.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+el('resetBtn').addEventListener('click',()=>{if(!confirm('Reset the editor to the example adventure? Unsaved changes will be lost.'))return;data=example();selected=-1;render();el('status').textContent='Example restored (not saved).';});
+for(const id of overviewFields)el(id).addEventListener('input',()=>{if(selected===-1)data[id]=el(id).value;});
+for(const [id,k] of Object.entries(sceneFields))el(id).addEventListener('input',()=>{if(selected>=0){data.scenes[selected][k]=el(id).value;if(k==='title'||k==='location')renderSidebarOnly();}});
+function renderSidebarOnly(){const buttons=el('sceneList').querySelectorAll('button');buttons.forEach((b,i)=>{b.children[0].textContent=`Scene ${i+1} · ${data.scenes[i].title||'Untitled scene'}`;b.children[1].textContent=data.scenes[i].location||'Location not set';});}
+try{const saved=localStorage.getItem('linguadventure_editor_draft');if(saved){const parsed=JSON.parse(saved);if(parsed&&Array.isArray(parsed.scenes)&&typeof parsed.title==='string'){data=parsed;el('status').textContent='Previously saved browser draft loaded.';}}}catch(e){}
+render();
+</script>
+</body>
+</html>

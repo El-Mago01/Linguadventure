@@ -1,0 +1,35 @@
+html {
+    color-scheme: dark;
+}
+
+body {
+    background:
+        radial-gradient(circle at 12% 12%, rgba(20, 184, 166, 0.08), transparent 28rem),
+        #020617;
+}
+
+.record-button.is-recording {
+    animation: record-pulse 1.4s ease-in-out infinite;
+    background: #fb7185;
+    color: white;
+}
+
+.record-button.is-recording .record-icon {
+    border-radius: 0.25rem;
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+@keyframes record-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(251, 113, 133, 0.35); }
+    50% { box-shadow: 0 0 0 1rem rgba(251, 113, 133, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

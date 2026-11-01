@@ -12,16 +12,16 @@ Important clarification. The jargon in this application distinguishes 3 types of
 """
 import os
 from dotenv import load_dotenv
-from flask import Flask, render_template
-from data_manager import DataManager, db, logging
+from flask import Flask
+from data_manager import DataManager, db
 from src.site_landing import site_landing
 from src.adventures import adventures
 from src.admin import admin
 from src.play import play
 from src.learning import learning
 from src.wrapup import wrapup
-from errors import register_error_handlers
-from helper_functions import promote_admin_users
+from src.errors import register_error_handlers
+from src.helper_functions import promote_admin_users
 
 
 dm = DataManager()

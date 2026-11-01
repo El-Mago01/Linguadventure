@@ -7,7 +7,7 @@ from play.session import play_scene, Transcript
 play = Blueprint("play", __name__)
 dm = DataManager()
 
-@play.route("/<user_id>/<adventure_id>/<scene_id>", methods=["GET"])
+@play.route("/play/<user_id>/<adventure_id>/<scene_id>", methods=["GET"])
 def scene_execution(user_id:int, adventure_id:int, scene_id:int):
     """
     The student has selected a specific scene that should be played. This route enables the playing of a specific scene.

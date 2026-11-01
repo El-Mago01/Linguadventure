@@ -1,6 +1,5 @@
 import pytest
 import helper_functions as hf
-import os
 
 """
 Test cases for helper_functions:

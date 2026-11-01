@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Compare browser and backend speech-to-text output against the audio that was actually spoken.">
+    <title>Literal STT Lab · LinguAdventure</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-adventure-50: #f0fdfa;
+            --color-adventure-100: #ccfbf1;
+            --color-adventure-300: #5eead4;
+            --color-adventure-400: #2dd4bf;
+            --color-adventure-500: #14b8a6;
+            --color-adventure-600: #0d9488;
+            --color-adventure-700: #0f766e;
+            --color-night-900: #172033;
+            --color-night-950: #0d1424;
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+    <div class="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+        <div class="absolute -left-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-teal-500/12 blur-3xl"></div>
+        <div class="absolute -right-40 top-1/3 h-[34rem] w-[34rem] rounded-full bg-indigo-500/10 blur-3xl"></div>
+    </div>
+
+    <header class="border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+            <a href="/" class="flex items-center gap-3" aria-label="Literal STT Lab home">
+                <span class="grid h-10 w-10 place-items-center rounded-xl bg-teal-400 font-black text-slate-950 shadow-lg shadow-teal-500/20">L</span>
+                <span>
+                    <span class="block text-lg font-bold tracking-tight">Lingu<span class="text-teal-300">Adventure</span></span>
+                    <span class="block text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-slate-500">Experiment 01</span>
+                </span>
+            </a>
+            <div id="support-badge" class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-300">
+                Checking browser support…
+            </div>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14">
+        <section class="grid items-end gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1fr_auto]">
+            <div class="max-w-3xl">
+                <p class="text-sm font-bold uppercase tracking-[0.22em] text-teal-300">Literal STT Lab</p>
+                <h1 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-6xl">
+                    Hear what the engines <span class="text-teal-300">actually heard.</span>
+                </h1>
+                <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-400">
+                    Speak once. Compare browser recognition with backend OpenAI transcription, replay the source audio, and mark what was truly said.
+                </p>
+            </div>
+            <div class="rounded-2xl border border-amber-300/20 bg-amber-300/8 p-4 text-sm leading-6 text-amber-100 lg:max-w-sm">
+                <strong class="font-bold text-amber-200">Ground-truth rule:</strong>
+                No transcript is guaranteed to be perfectly literal. The recording is the evidence.
+            </div>
+        </section>
+
+        <section class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(19rem,0.7fr)]">
+            <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.055] shadow-2xl shadow-black/20 backdrop-blur">
+                <div class="border-b border-white/10 p-5 sm:p-7">
+                    <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-teal-300">Café conversation</p>
+                            <h2 class="mt-2 text-2xl font-black text-white">Lost in Lisbon</h2>
+                        </div>
+                        <label class="text-sm font-semibold text-slate-300">
+                            Recognition language
+                            <select id="language" class="mt-2 block w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-white outline-none focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20">
+                                <option value="pt-PT">Portuguese (Portugal)</option>
+                                <option value="pt-BR">Portuguese (Brazil)</option>
+                                <option value="en-US">English (United States)</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="p-5 sm:p-7">
+                    <div class="flex gap-4">
+                        <div class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-amber-100 text-xl" aria-hidden="true">☕</div>
+                        <div class="max-w-2xl rounded-2xl rounded-tl-sm bg-slate-900 p-5 shadow-lg">
+                            <p class="text-xs font-bold uppercase tracking-[0.16em] text-teal-300">Miguel</p>
+                            <p id="character-prompt" class="mt-2 text-lg leading-7 text-white">“Olá! Você voltou. O que aconteceu com a sua mochila?”</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 rounded-3xl border border-dashed border-white/15 bg-slate-950/50 p-5 sm:p-7">
+                        <div class="flex flex-col items-center text-center">
+                            <button id="record-button" type="button" class="record-button grid h-20 w-20 place-items-center rounded-full bg-teal-400 text-slate-950 shadow-xl shadow-teal-500/20 transition hover:-translate-y-0.5 hover:bg-teal-300 disabled:cursor-not-allowed disabled:opacity-40" aria-label="Start recording">
+                                <span class="record-icon h-6 w-6 rounded-full bg-current" aria-hidden="true"></span>
+                            </button>
+                            <p id="record-label" class="mt-4 font-bold text-white">Tap to speak</p>
+                            <p id="record-help" class="mt-1 text-sm text-slate-500">One utterance per turn · tap again to stop</p>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-white/8 bg-white/[0.035] p-4">
+                            <div class="flex items-center justify-between gap-4">
+                                <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">Browser recognition</p>
+                                <span id="record-timer" class="font-mono text-xs text-slate-500">00:00</span>
+                            </div>
+                            <div class="mt-3">
+                                <p class="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-teal-300">Finalized browser transcript</p>
+                                <p id="final-transcript" class="mt-2 min-h-7 text-slate-200" aria-live="polite">Waiting for speech…</p>
+                            </div>
+                            <div id="provisional-transcript-row" class="mt-4 hidden border-t border-white/8 pt-4">
+                                <p class="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-amber-200">Provisional · may change</p>
+                                <p id="interim-transcript" class="mt-2 min-h-6 text-sm italic text-slate-500">Listening…</p>
+                            </div>
+                            <p class="mt-4 text-xs leading-5 text-slate-600">Only finalized text is saved. Browser recognition may normalize speech and is not guaranteed to be literal.</p>
+                        </div>
+                    </div>
+
+                    <div id="capture-actions" class="mt-6 hidden flex-col gap-3 sm:flex-row">
+                        <button id="submit-turn" type="button" class="flex-1 rounded-xl bg-teal-400 px-5 py-3.5 font-bold text-slate-950 transition hover:bg-teal-300 disabled:cursor-wait disabled:opacity-50">Compare both transcripts</button>
+                        <button id="discard-turn" type="button" class="rounded-xl border border-white/10 px-5 py-3.5 font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">Discard recording</button>
+                    </div>
+                    <div id="status-message" class="mt-4 hidden rounded-xl p-4 text-sm" role="status" aria-live="polite"></div>
+                </div>
+            </div>
+
+            <aside class="space-y-6">
+                <section class="rounded-3xl border border-white/10 bg-white/[0.055] p-6">
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-teal-300">Test deliberately</p>
+                    <h2 class="mt-2 text-xl font-black text-white">Stress-test phrases</h2>
+                    <p class="mt-2 text-sm leading-6 text-slate-400">Include the things dictation tools often clean up.</p>
+                    <div class="mt-5 grid gap-3 text-sm">
+                        <div class="rounded-xl bg-slate-900/80 p-3"><span class="font-bold text-amber-200">Fillers:</span> “um… eu… eu acho”</div>
+                        <div class="rounded-xl bg-slate-900/80 p-3"><span class="font-bold text-amber-200">Grammar:</span> “eu foi ontem”</div>
+                        <div class="rounded-xl bg-slate-900/80 p-3"><span class="font-bold text-amber-200">Correction:</span> “terça—não, quinta”</div>
+                        <div class="rounded-xl bg-slate-900/80 p-3"><span class="font-bold text-amber-200">Code-switch:</span> “no café near Rossio”</div>
+                        <div class="rounded-xl bg-slate-900/80 p-3"><span class="font-bold text-amber-200">Details:</span> “Miguel, 14B, €17,50”</div>
+                    </div>
+                </section>
+
+                <section class="rounded-3xl border border-white/10 bg-white/[0.055] p-6">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Local session</p>
+                            <p id="session-short-id" class="mt-2 font-mono text-sm text-slate-300">Creating…</p>
+                        </div>
+                        <span id="turn-count" class="rounded-full bg-teal-300/10 px-3 py-1 text-xs font-bold text-teal-200">0 turns</span>
+                    </div>
+                    <button id="delete-session" type="button" class="mt-5 w-full rounded-xl border border-red-300/20 px-4 py-3 text-sm font-bold text-red-200 transition hover:bg-red-300/10">Delete this session</button>
+                    <p class="mt-3 text-xs leading-5 text-slate-500">Removes saved audio and transcript JSON from this experiment backend.</p>
+                </section>
+            </aside>
+        </section>
+
+        <section id="results-section" class="mt-10 hidden">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                    <p class="text-sm font-bold uppercase tracking-[0.2em] text-teal-300">Evidence log</p>
+                    <h2 class="mt-2 text-3xl font-black text-white">Turn-by-turn comparison</h2>
+                </div>
+                <p class="max-w-xl text-sm leading-6 text-slate-500">Enter a manual reference after replaying the audio. Metrics ignore case and punctuation but preserve repeated and missing words.</p>
+            </div>
+            <div id="turn-results" class="mt-6 space-y-6"></div>
+        </section>
+    </main>
+
+    <template id="result-template">
+        <article class="result-card rounded-3xl border border-white/10 bg-white/[0.055] p-5 sm:p-7">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="turn-number grid h-9 w-9 place-items-center rounded-full bg-teal-300/10 text-sm font-black text-teal-200"></span>
+                    <div>
+                        <p class="font-bold text-white">Conversation turn</p>
+                        <p class="turn-meta text-xs text-slate-500"></p>
+                    </div>
+                </div>
+                <audio class="turn-audio h-10 max-w-full" controls></audio>
+            </div>
+            <div class="mt-6 grid gap-4 lg:grid-cols-2">
+                <div class="rounded-2xl border border-indigo-300/15 bg-indigo-300/[0.045] p-5">
+                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-indigo-200">Browser SpeechRecognition</p>
+                    <p class="browser-result mt-3 min-h-14 whitespace-pre-wrap text-lg leading-7 text-white"></p>
+                    <p class="browser-detail mt-4 font-mono text-xs text-slate-500"></p>
+                </div>
+                <div class="rounded-2xl border border-teal-300/15 bg-teal-300/[0.045] p-5">
+                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-teal-200">OpenAI gpt-transcribe</p>
+                    <p class="provider-result mt-3 min-h-14 whitespace-pre-wrap text-lg leading-7 text-white"></p>
+                    <p class="provider-detail mt-4 font-mono text-xs text-slate-500"></p>
+                </div>
+            </div>
+            <div class="mt-5 rounded-2xl bg-slate-950/60 p-5">
+                <label class="text-sm font-bold text-slate-200">Manual reference: what was actually said?</label>
+                <textarea class="manual-reference mt-3 min-h-24 w-full resize-y rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-white outline-none placeholder:text-slate-600 focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20" placeholder="Replay the audio, then type the literal wording here…"></textarea>
+                <div class="metrics mt-4 hidden grid gap-3 sm:grid-cols-3">
+                    <div class="rounded-xl bg-white/5 p-3"><p class="text-xs text-slate-500">Browser WER</p><p class="browser-wer mt-1 text-xl font-black text-white"></p></div>
+                    <div class="rounded-xl bg-white/5 p-3"><p class="text-xs text-slate-500">OpenAI WER</p><p class="provider-wer mt-1 text-xl font-black text-white"></p></div>
+                    <div class="rounded-xl bg-white/5 p-3"><p class="text-xs text-slate-500">Transport</p><p class="transport-status mt-1 text-sm font-bold text-white"></p></div>
+                </div>
+                <div class="error-details mt-3 hidden grid gap-2 text-xs text-slate-400 sm:grid-cols-2">
+                    <p class="browser-errors rounded-lg bg-white/[0.035] px-3 py-2"></p>
+                    <p class="provider-errors rounded-lg bg-white/[0.035] px-3 py-2"></p>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <footer class="mt-16 border-t border-white/10 px-5 py-8 text-center text-sm text-slate-600 sm:px-8">
+        Local LinguAdventure experiment · Raw audio remains the source of truth
+    </footer>
+
+    <script type="module" src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

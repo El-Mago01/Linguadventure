@@ -1574,3 +1574,86 @@
 11-Oct-26 00:10:57 - root - INFO - Request received to delete user with student ID: 4
 11-Oct-26 00:11:16 - root - INFO - Deletion successful. Student with student ID: 4 is deleted
 11-Oct-26 00:11:21 - werkzeug - INFO - 127.0.0.1 - - [11/Oct/2026 00:11:21] "DELETE /delete_user/4/ HTTP/1.1" 200 -
+31-Oct-26 10:10:38 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+31-Oct-26 10:10:38 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+31-Oct-26 10:10:38 - werkzeug - INFO -  * Restarting with stat
+31-Oct-26 10:10:39 - werkzeug - WARNING -  * Debugger is active!
+31-Oct-26 10:10:39 - werkzeug - INFO -  * Debugger PIN: 213-957-536
+31-Oct-26 10:11:03 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:11:03] "GET / HTTP/1.1" 200 -
+31-Oct-26 10:11:13 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:11:13] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+31-Oct-26 10:11:13 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:11:13] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+31-Oct-26 10:11:13 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:11:13] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+31-Oct-26 10:11:13 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:11:13] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=SrTraIqrMIWe0TUqFu6v HTTP/1.1" 200 -
+31-Oct-26 10:11:13 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:11:13] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+31-Oct-26 10:14:19 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+31-Oct-26 10:14:19 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+31-Oct-26 10:14:19 - werkzeug - INFO -  * Restarting with stat
+31-Oct-26 10:14:20 - werkzeug - WARNING -  * Debugger is active!
+31-Oct-26 10:14:20 - werkzeug - INFO -  * Debugger PIN: 213-957-536
+31-Oct-26 10:14:26 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:14:26] "GET / HTTP/1.1" 200 -
+31-Oct-26 10:14:32 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:14:32] "POST /login HTTP/1.1" 200 -
+31-Oct-26 10:15:11 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:15:12 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:15:13 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:15:15 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:15:15 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:15:16 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 10:15:16 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+31-Oct-26 10:15:30 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:15:30 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 10:15:30 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+31-Oct-26 10:15:43 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:15:44 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 10:15:44 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+31-Oct-26 10:17:13 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+31-Oct-26 10:17:13 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+31-Oct-26 10:17:13 - werkzeug - INFO -  * Restarting with stat
+31-Oct-26 10:17:14 - werkzeug - WARNING -  * Debugger is active!
+31-Oct-26 10:17:14 - werkzeug - INFO -  * Debugger PIN: 213-957-536
+31-Oct-26 10:17:17 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:17:17] "GET / HTTP/1.1" 200 -
+31-Oct-26 10:17:23 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 10:17:23] "POST /login HTTP/1.1" 200 -
+31-Oct-26 10:17:26 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:17:27 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:17:28 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:17:29 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:17:30 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 10:17:30 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 10:17:30 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+31-Oct-26 18:05:33 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+31-Oct-26 18:05:33 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+31-Oct-26 18:05:33 - werkzeug - INFO -  * Restarting with stat
+31-Oct-26 18:05:34 - werkzeug - WARNING -  * Debugger is active!
+31-Oct-26 18:05:34 - werkzeug - INFO -  * Debugger PIN: 213-957-536
+31-Oct-26 18:05:36 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 18:05:36 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 18:05:37 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 18:05:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 18:05:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 18:05:38 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+31-Oct-26 18:05:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 18:05:38 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 18:05:38 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+31-Oct-26 18:05:42 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 18:05:42] "GET / HTTP/1.1" 200 -
+31-Oct-26 18:05:50 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 18:05:50 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 2 of 2)
+31-Oct-26 18:05:51 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 18:05:51 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 18:05:51 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+31-Oct-26 18:05:52 - werkzeug - INFO - 127.0.0.1 - - [31/Oct/2026 18:05:52] "POST /login HTTP/1.1" 200 -
+31-Oct-26 18:06:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 18:06:04 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 2 of 2)
+31-Oct-26 18:06:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+31-Oct-26 18:06:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+31-Oct-26 18:06:04 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)

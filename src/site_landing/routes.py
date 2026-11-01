@@ -23,7 +23,7 @@ def login():
     or continue an ongoing one.
     :return:
     """
-    return render_template("user_home.html")
+    return render_template("site_landing/user_home.html")
 
 @site_landing.route("/register", methods=["GET","POST"])
 def register():

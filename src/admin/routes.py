@@ -3,8 +3,8 @@ from flask import Blueprint, render_template
 admin = Blueprint("admin", __name__)
 
 
-@admin.route("/<user_id>/adventure_admin", methods=["GET", "POST"])
-def adventure_admin(user_id:int):
+@admin.route("/adventure_admin/<adventure_id>/", methods=["GET", "POST"])
+def adventure_admin(adventure_id:int):
     """
     Upon request, the admin is presented with an adventure administration page where adventures can be added, changed,
     deleted, activated/deactivated etc. If the admin indicate to create a new adventure, he'll be redirected to a form
@@ -17,7 +17,7 @@ def adventure_admin(user_id:int):
 
 
 
-@admin.route("/<user_id>/<adventure_id>/act_deact", methods=["POST"])
+@admin.route("/adventure_admin/act_deact/<user_id>/<adventure_id>/", methods=["POST"])
 def act_deact_adventure(adventure_id:int):
     """
     The administrator decided to deactivate or activate an adventure
@@ -26,7 +26,7 @@ def act_deact_adventure(adventure_id:int):
     """
     return render_template("index.html")
 
-@admin.route("/<user_id>/<adventure_id>/update'", methods=["GET", "POST"])
+@admin.route("/adventure_admin/update/<user_id>/<adventure_id>/'", methods=["GET", "POST"])
 def update_adventure(user_id:int, adventure_id:int):
     """
     The admin indicated that an adventure needs an update. The admin first receive a pre-filled form (GET) where-after
