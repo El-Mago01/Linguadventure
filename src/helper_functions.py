@@ -41,10 +41,10 @@ def promote_admin_users():
     print("This is the current directory: ",os.getcwd())
     if os.path.exists("../.admin"):
         with open("../.admin", 'r') as file:
-            admin_mail_addresses = file.readlines()
+            admin_mail_addresses = file.read().splitlines()
             list_valid_admin_addresses = []
             for email in admin_mail_addresses:
-                if is_valid_email_address(email):
+                if is_valid_email_address(email.strip()):
                     list_valid_admin_addresses.append(email)
             if len(list_valid_admin_addresses) > 0:
                 for email in list_valid_admin_addresses:

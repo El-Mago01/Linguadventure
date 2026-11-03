@@ -39,18 +39,33 @@ class AdventureDataManager:
     # All class definitions related to adventure management
     # =========================================================================
     @staticmethod
-    def get_all_adventures(student_id) -> list[Adventure]:
+    def get_all_adventures(sorting_command=None) -> list[Adventure]:
         """
         Interface function for searching for adventures with a specific title within the imdb web-site.
         The search is actually performed by the adventure_data_fetcher module.
         :param adventure_title:
         :return:
         """
-        if not isinstance(student_id, int):
-            return []
-        if student_id < 0:
-            return []
-        all_adventures = get_all_adventures(student_id)
+
+        if sorting_command is None:
+            sorting_command = {"sort_by": "title", "direction": "asc"}
+
+        sort_by = sorting_command.get("sort_by", "title")
+        direction = sorting_command.get("direction", "asc")
+
+        stmt = db.select(Adventure)
+        if sort_by == "title":
+            if direction == "asc":
+                stmt = stmt.order_by(Adventure.title.asc())
+            else:
+                stmt = stmt.order_by(Adventure.title.desc())
+        else:
+            if direction == "asc":
+                stmt = stmt.order_by(Adventure.creator.asc())
+            else:
+                stmt = stmt.order_by(Adventure.creator.desc())
+
+        all_adventures = db.session.execute(stmt).scalars().all()
         return all_adventures
 
     @staticmethod
@@ -63,11 +78,11 @@ class AdventureDataManager:
             return []
         if not AdventureDataManager.student_exists(student_id):
             return []
-        sort_by = sorting_command.get("sort_by", "adventures")
+        sort_by = sorting_command.get("sort_by", "title")
         direction = sorting_command.get("direction", "asc")
 
         stmt = db.select(Adventure).where(Student_Adventure.student_id == student_id)
-        if sort_by == "adventures":
+        if sort_by == "title":
             if direction == "asc":
                 stmt = stmt.order_by(Adventure.title.asc())
             else:
@@ -101,7 +116,7 @@ class AdventureDataManager:
 
 
     @staticmethod
-    def store_adventure(adventure: dict) -> Adventure:
+    def create_adventure(adventure: dict) -> Adventure:
         """
 
 

@@ -13,10 +13,11 @@ Important clarification. The jargon in this application distinguishes 3 types of
 import os
 from dotenv import load_dotenv
 from flask import Flask
-from data_manager import DataManager, db
+from data_manager import DataManager, db, login_manager
 from src.site_landing import site_landing
 from src.adventures import adventures
 from src.admin import admin
+# from site_landing import admin
 from src.play import play
 from src.learning import learning
 from src.wrapup import wrapup
@@ -39,8 +40,9 @@ def create_app(database_uri=None):
     else:
         this_app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///../../data/linguadventure.sqlite"
     print("DB inside create_app:", id(db))
-
+    this_app.config["SECRET_KEY"] = "development-only-change-me-later"
     db.init_app(this_app)
+    login_manager.init_app(this_app)
     # Blueprints
     this_app.register_blueprint(site_landing)
     # this_app.register_blueprint(site_landing, url_prefix="/user")
@@ -55,6 +57,7 @@ def create_app(database_uri=None):
     return this_app
 
 app = create_app()
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 load_dotenv()  # Load environment variables from .env file

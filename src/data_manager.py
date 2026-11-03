@@ -10,7 +10,7 @@ import logging
 
 from sqlalchemy.exc import IntegrityError, OperationalError
 
-from models import db, Adventure, Student, Student_Adventure
+from models import db, Adventure, Student, Student_Adventure, login_manager
 from src.errors import StudentStorageError, AdventureStorageError
 from src.site_landing.data_manager import StudentDataManager
 from src.adventures.data_manager import AdventureDataManager
@@ -47,6 +47,10 @@ class DataManager:
         return StudentDataManager.get_student(received_student_data)
 
     @staticmethod
+    def get_student_object(received_student_data) -> Student | None:
+        return StudentDataManager.get_student_object(received_student_data)
+
+    @staticmethod
     def student_exists(received_student_data) -> bool:
         return StudentDataManager.student_exists(received_student_data)
 
@@ -72,8 +76,8 @@ class DataManager:
     # =========================================================================
 
     @staticmethod
-    def get_all_adventures(student_id) -> list[Adventure]:
-        return AdventureDataManager.get_all_adventures(student_id)
+    def get_all_adventures() -> list[Adventure]:
+        return AdventureDataManager.get_all_adventures()
 
 
     @staticmethod
@@ -85,8 +89,8 @@ class DataManager:
         return AdventureDataManager.get_adventure(adventure_id)
 
     @staticmethod
-    def store_adventure(adventure: dict) -> Adventure:
-        return AdventureDataManager.store_adventure(adventure)
+    def create_adventure(adventure: dict) -> Adventure:
+        return AdventureDataManager.create_adventure(adventure)
 
     @staticmethod
     def adventure_exists(adventure_id: int) -> bool:

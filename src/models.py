@@ -10,16 +10,18 @@ take care of the fulfillment of these requests by using the partners models and
 movie_data_fetcher.
 """
 import datetime
+from flask_login import LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
 
 # from app import app
 
-db = SQLAlchemy()
+db = SQLAlchemy()              #initialize SQLAlchemy
+login_manager = LoginManager() #Initialize Flask-Login
 
 # ================================================================================
 # User class (inheriting from db.Model class)
 # ================================================================================
-class Student(db.Model):
+class Student(UserMixin, db.Model):
     """
     Student model
 
@@ -32,6 +34,7 @@ class Student(db.Model):
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
+    password_hash = db.Column(db.String(255), nullable=False)
     gender = db.Column(db.String(10))
     registration_date = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now(datetime.UTC))
     age = db.Column(db.Integer)
@@ -42,6 +45,9 @@ class Student(db.Model):
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
     is_active = db.Column(db.Boolean, nullable=False, default=True)
     # movies = db.relationship("Movie", backref="user", cascade="all, delete-orphan")
+
+    def get_id(self):
+        return str(self.student_id)
 
     def __repr__(self):
         return f"{self.student_id}: {self.first_name} {self.last_name},\n"
@@ -54,6 +60,7 @@ class Student(db.Model):
         student_data["first_name"] = self.first_name
         student_data["last_name"] = self.last_name
         student_data["email"] = self.email
+        student_data["password_hash"] = self.password_hash
         student_data["gender"] = self.gender
         student_data["age"] = self.age
         student_data["occupation"] = self.occupation
@@ -66,6 +73,12 @@ class Student(db.Model):
         student_data["student_id"] = self.student_id
         return student_data
 
+@login_manager.user_loader
+def load_user(user_id):
+    try:
+        return db.session.get(Student, int(user_id))
+    except (TypeError, ValueError):
+        return None
 # ================================================================================
 # Movie class (inheriting from db.Model class)
 # ================================================================================

@@ -1657,3 +1657,993 @@
 31-Oct-26 18:06:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 31-Oct-26 18:06:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
 31-Oct-26 18:06:04 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+02-Nov-26 12:30:40 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://127.0.0.1:5000
+02-Nov-26 12:30:40 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+02-Nov-26 12:30:40 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 12:30:42 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 12:30:42 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 12:30:52 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\environment.py', reloading
+02-Nov-26 12:30:52 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+02-Nov-26 12:30:52 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:30:52] "[35m[1mGET / HTTP/1.1[0m" 500 -
+02-Nov-26 12:30:53 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:30:53] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+02-Nov-26 12:30:53 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:30:53] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+02-Nov-26 12:30:53 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:30:53] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+02-Nov-26 12:30:53 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:30:53] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 12:30:53 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 12:30:55 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 12:30:55 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 12:33:06 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:33:06] "GET / HTTP/1.1" 200 -
+02-Nov-26 12:33:07 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:33:07] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 12:33:28 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:33:28] "[35m[1mGET / HTTP/1.1[0m" 500 -
+02-Nov-26 12:33:28 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:33:28] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Nov-26 12:33:28 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:33:28] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Nov-26 12:33:28 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:33:28] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 12:34:16 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:34:16] "GET / HTTP/1.1" 200 -
+02-Nov-26 12:34:16 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:34:16] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 12:35:20 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://127.0.0.1:5000
+02-Nov-26 12:35:20 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+02-Nov-26 12:35:20 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 12:35:22 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 12:35:22 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 12:35:23 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:35:23] "GET / HTTP/1.1" 200 -
+02-Nov-26 12:35:23 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 12:35:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:30:45 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:30:45] "GET / HTTP/1.1" 200 -
+02-Nov-26 15:30:45 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:30:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:34:30 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 15:34:30] "GET / HTTP/1.1" 200 -
+02-Nov-26 15:34:39 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 15:34:39] "POST /mcp HTTP/1.1" 200 -
+02-Nov-26 15:34:39 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 15:34:39] "[31m[1mGET / HTTP/1.1[0m" 400 -
+02-Nov-26 15:34:39 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 15:34:39] "[31m[1mGET /loginMsg.js HTTP/1.1[0m" 405 -
+02-Nov-26 15:34:39 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 15:34:39] "[33mGET /cgi/get.cgi?cmd=home_login HTTP/1.1[0m" 404 -
+02-Nov-26 15:34:41 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 15:34:41] "[31m[1mGET /rootDesc.xml HTTP/1.1[0m" 405 -
+02-Nov-26 15:34:41 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 15:34:41] "[31m[1mGET /rootDesc.xml HTTP/1.1[0m" 405 -
+02-Nov-26 15:34:42 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:34:42] "GET / HTTP/1.1" 200 -
+02-Nov-26 15:34:44 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:34:44] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:34:49 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:34:49] "POST /login HTTP/1.1" 200 -
+02-Nov-26 15:34:49 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:34:49] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:41:15 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+02-Nov-26 15:41:15 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+02-Nov-26 15:41:15 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 15:41:17 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 15:41:17 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 15:41:35 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:41:35] "GET / HTTP/1.1" 200 -
+02-Nov-26 15:41:35 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:41:35] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:44:37 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:44:37] "GET / HTTP/1.1" 200 -
+02-Nov-26 15:44:37 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:44:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:45:23 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:45:23] "GET / HTTP/1.1" 200 -
+02-Nov-26 15:45:23 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:45:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:45:25 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:45:25] "GET / HTTP/1.1" 200 -
+02-Nov-26 15:45:25 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:45:25] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:46:56 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:46:56] "GET / HTTP/1.1" 200 -
+02-Nov-26 15:46:56 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:46:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:49:13 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 15:49:13 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 15:49:13 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 15:49:13 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 15:49:14 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 15:49:16 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 15:49:16 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 15:49:40 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:49:40] "GET / HTTP/1.1" 200 -
+02-Nov-26 15:49:40 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:49:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 15:57:05 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:57:05] "POST /login HTTP/1.1" 200 -
+02-Nov-26 15:57:06 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 15:57:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:00:07 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:00:07] "POST /login HTTP/1.1" 200 -
+02-Nov-26 16:00:07 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:00:07] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:00:16 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:00:16] "GET / HTTP/1.1" 200 -
+02-Nov-26 16:00:16 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:00:16] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:00:23 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:00:23] "POST /login HTTP/1.1" 200 -
+02-Nov-26 16:00:23 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:00:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:07:27 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:07:27 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:07:27 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:07:27 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:07:28 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 16:07:30 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 16:07:30 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 16:11:39 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:11:39 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:11:39 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:11:39 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:11:40 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 16:11:43 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 16:11:43 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 16:11:45 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\app.py', reloading
+02-Nov-26 16:11:45 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:11:45] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+02-Nov-26 16:11:45 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:11:45] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+02-Nov-26 16:11:45 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:11:45] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+02-Nov-26 16:11:45 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:11:45] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+02-Nov-26 16:11:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:11:46] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 16:11:46 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 16:11:49 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 16:11:49 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 16:13:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\werkzeug\\utils.py', reloading
+02-Nov-26 16:13:47 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 16:13:50 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 16:13:50 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 16:18:10 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:18:10 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:18:10 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:18:10 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 16:18:11 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 16:18:13 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 16:18:13 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 16:18:13 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:18:13] "POST /login HTTP/1.1" 200 -
+02-Nov-26 16:18:14 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:18:14] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:19:06 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:19:06] "POST /login HTTP/1.1" 200 -
+02-Nov-26 16:19:07 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:19:07] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:25:45 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:25:45] "POST /login HTTP/1.1" 200 -
+02-Nov-26 16:25:45 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:25:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:32:06 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:32:06] "POST /login HTTP/1.1" 200 -
+02-Nov-26 16:32:06 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:32:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:32:17 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:32:17] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+02-Nov-26 16:33:40 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:33:40] "POST /login HTTP/1.1" 200 -
+02-Nov-26 16:33:40 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:33:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:41:02 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\templating.py', reloading
+02-Nov-26 16:41:02 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\environment.py', reloading
+02-Nov-26 16:41:02 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+02-Nov-26 16:41:02 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:41:02] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+02-Nov-26 16:41:02 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:41:02] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Nov-26 16:41:02 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:41:02] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Nov-26 16:41:02 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:41:02] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 16:41:02 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:41:02] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 16:41:03 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 16:41:10 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 16:41:10 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 16:42:53 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:42:53] "POST /login HTTP/1.1" 200 -
+02-Nov-26 16:42:53 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:42:53] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 16:42:59 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 16:42:59] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 20:06:40 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 20:06:40] "GET / HTTP/1.1" 200 -
+02-Nov-26 20:06:48 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\app.py', reloading
+02-Nov-26 20:06:48 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+02-Nov-26 20:06:48 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\templating.py', reloading
+02-Nov-26 20:06:48 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\environment.py', reloading
+02-Nov-26 20:06:48 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 20:06:48] "[35m[1mPOST /mcp HTTP/1.1[0m" 500 -
+02-Nov-26 20:06:48 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 20:06:48] "[31m[1mGET / HTTP/1.1[0m" 400 -
+02-Nov-26 20:06:48 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 20:06:48] "[31m[1mGET /loginMsg.js HTTP/1.1[0m" 405 -
+02-Nov-26 20:06:48 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 20:06:48] "[33mGET /cgi/get.cgi?cmd=home_login HTTP/1.1[0m" 404 -
+02-Nov-26 20:06:49 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 20:06:56 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 20:06:56 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 20:06:56 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 20:06:56] "[31m[1mGET /rootDesc.xml HTTP/1.1[0m" 405 -
+02-Nov-26 20:06:56 - werkzeug - INFO - 100.65.226.119 - - [02/Nov/2026 20:06:56] "[31m[1mGET /rootDesc.xml HTTP/1.1[0m" 405 -
+02-Nov-26 20:15:38 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:15:38] "GET / HTTP/1.1" 200 -
+02-Nov-26 20:15:38 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:15:38] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 20:15:43 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:15:43] "POST /login HTTP/1.1" 200 -
+02-Nov-26 20:15:43 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:15:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 20:16:23 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:16:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 20:35:41 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 20:35:41 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 20:35:41 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 20:35:41 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 20:35:42 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 20:35:44 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 20:35:44 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 20:38:51 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:38:51] "GET / HTTP/1.1" 200 -
+02-Nov-26 20:38:52 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:38:52] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 20:38:57 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\werkzeug\\routing\\map.py', reloading
+02-Nov-26 20:38:57 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:38:57] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+02-Nov-26 20:38:57 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:38:57] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Nov-26 20:38:57 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:38:57] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Nov-26 20:38:58 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:38:58] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 20:38:58 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:38:58] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 20:38:58 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 20:39:00 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 20:39:00 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 20:39:42 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:39:42] "GET / HTTP/1.1" 200 -
+02-Nov-26 20:39:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:39:46] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 20:39:51 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:39:51] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+02-Nov-26 20:39:51 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:39:51] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Nov-26 20:39:51 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:39:51] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Nov-26 20:39:51 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:39:51] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 20:41:02 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:41:02] "GET / HTTP/1.1" 200 -
+02-Nov-26 20:41:03 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:41:03] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 20:41:08 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:41:08] "POST /login HTTP/1.1" 200 -
+02-Nov-26 20:41:08 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:41:08] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 20:44:12 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:44:12] "GET / HTTP/1.1" 200 -
+02-Nov-26 20:44:12 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:44:12] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 20:44:16 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:44:16] "POST /login HTTP/1.1" 200 -
+02-Nov-26 20:44:16 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 20:44:16] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:19:53 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:19:53] "GET / HTTP/1.1" 200 -
+02-Nov-26 21:19:54 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:19:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:19:58 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:19:58] "POST /login HTTP/1.1" 200 -
+02-Nov-26 21:19:59 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:19:59] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:25:45 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:25:45] "GET / HTTP/1.1" 200 -
+02-Nov-26 21:25:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:25:46] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:25:50 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:25:50] "POST /login HTTP/1.1" 200 -
+02-Nov-26 21:25:50 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:25:50] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:25:58 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+02-Nov-26 21:25:58 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:25:58] "[35m[1mPOST /adventure_admin/ HTTP/1.1[0m" 500 -
+02-Nov-26 21:25:58 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:25:58] "GET /adventure_admin/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+02-Nov-26 21:25:58 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:25:58] "GET /adventure_admin/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+02-Nov-26 21:25:59 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:25:59] "GET /adventure_admin/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+02-Nov-26 21:25:59 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:25:59] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 21:26:00 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 21:26:03 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 21:26:03 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 21:27:11 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\app.py', reloading
+02-Nov-26 21:27:11 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\templating.py', reloading
+02-Nov-26 21:27:11 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\environment.py', reloading
+02-Nov-26 21:27:11 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:27:11] "[35m[1mPOST /adventure_admin/ HTTP/1.1[0m" 500 -
+02-Nov-26 21:27:11 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:27:11] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Nov-26 21:27:11 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:27:11] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Nov-26 21:27:11 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:27:11] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 21:27:11 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:27:11] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 21:27:11 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 21:27:14 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 21:27:14 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 21:28:00 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:28:00 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:28:00 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:28:00 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:28:01 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 21:28:04 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 21:28:04 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 21:28:04 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:28:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:28:09 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:28:09] "[35m[1mPOST /adventure_admin/ HTTP/1.1[0m" 500 -
+02-Nov-26 21:28:09 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:28:09] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Nov-26 21:28:09 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:28:09] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Nov-26 21:28:09 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:28:09] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 21:29:44 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:29:44 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:29:44 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:29:44 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:29:45 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 21:29:48 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 21:29:48 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 21:29:48 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:29:48] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:29:48 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:29:48] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 21:29:49 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:29:49] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:30:44 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+02-Nov-26 21:30:44 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+02-Nov-26 21:30:45 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 21:30:47 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 21:30:47 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 21:30:55 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:30:55] "GET / HTTP/1.1" 200 -
+02-Nov-26 21:30:55 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:30:55] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:30:59 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:30:59] "POST /login HTTP/1.1" 200 -
+02-Nov-26 21:30:59 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:30:59] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:31:04 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:31:04] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 21:31:04 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:31:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:40:31 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:40:31 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:40:31 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:40:31 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:40:32 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 21:40:34 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 21:40:34 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 21:48:37 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:48:37 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:48:37 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:48:37 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:48:38 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 21:48:40 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 21:48:40 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 21:48:43 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:48:43] "GET / HTTP/1.1" 200 -
+02-Nov-26 21:48:44 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:48:44] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:48:49 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:48:49] "POST /login HTTP/1.1" 200 -
+02-Nov-26 21:48:49 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:48:49] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:48:53 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:48:53] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 21:48:54 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:48:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:49:33 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:49:33] "POST /login HTTP/1.1" 200 -
+02-Nov-26 21:49:33 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:49:33] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:49:37 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:49:37] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 21:49:37 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:49:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:56:05 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:56:05] "POST /login HTTP/1.1" 200 -
+02-Nov-26 21:56:06 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:56:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:56:08 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:56:08] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 21:56:09 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:56:09] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:56:26 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:56:26] "[33mGET /administration/adventures/new HTTP/1.1[0m" 404 -
+02-Nov-26 21:56:26 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:56:26] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:57:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:57:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:57:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:57:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:57:51 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 21:57:53 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 21:57:53 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 21:57:53 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:57:53] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:57:56 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:57:56] "[31m[1mGET /adventure_admin/ HTTP/1.1[0m" 405 -
+02-Nov-26 21:57:56 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:57:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:58:01 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:01] "GET / HTTP/1.1" 200 -
+02-Nov-26 21:58:02 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:02] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:58:06 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:06] "POST /login HTTP/1.1" 200 -
+02-Nov-26 21:58:06 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:58:09 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:09] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 21:58:09 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:09] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:58:15 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:15] "[33mGET /administration/adventures/new HTTP/1.1[0m" 404 -
+02-Nov-26 21:58:15 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:15] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:58:20 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:20] "GET / HTTP/1.1" 200 -
+02-Nov-26 21:58:20 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:58:20] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:59:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:59:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:59:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:59:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 21:59:29 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 21:59:31 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 21:59:31 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 21:59:31 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:59:31] "POST /login HTTP/1.1" 200 -
+02-Nov-26 21:59:32 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:59:32] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 21:59:34 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:59:34] "[35m[1mPOST /adventure_admin/ HTTP/1.1[0m" 500 -
+02-Nov-26 21:59:34 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:59:34] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Nov-26 21:59:34 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:59:34] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Nov-26 21:59:34 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 21:59:34] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 22:02:48 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\torch\\__init__.py', reloading
+02-Nov-26 22:02:48 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\torch\\functional.py', reloading
+02-Nov-26 22:02:49 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:02:52 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:02:52 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 22:03:30 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sqlalchemy\\ext\\__init__.py', reloading
+02-Nov-26 22:03:30 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sqlalchemy\\ext\\asyncio\\__init__.py', reloading
+02-Nov-26 22:03:30 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sqlalchemy\\ext\\asyncio\\result.py', reloading
+02-Nov-26 22:03:30 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:03:33 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:03:33 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 22:08:04 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sqlalchemy\\orm\\query.py', reloading
+02-Nov-26 22:08:05 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:08:08 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:08:08 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 22:08:54 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:08:54 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:08:54 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:08:54 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:08:54 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+02-Nov-26 22:08:54 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+02-Nov-26 22:08:54 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+02-Nov-26 22:08:54 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+02-Nov-26 22:08:55 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:08:57 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:08:57 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 22:13:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:13:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:13:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:13:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:13:29 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:13:32 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:13:32 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 22:13:33 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:33] "[31m[1mGET /adventure_admin/ HTTP/1.1[0m" 405 -
+02-Nov-26 22:13:33 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:33] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:13:42 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:42] "GET / HTTP/1.1" 200 -
+02-Nov-26 22:13:42 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:42] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:13:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:46] "POST /login HTTP/1.1" 200 -
+02-Nov-26 22:13:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:46] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:13:48 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:48] "[35m[1mPOST /adventure_admin/ HTTP/1.1[0m" 500 -
+02-Nov-26 22:13:48 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:48] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Nov-26 22:13:48 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:48] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Nov-26 22:13:48 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:13:48] "[36mGET /adventure_admin/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 22:14:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:14:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:14:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:14:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+02-Nov-26 22:14:48 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:14:50 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:14:50 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 22:14:50 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:14:50] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 22:14:50 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:14:50] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:14:58 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:14:58] "[33mGET /administration/adventures/new HTTP/1.1[0m" 404 -
+02-Nov-26 22:14:58 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:14:58] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:16:39 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:16:39] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:34:15 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:34:15] "GET / HTTP/1.1" 200 -
+02-Nov-26 22:34:16 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:34:16] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:34:21 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:34:21] "POST /login HTTP/1.1" 200 -
+02-Nov-26 22:34:21 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:34:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:34:24 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:34:24] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 22:34:24 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:34:24] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:34:26 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:34:26] "[33mPOST /administration/adventures/new HTTP/1.1[0m" 404 -
+02-Nov-26 22:34:26 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:34:26] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:35:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:35:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:35:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:35:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:35:51 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:35:54 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:35:54 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 22:35:54 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:35:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:35:54 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:35:54] "[33mPOST /administration/adventures/new HTTP/1.1[0m" 404 -
+02-Nov-26 22:35:54 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:35:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:36:08 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:36:08 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:36:08 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:36:08 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:36:09 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:36:11 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:36:11 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 22:36:11 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:36:11 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:11] "[33mPOST /administration/adventures/new HTTP/1.1[0m" 404 -
+02-Nov-26 22:36:11 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:36:36 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:36] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:36:37 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:37] "[33mPOST /administration/adventures/new HTTP/1.1[0m" 404 -
+02-Nov-26 22:36:37 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:36:40 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:36:44 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:44] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 22:36:44 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:44] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:36:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\app.py', reloading
+02-Nov-26 22:36:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\helpers.py', reloading
+02-Nov-26 22:36:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\werkzeug\\exceptions.py', reloading
+02-Nov-26 22:36:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:46] "[35m[1mPOST /admin/adventures/new HTTP/1.1[0m" 500 -
+02-Nov-26 22:36:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:46] "GET /admin/adventures/new?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+02-Nov-26 22:36:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:46] "GET /admin/adventures/new?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+02-Nov-26 22:36:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:46] "GET /admin/adventures/new?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+02-Nov-26 22:36:46 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:36:46] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 22:36:47 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:36:49 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:36:49 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+02-Nov-26 22:37:55 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:37:55] "GET / HTTP/1.1" 200 -
+02-Nov-26 22:37:56 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:37:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:38:00 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:38:00] "POST /login HTTP/1.1" 200 -
+02-Nov-26 22:38:00 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:38:00] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:38:02 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:38:02] "POST /adventure_admin/ HTTP/1.1" 200 -
+02-Nov-26 22:38:02 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:38:02] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+02-Nov-26 22:38:07 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:38:07] "[35m[1mPOST /admin/adventures/new HTTP/1.1[0m" 500 -
+02-Nov-26 22:38:07 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:38:07] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+02-Nov-26 22:38:07 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:38:07] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+02-Nov-26 22:38:07 - werkzeug - INFO - 127.0.0.1 - - [02/Nov/2026 22:38:07] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+02-Nov-26 22:40:36 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:40:36 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:40:36 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:40:36 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+02-Nov-26 22:40:37 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+02-Nov-26 22:40:40 - werkzeug - WARNING -  * Debugger is active!
+02-Nov-26 22:40:40 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 00:02:21 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 00:02:21 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+03-Nov-26 00:02:21 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 00:02:23 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 00:02:23 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 00:02:24 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:24] "GET / HTTP/1.1" 200 -
+03-Nov-26 00:02:24 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:24] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:02:28 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:28] "POST /login HTTP/1.1" 200 -
+03-Nov-26 00:02:29 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:29] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:02:31 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:31] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 00:02:31 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:31] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:02:33 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\app.py', reloading
+03-Nov-26 00:02:33 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\helpers.py', reloading
+03-Nov-26 00:02:33 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\werkzeug\\exceptions.py', reloading
+03-Nov-26 00:02:33 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:33] "[35m[1mPOST /admin/adventures/new HTTP/1.1[0m" 500 -
+03-Nov-26 00:02:33 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:33] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+03-Nov-26 00:02:33 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:33] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+03-Nov-26 00:02:33 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:02:33] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+03-Nov-26 00:02:34 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 00:02:36 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 00:02:36 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 00:04:35 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 00:04:35 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 00:04:35 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 00:04:35 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 00:04:36 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 00:04:39 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 00:04:39 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 00:04:39 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:04:39] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:04:39 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:04:39] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:04:39 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:04:39] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:04:42 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:04:42] "POST /login HTTP/1.1" 200 -
+03-Nov-26 00:04:42 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:04:42] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:04:44 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:04:44] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 00:04:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:04:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:04:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:04:46] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 00:04:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:04:46] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:06:35 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:06:35] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 00:06:35 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:06:35] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:21:15 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:21:15] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:21:17 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:21:17] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 00:21:17 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:21:17] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:33:40 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:33:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:33:43 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:33:43] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 00:33:43 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:33:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:36:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:36:12] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:36:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:36:14] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 00:36:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:36:14] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:36:47 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:36:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:36:52 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:36:52] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 00:36:52 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:36:52] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 00:36:59 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 00:36:59] "[33mPOST /administration/adventures/save HTTP/1.1[0m" 404 -
+03-Nov-26 09:07:22 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 09:07:22] "GET / HTTP/1.1" 200 -
+03-Nov-26 09:07:34 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\app.py', reloading
+03-Nov-26 09:07:34 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+03-Nov-26 09:07:34 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\templating.py', reloading
+03-Nov-26 09:07:34 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\environment.py', reloading
+03-Nov-26 09:07:34 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 09:07:34] "[35m[1mPOST /mcp HTTP/1.1[0m" 500 -
+03-Nov-26 09:07:34 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 09:07:34] "[31m[1mGET / HTTP/1.1[0m" 400 -
+03-Nov-26 09:07:36 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 09:07:40 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 09:07:40 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 09:07:43 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 09:07:43] "[31m[1mGET /loginMsg.js HTTP/1.1[0m" 405 -
+03-Nov-26 09:07:43 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 09:07:43] "[33mGET /cgi/get.cgi?cmd=home_login HTTP/1.1[0m" 404 -
+03-Nov-26 09:07:46 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 09:07:46] "[31m[1mGET /rootDesc.xml HTTP/1.1[0m" 405 -
+03-Nov-26 09:07:46 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 09:07:46] "[31m[1mGET /rootDesc.xml HTTP/1.1[0m" 405 -
+03-Nov-26 09:46:41 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:46:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:46:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+03-Nov-26 09:46:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:46:46] "[35m[1mPOST /admin/adventures/new HTTP/1.1[0m" 500 -
+03-Nov-26 09:46:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:46:46] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+03-Nov-26 09:46:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:46:46] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+03-Nov-26 09:46:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:46:46] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+03-Nov-26 09:46:47 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:46:47] "[36mGET /admin/adventures/new?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+03-Nov-26 09:46:47 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 09:46:50 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 09:46:50 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 09:48:04 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:48:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:48:06 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:48:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:48:09 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:48:09] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 09:48:09 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:48:09] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:48:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:48:12] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 09:48:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:48:12] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:48:37 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:48:37] "[33mGET /admin/adventures/persona_administration.html HTTP/1.1[0m" 404 -
+03-Nov-26 09:48:37 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:48:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:50:03 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:03] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:50:15 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:15] "[33mGET /admin/adventures/persona_administration.html HTTP/1.1[0m" 404 -
+03-Nov-26 09:50:15 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:15] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:50:19 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:19] "[33mGET /admin/adventures/persona_administration.html HTTP/1.1[0m" 404 -
+03-Nov-26 09:50:19 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:19] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:50:22 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:22] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:50:23 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:50:26 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:26] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 09:50:26 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:26] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:50:28 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:28] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 09:50:28 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:28] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 09:50:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:45] "[33mGET /admin/adventures/persona_admin.html HTTP/1.1[0m" 404 -
+03-Nov-26 09:50:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 09:50:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:08:08 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:08:08] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:08:09 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:08:09] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:08:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:08:12] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 10:08:13 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:08:13] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:08:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:08:14] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:08:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:08:14] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:08:22 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:08:22] "[31m[1mGET /admin/adventures/admin/persona_admin.html HTTP/1.1[0m" 405 -
+03-Nov-26 10:08:22 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:08:22] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:14 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:15:14 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:15:14 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:15:14 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:15:15 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 10:15:18 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 10:15:18 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 10:15:19 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:19] "[31m[1mGET /admin/adventures/admin/persona_admin.html HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:19 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:19] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:28 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:28] "[33mGET /admin/adventures/persona_admin.html HTTP/1.1[0m" 404 -
+03-Nov-26 10:15:28 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:28] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:37 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:37] "[33mGET /admin/persona_admin.html HTTP/1.1[0m" 404 -
+03-Nov-26 10:15:37 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:37] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:41 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:42 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:42] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:42 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:42] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:44 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:44] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:46] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 10:15:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:46] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:47 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:47] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:15:47 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:50 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:50] "[31m[1mGET /admin/persona_admin HTTP/1.1[0m" 405 -
+03-Nov-26 10:15:50 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:15:50] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:19 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:19] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:19 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:19] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:20 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:20] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:18:21 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:23 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:23] "[31m[1mGET /admin/persona_admin HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:23 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:28 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:28] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:28 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:28] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:31 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:31] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 10:18:31 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:31] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:32 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:32] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:18:32 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:32] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:35 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:35] "[31m[1mGET /admin/persona_admin HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:35 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:18:35] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:18:57 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py', reloading
+03-Nov-26 10:18:57 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 10:19:00 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 10:19:00 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 10:22:45 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:22:45 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:22:45 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:22:45 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:22:46 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 10:22:49 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 10:22:49 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 10:22:49 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:22:49] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:22:52 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:22:52] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 10:22:52 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:22:52] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:22:52 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:22:52] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:22:53 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:22:53] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:22:55 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\app.py', reloading
+03-Nov-26 10:22:55 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\flask\\helpers.py', reloading
+03-Nov-26 10:22:55 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\werkzeug\\exceptions.py', reloading
+03-Nov-26 10:22:55 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:22:55] "[35m[1mGET /admin/persona_admin HTTP/1.1[0m" 500 -
+03-Nov-26 10:22:55 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 10:22:58 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 10:22:58 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 10:22:58 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:22:58] "GET /admin/persona_admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+03-Nov-26 10:22:58 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:22:58] "GET /admin/persona_admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+03-Nov-26 10:31:56 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:31:56 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:31:56 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:31:56 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:31:57 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 10:32:00 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 10:32:00 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 10:36:10 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:36:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:36:11 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:36:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:36:13 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:36:13] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:36:13 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:36:13] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:38:00 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:38:00] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:38:00 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:38:00] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:38:41 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:38:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:38:43 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:38:43] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:38:43 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:38:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:39:41 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:39:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:39:43 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:39:43] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:39:43 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:39:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:39:54 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:39:54] "[31m[1mPOST /admin/persona_admin HTTP/1.1[0m" 405 -
+03-Nov-26 10:39:54 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:39:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:40:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:40:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:40:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:40:28 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 10:40:29 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 10:40:31 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 10:40:31 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 10:40:32 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:40:32] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:40:32 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:40:32] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:40:32 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:40:32] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:40:40 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:40:40] "POST /admin/persona_admin HTTP/1.1" 200 -
+03-Nov-26 10:40:40 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:40:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:40:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:40:45] "[33mGET /admin/adventure_editor_separate_personas.html HTTP/1.1[0m" 404 -
+03-Nov-26 10:40:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:40:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:40:47 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:40:47] "GET / HTTP/1.1" 200 -
+03-Nov-26 10:40:47 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:40:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:48:27 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:48:27] "POST /login HTTP/1.1" 200 -
+03-Nov-26 10:48:27 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:48:27] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:48:30 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:48:30] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 10:48:30 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:48:30] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:48:31 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:48:31] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:48:32 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:48:32] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:49:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:49:45] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:49:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:49:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:50:05 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:50:05] "POST /admin/persona_admin HTTP/1.1" 200 -
+03-Nov-26 10:50:06 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:50:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:52:55 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:52:55] "POST /admin/persona_admin HTTP/1.1" 200 -
+03-Nov-26 10:52:55 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:52:55] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:53:00 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:53:00] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:53:01 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:53:01] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:53:03 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:53:03] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:53:03 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:53:03] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:54:09 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:54:09] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:54:11 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:54:11] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 10:54:11 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:54:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 10:54:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:54:14] "POST /admin/persona_admin HTTP/1.1" 200 -
+03-Nov-26 10:54:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 10:54:14] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+03-Nov-26 11:21:25 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+03-Nov-26 11:21:25 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+03-Nov-26 11:21:25 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+03-Nov-26 11:21:25 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+03-Nov-26 11:21:25 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+03-Nov-26 11:21:25 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+03-Nov-26 11:21:25 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+03-Nov-26 11:21:25 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+03-Nov-26 11:21:27 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 11:21:32 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 11:21:32 - werkzeug - INFO -  * Debugger PIN: 233-842-512
+03-Nov-26 11:54:26 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 11:54:26 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 11:54:26 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 11:54:26 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+03-Nov-26 11:54:27 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+03-Nov-26 12:14:18 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 12:14:18 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 12:14:18 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 12:14:21 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 12:14:21 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 12:15:00 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 12:15:00] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 12:15:01 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 12:15:01] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 12:15:02 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 12:15:02] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 12:15:02 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 12:15:02] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 13:46:23 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\app.py', reloading
+03-Nov-26 13:46:24 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 13:46:26 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 13:46:26 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 13:48:41 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\app.py', reloading
+03-Nov-26 13:48:42 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 15:25:30 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 15:25:30 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 15:25:30 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 15:25:32 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 15:25:32 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 15:25:38 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:25:38] "GET / HTTP/1.1" 200 -
+03-Nov-26 15:25:38 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:25:38] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 15:26:28 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:26:28] "GET /register HTTP/1.1" 200 -
+03-Nov-26 15:26:29 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:26:29] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 15:29:16 - root - INFO - Request received to add a new user to the DB with email address: Brian.Gorren@gmail.com
+03-Nov-26 15:29:16 - root - INFO - Successfull storage of new user with email address Brian.Gorren@gmail.com has user id 3.
+03-Nov-26 15:29:16 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:29:16] "POST /register HTTP/1.1" 500 -
+03-Nov-26 15:29:16 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:29:16] "GET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+03-Nov-26 15:29:16 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:29:16] "GET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+03-Nov-26 15:29:16 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:29:16] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=HCJjLnWjQLvrmN8tI1Oj HTTP/1.1" 200 -
+03-Nov-26 15:29:16 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:29:16] "GET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+03-Nov-26 15:35:29 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 15:35:29 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 15:35:29 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 15:35:32 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 15:35:32 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 15:35:37 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:35:37] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 15:36:59 - root - INFO - Request received to add a new user to the DB with email address: Brian.Gorren@gmail.com
+03-Nov-26 15:36:59 - root - WARNING - Email address already exists in StudentDB: Brian.Gorren@gmail.com
+03-Nov-26 15:36:59 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:36:59] "POST /register HTTP/1.1" 200 -
+03-Nov-26 15:36:59 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:36:59] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 15:38:18 - root - INFO - Request received to add a new user to the DB with email address: regmarb@gmail.com
+03-Nov-26 15:38:18 - root - INFO - Successfull storage of new user with email address regmarb@gmail.com has user id 4.
+03-Nov-26 15:38:18 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:38:18] "POST /register HTTP/1.1" 200 -
+03-Nov-26 15:39:43 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:39:43] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 15:39:52 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:39:52] "GET /register HTTP/1.1" 200 -
+03-Nov-26 15:40:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:40:14] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 15:43:22 - root - INFO - Request received to add a new user to the DB with email address: kleber.vermeer@gmail.com
+03-Nov-26 15:43:22 - root - INFO - Successfull storage of new user with email address kleber.vermeer@gmail.com has user id 5.
+03-Nov-26 15:43:22 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:43:22] "POST /register HTTP/1.1" 200 -
+03-Nov-26 15:43:44 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:43:44] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 15:44:02 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:44:02] "GET / HTTP/1.1" 200 -
+03-Nov-26 15:44:08 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:44:08] "POST /login HTTP/1.1" 200 -
+03-Nov-26 15:44:24 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:44:24] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 15:46:41 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:46:41] "GET / HTTP/1.1" 200 -
+03-Nov-26 15:47:03 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 15:47:03] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 16:20:40 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 16:20:40] "GET / HTTP/1.1" 200 -
+03-Nov-26 16:20:52 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 16:20:52] "POST /mcp HTTP/1.1" 500 -
+03-Nov-26 16:20:52 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 16:20:52] "GET / HTTP/1.1" 400 -
+03-Nov-26 16:20:54 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 16:20:54] "GET /loginMsg.js HTTP/1.1" 405 -
+03-Nov-26 16:20:54 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 16:20:54] "GET /cgi/get.cgi?cmd=home_login HTTP/1.1" 404 -
+03-Nov-26 16:20:55 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 16:20:55] "GET /rootDesc.xml HTTP/1.1" 405 -
+03-Nov-26 16:20:55 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 16:20:55] "GET /rootDesc.xml HTTP/1.1" 405 -
+03-Nov-26 18:42:09 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\models.py', reloading
+03-Nov-26 18:42:09 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 19:26:08 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 19:26:08 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 19:26:08 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 19:26:10 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 19:26:10 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 19:26:15 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:26:15] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 19:26:18 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:26:18] "GET / HTTP/1.1" 200 -
+03-Nov-26 19:26:19 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:26:19] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 19:26:23 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:26:23] "GET /register HTTP/1.1" 200 -
+03-Nov-26 19:26:23 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:26:23] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 19:31:25 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:31:25] "POST /register HTTP/1.1" 500 -
+03-Nov-26 19:31:25 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:31:25] "GET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+03-Nov-26 19:31:25 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:31:25] "GET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+03-Nov-26 19:31:25 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:31:25] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=pfUv99r6EKBNJWzvJcqy HTTP/1.1" 200 -
+03-Nov-26 19:32:02 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+03-Nov-26 19:32:02 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 19:32:04 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 19:32:04 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 19:32:04 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:32:04] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 19:32:20 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+03-Nov-26 19:32:20 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:32:20] "POST /register HTTP/1.1" 500 -
+03-Nov-26 19:32:20 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:32:20] "GET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+03-Nov-26 19:32:20 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:32:20] "GET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+03-Nov-26 19:32:20 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 19:32:20] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=bjJ3Y9rwF6HyRhyw2RrD HTTP/1.1" 200 -
+03-Nov-26 19:53:31 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 19:53:31 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 19:53:31 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 19:53:38 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 19:53:38 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 19:59:18 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+03-Nov-26 20:00:17 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 20:00:23 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 20:00:23 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 20:00:23 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:00:23] "GET / HTTP/1.1" 200 -
+03-Nov-26 20:00:23 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:00:23] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:01:13 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:01:13] "POST /login HTTP/1.1" 302 -
+03-Nov-26 20:01:13 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:01:13] "GET / HTTP/1.1" 200 -
+03-Nov-26 20:01:13 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:01:13] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:02:31 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 20:02:31 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 20:02:31 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 20:02:44 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 20:02:44 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 20:02:44 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:02:44] "GET / HTTP/1.1" 200 -
+03-Nov-26 20:02:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:02:45] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:03:24 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:03:24] "POST /login HTTP/1.1" 302 -
+03-Nov-26 20:03:24 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:03:24] "GET / HTTP/1.1" 200 -
+03-Nov-26 20:03:25 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:03:25] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:03:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:03:46] "GET /register HTTP/1.1" 200 -
+03-Nov-26 20:03:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:03:46] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:04:40 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+03-Nov-26 20:04:40 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:04:40] "POST /register HTTP/1.1" 500 -
+03-Nov-26 20:04:40 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:04:40] "GET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+03-Nov-26 20:04:40 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:04:40] "GET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+03-Nov-26 20:04:40 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:04:40] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=JXjo8t9x2e7P3CwLxc6l HTTP/1.1" 200 -
+03-Nov-26 20:06:53 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\data_manager.py', reloading
+03-Nov-26 20:06:53 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 20:07:07 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 20:07:07 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 20:07:07 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:07:07] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:07:07 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:07:07] "GET /register HTTP/1.1" 200 -
+03-Nov-26 20:07:07 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:07:07] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:07:31 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+03-Nov-26 20:07:31 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+03-Nov-26 20:07:31 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:07:31] "POST /register HTTP/1.1" 200 -
+03-Nov-26 20:07:31 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:07:31] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:07:44 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 20:07:44] "GET / HTTP/1.1" 200 -
+03-Nov-26 20:07:55 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 20:07:55] "POST /mcp HTTP/1.1" 500 -
+03-Nov-26 20:07:55 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 20:07:55] "GET / HTTP/1.1" 400 -
+03-Nov-26 20:08:05 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 20:08:05] "GET /loginMsg.js HTTP/1.1" 405 -
+03-Nov-26 20:08:05 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 20:08:05] "GET /cgi/get.cgi?cmd=home_login HTTP/1.1" 404 -
+03-Nov-26 20:08:08 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 20:08:08] "GET /rootDesc.xml HTTP/1.1" 405 -
+03-Nov-26 20:08:08 - werkzeug - INFO - 100.65.226.119 - - [03/Nov/2026 20:08:08] "GET /rootDesc.xml HTTP/1.1" 405 -
+03-Nov-26 20:12:59 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 20:12:59 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 20:12:59 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 20:13:12 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 20:13:12 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 20:13:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:13:12] "GET / HTTP/1.1" 200 -
+03-Nov-26 20:13:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:13:12] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:13:26 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:13:26] "GET /register HTTP/1.1" 200 -
+03-Nov-26 20:13:26 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:13:26] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:14:00 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+03-Nov-26 20:14:00 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+03-Nov-26 20:14:00 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:14:00] "POST /register HTTP/1.1" 200 -
+03-Nov-26 20:14:00 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 20:14:00] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 20:16:15 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 20:16:15 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 20:16:15 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 20:16:17 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 20:16:17 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 20:19:22 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 20:19:22 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 20:19:22 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 20:21:04 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 20:21:04 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 20:21:04 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 20:35:03 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 20:35:03 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 20:35:03 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 20:35:03 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 20:35:04 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 20:35:04 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 20:35:04 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 20:38:15 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 20:38:33 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 20:38:33 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 20:38:33 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:01:09 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:01:13 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 21:01:13 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 21:01:13 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:01:13] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:01:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:01:14] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:02:56 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:02:56] "POST /login HTTP/1.1" 500 -
+03-Nov-26 21:02:56 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:02:56] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+03-Nov-26 21:02:56 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:02:56] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+03-Nov-26 21:02:56 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:02:56] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=aw1Lu1RVGCOohFpHV0WN HTTP/1.1" 200 -
+03-Nov-26 21:09:19 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+03-Nov-26 21:09:19 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:18:00 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:18:00 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 21:18:00 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 21:18:00 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:18:00] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:18:01 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:18:01] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:19:10 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:19:10 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 21:19:10 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 21:19:10 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:19:12 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:19:12 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 21:19:12 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 21:19:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:19:12] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:19:13 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:19:13] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:19:24 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:19:24] "POST /login HTTP/1.1" 500 -
+03-Nov-26 21:19:24 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:19:24] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+03-Nov-26 21:19:24 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:19:24] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+03-Nov-26 21:19:24 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:19:24] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=RPzboUyDAdh7vHLfWVEQ HTTP/1.1" 200 -
+03-Nov-26 21:32:06 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:32:06 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 21:32:06 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 21:32:06 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:32:07 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:32:07 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 21:32:07 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 21:32:32 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:32:32] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:32:33 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:32:33] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:32:37 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:32:37] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:32:37 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:32:37] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:32:49 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:32:49] "POST /login HTTP/1.1" 500 -
+03-Nov-26 21:32:49 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:32:49] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+03-Nov-26 21:32:49 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:32:49] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+03-Nov-26 21:32:49 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:32:49] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=YUf8LrTCL47r5lHQuTQt HTTP/1.1" 200 -
+03-Nov-26 21:33:26 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:33:26 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 21:33:26 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 21:33:26 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:33:28 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:33:28 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 21:33:28 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 21:33:30 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:33:30] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:33:35 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:33:35] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:33:36 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:33:36] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:33:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:33:46] "POST /login HTTP/1.1" 500 -
+03-Nov-26 21:33:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:33:46] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+03-Nov-26 21:33:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:33:46] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+03-Nov-26 21:33:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:33:46] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=ORdtQoHu3L3MRenhlOeW HTTP/1.1" 200 -
+03-Nov-26 21:38:38 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\models.py', reloading
+03-Nov-26 21:38:38 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:38:40 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:38:40 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 21:38:40 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 21:38:43 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:38:43] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:38:46 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:38:46] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:38:52 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:38:52] "POST /login HTTP/1.1" 200 -
+03-Nov-26 21:38:52 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:38:52] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:40:38 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:40:38] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:42:32 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\models.py', reloading
+03-Nov-26 21:42:32 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:42:34 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:42:34 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 21:42:34 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 21:43:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:12] "POST /login HTTP/1.1" 500 -
+03-Nov-26 21:43:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:12] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+03-Nov-26 21:43:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:12] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+03-Nov-26 21:43:12 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:12] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=KnCPX2dqj9DQQMlVTik6 HTTP/1.1" 200 -
+03-Nov-26 21:43:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:14] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:43:14 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:14] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:43:20 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:20] "POST /login HTTP/1.1" 500 -
+03-Nov-26 21:43:20 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:20] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+03-Nov-26 21:43:20 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:20] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+03-Nov-26 21:43:20 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:43:20] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=KnCPX2dqj9DQQMlVTik6 HTTP/1.1" 304 -
+03-Nov-26 21:45:43 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+03-Nov-26 21:45:44 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:45:45 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:45:45 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 21:45:45 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 21:47:27 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+03-Nov-26 21:47:28 - werkzeug - INFO -  * Restarting with stat

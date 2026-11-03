@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LinguAdventure · Persona Administration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body{background:#071322;color:#edf5f7;font-family:ui-sans-serif,system-ui,sans-serif}
+        .panel{background:#102235;border:1px solid #284154;border-radius:20px}
+        .field{width:100%;background:#091a2b;border:1px solid #365064;border-radius:11px;padding:11px 13px;color:#f0f9fa;outline:none}
+        .field:focus{border-color:#2dd4bf;box-shadow:0 0 0 3px #2dd4bf20}
+        label{display:block;font-size:.85rem;color:#bbd0d9;margin-bottom:7px;font-weight:600}
+        .hint{font-size:.75rem;color:#8da5b2;margin-top:5px}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;padding:10px 17px;font-weight:650;cursor:pointer}
+        .btn-primary{background:#2dd4bf;color:#06222a}.btn-primary:hover{background:#5eead4}
+        .btn-ghost{background:#183047;border:1px solid #38556a;color:#d7e9ec}.btn-ghost:hover{background:#244159}
+        .scene-item{width:100%;text-align:left;border:1px solid #2c4557;border-radius:13px;padding:13px 14px;background:#0b1c2c}
+        .scene-item[aria-current="true"]{border-color:#2dd4bf;background:#12383e}
+        .pill{border:1px solid #276f6d;background:#103b3b;color:#7ce8d9;border-radius:999px;padding:4px 10px;font-size:.72rem}
+        textarea{resize:vertical}
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="border-b border-slate-700/70 bg-[#09192a]">
+        <div class="mx-auto max-w-7xl px-5 py-5 flex flex-wrap items-center justify-between gap-3">
+            <div><a href="adventure_editor_separate_personas.html" class="text-2xl font-extrabold tracking-tight">Lingu<span class="text-teal-400">Adventure</span></a><span class="ml-4 text-sm text-slate-400">/ Administration / Personas</span></div>
+            <span class="pill">Prototype · Local edits only</span>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-5 py-9">
+        <div class="flex flex-wrap items-end justify-between gap-5 mb-8">
+            <div><p class="text-teal-300 text-xs tracking-[.22em] uppercase font-bold mb-2">Build the cast</p><h1 class="text-3xl md:text-4xl font-bold">Persona Administration</h1><p class="text-slate-400 mt-3">Create and maintain characters independently. Adventures can reuse them in their scenes.</p></div>
+            <div class="flex gap-2 flex-wrap"><a class="btn btn-ghost" href="adventure_editor_separate_personas.html">← Adventure Editor</a><button class="btn btn-ghost" type="button" id="exportBtn">↓ Export personas JSON</button><button class="btn btn-primary" type="button" id="addPersonaBtn">＋ New persona</button></div>
+        </div>
+        <div class="grid lg:grid-cols-[310px_minmax(0,1fr)] gap-6 items-start">
+            <aside class="panel p-5">
+                <div class="flex justify-between items-center mb-4"><h2 class="font-bold text-lg">Personas</h2><span id="personaCount" class="pill">0 characters</span></div>
+                <div id="personaList" class="space-y-3"></div>
+                <p class="hint mt-4">Changes are saved to this browser only. Later, Flask will supply the full persona catalog.</p>
+            </aside>
+            <div class="space-y-5">
+                <section class="panel p-6 md:p-8">
+                    <div class="flex flex-wrap justify-between items-center gap-3 mb-7"><div><p class="text-teal-300 uppercase tracking-widest text-xs font-bold mb-2">Character profile</p><h2 class="text-2xl font-bold" id="personaHeading">Select a persona</h2></div><button type="button" class="btn btn-ghost text-sm hidden" id="deletePersonaBtn">Delete persona</button></div>
+                    <p id="emptyMessage" class="text-slate-400">Choose a character on the left, or create a new one.</p>
+                    <div id="personaEditor" class="hidden grid md:grid-cols-2 gap-5">
+                        <div><label for="personaName">Name *</label><input class="field" id="personaName" maxlength="120"></div>
+                        <div><label for="personaAge">Age</label><input class="field" id="personaAge" type="number" min="0" max="130"></div>
+                        <div class="md:col-span-2"><label for="personaRole">Role</label><input class="field" id="personaRole" placeholder="e.g. Café employee"></div>
+                        <div class="md:col-span-2"><label for="personaDescription">Character description</label><textarea class="field" id="personaDescription" rows="5" placeholder="Personality, appearance, speaking style, background..."></textarea></div>
+                        <div class="md:col-span-2"><label for="personaPhoto">Photo</label><input class="field" id="personaPhoto" type="file" accept="image/*"><p class="hint">Choose an image under 1 MB. Stored as a data URL in this browser prototype.</p><img id="personaPreview" alt="Persona portrait" class="hidden mt-3 h-36 w-36 rounded-xl object-cover border border-slate-600"><div><button type="button" id="removePhotoBtn" class="btn btn-ghost mt-3 text-sm">Remove photo</button></div></div>
+                    </div>
+                </section>
+                <div class="flex flex-wrap items-center justify-between gap-3 px-1"><span id="status" class="text-sm text-slate-400" role="status">Personas are independent from adventure drafts.</span><button class="btn btn-primary" id="saveBtn" type="button">Save personas in browser</button></div>
+            </div>
+        </div>
+        <footer class="text-center text-xs text-slate-500 py-10">LinguAdventure · Don't study a language. Live it.</footer>
+    </main>
+    <script>
+        const PERSONA_KEY = 'linguadventure_personas_v1';
+        const defaultPersonas = () => [
+            {id:'p_miguel', name:'Miguel Pereira', age:'34', role:'Café employee', description:'Friendly, energetic and slightly impatient when busy. Speaks informal Brazilian Portuguese using short sentences.', photo:''},
+            {id:'p_sofia', name:'Sofia', age:'', role:'Hotel receptionist', description:'', photo:''},
+            {id:'p_rui', name:'Rui', age:'', role:'Taxi driver', description:'', photo:''},
+            {id:'p_emma', name:'Emma', age:'', role:'Another traveler', description:'', photo:''}
+        ];
+        const el = id => document.getElementById(id);
+        const fields = {personaName:'name',personaAge:'age',personaRole:'role',personaDescription:'description'};
+        const newId = () => 'p_' + (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '_' + Math.random().toString(36).slice(2));
+        let personas = defaultPersonas();
+        let selectedId = null;
+        try {
+            const stored = JSON.parse(localStorage.getItem(PERSONA_KEY));
+            if (Array.isArray(stored)) personas = stored;
+            else {
+                const old = JSON.parse(localStorage.getItem('linguadventure_editor_draft_v2'));
+                if (old && Array.isArray(old.personas)) personas = old.personas;
+            }
+        } catch (e) {}
+
+        function capture() {
+            const p = personas.find(p => p.id === selectedId);
+            if (p) for (const [id, key] of Object.entries(fields)) p[key] = el(id).value;
+        }
+        function render() {
+            el('personaCount').textContent = personas.length + ' character' + (personas.length === 1 ? '' : 's');
+            el('personaList').replaceChildren();
+            personas.forEach(p => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'scene-item flex items-center gap-3';
+                b.setAttribute('aria-current', String(p.id === selectedId));
+                if (p.photo) {
+                    const img = document.createElement('img');
+                    img.src = p.photo;
+                    img.alt = '';
+                    img.className = 'w-12 h-12 object-cover rounded-lg';
+                    b.append(img);
+                }
+                const text = document.createElement('div');
+                const name = document.createElement('div');
+                name.className = 'font-semibold';
+                name.textContent = p.name || 'Unnamed persona';
+                const role = document.createElement('div');
+                role.className = 'text-xs text-slate-400 mt-1';
+                role.textContent = p.role || 'No role yet';
+                text.append(name, role);
+                b.append(text);
+                b.addEventListener('click', () => {capture(); selectedId = p.id; render();});
+                el('personaList').append(b);
+            });
+            const p = personas.find(p => p.id === selectedId);
+            el('personaEditor').classList.toggle('hidden', !p);
+            el('emptyMessage').classList.toggle('hidden', !!p);
+            el('deletePersonaBtn').classList.toggle('hidden', !p);
+            el('personaHeading').textContent = p ? (p.name || 'New persona') : 'Select a persona';
+            if (p) {
+                for (const [id, key] of Object.entries(fields)) el(id).value = p[key] ?? '';
+                el('personaPreview').classList.toggle('hidden', !p.photo);
+                if (p.photo) el('personaPreview').src = p.photo;
+                el('removePhotoBtn').disabled = !p.photo;
+                el('personaPhoto').value = '';
+            }
+        }
+        function persist() {
+            capture();
+            try {
+                localStorage.setItem(PERSONA_KEY, JSON.stringify(personas));
+                el('status').textContent = 'Personas saved in this browser; not yet in Flask / SQLite.';
+            } catch (e) {
+                el('status').textContent = 'Browser storage unavailable or too full. Export your personas as JSON.';
+            }
+        }
+        el('addPersonaBtn').addEventListener('click', () => {
+            capture();
+            const p = {id:newId(), name:'', age:'', role:'', description:'', photo:''};
+            personas.push(p);
+            selectedId = p.id;
+            render();
+            el('personaName').focus();
+        });
+        el('deletePersonaBtn').addEventListener('click', () => {
+            const p = personas.find(p => p.id === selectedId);
+            if (!p || !confirm(`Delete ${p.name || 'this persona'}? Adventures referencing this persona will need reassignment.`)) return;
+            personas = personas.filter(p => p.id !== selectedId);
+            selectedId = personas[0]?.id ?? null;
+            persist();
+            render();
+        });
+        el('personaPhoto').addEventListener('change', event => {
+            const file = event.target.files?.[0];
+            if (!file) return;
+            if (!file.type.startsWith('image/') || file.size > 1024 * 1024) {
+                alert('Choose an image smaller than 1 MB.');
+                event.target.value = '';
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = () => {
+                const p = personas.find(p => p.id === selectedId);
+                if (p) {p.photo = reader.result; render();}
+            };
+            reader.readAsDataURL(file);
+        });
+        el('removePhotoBtn').addEventListener('click', () => {
+            const p = personas.find(p => p.id === selectedId);
+            if (p) {p.photo = ''; render();}
+        });
+        for (const [id, key] of Object.entries(fields)) el(id).addEventListener('input', () => {
+            const p = personas.find(p => p.id === selectedId);
+            if (p) {
+                p[key] = el(id).value;
+                if (key === 'name' || key === 'role') {
+                    const focus = document.activeElement;
+                    const start = focus.selectionStart;
+                    const end = focus.selectionEnd;
+                    render();
+                    focus.focus();
+                    if (start !== null) focus.setSelectionRange(start, end);
+                }
+            }
+        });
+        el('saveBtn').addEventListener('click', persist);
+        el('exportBtn').addEventListener('click', () => {
+            capture();
+            const blob = new Blob([JSON.stringify(personas, null, 4)], {type:'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'linguadventure_personas.json';
+            a.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        });
+        selectedId = personas[0]?.id ?? null;
+        render();
+    </script>
+</body>
+</html>

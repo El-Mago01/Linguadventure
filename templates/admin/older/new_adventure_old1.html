@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LinguAdventure · Adventure Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body{background:#071322;color:#edf5f7;font-family:ui-sans-serif,system-ui,sans-serif}
+        .panel{background:#102235;border:1px solid #284154;border-radius:20px}
+        .field{width:100%;background:#091a2b;border:1px solid #365064;border-radius:11px;padding:11px 13px;color:#f0f9fa;outline:none}
+        .field:focus{border-color:#2dd4bf;box-shadow:0 0 0 3px #2dd4bf20}
+        label{display:block;font-size:.85rem;color:#bbd0d9;margin-bottom:7px;font-weight:600}
+        .hint{font-size:.75rem;color:#8da5b2;margin-top:5px}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;padding:10px 17px;font-weight:650;cursor:pointer}
+        .btn-primary{background:#2dd4bf;color:#06222a}.btn-primary:hover{background:#5eead4}
+        .btn-ghost{background:#183047;border:1px solid #38556a;color:#d7e9ec}.btn-ghost:hover{background:#244159}
+        .scene-item{width:100%;text-align:left;border:1px solid #2c4557;border-radius:13px;padding:13px 14px;background:#0b1c2c}
+        .scene-item[aria-current="true"]{border-color:#2dd4bf;background:#12383e}
+        .pill{border:1px solid #276f6d;background:#103b3b;color:#7ce8d9;border-radius:999px;padding:4px 10px;font-size:.72rem}
+        textarea{resize:vertical}
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="border-b border-slate-700/70 bg-[#09192a]">
+        <div class="mx-auto max-w-7xl px-5 py-5 flex flex-wrap items-center justify-between gap-3">
+            <div><a href="#" class="text-2xl font-extrabold tracking-tight">Lingu<span class="text-teal-400">Adventure</span></a><span class="ml-4 text-sm text-slate-400">/ Administration / Adventure Editor</span></div>
+            <span class="pill">Prototype · Local edits only</span>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-5 py-9">
+        <div class="flex flex-wrap items-end justify-between gap-5 mb-8">
+            <div><p class="text-teal-300 text-xs tracking-[.22em] uppercase font-bold mb-2">Build the story</p><h1 class="text-3xl md:text-4xl font-bold">Adventure Editor</h1><p class="text-slate-400 mt-3">Define the adventure, its personas, and its scenes.</p></div>
+            <div class="flex flex-wrap gap-2"><button class="btn btn-ghost" type="button" id="resetBtn">↺ Reset example</button><button class="btn btn-primary" type="button" id="exportBtn">↓ Export JSON</button></div>
+        </div>
+        <div class="grid lg:grid-cols-[310px_minmax(0,1fr)] gap-6 items-start">
+            <aside class="space-y-5">
+                <section class="panel p-5">
+                    <div class="flex justify-between items-center mb-4"><h2 class="font-bold text-lg">Adventure outline</h2><span id="sceneCount" class="pill">1 scene</span></div>
+                    <button type="button" id="overviewBtn" class="scene-item mb-3" aria-current="true">
+                        <div class="font-semibold">✦ Adventure overview</div>
+                        <div class="text-xs text-slate-400 mt-1">Setting, premise and story outline</div>
+                    </button>
+                    <button type="button" id="personasBtn" class="scene-item mb-3" aria-current="false">
+                        <div class="font-semibold">◉ Personas</div><div class="text-xs text-slate-400 mt-1" id="personaCount">0 characters</div></button>
+                    <h3 class="text-xs uppercase tracking-widest text-slate-400 mb-2 mt-5">Scenes</h3>
+                    <div id="sceneList" class="space-y-2"></div>
+                    <button type="button" class="btn btn-ghost w-full mt-3" id="addSceneBtn">＋ Add a scene</button>
+                </section>
+                <section class="panel p-5"><h3 class="font-bold mb-2">A simple starting point</h3><p class="text-sm text-slate-400 leading-relaxed">Plan the adventure here, reuse personas across scenes, and define each scene's goal and steps. Adaptive rules and branching can come later.</p></section>
+            </aside>
+            <div class="space-y-5">
+                <section id="overviewPanel" class="panel p-6 md:p-8">
+                    <div class="flex justify-between items-start gap-3 mb-7">
+                        <div><p class="text-teal-300 uppercase tracking-widest text-xs font-bold mb-2">01 / Overview</p>
+                            <h2 class="text-2xl font-bold">Adventure details</h2>
+                        </div>
+                        <span class="pill">Draft</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div class="md:col-span-2"><label for="title">Adventure title *</label><input class="field" id="title" required maxlength="120"></div>
+                        <div><label for="language">Target language *</label>
+                            <select class="field" id="language">
+                                <option>Portuguese</option>
+                                <option>English</option>
+                                <option>Dutch</option>
+                                <option>German</option>
+                                <option>Spanish</option>
+                                <option>Italian</option>
+                            </select>
+                        </div>
+                        <div><label for="level">Target level *</label><select class="field" id="level"><option>A1</option><option>A1–A2</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option></select></div>
+                        <div><label for="minutes">Approx. minutes per scene</label><input class="field" id="minutes" type="number" min="1" max="120"></div>
+                        <div><label for="plannedSceneCount">Number of scenes</label><input class="field" id="plannedSceneCount" type="number" min="1" max="30" step="1"><p class="hint">Set the planned number; scene slots will be added or removed. Reducing the count requires confirmation.</p></div>
+                        <div class="md:col-span-2"><label for="setting">Setting</label><textarea class="field" id="setting" rows="2"></textarea></div>
+                        <div class="md:col-span-2"><label for="premise">Story premise</label><textarea class="field" id="premise" rows="4"></textarea></div>
+                        <div class="md:col-span-2"><label for="intro">Introduction shown to the student</label><textarea class="field" id="intro" rows="3"></textarea></div>
+                        <div class="md:col-span-2"><label for="objectives">Learning objectives</label><textarea class="field" id="objectives" rows="3" placeholder="One objective per line"></textarea><p class="hint">One objective per line</p></div>
+                        <div class="md:col-span-2"><label for="storyOutline">Adventure steps (rough overview)</label><textarea class="field" id="storyOutline" rows="5" placeholder="One broad story beat per line"></textarea><p class="hint">Keep this high-level; detailed steps belong to individual scenes.</p></div>
+                        <div class="md:col-span-2"><label for="cliffhanger">Adventure ending / cliffhanger (optional)</label><textarea class="field" id="cliffhanger" rows="2"></textarea></div>
+                    </div>
+                </section>
+                <section id="personasPanel" class="panel p-6 md:p-8 hidden">
+                    <div class="flex flex-wrap justify-between items-center gap-3 mb-7"><div><p class="text-teal-300 uppercase tracking-widest text-xs font-bold mb-2">02 / Characters</p><h2 class="text-2xl font-bold">Personas</h2></div><button type="button" class="btn btn-primary" id="addPersonaBtn">＋ New persona</button></div>
+                    <p class="text-slate-400 text-sm mb-5">Create each character once, then select them in any scene.</p>
+                    <div id="personaList" class="space-y-3 mb-6"></div>
+                    <div id="personaEditor" class="hidden border-t border-slate-700 pt-6">
+                        <div class="flex justify-between items-center gap-3 mb-5"><h3 class="font-bold text-lg" id="personaHeading">Edit persona</h3><button type="button" class="btn btn-ghost text-sm" id="deletePersonaBtn">Delete persona</button></div>
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label for="personaName">Name *</label>
+                                <input class="field" id="personaName" maxlength="120">
+                            </div>
+                            <div>
+                                <label for="personaAge">Age</label>
+                                <input class="field" id="personaAge" type="number" min="0" max="130">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="personaRole">Role</label>
+                                <input class="field" id="personaRole" placeholder="e.g. Café employee">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="personaDescription">Character description</label>
+                                <textarea class="field" id="personaDescription" rows="4" placeholder="Personality, appearance, speaking style, background...">
+                                </textarea>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="personaPhoto">Photo</label>
+                                <input class="field" id="personaPhoto" type="file" accept="image/*">
+                                <p class="hint">For this prototype the image is stored in the browser draft / JSON as a data URL. Use small images.</p>
+                                <img id="personaPreview" alt="Selected persona photo" class="hidden mt-3 h-32 w-32 rounded-xl object-cover border border-slate-600">
+                                <button type="button" id="removePhotoBtn" class="btn btn-ghost mt-3 text-sm">Remove photo</button></div>
+                        </div>
+                    </div>
+                </section>
+                <section id="scenePanel" class="panel p-6 md:p-8 hidden">
+                    <div class="flex justify-between items-start gap-3 mb-7"><div>
+                        <p class="text-teal-300 uppercase tracking-widest text-xs font-bold mb-2" id="sceneEyebrow">03 / Scene</p>
+                        <h2 class="text-2xl font-bold">Scene editor</h2>
+                    </div>
+                        <button class="btn btn-ghost text-sm" type="button" id="deleteSceneBtn">Delete scene
+                        </button>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div class="md:col-span-2">
+                            <label for="sceneTitle">Scene title *</label>
+                            <input class="field" id="sceneTitle" maxlength="120"></div>
+                        <div><label for="sceneLocation">Location</label>
+                            <input class="field" id="sceneLocation">
+                        </div>
+                        <div>
+                            <label for="scenePersona">Persona</label>
+                            <select class="field" id="scenePersona"></select>
+                            <button type="button" id="newPersonaFromSceneBtn" class="text-teal-300 hover:text-teal-200 text-sm mt-2">＋ Create a new persona
+                            </button>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="sceneSituation">Starting situation</label>
+                            <textarea class="field" id="sceneSituation" rows="3">
+                            </textarea>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="sceneGoal">Goal of the scene</label>
+                            <textarea class="field" id="sceneGoal" rows="3" placeholder="What should the student achieve in this scene?">
+                            </textarea>
+                        </div>
+                        <div class="md:col-span-2"><label for="sceneSteps">Steps towards reaching the goal</label>
+                            <textarea class="field" id="sceneSteps" rows="7" placeholder="One step per line">
+                            </textarea>
+                            <p class="hint">One step per line; these guide the conversation.</p>
+                        </div>
+                        <div class="md:col-span-2"><label for="sceneIntro">Opening text shown to the student</label>
+                            <textarea class="field" id="sceneIntro" rows="3"></textarea></div>
+                        <div class="md:col-span-2"><label for="sceneLanguage">Language objectives</label>
+                            <textarea class="field" id="sceneLanguage" rows="3" placeholder="One objective per line">
+                            </textarea>
+                        </div>
+                        <div><label for="sceneVocabulary">Target vocabulary</label>
+                            <textarea class="field" id="sceneVocabulary" rows="3"></textarea></div>
+                        <div><label for="sceneGrammar">Target grammar</label>
+                            <textarea class="field" id="sceneGrammar" rows="3"></textarea></div>
+                        <div class="md:col-span-2"><label for="sceneMust">Must happen</label>
+                            <textarea class="field" id="sceneMust" rows="4" placeholder="One event per line">
+                            </textarea>
+                        </div>
+                        <div class="md:col-span-2"><label for="sceneMustNot">Must not happen</label><textarea class="field" id="sceneMustNot" rows="3" placeholder="One restriction per line"></textarea></div>
+                        <div class="md:col-span-2"><label for="sceneExit">What the student should know at the end</label><textarea class="field" id="sceneExit" rows="3"></textarea></div>
+                        <div class="md:col-span-2"><label for="sceneEnding">Ending / transition to the next scene</label><textarea class="field" id="sceneEnding" rows="3"></textarea></div>
+                    </div>
+                </section>
+                <div class="flex flex-wrap items-center justify-between gap-3 px-1">
+                    <span id="status" class="text-sm text-slate-400" role="status">Example data loaded. Changes are not yet saved to a server.</span>
+                    <button class="btn btn-primary" id="saveBtn" type="button">Save draft in browser</button>
+                    <button type="button" class="btn btn-primary" id="saveAdventureBtn">
+                        Save Adventure
+                    </button>
+                </div>
+            </div>
+        </div>
+        <footer class="text-center text-xs text-slate-500 py-10">LinguAdventure · Don't study a language. Live it.</footer>
+    </main>
+    <script>
+        document.getElementById("saveAdventureBtn").addEventListener("click", async () => {
+    capture();  // Collect the latest editor changes
+
+    const response = await fetch("/administration/adventures/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        alert("Adventure saved successfully!");
+    } else {
+        alert("Something went wrong while saving.");
+    }
+});
+        
+        const blankScene = () => ({title:'', location:'', personaId:'', situation:'', goal:'', steps:'', intro:'', language:'', vocabulary:'', grammar:'', must:'', mustNot:'', exit:'', ending:''});
+        const example = () => ({
+            title:'The Lost Backpack', language:'Portuguese', level:'A1–A2', minutes:'5',
+            setting:'Lisbon. The student is spending a week in the city for work.',
+            premise:'Shortly after arriving at the hotel, the student discovers their backpack is missing. It contains a laptop needed for work. They retrace their steps, visit a café, speak to a taxi driver, and eventually learn that another traveler took it by mistake.',
+            intro:'You have just arrived in Lisbon. Your backpack is missing, and your work laptop is inside. Can you find out what happened?',
+            objectives:'Asking simple questions\nDescribing objects\nUnderstanding directions\nNumbers and prices\nIntroduction to the past tense\nTravel vocabulary',
+            storyOutline:'Ask the hotel receptionist for help.\nReturn to the café and ask about the backpack.\nSpeak to the taxi driver.\nFind the traveler who took the backpack by mistake.\nRecover the backpack.',
+            cliffhanger:'The backpack is recovered, but something unexpected inside introduces the next adventure.',
+            personas:[
+                {id:'p_miguel', name:'Miguel Pereira', age:'34', role:'Café employee', description:'Friendly, energetic and slightly impatient when busy. Speaks informal Brazilian Portuguese using short sentences.', photo:''},
+                {id:'p_sofia', name:'Sofia', age:'', role:'Hotel receptionist', description:'', photo:''},
+                {id:'p_rui', name:'Rui', age:'', role:'Taxi driver', description:'', photo:''},
+                {id:'p_emma', name:'Emma', age:'', role:'Another traveler', description:'', photo:''}
+            ],
+            scenes:[
+                {...blankScene(), title:'The Café', location:'Small café near Rossio station, Lisbon', personaId:'p_miguel', situation:'The student returns to the café where they had breakfast and asks about their missing backpack.', goal:'Discover that Miguel saw someone leave with a similar backpack and identify the taxi driver.', steps:'Greet the student.\nMake brief small talk.\nGuide the conversation toward the missing backpack.\nAsk the student to describe the backpack and its contents.\nMention a different backpack left behind.\nRecall seeing a traveler with a similar backpack.\nContact the taxi driver, who agrees to come to the café.', intro:'You enter the café near Rossio station. Miguel is working behind the counter.', language:'Describing objects\nColors\nPossessives\nAsking “Have you seen...?”\nBasic past-tense exposure', vocabulary:'mochila, preta, grande, pequena, ontem, viu, mesa, perder', grammar:'você viu; eu vi', must:'Miguel remembers the student.\nMiguel did not find the backpack.\nAnother traveler carried a similar backpack.\nThe traveler left in a taxi.', mustNot:'Miguel knows who took the backpack.\nMiguel knows where the traveler went.\nThe backpack is found in this scene.\nMiguel leaves with the student.', exit:'Another traveler had a similar backpack and left the café in a taxi.', ending:'Miguel suddenly remembers: “I think I know the taxi driver...”'},
+                blankScene(), blankScene(), blankScene(), blankScene()
+            ]
+        });
+        let data = example();
+        let selected = -1;
+        let selectedPersonaId = null;
+        const overviewFields = ['title','language','level','minutes','setting','premise','intro','objectives','storyOutline','cliffhanger'];
+        const sceneFields = {sceneTitle:'title',sceneLocation:'location',scenePersona:'personaId',sceneSituation:'situation',sceneGoal:'goal',sceneSteps:'steps',sceneIntro:'intro',sceneLanguage:'language',sceneVocabulary:'vocabulary',sceneGrammar:'grammar',sceneMust:'must',sceneMustNot:'mustNot',sceneExit:'exit',sceneEnding:'ending'};
+        const personaFields = {personaName:'name',personaAge:'age',personaRole:'role',personaDescription:'description'};
+        const el = id => document.getElementById(id);
+        const newId = () => 'p_' + (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '_' + Math.random().toString(36).slice(2));
+
+        function capture() {
+            if (selected === -1) {
+                for (const k of overviewFields) data[k] = el(k).value;
+            } else if (selected === -2) {
+                const p = data.personas.find(p => p.id === selectedPersonaId);
+                if (p) for (const [id, k] of Object.entries(personaFields)) p[k] = el(id).value;
+            } else if (data.scenes[selected]) {
+                for (const [id, k] of Object.entries(sceneFields)) data.scenes[selected][k] = el(id).value;
+            }
+        }
+
+        function renderPersonaList() {
+            el('personaCount').textContent = data.personas.length + ' character' + (data.personas.length === 1 ? '' : 's');
+            el('personaList').replaceChildren();
+            data.personas.forEach(p => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'scene-item flex items-center gap-3';
+                button.setAttribute('aria-current', String(p.id === selectedPersonaId));
+                if (p.photo) {
+                    const img = document.createElement('img');
+                    img.src = p.photo;
+                    img.alt = '';
+                    img.className = 'w-12 h-12 object-cover rounded-lg';
+                    button.append(img);
+                }
+                const text = document.createElement('div');
+                const name = document.createElement('div');
+                name.className = 'font-semibold';
+                name.textContent = p.name || 'Unnamed persona';
+                const role = document.createElement('div');
+                role.className = 'text-xs text-slate-400 mt-1';
+                role.textContent = p.role || 'No role yet';
+                text.append(name, role);
+                button.append(text);
+                button.addEventListener('click', () => {capture(); selectedPersonaId = p.id; render();});
+                el('personaList').append(button);
+            });
+            const p = data.personas.find(p => p.id === selectedPersonaId);
+            el('personaEditor').classList.toggle('hidden', !p);
+            if (p) {
+                for (const [id, k] of Object.entries(personaFields)) el(id).value = p[k] ?? '';
+                el('personaHeading').textContent = p.name || 'New persona';
+                el('personaPreview').classList.toggle('hidden', !p.photo);
+                if (p.photo) el('personaPreview').src = p.photo;
+                el('removePhotoBtn').disabled = !p.photo;
+                el('personaPhoto').value = '';
+            }
+        }
+
+        function render() {
+            el('overviewPanel').classList.toggle('hidden', selected !== -1);
+            el('personasPanel').classList.toggle('hidden', selected !== -2);
+            el('scenePanel').classList.toggle('hidden', selected < 0);
+            el('overviewBtn').setAttribute('aria-current', String(selected === -1));
+            el('personasBtn').setAttribute('aria-current', String(selected === -2));
+            el('sceneCount').textContent = data.scenes.length + ' scene' + (data.scenes.length === 1 ? '' : 's');
+            el('sceneList').replaceChildren();
+            data.scenes.forEach((s, i) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'scene-item';
+                b.setAttribute('aria-current', String(selected === i));
+                const t = document.createElement('div');
+                t.className = 'font-semibold';
+                t.textContent = `Scene ${i + 1} · ${s.title || 'Untitled scene'}`;
+                const d = document.createElement('div');
+                d.className = 'text-xs text-slate-400 mt-1';
+                d.textContent = s.location || 'Location not set';
+                b.append(t, d);
+                b.addEventListener('click', () => navigate(i));
+                el('sceneList').append(b);
+            });
+            if (selected === -1) {
+                for (const k of overviewFields) el(k).value = data[k] ?? '';
+                el('plannedSceneCount').value = data.scenes.length;
+            } else if (selected === -2) {
+                renderPersonaList();
+            } else {
+                el('sceneEyebrow').textContent = `03 / Scene ${selected + 1}`;
+                const options = el('scenePersona');
+                options.replaceChildren(new Option('— Select a persona —', ''));
+                data.personas.forEach(p => options.add(new Option(p.name || 'Unnamed persona', p.id)));
+                for (const [id, k] of Object.entries(sceneFields)) el(id).value = data.scenes[selected][k] ?? '';
+            }
+        }
+
+        function navigate(n) {capture(); selected = n; render();}
+        function addPersona() {
+            capture();
+            const p = {id:newId(), name:'', age:'', role:'', description:'', photo:''};
+            data.personas.push(p);
+            selectedPersonaId = p.id;
+            selected = -2;
+            render();
+            el('personaName').focus();
+        }
+        function updateSceneCount(count) {
+            if (!Number.isInteger(count) || count < 1 || count > 30) {
+                el('plannedSceneCount').value = data.scenes.length;
+                return;
+            }
+            if (count < data.scenes.length && !confirm(`Remove the last ${data.scenes.length - count} scene(s)? Their content will be lost.`)) {
+                el('plannedSceneCount').value = data.scenes.length;
+                return;
+            }
+            while (data.scenes.length < count) data.scenes.push(blankScene());
+            data.scenes.length = count;
+            if (selected >= count) selected = -1;
+            render();
+        }
+
+        el('overviewBtn').addEventListener('click', () => navigate(-1));
+        el('personasBtn').addEventListener('click', () => navigate(-2));
+        el('addPersonaBtn').addEventListener('click', addPersona);
+        el('newPersonaFromSceneBtn').addEventListener('click', addPersona);
+        el('plannedSceneCount').addEventListener('change', () => {capture(); updateSceneCount(Number(el('plannedSceneCount').value));});
+        el('addSceneBtn').addEventListener('click', () => {capture(); data.scenes.push(blankScene()); selected = data.scenes.length - 1; render(); el('sceneTitle').focus();});
+        el('deleteSceneBtn').addEventListener('click', () => {
+            if (data.scenes.length === 1) {alert('An adventure needs at least one scene.'); return;}
+            if (!confirm('Delete this scene from the draft?')) return;
+            data.scenes.splice(selected, 1);
+            selected = -1;
+            render();
+        });
+        el('deletePersonaBtn').addEventListener('click', () => {
+            const p = data.personas.find(p => p.id === selectedPersonaId);
+            if (!p || !confirm(`Delete ${p.name || 'this persona'}? Scenes using this persona will be unassigned.`)) return;
+            data.personas = data.personas.filter(x => x.id !== selectedPersonaId);
+            data.scenes.forEach(s => {if (s.personaId === selectedPersonaId) s.personaId = '';});
+            selectedPersonaId = data.personas[0]?.id ?? null;
+            render();
+        });
+        el('personaPhoto').addEventListener('change', event => {
+            const file = event.target.files?.[0];
+            if (!file) return;
+            if (!file.type.startsWith('image/') || file.size > 1024 * 1024) {alert('Please choose an image smaller than 1 MB.'); event.target.value = ''; return;}
+            const reader = new FileReader();
+            reader.onload = () => {
+                const p = data.personas.find(p => p.id === selectedPersonaId);
+                if (p) {p.photo = reader.result; renderPersonaList();}
+            };
+            reader.readAsDataURL(file);
+        });
+        el('removePhotoBtn').addEventListener('click', () => {
+            const p = data.personas.find(p => p.id === selectedPersonaId);
+            if (p) {p.photo = ''; renderPersonaList();}
+        });
+        el('saveBtn').addEventListener('click', () => {
+            capture();
+            try {
+                localStorage.setItem('linguadventure_editor_draft_v2', JSON.stringify(data));
+                el('status').textContent = 'Draft saved in this browser. Not yet stored in your Flask database.';
+            } catch (e) {
+                el('status').textContent = 'Browser storage unavailable or image too large. Use Export JSON.';
+            }
+        });
+        el('exportBtn').addEventListener('click', () => {
+            capture();
+            const blob = new Blob([JSON.stringify(data, null, 4)], {type:'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'linguadventure_adventure_draft.json';
+            a.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        });
+        el('resetBtn').addEventListener('click', () => {
+            if (!confirm('Reset the editor to the example adventure? Unsaved changes will be lost.')) return;
+            data = example();
+            selected = -1;
+            selectedPersonaId = null;
+            render();
+            el('status').textContent = 'Example restored (not saved).';
+        });
+        for (const id of overviewFields) el(id).addEventListener('input', () => {if (selected === -1) data[id] = el(id).value;});
+        for (const [id, k] of Object.entries(sceneFields)) el(id).addEventListener('input', () => {
+            if (selected >= 0) {
+                data.scenes[selected][k] = el(id).value;
+                if (k === 'title' || k === 'location') {
+                    const b = el('sceneList').children[selected];
+                    if (b) {b.children[0].textContent = `Scene ${selected + 1} · ${data.scenes[selected].title || 'Untitled scene'}`; b.children[1].textContent = data.scenes[selected].location || 'Location not set';}
+                }
+            }
+        });
+        for (const [id, k] of Object.entries(personaFields)) el(id).addEventListener('input', () => {
+            const p = data.personas.find(p => p.id === selectedPersonaId);
+            if (p) {p[k] = el(id).value; if (k === 'name' || k === 'role') renderPersonaList();}
+        });
+        try {
+            const saved = localStorage.getItem('linguadventure_editor_draft_v2');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                if (parsed && Array.isArray(parsed.scenes) && Array.isArray(parsed.personas) && typeof parsed.title === 'string') {
+                    data = parsed;
+                    el('status').textContent = 'Previously saved browser draft loaded.';
+                }
+            }
+        } catch (e) {}
+        render();
+    </script>
+</body>
+</html>

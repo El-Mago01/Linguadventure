@@ -1,10 +1,14 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, abort
+from src.data_manager import DataManager as dm, DataManager
+from helper_functions import is_valid_email_address
+from flask_login import login_required
 
 admin = Blueprint("admin", __name__)
 
+dm=DataManager()
 
-@admin.route("/adventure_admin/<adventure_id>/", methods=["GET", "POST"])
-def adventure_admin(adventure_id:int):
+@admin.route("/adventure_admin/", methods=["POST"])
+def adventure_admin():
     """
     Upon request, the admin is presented with an adventure administration page where adventures can be added, changed,
     deleted, activated/deactivated etc. If the admin indicate to create a new adventure, he'll be redirected to a form
@@ -13,9 +17,36 @@ def adventure_admin(adventure_id:int):
     :param user_id:
     :return:
     """
-    return render_template("adventure_admin.html")
+    email = request.form.get("email","")
+    print(email)
+    if is_valid_email_address(email):
+        if dm.student_exists(email):
+            student = dm.get_student(email)
+            print(student)
+            adventures = dm.get_all_adventures()
+            return render_template("admin/adventure_admin.html", adventures=adventures, student=student)
 
+    abort(404, message="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE
 
+@admin.route("/admin/adventures/new", methods=["POST"])
+def add_adventure():
+    """
+    After the admin filled out a form to register a new adventure in the system, this function is called to
+    ensure that this adventure is checked on validity and that it is added to the database.
+
+    :param adventure:
+    :return:
+    """
+    print("add_adventure")
+    email = request.form.get("email","")
+    print(email)
+    if is_valid_email_address(email):
+        if dm.student_exists(email):
+            student = dm.get_student(email)
+            print(student)
+            return render_template("admin/new_adventure.html", student=student)
+
+    abort(404, message="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE
 
 @admin.route("/adventure_admin/act_deact/<user_id>/<adventure_id>/", methods=["POST"])
 def act_deact_adventure(adventure_id:int):
@@ -37,3 +68,24 @@ def update_adventure(user_id:int, adventure_id:int):
     :return:
     """
     return render_template("index.html")
+
+@admin.route("/admin/persona_admin", methods=["POST"])
+@login_required
+def persona_admin():
+    """
+    After the admin filled out a form to register a new adventure in the system, this function is called to
+    ensure that this adventure is checked on validity and that it is added to the database.
+
+    :param adventure:
+    :return:
+    """
+    print("persona_admin")
+    email = request.form.get("email","")
+    print(email)
+    if is_valid_email_address(email):
+        if dm.student_exists(email):
+            student = dm.get_student(email)
+            print(student)
+            return render_template("admin/persona_admin.html", student=student)
+
+    abort(404, message="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE

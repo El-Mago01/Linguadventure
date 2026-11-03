@@ -50,19 +50,77 @@
 
             <!-- User -->
             <div class="flex items-center gap-3">
-
-                <div class="hidden text-right sm:block">
-                    <p class="text-sm font-medium">Martin</p>
-                    <p class="text-xs text-slate-500">Learning Portuguese</p>
+            
+        <!-- Profile dropdown -->
+                <div class="relative" id="profile-menu">
+                    <button
+                        type="button"
+                        id="profile-button"
+                        aria-label="Open profile menu"
+                        aria-expanded="false"
+                        aria-controls="profile-dropdown"
+                        class="flex h-10 w-10 items-center justify-center
+                               rounded-full bg-teal-400 font-bold text-slate-950
+                               hover:bg-teal-300 transition">
+                
+                        {{ student.first_name[0] | upper if student else 'U' }}
+                        
+                    </button>
+        
+            <!-- Dropdown menu -->
+                    <div
+                        id="profile-dropdown"
+                        class="hidden absolute right-0 mt-3 w-52 z-50
+                               rounded-xl border border-white/10
+                               bg-slate-900 shadow-2xl py-2">
+                    
+                        {{ student.first_name }} {{ student.last_name }}
+                        <div class="my-2 border-t border-white/10"></div>
+                
+                        <a href="#"
+                           class="block px-4 py-2 text-sm text-slate-300
+                                  hover:bg-white/10 hover:text-white">
+                            Edit profile
+                        </a>
+                
+                        <a href="#"
+                           class="block px-4 py-2 text-sm text-slate-300
+                                  hover:bg-white/10 hover:text-white">
+                            Update picture
+                        </a>
+                
+                        <a href="#"
+                           class="block px-4 py-2 text-sm text-slate-300
+                                  hover:bg-white/10 hover:text-white">
+                            Settings
+                        </a>
+                
+                        <div class="my-2 border-t border-white/10"></div>
+                            {% if student.is_admin == True %}
+                                <form action="{{ url_for('admin.adventure_admin') }}" method="post">
+                                    <input type="hidden"
+                                           name="email"
+                                           value="{{ student.email }}">
+                                
+                                    <button type="submit"
+                                            class="block w-full px-4 py-2 text-left text-sm
+                                                   text-slate-300 hover:bg-white/10 hover:text-white">
+                                        Adventure administration
+                                    </button>
+                                
+                                </form>
+                                <div class="my-2 border-t border-white/10"></div>
+                            {% endif %}
+                
+                            <form method="POST" action="{{ url_for('site_landing.logout') }}">
+                                <button type="submit" class="block w-full px-4 py-2 text-left text-sm
+                                                   text-slate-300 hover:bg-white/10 hover:text-white">
+                                    Log out
+                                </button>
+                            </form>
+                    </div>
                 </div>
-
-                <div class="flex h-10 w-10 items-center justify-center rounded-full
-                            bg-teal-400 font-bold text-slate-950">
-                    M
-                </div>
-
             </div>
-
         </div>
     </header>
 
@@ -79,7 +137,7 @@
             </p>
 
             <h1 class="text-4xl font-bold tracking-tight md:text-5xl">
-                Ready for your next adventure, Martin?
+                Ready for your next adventure, {{ student.first_name }}?
             </h1>
 
             <p class="mt-4 max-w-2xl text-lg text-slate-400">
@@ -548,7 +606,36 @@
         </footer>
 
     </main>
+<script>
+const profileMenu = document.getElementById("profile-menu");
+const profileButton = document.getElementById("profile-button");
+const profileDropdown = document.getElementById("profile-dropdown");
 
+function setProfileMenuOpen(open) {
+    profileDropdown.classList.toggle("hidden", !open);
+    profileButton.setAttribute("aria-expanded", String(open));
+}
+
+// Toggle dropdown
+profileButton.addEventListener("click", () => {
+    const isHidden = profileDropdown.classList.contains("hidden");
+    setProfileMenuOpen(isHidden);
+});
+
+// Close when clicking outside
+document.addEventListener("click", (event) => {
+    if (!profileMenu.contains(event.target)) {
+        setProfileMenuOpen(false);
+    }
+});
+
+// Close when pressing Escape
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        setProfileMenuOpen(false);
+    }
+});
+</script>
 </body>
 </html>
 ```
