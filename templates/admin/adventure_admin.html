@@ -39,6 +39,12 @@
                         <span aria-hidden="true" class="text-xl leading-none">+</span> Create adventure
                     </button>
                 </form>
+                <form method="GET" action="/admin/personas/new">
+                    {# Add CSRF token here when enabled, e.g. <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> #}
+                    <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-teal-950/30 transition hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
+                        <span aria-hidden="true" class="text-xl leading-none">+</span> Create persona
+                    </button>
+                </form>
             </div>
         
             <div class="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3">

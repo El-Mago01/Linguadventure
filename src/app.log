@@ -2647,3 +2647,757 @@
 03-Nov-26 21:45:45 - werkzeug - INFO -  * Debugger PIN: 386-085-760
 03-Nov-26 21:47:27 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
 03-Nov-26 21:47:28 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:52:43 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:52:43 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+03-Nov-26 21:52:43 - werkzeug - INFO - Press CTRL+C to quit
+03-Nov-26 21:52:43 - werkzeug - INFO -  * Restarting with stat
+03-Nov-26 21:52:45 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+03-Nov-26 21:52:45 - werkzeug - WARNING -  * Debugger is active!
+03-Nov-26 21:52:45 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+03-Nov-26 21:52:51 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:52:51] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:52:52 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:52:52] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:53:02 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:53:02] "POST /login HTTP/1.1" 200 -
+03-Nov-26 21:53:02 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:53:02] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:53:08 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:53:08] "POST /logout HTTP/1.1" 302 -
+03-Nov-26 21:53:08 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:53:08] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:53:08 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:53:08] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:54:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:54:45] "POST /login HTTP/1.1" 200 -
+03-Nov-26 21:54:45 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:54:45] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:54:50 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:54:50] "POST /logout HTTP/1.1" 302 -
+03-Nov-26 21:54:50 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:54:50] "GET / HTTP/1.1" 200 -
+03-Nov-26 21:54:50 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:54:50] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:55:00 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:55:00] "POST /login HTTP/1.1" 200 -
+03-Nov-26 21:55:00 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:55:00] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:56:15 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:56:15] "POST /adventure_admin/ HTTP/1.1" 200 -
+03-Nov-26 21:56:15 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:56:15] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 21:59:19 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:59:19] "POST /admin/adventures/new HTTP/1.1" 200 -
+03-Nov-26 21:59:19 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 21:59:19] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 22:00:09 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 22:00:09] "POST /admin/persona_admin HTTP/1.1" 200 -
+03-Nov-26 22:00:10 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2026 22:00:10] "GET /favicon.ico HTTP/1.1" 405 -
+03-Nov-26 22:59:00 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+04-Nov-26 08:34:47 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 08:34:57 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 08:34:57 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 08:34:57 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 09:21:57 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\data_manager.py', reloading
+04-Nov-26 09:21:58 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 09:22:02 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 09:22:02 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 09:22:02 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 09:37:27 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\Experiements\\working_class.py', reloading
+04-Nov-26 09:37:27 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 09:37:29 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 09:37:29 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 09:37:29 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 09:56:37 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\Experiements\\working_class.py', reloading
+04-Nov-26 09:56:37 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 09:56:39 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 09:56:39 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 09:56:39 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 09:58:44 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\Experiements\\working_class.py', reloading
+04-Nov-26 09:58:44 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 09:58:46 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 09:58:46 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 09:58:46 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 09:59:12 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\Experiements\\working_class.py', reloading
+04-Nov-26 09:59:12 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 09:59:14 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 09:59:14 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 09:59:14 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 10:07:42 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\Experiements\\working_class.py', reloading
+04-Nov-26 10:07:42 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 10:07:44 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 10:07:44 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 10:07:44 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 10:11:23 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+04-Nov-26 10:11:23 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 10:11:25 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 10:11:25 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 10:11:25 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 10:19:57 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+04-Nov-26 10:19:57 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 11:41:33 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 11:41:33 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 11:41:33 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 11:41:33 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 11:41:34 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 11:41:34 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 11:41:34 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 11:41:42 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:41:42] "GET / HTTP/1.1" 200 -
+04-Nov-26 11:41:43 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:41:43] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 11:41:57 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:41:57] "POST /login HTTP/1.1" 500 -
+04-Nov-26 11:41:57 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:41:57] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+04-Nov-26 11:41:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:41:58] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+04-Nov-26 11:41:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:41:58] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=r9D0Ak5CHXjkNVz2QeIt HTTP/1.1" 200 -
+04-Nov-26 11:43:30 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\site_landing\\routes.py', reloading
+04-Nov-26 11:43:30 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 11:43:32 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 11:43:32 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 11:43:32 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 11:43:32 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:43:32] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 11:43:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:43:33] "POST /login HTTP/1.1" 200 -
+04-Nov-26 11:43:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:43:33] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 11:43:40 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:43:40] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 11:43:40 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:43:40] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 11:43:45 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:43:45] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 11:43:46 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:43:46] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 11:44:00 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 11:44:00] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 11:46:46 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+04-Nov-26 11:46:47 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 12:23:21 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 12:23:21 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 12:23:21 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 12:23:21 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 12:23:23 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 12:23:23 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 12:23:23 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 12:23:35 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:23:35] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 12:23:35 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:23:35] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:23:43 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:23:43] "POST /admin/personas/new HTTP/1.1" 404 -
+04-Nov-26 12:23:43 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:23:43] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:31:10 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 12:31:10 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 12:31:10 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 12:31:10 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 12:31:23 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 12:31:23 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 12:31:23 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 12:32:22 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:32:22] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:32:27 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:32:27] "POST /admin/personas/new HTTP/1.1" 404 -
+04-Nov-26 12:32:27 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:32:27] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:32:31 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:32:31] "GET / HTTP/1.1" 200 -
+04-Nov-26 12:32:31 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:32:31] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:32:38 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:32:38] "GET / HTTP/1.1" 200 -
+04-Nov-26 12:32:38 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:32:38] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:32:54 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:32:54] "POST /login HTTP/1.1" 200 -
+04-Nov-26 12:32:54 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:32:54] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:33:00 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:33:00] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 12:33:00 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:33:00] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:33:02 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:33:02] "POST /admin/personas/new HTTP/1.1" 404 -
+04-Nov-26 12:33:02 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:33:02] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:33:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+04-Nov-26 12:33:50 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 12:34:04 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 12:34:04 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 12:34:04 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 12:34:04 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:34:04] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:34:20 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:34:20] "POST /admin/personas/new HTTP/1.1" 415 -
+04-Nov-26 12:34:20 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:34:20] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:34:26 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:34:26] "POST /admin/personas/new HTTP/1.1" 415 -
+04-Nov-26 12:34:41 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:34:41] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:36:09 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:36:09] "POST /admin/personas/new HTTP/1.1" 415 -
+04-Nov-26 12:36:09 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:36:09] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:36:13 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:36:13] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:36:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:36:33] "POST /admin/personas/new HTTP/1.1" 415 -
+04-Nov-26 12:36:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:36:33] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:36:49 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:36:49] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:36:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:36:53] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 12:36:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:36:53] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:37:09 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:37:09] "GET /admin/personas/new?email=martin.gorren@gmail.com HTTP/1.1" 200 -
+04-Nov-26 12:37:09 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:37:09] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 12:49:45 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:49:45] "GET /admin/personas/new?email=martin.gorren@gmail.com HTTP/1.1" 200 -
+04-Nov-26 12:49:45 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 12:49:45] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:01:43 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:01:43] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:01:49 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:01:49] "GET /admin/personas/new?email=martin.gorren@gmail.com HTTP/1.1" 200 -
+04-Nov-26 13:01:49 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:01:49] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:05:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:05:47] "GET /admin/personas/new?email=martin.gorren@gmail.com HTTP/1.1" 200 -
+04-Nov-26 13:05:48 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:05:48] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:06:25 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:06:25] "POST /admin/api/personas HTTP/1.1" 404 -
+04-Nov-26 13:22:02 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:22:02] "POST /admin/api/personas HTTP/1.1" 404 -
+04-Nov-26 13:23:41 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:23:41] "POST /admin/api/personas HTTP/1.1" 404 -
+04-Nov-26 13:23:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:23:53] "GET /admin/personas/new?email=martin.gorren@gmail.com HTTP/1.1" 200 -
+04-Nov-26 13:23:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:23:53] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:24:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:24:33] "POST /admin/personas/new HTTP/1.1" 500 -
+04-Nov-26 13:27:21 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+04-Nov-26 13:27:22 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 13:27:36 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 13:27:36 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 13:27:36 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 13:28:14 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:28:14] "POST /admin/personas/new HTTP/1.1" 500 -
+04-Nov-26 13:30:10 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+04-Nov-26 13:30:10 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 13:30:24 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 13:30:24 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 13:30:24 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 13:37:01 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+04-Nov-26 13:37:01 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 13:37:15 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 13:37:15 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 13:37:15 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 13:40:12 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+04-Nov-26 13:40:12 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 13:40:26 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 13:40:26 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 13:40:26 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 13:43:16 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 13:43:17 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 13:43:17 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 13:43:17 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 13:43:30 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 13:43:30 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 13:43:30 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 13:43:30 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:43:30] "GET / HTTP/1.1" 200 -
+04-Nov-26 13:43:30 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:43:30] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:43:40 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:43:40] "POST /login HTTP/1.1" 200 -
+04-Nov-26 13:43:41 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:43:41] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:43:44 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:43:44] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 13:43:44 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:43:44] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:43:50 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:43:50] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 13:43:50 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:43:50] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:48:00 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:48:00] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 13:48:00 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:48:00] "POST /admin/personas/new HTTP/1.1" 201 -
+04-Nov-26 13:48:00 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:48:00] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:57:19 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:57:19] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 13:57:20 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:57:20] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:59:01 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:01] "GET / HTTP/1.1" 200 -
+04-Nov-26 13:59:02 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:02] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:59:15 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:15] "POST /login HTTP/1.1" 302 -
+04-Nov-26 13:59:15 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:15] "GET / HTTP/1.1" 200 -
+04-Nov-26 13:59:15 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:15] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:59:30 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:30] "POST /login HTTP/1.1" 200 -
+04-Nov-26 13:59:30 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:30] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:59:37 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:37] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 13:59:37 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:37] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 13:59:49 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:49] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 13:59:49 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 13:59:49] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 14:00:48 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 14:00:48] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+04-Nov-26 14:06:51 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 14:06:51] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 14:06:52 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 14:06:52] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 14:08:12 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 14:08:12] "POST /admin/personas/new HTTP/1.1" 201 -
+04-Nov-26 19:54:06 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 19:54:06 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 19:54:06 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 19:54:06 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 19:54:07 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 19:54:07 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 19:54:07 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 19:54:45 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 19:54:45 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 19:54:45 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 19:54:45 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 19:54:46 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 19:54:46 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 19:54:46 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 19:55:08 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:55:08] "POST /login HTTP/1.1" 200 -
+04-Nov-26 19:55:08 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:55:08] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 19:55:13 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:55:13] "POST /logout HTTP/1.1" 302 -
+04-Nov-26 19:55:13 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:55:13] "GET / HTTP/1.1" 200 -
+04-Nov-26 19:55:13 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:55:13] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 19:56:28 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 19:56:28 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 19:56:28 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 19:56:30 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 19:56:30 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 19:56:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:56:33] "GET /register HTTP/1.1" 200 -
+04-Nov-26 19:56:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:56:33] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 19:56:56 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 19:56:56 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 19:56:56 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:56:56] "POST /register HTTP/1.1" 200 -
+04-Nov-26 19:56:56 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:56:56] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 19:57:20 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:57:20] "POST /logout HTTP/1.1" 302 -
+04-Nov-26 19:57:20 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:57:20] "GET / HTTP/1.1" 200 -
+04-Nov-26 19:57:20 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:57:20] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 19:58:03 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 19:58:03 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 19:58:03 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 19:58:05 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 19:58:05 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 19:58:09 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:58:09] "GET /register HTTP/1.1" 200 -
+04-Nov-26 19:58:10 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 19:58:10] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:07:43 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:07:43 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:07:43 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:08:04 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:08:04 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:13:36 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:13:36 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:13:36 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:13:38 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:13:38 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:13:38 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:13:38] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:13:40 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:13:40] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:13:40 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:13:40] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:13:41 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:13:41] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:14:03 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 20:14:03 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 20:14:03 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:14:03] "POST /register HTTP/1.1" 200 -
+04-Nov-26 20:14:03 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:14:03] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:15:34 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:15:34 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:15:34 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:16:08 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:16:08 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:16:12 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:16:12] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:16:12 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:16:12] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:16:43 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:16:43] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:16:44 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:16:44] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:17:04 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 20:17:04 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 20:17:04 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:17:04] "POST /register HTTP/1.1" 200 -
+04-Nov-26 20:17:05 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:17:05] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:18:59 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:18:59 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:18:59 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:19:01 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:19:01 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:19:05 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:19:05] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:19:06 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:19:06] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:19:09 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:19:09] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:19:09 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:19:09] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:19:32 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 20:19:32 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 20:19:32 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:19:32] "POST /register HTTP/1.1" 200 -
+04-Nov-26 20:19:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:19:33] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:20:21 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:20:21 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:20:21 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:20:35 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:20:35 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:20:41 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:20:41] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:20:42 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:20:42] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:20:43 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:20:43] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:20:44 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:20:44] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:21:02 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 20:21:02 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 20:21:02 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:21:02] "POST /register HTTP/1.1" 200 -
+04-Nov-26 20:21:02 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:21:02] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:22:53 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:22:53 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:22:53 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:23:07 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:23:07 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:23:07 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:23:07] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:23:07 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:23:07] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:23:07 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:23:07] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:24:01 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:24:01] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:24:01 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:24:01] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:24:01 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:24:01] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:24:01 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:24:01] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:25:26 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 20:26:08 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 20:28:10 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\app.py', reloading
+04-Nov-26 20:28:10 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:28:25 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 20:28:25 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:28:25 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:37:25 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:37:25 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:37:25 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:37:27 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:37:27 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:37:29 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:37:29] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:37:30 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:37:30] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:37:32 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:37:32] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:37:32 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:37:32] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:37:53 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 20:37:53 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 20:37:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:37:53] "POST /register HTTP/1.1" 200 -
+04-Nov-26 20:37:54 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:37:54] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:41:01 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:41:01 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:41:01 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:41:02 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:41:02 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:41:06 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:41:06] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:41:06 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:41:06] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:41:08 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:41:08] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:41:08 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:41:08] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:41:26 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 20:41:26 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 20:41:26 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:41:26] "POST /register HTTP/1.1" 200 -
+04-Nov-26 20:41:26 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:41:26] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:43:56 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:43:56 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:43:56 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:44:10 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:44:10 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:44:11 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:44:11] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:44:11 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:44:11] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:44:11 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:44:11] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:44:11 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:44:11] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:44:22 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:44:22] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:44:22 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:44:22] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:45:43 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:45:43 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:45:43 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:45:56 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:45:56 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:45:56 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:45:56] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:45:57 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:45:57] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:45:59 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:45:59] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:45:59 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:45:59] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:48:23 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:48:23 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:48:23 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:48:24 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:48:24 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:48:27 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:48:27] "GET / HTTP/1.1" 200 -
+04-Nov-26 20:48:29 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:48:29] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:48:54 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:48:54] "GET /register HTTP/1.1" 200 -
+04-Nov-26 20:48:54 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:48:54] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:49:22 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 20:49:22 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 20:49:22 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:49:22] "POST /register HTTP/1.1" 200 -
+04-Nov-26 20:49:22 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:49:22] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:49:31 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:49:31] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 20:49:32 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:49:32] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:49:35 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:49:35] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 20:49:35 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:49:35] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:50:41 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:50:41] "POST /admin/personas/new HTTP/1.1" 201 -
+04-Nov-26 20:58:54 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 20:58:54 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 20:58:54 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 20:58:54 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 20:58:56 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 20:58:56 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 20:58:56 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 20:58:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:58:58] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 20:58:59 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:58:59] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 20:58:59 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 20:58:59] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 21:00:14 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:00:14] "POST /admin/personas/new HTTP/1.1" 500 -
+04-Nov-26 21:05:34 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 21:05:34 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 21:05:34 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 21:05:36 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 21:05:36 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 21:05:40 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:05:40] "GET / HTTP/1.1" 200 -
+04-Nov-26 21:05:41 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:05:41] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 21:05:43 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:05:43] "GET /register HTTP/1.1" 200 -
+04-Nov-26 21:05:43 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:05:43] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 21:06:05 - root - INFO - Request received to add a new user to the DB with email address: martin.gorren@gmail.com
+04-Nov-26 21:06:05 - root - INFO - Successfull storage of new user with email address martin.gorren@gmail.com has user id 1.
+04-Nov-26 21:06:05 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:06:05] "POST /register HTTP/1.1" 200 -
+04-Nov-26 21:06:05 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:06:05] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 21:06:10 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:06:10] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 21:06:10 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:06:10] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 21:06:12 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:06:12] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 21:06:12 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:06:12] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 21:07:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:07:53] "POST /admin/personas/new HTTP/1.1" 201 -
+04-Nov-26 21:25:54 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+04-Nov-26 21:25:54 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 21:25:58 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 21:25:58 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 21:25:58 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 21:31:27 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+04-Nov-26 21:31:27 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 21:31:29 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 21:31:29 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 21:31:29 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 21:53:21 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:53:21] "GET /api/personas HTTP/1.1" 500 -
+04-Nov-26 21:53:21 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:53:21] "GET /api/personas?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+04-Nov-26 21:53:21 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:53:21] "GET /api/personas?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+04-Nov-26 21:53:21 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:53:21] "GET /api/personas?__debugger__=yes&cmd=resource&f=console.png&s=dFZGJ0XpPLOT8E42xkXN HTTP/1.1" 200 -
+04-Nov-26 21:53:21 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 21:53:21] "GET /api/personas?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+04-Nov-26 22:04:43 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\models.py', reloading
+04-Nov-26 22:04:43 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 22:04:45 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 22:04:45 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 22:04:45 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 22:04:50 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:04:50] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:10:07 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\data_manager.py', reloading
+04-Nov-26 22:10:07 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 22:10:09 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 22:10:09 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 22:10:09 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 22:30:30 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 22:30:30 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 22:30:30 - werkzeug - INFO - Press CTRL+C to quit
+04-Nov-26 22:30:30 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 22:30:32 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 22:30:32 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 22:30:32 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 22:30:34 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:30:34] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:30:37 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:30:37] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 22:30:37 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:30:37] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:30:48 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:30:48] "GET /api/personas HTTP/1.1" 500 -
+04-Nov-26 22:30:48 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:30:48] "GET /api/personas?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+04-Nov-26 22:30:48 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:30:48] "GET /api/personas?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+04-Nov-26 22:30:48 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:30:48] "GET /api/personas?__debugger__=yes&cmd=resource&f=console.png&s=6IhtF7pVN5sQieXb6M0S HTTP/1.1" 200 -
+04-Nov-26 22:36:23 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+04-Nov-26 22:36:23 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 22:36:25 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 22:36:25 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 22:36:25 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 22:36:38 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:36:38] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 22:36:38 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:36:38] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:36:46 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:36:46] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 22:36:46 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:36:46] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:36:59 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:36:59] "GET / HTTP/1.1" 200 -
+04-Nov-26 22:37:00 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:00] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:37:12 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:12] "POST /login HTTP/1.1" 200 -
+04-Nov-26 22:37:13 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:13] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:37:16 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:16] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 22:37:16 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:16] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:37:20 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:20] "GET /admin/personas/new HTTP/1.1" 200 -
+04-Nov-26 22:37:21 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:21] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:37:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:47] "GET /admin/personas/adventure_editor_separate_personas.html HTTP/1.1" 404 -
+04-Nov-26 22:37:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:47] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:37:51 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:51] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:37:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:53] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:37:54 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:54] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 22:37:54 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:54] "GET /admin/api/personas HTTP/1.1" 404 -
+04-Nov-26 22:37:55 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:37:55] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:45:34 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:45:34] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:45:35 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:45:35] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:45:49 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:45:49] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 22:45:49 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:45:49] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:46:34 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:46:34] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 22:46:34 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:46:34] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:46:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:46:58] "GET / HTTP/1.1" 200 -
+04-Nov-26 22:46:59 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:46:59] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:47:09 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:47:09] "POST /login HTTP/1.1" 200 -
+04-Nov-26 22:47:09 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:47:09] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:47:12 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:47:12] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 22:47:12 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:47:12] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:47:16 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:47:16] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 22:47:16 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:47:16] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:48:02 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:48:02] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 22:48:02 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:48:02] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:48:57 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:48:57] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 22:48:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:48:58] "GET /admin/api/personas HTTP/1.1" 404 -
+04-Nov-26 22:48:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:48:58] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:49:11 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:49:11] "POST /admin/persona_admin HTTP/1.1" 200 -
+04-Nov-26 22:49:11 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:49:11] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:49:18 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:49:18] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:57:45 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:57:45] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 22:57:45 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:57:45] "GET /admin/api/personas HTTP/1.1" 404 -
+04-Nov-26 22:57:45 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:57:45] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 22:57:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+04-Nov-26 22:59:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:59:58] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 22:59:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:59:58] "GET /admin/api/personas HTTP/1.1" 404 -
+04-Nov-26 22:59:59 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 22:59:59] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 23:00:04 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:00:04] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+04-Nov-26 23:01:30 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:01:30] "GET / HTTP/1.1" 200 -
+04-Nov-26 23:01:35 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:01:35] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:01:35 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:01:35] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 23:04:13 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:13] "GET /admin/api/personas HTTP/1.1" 404 -
+04-Nov-26 23:04:13 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:13] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 23:04:36 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:36] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 23:04:41 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:41] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+04-Nov-26 23:04:41 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:41] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 23:04:45 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:45] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 23:04:46 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:46] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 23:04:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:47] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:04:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:47] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:04:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:04:47] "GET /favicon.ico HTTP/1.1" 405 -
+04-Nov-26 23:05:06 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:05:06] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+04-Nov-26 23:08:01 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 23:08:01 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+04-Nov-26 23:08:01 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+04-Nov-26 23:08:01 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 23:08:02 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 23:08:02 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 23:08:03 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 23:08:03 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:08:03] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:08:03 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:08:03] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:08:03 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:08:03] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:08:03 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:08:03] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:13:34 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:13:34] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:13:40 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:13:40] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 23:13:40 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:13:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:13:42 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:13:42] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:13:42 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:13:42] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:13:42 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:13:42] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:14:01 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:14:01] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:18:50 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\models.py', reloading
+04-Nov-26 23:18:51 - werkzeug - INFO -  * Restarting with stat
+04-Nov-26 23:18:53 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+04-Nov-26 23:18:53 - werkzeug - WARNING -  * Debugger is active!
+04-Nov-26 23:18:53 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+04-Nov-26 23:18:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:18:58] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:18:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:18:58] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:18:58 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:18:58] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:19:59 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:19:59] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:20:01 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:20:01] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:20:01 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:20:01] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:20:02 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:20:02] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:25:04 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:25:04] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:25:04 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:25:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:31:46 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:31:46] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:31:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:31:47] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:31:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:31:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:38:06 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:38:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:38:07 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:38:07] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:38:07 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:38:07] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:38:07 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:38:07] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:38:10 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:38:10] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:38:10 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:38:10] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:38:10 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:38:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:38:20 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:38:20] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:41:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:41:47] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:41:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:41:47] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:41:47 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:41:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:48:46 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:48:46] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:48:46 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:48:46] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:51:57 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:51:57] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:52:32 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:52:32] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:52:32 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:52:32] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:52:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:52:33] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:52:51 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:52:51] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:54:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:54:33] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:54:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:54:33] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:54:33 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:54:33] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:54:49 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:54:49] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:56:13 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:13] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:56:13 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:13] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:56:14 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:14] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:56:19 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:19] "GET / HTTP/1.1" 200 -
+04-Nov-26 23:56:19 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:19] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:56:31 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:31] "POST /login HTTP/1.1" 200 -
+04-Nov-26 23:56:31 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:31] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:56:34 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:34] "POST /adventure_admin/ HTTP/1.1" 200 -
+04-Nov-26 23:56:34 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:34] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:56:36 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:36] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:56:36 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:36] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:56:43 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:56:43] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:57:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:57:53] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:57:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:57:53] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:57:53 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:57:53] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:57:55 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:57:55] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+04-Nov-26 23:59:27 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:59:27] "POST /admin/adventures/new HTTP/1.1" 200 -
+04-Nov-26 23:59:27 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:59:27] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+04-Nov-26 23:59:28 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:59:28] "GET /api/personas HTTP/1.1" 200 -
+04-Nov-26 23:59:29 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2026 23:59:29] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:00:11 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:00:11] "POST /admin/adventures/new HTTP/1.1" 200 -
+05-Nov-26 00:00:11 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:00:11] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 00:00:12 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:00:12] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:00:44 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:00:44] "POST /admin/adventures/new HTTP/1.1" 200 -
+05-Nov-26 00:00:44 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:00:44] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 00:00:44 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:00:44] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 00:00:45 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:00:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:01:38 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:01:38] "POST /admin/adventures/new HTTP/1.1" 200 -
+05-Nov-26 00:01:38 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:01:38] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 00:01:39 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:01:39] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:05:40 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:05:40] "POST /admin/adventures/new HTTP/1.1" 200 -
+05-Nov-26 00:05:41 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:05:41] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 00:05:41 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:05:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:06:35 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:06:35] "POST /admin/adventures/new HTTP/1.1" 200 -
+05-Nov-26 00:06:36 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:06:36] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:14:33 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:14:33] "POST /admin/adventures/new HTTP/1.1" 200 -
+05-Nov-26 00:14:33 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:14:33] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 00:14:33 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:14:33] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:16:41 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:16:41] "POST /admin/persona_admin HTTP/1.1" 200 -
+05-Nov-26 00:16:41 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:16:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:18:45 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:18:45] "[35m[1mPOST /admin/personas/new HTTP/1.1[0m" 201 -
+05-Nov-26 00:24:18 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:24:18] "POST /admin/persona_admin HTTP/1.1" 200 -
+05-Nov-26 00:24:18 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:24:18] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 00:24:18 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:24:18] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:30:16 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:30:16] "POST /admin/persona_admin HTTP/1.1" 200 -
+05-Nov-26 00:30:17 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:30:17] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 00:30:17 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:30:17] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:30:28 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:30:28] "[33mPUT /api/personas/2 HTTP/1.1[0m" 404 -
+05-Nov-26 00:34:13 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:34:13] "POST /admin/persona_admin HTTP/1.1" 200 -
+05-Nov-26 00:34:13 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:34:13] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 00:34:13 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:34:13] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 00:34:16 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:34:16] "[33mPUT /api/personas/2 HTTP/1.1[0m" 404 -
+05-Nov-26 00:34:19 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:34:19] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 00:39:10 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+05-Nov-26 00:39:10 - werkzeug - INFO -  * Restarting with stat
+05-Nov-26 00:39:12 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 00:39:12 - werkzeug - WARNING -  * Debugger is active!
+05-Nov-26 00:39:12 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+05-Nov-26 00:39:12 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:39:12] "[33mPUT /api/personas/2 HTTP/1.1[0m" 404 -
+05-Nov-26 00:39:36 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+05-Nov-26 00:39:37 - werkzeug - INFO -  * Restarting with stat
+05-Nov-26 00:39:38 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 00:39:38 - werkzeug - WARNING -  * Debugger is active!
+05-Nov-26 00:39:38 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+05-Nov-26 00:39:38 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:39:38] "[35m[1mPUT /api/personas/2 HTTP/1.1[0m" 500 -
+05-Nov-26 00:56:49 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+05-Nov-26 00:56:49 - werkzeug - INFO -  * Restarting with stat
+05-Nov-26 00:56:51 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 00:56:51 - werkzeug - WARNING -  * Debugger is active!
+05-Nov-26 00:56:51 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+05-Nov-26 00:56:53 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:56:53] "[35m[1mPUT /api/personas/2 HTTP/1.1[0m" 500 -
+05-Nov-26 00:58:22 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+05-Nov-26 00:58:22 - werkzeug - INFO -  * Restarting with stat
+05-Nov-26 00:58:24 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 00:58:24 - werkzeug - WARNING -  * Debugger is active!
+05-Nov-26 00:58:24 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+05-Nov-26 00:58:24 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:58:24] "PUT /api/personas/2 HTTP/1.1" 200 -
+05-Nov-26 00:58:24 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:58:24] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 00:58:46 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:58:46] "PUT /api/personas/2 HTTP/1.1" 200 -
+05-Nov-26 00:58:46 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:58:46] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 00:59:26 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:59:26] "PUT /api/personas/2 HTTP/1.1" 200 -
+05-Nov-26 00:59:26 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 00:59:26] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 01:00:09 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 01:00:09] "PUT /api/personas/2 HTTP/1.1" 200 -
+05-Nov-26 01:00:09 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 01:00:09] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 01:00:25 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 01:00:25] "PUT /api/personas/2 HTTP/1.1" 200 -
+05-Nov-26 01:00:25 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 01:00:25] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 01:03:04 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\adventures\\data_manager.py', reloading
+05-Nov-26 01:03:04 - werkzeug - INFO -  * Restarting with stat
+05-Nov-26 01:03:06 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 01:03:06 - werkzeug - WARNING -  * Debugger is active!
+05-Nov-26 01:03:06 - werkzeug - INFO -  * Debugger PIN: 386-085-760

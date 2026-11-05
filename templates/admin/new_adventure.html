@@ -157,7 +157,6 @@
                             <input class="field" id="sceneLocation">
                         </div>
                         <div>
-
                             <label for="scenePersona">Persona</label>
                             <select class="field" id="scenePersona">
                             </select>
@@ -170,6 +169,7 @@
                             </a> -->
                         </div>
                             <p class="hint">Personas are maintained independently of adventures.</p>
+
                         <div class="md:col-span-2">
                             <label for="sceneSituation">Starting situation</label>
                             <textarea class="field" id="sceneSituation" rows="3">
@@ -236,180 +236,404 @@
         </div>
         <footer class="text-center text-xs text-slate-500 py-10">LinguAdventure · Don't study a language. Live it.</footer>
     </main>
-    <script>
-        const blankScene = () => ({title:'', location:'', personaId:'', situation:'', goal:'', steps:'', intro:'', language:'', vocabulary:'', grammar:'', must:'', mustNot:'', exit:'', ending:''});
-        const example = () => ({
-            title:'The Lost Backpack', language:'Portuguese', level:'A1–A2', minutes:'5',
-            setting:'Lisbon. The student is spending a week in the city for work.',
-            premise:'Shortly after arriving at the hotel, the student discovers their backpack is missing. It contains a laptop needed for work. They retrace their steps, visit a café, speak to a taxi driver, and eventually learn that another traveler took it by mistake.',
-            intro:'You have just arrived in Lisbon. Your backpack is missing, and your work laptop is inside. Can you find out what happened?',
-            objectives:'Asking simple questions\nDescribing objects\nUnderstanding directions\nNumbers and prices\nIntroduction to the past tense\nTravel vocabulary',
-            storyOutline:'Ask the hotel receptionist for help.\nReturn to the café and ask about the backpack.\nSpeak to the taxi driver.\nFind the traveler who took the backpack by mistake.\nRecover the backpack.',
-            cliffhanger:'The backpack is recovered, but something unexpected inside introduces the next adventure.',
-            scenes:[
-                {...blankScene(), title:'The Café', location:'Small café near Rossio station, Lisbon', personaId:'p_miguel', situation:'The student returns to the café where they had breakfast and asks about their missing backpack.', goal:'Discover that Miguel saw someone leave with a similar backpack and identify the taxi driver.', steps:'Greet the student.\nMake brief small talk.\nGuide the conversation toward the missing backpack.\nAsk the student to describe the backpack and its contents.\nMention a different backpack left behind.\nRecall seeing a traveler with a similar backpack.\nContact the taxi driver, who agrees to come to the café.', intro:'You enter the café near Rossio station. Miguel is working behind the counter.', language:'Describing objects\nColors\nPossessives\nAsking “Have you seen...?”\nBasic past-tense exposure', vocabulary:'mochila, preta, grande, pequena, ontem, viu, mesa, perder', grammar:'você viu; eu vi', must:'Miguel remembers the student.\nMiguel did not find the backpack.\nAnother traveler carried a similar backpack.\nThe traveler left in a taxi.', mustNot:'Miguel knows who took the backpack.\nMiguel knows where the traveler went.\nThe backpack is found in this scene.\nMiguel leaves with the student.', exit:'Another traveler had a similar backpack and left the café in a taxi.', ending:'Miguel suddenly remembers: “I think I know the taxi driver...”'},
-                blankScene(), blankScene(), blankScene(), blankScene()
-            ]
-        });
-        let data = example();
-        let selected = -1;
-        const overviewFields = ['title','language','level','minutes','setting','premise','intro','objectives','storyOutline','cliffhanger'];
-        const sceneFields = {sceneTitle:'title',sceneLocation:'location',scenePersona:'personaId',sceneSituation:'situation',sceneGoal:'goal',sceneSteps:'steps',sceneIntro:'intro',sceneLanguage:'language',sceneVocabulary:'vocabulary',sceneGrammar:'grammar',sceneMust:'must',sceneMustNot:'mustNot',sceneExit:'exit',sceneEnding:'ending'};
-        const el = id => document.getElementById(id);
 
-        const PERSONA_KEY = 'linguadventure_personas_v1';
-        const defaultPersonas = () => [
-            {id:'p_miguel', name:'Miguel Pereira', age:'34', role:'Café employee', description:'Friendly, energetic and slightly impatient when busy. Speaks informal Brazilian Portuguese using short sentences.', photo:''},
-            {id:'p_sofia', name:'Sofia', age:'', role:'Hotel receptionist', description:'', photo:''},
-            {id:'p_rui', name:'Rui', age:'', role:'Taxi driver', description:'', photo:''},
-            {id:'p_emma', name:'Emma', age:'', role:'Another traveler', description:'', photo:''}
-        ];
-        let personas = defaultPersonas();
-        try {
-            const stored = JSON.parse(localStorage.getItem(PERSONA_KEY));
-            if (Array.isArray(stored)) personas = stored;
-        } catch (e) {}
+<script>
+    let personas = [];
 
-        function capture() {
-            if (selected === -1) {
-                for (const k of overviewFields) data[k] = el(k).value;
-            } else if (data.scenes[selected]) {
-                for (const [id, k] of Object.entries(sceneFields)) data.scenes[selected][k] = el(id).value;
+    const blankScene = () => ({
+        title: '', location: '', personaId: '', situation: '',
+        goal: '', steps: '', intro: '', language: '',
+        vocabulary: '', grammar: '', must: '', mustNot: '',
+        exit: '', ending: ''
+    });
+
+    const example = () => ({
+        title: 'The Lost Backpack',
+        language: 'Portuguese',
+        level: 'A1–A2',
+        minutes: '5',
+        setting: 'Lisbon. The student is spending a week in the city for work.',
+        premise: 'Shortly after arriving at the hotel, the student discovers their backpack is missing. It contains a laptop needed for work. They retrace their steps, visit a café, speak to a taxi driver, and eventually learn that another traveler took it by mistake.',
+        intro: 'You have just arrived in Lisbon. Your backpack is missing, and your work laptop is inside. Can you find out what happened?',
+        objectives: 'Asking simple questions\nDescribing objects\nUnderstanding directions\nNumbers and prices\nIntroduction to the past tense\nTravel vocabulary',
+        storyOutline: 'Ask the hotel receptionist for help.\nReturn to the café and ask about the backpack.\nSpeak to the taxi driver.\nFind the traveler who took the backpack by mistake.\nRecover the backpack.',
+        cliffhanger: 'The backpack is recovered, but something unexpected inside introduces the next adventure.',
+        scenes: [
+            {
+                ...blankScene(),
+                title: 'The Café',
+                location: 'Small café near Rossio station, Lisbon',
+                personaId: '',
+                situation: 'The student returns to the café where they had breakfast and asks about their missing backpack.',
+                goal: 'Discover that Miguel saw someone leave with a similar backpack and identify the taxi driver.',
+                steps: 'Greet the student.\nMake brief small talk.\nGuide the conversation toward the missing backpack.\nAsk the student to describe the backpack and its contents.\nMention a different backpack left behind.\nRecall seeing a traveler with a similar backpack.\nContact the taxi driver, who agrees to come to the café.',
+                intro: 'You enter the café near Rossio station. Miguel is working behind the counter.',
+                language: 'Describing objects\nColors\nPossessives\nAsking “Have you seen...?”\nBasic past-tense exposure',
+                vocabulary: 'mochila, preta, grande, pequena, ontem, viu, mesa, perder',
+                grammar: 'você viu; eu vi',
+                must: 'Miguel remembers the student.\nMiguel did not find the backpack.\nAnother traveler carried a similar backpack.\nThe traveler left in a taxi.',
+                mustNot: 'Miguel knows who took the backpack.\nMiguel knows where the traveler went.\nThe backpack is found in this scene.\nMiguel leaves with the student.',
+                exit: 'Another traveler had a similar backpack and left the café in a taxi.',
+                ending: 'Miguel suddenly remembers: “I think I know the taxi driver...”'
+            },
+            blankScene(),
+            blankScene(),
+            blankScene(),
+            blankScene()
+        ]
+    });
+
+    let data = example();
+    let selected = -1;
+
+    const overviewFields = [
+        'title', 'language', 'level', 'minutes', 'setting',
+        'premise', 'intro', 'objectives', 'storyOutline', 'cliffhanger'
+    ];
+
+    const sceneFields = {
+        sceneTitle: 'title',
+        sceneLocation: 'location',
+        scenePersona: 'personaId',
+        sceneSituation: 'situation',
+        sceneGoal: 'goal',
+        sceneSteps: 'steps',
+        sceneIntro: 'intro',
+        sceneLanguage: 'language',
+        sceneVocabulary: 'vocabulary',
+        sceneGrammar: 'grammar',
+        sceneMust: 'must',
+        sceneMustNot: 'mustNot',
+        sceneExit: 'exit',
+        sceneEnding: 'ending'
+    };
+
+    const el = id => document.getElementById(id);
+
+    function capture() {
+        if (selected === -1) {
+            for (const k of overviewFields) {
+                data[k] = el(k).value;
+            }
+        } else if (data.scenes[selected]) {
+            for (const [id, k] of Object.entries(sceneFields)) {
+                data.scenes[selected][k] = el(id).value;
             }
         }
+    }
 
-        function render() {
-            el('overviewPanel').classList.toggle('hidden', selected !== -1);
-            el('scenePanel').classList.toggle('hidden', selected < 0);
-            el('overviewBtn').setAttribute('aria-current', String(selected === -1));
-            el('sceneCount').textContent = data.scenes.length + ' scene' + (data.scenes.length === 1 ? '' : 's');
-            el('sceneList').replaceChildren();
-            data.scenes.forEach((s, i) => {
-                const b = document.createElement('button');
-                b.type = 'button';
-                b.className = 'scene-item';
-                b.setAttribute('aria-current', String(selected === i));
-                const t = document.createElement('div');
-                t.className = 'font-semibold';
-                t.textContent = `Scene ${i + 1} · ${s.title || 'Untitled scene'}`;
-                const d = document.createElement('div');
-                d.className = 'text-xs text-slate-400 mt-1';
-                d.textContent = s.location || 'Location not set';
-                b.append(t, d);
-                b.addEventListener('click', () => navigate(i));
-                el('sceneList').append(b);
+    function render() {
+        el('overviewPanel').classList.toggle('hidden', selected !== -1);
+        el('scenePanel').classList.toggle('hidden', selected < 0);
+        el('overviewBtn').setAttribute(
+            'aria-current',
+            String(selected === -1)
+        );
+
+        el('sceneCount').textContent =
+            data.scenes.length + ' scene' +
+            (data.scenes.length === 1 ? '' : 's');
+
+        el('sceneList').replaceChildren();
+
+        data.scenes.forEach((s, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'scene-item';
+            b.setAttribute('aria-current', String(selected === i));
+
+            const t = document.createElement('div');
+            t.className = 'font-semibold';
+            t.textContent =
+                `Scene ${i + 1} · ${s.title || 'Untitled scene'}`;
+
+            const d = document.createElement('div');
+            d.className = 'text-xs text-slate-400 mt-1';
+            d.textContent = s.location || 'Location not set';
+
+            b.append(t, d);
+            b.addEventListener('click', () => navigate(i));
+            el('sceneList').append(b);
+        });
+
+        if (selected === -1) {
+            for (const k of overviewFields) {
+                el(k).value = data[k] ?? '';
+            }
+
+            el('plannedSceneCount').value = data.scenes.length;
+        } else {
+            el('sceneEyebrow').textContent =
+                `02 / Scene ${selected + 1}`;
+
+            const options = el('scenePersona');
+
+            options.replaceChildren(
+                new Option('— Select a persona —', '')
+            );
+
+            // Personas now come from SQLite through the Flask API.
+            personas.forEach(p => {
+                const name =
+                    `${p.first_name ?? ''} ${p.last_name ?? ''}`.trim();
+
+                options.add(
+                    new Option(
+                        name || 'Unnamed persona',
+                        String(p.persona_id)
+                    )
+                );
             });
+
+            for (const [id, k] of Object.entries(sceneFields)) {
+                el(id).value = data.scenes[selected][k] ?? '';
+            }
+
+            // Preserve a reference if its persona is unavailable.
+            const currentPersonaId = data.scenes[selected].personaId;
+
+            if (
+                currentPersonaId &&
+                !personas.some(
+                    p => String(p.persona_id) === String(currentPersonaId)
+                )
+            ) {
+                options.add(
+                    new Option(
+                        'Unavailable persona (reassign)',
+                        String(currentPersonaId)
+                    )
+                );
+
+                options.value = String(currentPersonaId);
+            }
+        }
+    }
+
+    function navigate(n) {
+        capture();
+        selected = n;
+        render();
+    }
+
+    function updateSceneCount(count) {
+        if (!Number.isInteger(count) || count < 1 || count > 30) {
+            el('plannedSceneCount').value = data.scenes.length;
+            return;
+        }
+
+        if (
+            count < data.scenes.length &&
+            !confirm(
+                `Remove the last ${data.scenes.length - count} scene(s)? Their content will be lost.`
+            )
+        ) {
+            el('plannedSceneCount').value = data.scenes.length;
+            return;
+        }
+
+        while (data.scenes.length < count) {
+            data.scenes.push(blankScene());
+        }
+
+        data.scenes.length = count;
+
+        if (selected >= count) {
+            selected = -1;
+        }
+
+        render();
+    }
+
+    // Navigation and scene management
+
+    el('overviewBtn').addEventListener('click', () => navigate(-1));
+
+    el('plannedSceneCount').addEventListener('change', () => {
+        capture();
+        updateSceneCount(Number(el('plannedSceneCount').value));
+    });
+
+    el('addSceneBtn').addEventListener('click', () => {
+        capture();
+        data.scenes.push(blankScene());
+        selected = data.scenes.length - 1;
+        render();
+        el('sceneTitle').focus();
+    });
+
+    el('deleteSceneBtn').addEventListener('click', () => {
+        if (data.scenes.length === 1) {
+            alert('An adventure needs at least one scene.');
+            return;
+        }
+
+        if (!confirm('Delete this scene from the draft?')) {
+            return;
+        }
+
+        data.scenes.splice(selected, 1);
+        selected = -1;
+        render();
+    });
+
+    // Adventure draft saving remains in browser storage for now.
+
+    el('saveBtn').addEventListener('click', () => {
+        capture();
+
+        try {
+            localStorage.setItem(
+                'linguadventure_editor_draft_v3',
+                JSON.stringify(data)
+            );
+
+            el('status').textContent =
+                'Draft saved in this browser. Not yet stored in your Flask database.';
+        } catch (e) {
+            el('status').textContent =
+                'Browser storage unavailable or image too large. Use Export JSON.';
+        }
+    });
+
+    el('exportBtn').addEventListener('click', () => {
+        capture();
+
+        const blob = new Blob(
+            [JSON.stringify(data, null, 4)],
+            {type: 'application/json'}
+        );
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+
+        a.href = url;
+        a.download = 'linguadventure_adventure_draft.json';
+        a.click();
+
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+
+    el('resetBtn').addEventListener('click', () => {
+        if (!confirm(
+            'Reset the editor to the example adventure? Unsaved changes will be lost.'
+        )) {
+            return;
+        }
+
+        data = example();
+        selected = -1;
+        render();
+
+        el('status').textContent =
+            'Example restored (not saved).';
+    });
+
+    // Keep the JavaScript data object synchronized with form fields.
+
+    for (const id of overviewFields) {
+        el(id).addEventListener('input', () => {
             if (selected === -1) {
-                for (const k of overviewFields) el(k).value = data[k] ?? '';
-                el('plannedSceneCount').value = data.scenes.length;
-            } else {
-                el('sceneEyebrow').textContent = `02 / Scene ${selected + 1}`;
-                const options = el('scenePersona');
-                options.replaceChildren(new Option('— Select a persona —', ''));
-                personas.forEach(p => options.add(new Option(p.name || 'Unnamed persona', p.id)));
-                for (const [id, k] of Object.entries(sceneFields)) el(id).value = data.scenes[selected][k] ?? '';
-                if (data.scenes[selected].personaId && !personas.some(p => p.id === data.scenes[selected].personaId)) {
-                    options.add(new Option('Unavailable persona (reassign)', data.scenes[selected].personaId));
-                    options.value = data.scenes[selected].personaId;
-                }
+                data[id] = el(id).value;
             }
-        }
+        });
+    }
 
-        function navigate(n) {capture(); selected = n; render();}
-        function updateSceneCount(count) {
-            if (!Number.isInteger(count) || count < 1 || count > 30) {
-                el('plannedSceneCount').value = data.scenes.length;
-                return;
-            }
-            if (count < data.scenes.length && !confirm(`Remove the last ${data.scenes.length - count} scene(s)? Their content will be lost.`)) {
-                el('plannedSceneCount').value = data.scenes.length;
-                return;
-            }
-            while (data.scenes.length < count) data.scenes.push(blankScene());
-            data.scenes.length = count;
-            if (selected >= count) selected = -1;
-            render();
-        }
-
-        el('overviewBtn').addEventListener('click', () => navigate(-1));
-        el('plannedSceneCount').addEventListener('change', () => {capture(); updateSceneCount(Number(el('plannedSceneCount').value));});
-        el('addSceneBtn').addEventListener('click', () => {capture(); data.scenes.push(blankScene()); selected = data.scenes.length - 1; render(); el('sceneTitle').focus();});
-        el('deleteSceneBtn').addEventListener('click', () => {
-            if (data.scenes.length === 1) {alert('An adventure needs at least one scene.'); return;}
-            if (!confirm('Delete this scene from the draft?')) return;
-            data.scenes.splice(selected, 1);
-            selected = -1;
-            render();
-        });
-        el('saveBtn').addEventListener('click', () => {
-            capture();
-            try {
-                localStorage.setItem('linguadventure_editor_draft_v3', JSON.stringify(data));
-                el('status').textContent = 'Draft saved in this browser. Not yet stored in your Flask database.';
-            } catch (e) {
-                el('status').textContent = 'Browser storage unavailable or image too large. Use Export JSON.';
-            }
-        });
-        el('exportBtn').addEventListener('click', () => {
-            capture();
-            const blob = new Blob([JSON.stringify(data, null, 4)], {type:'application/json'});
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'linguadventure_adventure_draft.json';
-            a.click();
-            setTimeout(() => URL.revokeObjectURL(url), 1000);
-        });
-        el('resetBtn').addEventListener('click', () => {
-            if (!confirm('Reset the editor to the example adventure? Unsaved changes will be lost.')) return;
-            data = example();
-            selected = -1;
-            render();
-            el('status').textContent = 'Example restored (not saved).';
-        });
-        for (const id of overviewFields) el(id).addEventListener('input', () => {if (selected === -1) data[id] = el(id).value;});
-        for (const [id, k] of Object.entries(sceneFields)) el(id).addEventListener('input', () => {
+    for (const [id, k] of Object.entries(sceneFields)) {
+        el(id).addEventListener('input', () => {
             if (selected >= 0) {
                 data.scenes[selected][k] = el(id).value;
+
                 if (k === 'title' || k === 'location') {
                     const b = el('sceneList').children[selected];
-                    if (b) {b.children[0].textContent = `Scene ${selected + 1} · ${data.scenes[selected].title || 'Untitled scene'}`; b.children[1].textContent = data.scenes[selected].location || 'Location not set';}
+
+                    if (b) {
+                        b.children[0].textContent =
+                            `Scene ${selected + 1} · ${data.scenes[selected].title || 'Untitled scene'}`;
+
+                        b.children[1].textContent =
+                            data.scenes[selected].location ||
+                            'Location not set';
+                    }
                 }
             }
         });
-        try {
-            if (!localStorage.getItem(PERSONA_KEY)) {
-                const old = JSON.parse(localStorage.getItem('linguadventure_editor_draft_v2'));
-                if (old && Array.isArray(old.personas)) {
-                    personas = old.personas;
-                    localStorage.setItem(PERSONA_KEY, JSON.stringify(personas));
+    }
+
+    // Restore the adventure draft, if one exists.
+
+    try {
+        const saved = localStorage.getItem(
+            'linguadventure_editor_draft_v3'
+        );
+
+        if (saved) {
+            const parsed = JSON.parse(saved);
+
+            if (
+                parsed &&
+                Array.isArray(parsed.scenes) &&
+                typeof parsed.title === 'string'
+            ) {
+                data = parsed;
+
+                // Old prototype IDs are not valid SQLite persona IDs.
+                // Clear them so the administrator can reassign personas.
+                for (const scene of data.scenes) {
+                    if (
+                        typeof scene.personaId === 'string' &&
+                        scene.personaId.startsWith('p_')
+                    ) {
+                        scene.personaId = '';
+                    }
                 }
+
+                el('status').textContent =
+                    'Previously saved browser draft loaded.';
             }
-        } catch (e) {}
-        try {
-            const saved = localStorage.getItem('linguadventure_editor_draft_v3');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                if (parsed && Array.isArray(parsed.scenes) && typeof parsed.title === 'string') {
-                    data = parsed;
-                    el('status').textContent = 'Previously saved browser draft loaded.';
-                }
-            }
-        } catch (e) {}
-        window.addEventListener('storage', event => {
-            if (event.key === PERSONA_KEY) {
-                try { personas = JSON.parse(event.newValue) || []; } catch (e) { personas = []; }
-                if (selected >= 0) { capture(); render(); }
-            }
-        });
-        window.addEventListener('focus', () => {
-            try {
-                const stored = JSON.parse(localStorage.getItem(PERSONA_KEY));
-                if (Array.isArray(stored)) personas = stored;
-            } catch (e) {}
-            if (selected >= 0) { capture(); render(); }
-        });
+        }
+    } catch (e) {
+        console.error('Could not restore adventure draft:', e);
+    }
+
+    // Retrieve personas from the Flask API.
+
+    async function loadPersonas() {
+        const response = await fetch('/api/personas');
+
+        if (!response.ok) {
+            throw new Error(
+                `Could not load personas: HTTP ${response.status}`
+            );
+        }
+
+        const result = await response.json();
+
+        if (!Array.isArray(result)) {
+            throw new Error('Persona API did not return an array.');
+        }
+
+        personas = result;
+
+        console.log('Personas loaded from SQLite:', personas);
+
+        // Refresh the existing scene dropdown with database records.
+        // Capture first to preserve any edits made during the request.
+        capture();
         render();
-    </script>
+    }
+
+    // Initialize editor.
+    render();
+
+    // Load the personas after the editor has been initialized.
+    loadPersonas().catch(error => {
+        console.error('Error loading personas:', error);
+
+        el('status').textContent =
+            'Could not load personas from the database.';
+    });
+</script>
+
 </body>
 </html>

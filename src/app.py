@@ -40,7 +40,7 @@ def create_app(database_uri=None):
     else:
         this_app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///../../data/linguadventure.sqlite"
     print("DB inside create_app:", id(db))
-    this_app.config["SECRET_KEY"] = "development-only-change-me-later"
+    this_app.config["SECRET_KEY"] = os.getenv("FLASK_SECRET_KEY")
     db.init_app(this_app)
     login_manager.init_app(this_app)
     # Blueprints

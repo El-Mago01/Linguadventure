@@ -80,7 +80,7 @@ def load_user(user_id):
     except (TypeError, ValueError):
         return None
 # ================================================================================
-# Movie class (inheriting from db.Model class)
+# Adventure class (inheriting from db.Model class)
 # ================================================================================
 class Adventure(db.Model):
     """
@@ -269,6 +269,7 @@ class Persona(db.Model):
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
     nationality = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(400), nullable=False)
     gender = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     role = db.Column(db.String, nullable=False)
@@ -296,5 +297,18 @@ class Persona(db.Model):
         self.age},\n {
         self.role},\n {
         self.image}"
+
+    def serialize(self)->dict:
+        persona_data = {}
+        persona_data["persona_id"] = self.persona_id
+        persona_data["first_name"] = self.first_name
+        persona_data["last_name"] = self.last_name
+        persona_data["nationality"] = self.nationality
+        persona_data["description"] = self.description
+        persona_data["gender"] = self.gender
+        persona_data["age"] = self.age
+        persona_data["role"] = self.role
+        persona_data["image"] = self.image
+        return persona_data
 
 

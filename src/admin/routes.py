@@ -1,13 +1,12 @@
-from flask import Blueprint, render_template, request, abort
-from src.data_manager import DataManager as dm, DataManager
+from flask import Blueprint, render_template, request, abort, jsonify
+from src.data_manager import DataManager as dm
 from helper_functions import is_valid_email_address
-from flask_login import login_required
-
+from flask_login import  login_required, current_user
 admin = Blueprint("admin", __name__)
 
-dm=DataManager()
 
 @admin.route("/adventure_admin/", methods=["POST"])
+@login_required
 def adventure_admin():
     """
     Upon request, the admin is presented with an adventure administration page where adventures can be added, changed,
@@ -29,6 +28,7 @@ def adventure_admin():
     abort(404, message="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE
 
 @admin.route("/admin/adventures/new", methods=["POST"])
+@login_required
 def add_adventure():
     """
     After the admin filled out a form to register a new adventure in the system, this function is called to
@@ -48,7 +48,10 @@ def add_adventure():
 
     abort(404, message="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE
 
+
+
 @admin.route("/adventure_admin/act_deact/<user_id>/<adventure_id>/", methods=["POST"])
+@login_required
 def act_deact_adventure(adventure_id:int):
     """
     The administrator decided to deactivate or activate an adventure
@@ -58,6 +61,7 @@ def act_deact_adventure(adventure_id:int):
     return render_template("index.html")
 
 @admin.route("/adventure_admin/update/<user_id>/<adventure_id>/'", methods=["GET", "POST"])
+@login_required
 def update_adventure(user_id:int, adventure_id:int):
     """
     The admin indicated that an adventure needs an update. The admin first receive a pre-filled form (GET) where-after
@@ -89,3 +93,47 @@ def persona_admin():
             return render_template("admin/persona_admin.html", student=student)
 
     abort(404, message="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE
+
+@admin.route("/admin/personas/new", methods=["GET","POST"])
+@login_required
+def create_persona():
+    if not current_user.is_admin:
+        abort(403)
+    if request.method == "POST":
+        persona_data = request.get_json()
+
+        persona, result = dm.create_persona(persona_data)
+
+        return jsonify({
+            "id": persona.persona_id,
+            "message": "Persona saved successfully"
+        }), 201
+    else:
+        return render_template("admin/persona_admin.html")
+
+
+@admin.route("/api/personas", methods=["GET"])
+@login_required
+def list_personas():
+    if not current_user.is_admin:
+        abort(403)
+
+    all_personas = dm.get_all_personas()
+    serialized_personas = [persona.serialize() for persona in all_personas]
+    return jsonify(serialized_personas)
+
+@admin.route("/api/personas/<int:persona_id>", methods=["PUT"])
+@login_required
+def update_persona(persona_id:int):
+    if not current_user.is_admin:
+        abort(403)
+
+    persona_data = request.get_json()
+    persona = dm.update_persona(persona_id, persona_data)
+    if persona is None:
+        abort(404, message="Persona not found")
+    return jsonify({
+        "id": persona.persona_id,
+        "message": "Persona updated successfully"
+    }), 200
+

@@ -13,7 +13,7 @@ def is_valid_email_address(email:str) -> bool:
     pattern = r"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
     return re.fullmatch(pattern, email) is not None
 
-def check_admin_user(email:str) -> bool:
+def check_admin_user(email:str,at_registration:bool=False) -> bool:
     """
     This function checks if this user's email address is located in the .admin file.
     If it is, True is returned, otherwise False. Typically, the client application can then use
@@ -26,12 +26,14 @@ def check_admin_user(email:str) -> bool:
     if os.path.exists("../.admin"):
         with open("../.admin", 'r') as file:
             admin_mail_addresses = file.readlines()
+            if at_registration:
+                return True
             if email in admin_mail_addresses:
                 return True
             return False
     return False
 
-def promote_admin_users():
+def promote_admin_users(email:str=""):
     """
     Upon startup of the app, each line within the .admin file is scanned.
     if the line contains an email address, it is checked in the database if
@@ -48,6 +50,8 @@ def promote_admin_users():
                     list_valid_admin_addresses.append(email)
             if len(list_valid_admin_addresses) > 0:
                 for email in list_valid_admin_addresses:
+                    if email == "":
+                        dm.make_admin(email)
                     if dm.student_exists(email):
                         dm.make_admin(email)
                         logging.info(f"User with {email} has been promoted to admin")

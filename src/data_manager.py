@@ -10,10 +10,10 @@ import logging
 
 from sqlalchemy.exc import IntegrityError, OperationalError
 
-from models import db, Adventure, Student, Student_Adventure, login_manager
+from models import db, Adventure, Student, Student_Adventure, login_manager, Persona
 from src.errors import StudentStorageError, AdventureStorageError
 from src.site_landing.data_manager import StudentDataManager
-from src.adventures.data_manager import AdventureDataManager
+from src.adventures.data_manager import AdventureDataManager, PersonaDataManager
 
 logging.basicConfig(
     filename="app.log",
@@ -99,3 +99,19 @@ class DataManager:
     @staticmethod
     def delete_adventure(adventure_id: int, commit: bool = True) -> Adventure | None:
         return AdventureDataManager.delete_adventure(adventure_id, commit)
+
+    @staticmethod
+    def create_persona(persona: dict) -> tuple[Persona|None, str]:
+        return PersonaDataManager.create_persona(persona)
+
+    @staticmethod
+    def get_all_personas() -> list[Persona|None]:
+        return PersonaDataManager.get_all_personas()
+
+    @staticmethod
+    def update_persona(persona_id: int, updated_persona_data: dict) -> Persona|None:
+        return PersonaDataManager.update_persona(persona_id, updated_persona_data)
+
+    @staticmethod
+    def delete_persona(persona_id: int, commit: bool = True) -> Persona | None:
+        return PersonaDataManager.delete_persona(persona_id, commit)

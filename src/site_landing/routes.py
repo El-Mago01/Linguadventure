@@ -1,10 +1,9 @@
 from flask import Blueprint, render_template, request, abort
 from src.data_manager import DataManager, StudentStorageError
-from helper_functions import is_valid_email_address, promote_to_admin
+from helper_functions import is_valid_email_address, check_admin_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import request, redirect, url_for, flash
-from flask_login import login_user, logout_user, login_required
-
+from flask_login import login_user, logout_user, login_required, current_user
 from models import Student
 
 
@@ -48,17 +47,10 @@ def login():
     if not student.is_active:
         flash("This account is inactive.", "login_error")
         return redirect(url_for("site_landing.index"))
-
     login_user(student)
     print(student)
+
     return render_template("site_landing/user_home.html", student=student)
-    if student.is_admin:
-        return redirect(url_for("admin.index"))
-
-    return redirect(url_for("student_journey.index"))
-
-
-    abort(404, message="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE
 
 @site_landing.route("/register", methods=["GET","POST"])
 def register():
@@ -77,7 +69,6 @@ def register():
         return render_template("site_landing/registration.html", message="Invalid email address")
     password = request.form.get("password", "")
 
-    print(password)
     if not password:
         return render_template("site_landing/registration.html", message="Password is required")
     if len(password) < 8 or len(password) > 128:
@@ -96,12 +87,13 @@ def register():
     new_student["gender"] = request.form.get("gender")
     new_student["occupation"] = request.form.get("occupation")
     new_student["current_level"] = request.form.get("current_level")
+    if check_admin_user(email,at_registration=True):
+        new_student["is_admin"] = True
     try:
         stored_student = dm.add_student(new_student)
     except StudentStorageError as e:
         return render_template("site_landing/registration.html", message=str(e))
-    promote_to_admin(email) # if the student's email address appears in the list of admin users, then promote this user
-
+    login_user(stored_student)
     return render_template("site_landing/user_home.html", student=stored_student)
 
 @site_landing.route("/logout", methods=["POST"])

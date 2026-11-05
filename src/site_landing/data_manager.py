@@ -166,6 +166,8 @@ class StudentDataManager:
         new_student.gender = registration_info.get("gender", "")
         new_student.occupation = registration_info.get("occupation", "")
         new_student.current_level = registration_info.get("current_level", "")
+        if registration_info.get("is_admin", False):
+            new_student.is_admin = True
         db.session.add(new_student)
         db.session.commit()
         logging.info(
