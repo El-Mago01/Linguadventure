@@ -11,7 +11,7 @@ import logging
 from sqlalchemy.exc import IntegrityError, OperationalError
 from src.errors import AdventureStorageError
 
-from models import db, Adventure, Student, Student_Adventure, Persona
+from models import db, Adventure, Student, Student_Adventure, Persona, Scene
 
 # from adventure_data_fetcher import fetch_adventure_general_data, fetch_adventure_data
 
@@ -121,34 +121,82 @@ class AdventureDataManager:
 
 
     @staticmethod
-    def create_adventure(adventure: dict) -> Adventure:
+    def create_adventure(adventure: dict, creator) -> tuple[Adventure|None, str]:
         """
+        The received adventure needs to be split apart and then stored in the various databases.
 
-
-        :param :
+        :param : adventure, a dict which includes the adventure and scene details
         :return: 
         """
         if not isinstance(adventure, dict):
-            return None, "received imdbID is not a string"
-        adventure_details = AdventureDataManager.get_adventure(adventure)
-        Student = self.get_active_Student()
-        if Student is None:
-            return None, "Error: active Student is not set. Please select an active Student first"
-        Student_id = Student.Student_id
-        if len(adventure_details) != 0:
-            new_adventure = Adventure(
-                title=adventure_details.get("Title", ""),
-                director=adventure_details.get("Director", ""),
-                IMDB_id=imdbID,
-                year=normalize_year(adventure_details.get("Year", "")),
-                poster_url=adventure_details.get("Poster", ""),
-                Student_id=Student_id
+            return None, "Error: Invalid adventure details"
+
+        if len(adventure) == 0:
+            return None, "Error: Invalid adventure details"
+
+        print(adventure)
+
+        new_adventure = Adventure(
+            title = adventure.get("title",""),
+            creator = creator,
+            language = adventure.get("language",""),
+            level = adventure.get("level",""),
+            setting = adventure.get("setting",""),
+            premise = adventure.get("premise",""),
+            objectives = adventure.get("objectives",""),
+            story_outline = adventure.get("storyOutline",""),
+            cliff_hanger = adventure.get("cliffhanger",""),
+            poster_link = adventure.get("poster_link",""),
+            is_active = adventure.get("is_active", False)
+        )
+        db.session.add(new_adventure)
+
+        # db.session.flush sends the INSERT to the database so movie.movie_id is generated,
+        # but the transaction is not permanently committed yet. Commitment follows at
+        # db.session.commit
+        db.session.flush()
+        print(new_adventure.adventure_id)
+        if not new_adventure.adventure_id:
+            return None, "Adventure ID not generated"
+        count = 0
+        for scene in adventure.get("scenes", []):
+            if not scene.get("persona_id", ""):
+                return (None,
+                    f"Persona ID not provided for scene {count+1} with title: {scene.get('title', 'no title provided')}")
+            if not scene.get("title", ""):
+                return (None,
+                    f"No title provided for scene {count+1}")
+            if not scene.get("steps",""):
+                return (None,
+                        f"No steps provided for scene {count+1}")
+            new_scene = Scene(
+                adventure_id = new_adventure.adventure_id,
+                title = scene.get("title","no title provided"),
+                persona_id = scene.get("persona_id", ""),
+                scene_order_nr = count+1,
+                situation = scene.get("situation", ""),
+                goal = scene.get("goal", ""),
+                steps = scene.get("steps", ""),
+                location = scene.get("location", ""),
+                intro = scene.get("intro", ""),
+                vocabulary = scene.get("vocabulary", ""),
+                grammar = scene.get("grammar", ""),
+                must = scene.get("must", ""),
+                must_not = scene.get("mustNot", ""),
+                exit =scene.get("exit", ""),
+                ending = scene.get("ending", ""),
             )
-            return (
-                new_adventure, f"adventure {
-            new_adventure.title} by {
-            new_adventure.director} created successfully!",)
-        return None, "Error: adventure details could not be fetched. Please try again later"
+            count += 1
+            db.session.add(new_scene)
+            db.session.flush()
+            print(f"new_scene.scene_id: {new_scene.scene_id}")
+
+        db.session.commit()
+        return (
+            new_adventure, f"Adventure {new_adventure.adventure_id}: {new_adventure.title} created successfully!",)
+
+        # return None, "Error: adventure details could not be fetched. Please try again later"
+        #     return new_adventure
 
     @staticmethod
     def adventure_exists(adventure_id: int) -> bool:
@@ -189,6 +237,8 @@ class AdventureDataManager:
         """
         if not isinstance(adventure_id, int):
             return None
+        if not AdventureDataManager.adventure_exists(adventure_id):
+            return None
         stmt = db.select(Adventure).where(Adventure.adventure_id == adventure_id)
         adventure_to_delete = db.session.execute(stmt).scalars().one_or_none()
         if adventure_to_delete is None:
@@ -205,7 +255,37 @@ class AdventureDataManager:
 
         return adventure_to_delete
 
+    @staticmethod
+    def update_adventure(adventure_id: int, updated_adventure_data:dict) -> Persona | None:
+        """
+        Update the user_name of the User object that has the provided user_id
+        :param adventure_id:
+        :param updated_adventure_data:
+        :return:
+        """
+        if not isinstance(adventure_id, int):
+            return None
+        if not isinstance(updated_adventure_data, dict):
+            return None
+        if not AdventureDataManager.adventure_exists(adventure_id):
+            return None
+        stmt = db.select(Persona).where(Adventure.adventure_id == adventure_id)
+        adventure_to_update = db.session.execute(stmt).scalars().all()
+        if len(adventure_to_update) != 1:
+            return None
 
+        adventure_to_update[0].title = updated_adventure_data.get("title",adventure_to_update[0].title)
+        adventure_to_update[0].creator = updated_adventure_data.get("creator", adventure_to_update[0].creator)
+        adventure_to_update[0].language = updated_adventure_data.get("language", adventure_to_update[0].language)
+        adventure_to_update[0].minutes = updated_adventure_data.get("minutes", adventure_to_update[0].minutes)
+        adventure_to_update[0].premise = updated_adventure_data.get("premise", adventure_to_update[0].premise)
+        adventure_to_update[0].intro = updated_adventure_data.get("intro", adventure_to_update[0].intro)
+        adventure_to_update[0].objectives = updated_adventure_data.get("objectives", adventure_to_update[0].objectives)
+        adventure_to_update[0].story_outline = updated_adventure_data.get("storyOutline", adventure_to_update[0].story_outline)
+        adventure_to_update[0].cliff_hanger = updated_adventure_data.get("cliffhanger", adventure_to_update[0].cliff_hanger)
+        ad
+        db.session.commit()
+        return persona_to_update[0]
 
 # =========================================================================
 # -------------------------------------------------------------------------
@@ -340,6 +420,8 @@ class PersonaDataManager:
             """
             if not isinstance(persona_id, int):
                 return None
+            if not PersonaDataManager.persona_exists(persona_id):
+                return None
             stmt = db.select(Persona).where(Persona.persona_id == persona_id)
             persona_to_delete = db.session.execute(stmt).scalars().one_or_none()
             if persona_to_delete is None:
@@ -368,6 +450,8 @@ class PersonaDataManager:
             if not isinstance(persona_id, int):
                 return None
             if not isinstance(updated_persona_data, dict):
+                return None
+            if not PersonaDataManager.persona_exists(persona_id):
                 return None
             stmt = db.select(Persona).where(Persona.persona_id == persona_id)
             persona_to_update = db.session.execute(stmt).scalars().all()

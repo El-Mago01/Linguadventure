@@ -25,7 +25,7 @@
     <header class="border-b border-slate-700/70 bg-[#09192a]">
         <div class="mx-auto max-w-7xl px-5 py-5 flex flex-wrap items-center justify-between gap-3">
             <div>
-                <a href="#" class="text-2xl font-extrabold tracking-tight">Lingu<span class="text-teal-400">Adventure</span>
+                <a href="/admin/adventure_admin/" class="text-2xl font-extrabold tracking-tight">Lingu<span class="text-teal-400">Adventure</span>
                 </a>
                 <span class="ml-4 text-sm text-slate-400">/ Administration / Adventure Editor</span>
             </div>
@@ -106,6 +106,13 @@
                         <div><label for="plannedSceneCount">Number of scenes</label>
                             <input class="field" id="plannedSceneCount" type="number" min="1" max="30" step="1">
                             <p class="hint">Set the planned number; scene slots will be added or removed. Reducing the count requires confirmation.</p></div>
+                        <div class="md:col-span-2">
+                            <label for="adventurePoster">Adventure poster (optional)</label>
+                            <input class="field" id="adventurePoster" type="file" accept="image/png,image/jpeg,image/webp">
+                            <p class="hint">PNG, JPEG or WebP, maximum 2 MB. Included as a Base64 data URL when saving to the API.</p>
+                            <img id="adventurePosterPreview" alt="Adventure poster preview" class="hidden mt-3 max-h-72 rounded-xl border border-slate-600 object-contain">
+                            <button type="button" id="removeAdventurePosterBtn" class="btn btn-ghost mt-3 text-sm">Remove poster</button>
+                        </div>
                         <div class="md:col-span-2">
                             <label for="setting">Setting</label>
                             <textarea class="field" id="setting" rows="2"></textarea>
@@ -243,14 +250,15 @@
     let personas = [];
 
     const blankScene = () => ({
-        title: '', location: '', personaId: '', situation: '',
+        title: '', location: '', persona_id: '', situation: '',
         goal: '', steps: '', intro: '', language: '',
-        vocabulary: '', grammar: '', must: '', mustNot: '',
+        vocabulary: '', grammar: '', must: '', must_not: '',
         exit: '', ending: ''
     });
 
     const example = () => ({
         title: 'The Lost Backpack',
+        poster_image: null,
         language: 'Portuguese',
         level: 'A1–A2',
         minutes: '5',
@@ -265,7 +273,7 @@
                 ...blankScene(),
                 title: 'The Café',
                 location: 'Small café near Rossio station, Lisbon',
-                personaId: '',
+                persona_id: '',
                 situation: 'The student returns to the café where they had breakfast and asks about their missing backpack.',
                 goal: 'Discover that Miguel saw someone leave with a similar backpack and identify the taxi driver.',
                 steps: 'Greet the student.\nMake brief small talk.\nGuide the conversation toward the missing backpack.\nAsk the student to describe the backpack and its contents.\nMention a different backpack left behind.\nRecall seeing a traveler with a similar backpack.\nContact the taxi driver, who agrees to come to the café.',
@@ -274,7 +282,7 @@
                 vocabulary: 'mochila, preta, grande, pequena, ontem, viu, mesa, perder',
                 grammar: 'você viu; eu vi',
                 must: 'Miguel remembers the student.\nMiguel did not find the backpack.\nAnother traveler carried a similar backpack.\nThe traveler left in a taxi.',
-                mustNot: 'Miguel knows who took the backpack.\nMiguel knows where the traveler went.\nThe backpack is found in this scene.\nMiguel leaves with the student.',
+                must_not: 'Miguel knows who took the backpack.\nMiguel knows where the traveler went.\nThe backpack is found in this scene.\nMiguel leaves with the student.',
                 exit: 'Another traveler had a similar backpack and left the café in a taxi.',
                 ending: 'Miguel suddenly remembers: “I think I know the taxi driver...”'
             },
@@ -296,7 +304,7 @@
     const sceneFields = {
         sceneTitle: 'title',
         sceneLocation: 'location',
-        scenePersona: 'personaId',
+        scenePersona: 'persona_id',
         sceneSituation: 'situation',
         sceneGoal: 'goal',
         sceneSteps: 'steps',
@@ -305,12 +313,48 @@
         sceneVocabulary: 'vocabulary',
         sceneGrammar: 'grammar',
         sceneMust: 'must',
-        sceneMustNot: 'mustNot',
+        sceneMustNot: 'must_not',
         sceneExit: 'exit',
         sceneEnding: 'ending'
     };
 
     const el = id => document.getElementById(id);
+
+    // Poster lives in editor state as a data URL, not as a local filesystem path.
+    function renderPoster() {
+        const preview = el('adventurePosterPreview');
+        const hasPoster = typeof data.poster_image === 'string' && data.poster_image.startsWith('data:image/');
+        preview.classList.toggle('hidden', !hasPoster);
+        if (hasPoster) preview.src = data.poster_image;
+        else preview.removeAttribute('src');
+        el('removeAdventurePosterBtn').disabled = !hasPoster;
+    }
+
+    el('adventurePoster').addEventListener('change', event => {
+        const file = event.target.files?.[0];
+        if (!file) return;
+        if (!['image/png', 'image/jpeg', 'image/webp'].includes(file.type) || file.size > 2 * 1024 * 1024) {
+            el('status').textContent = 'Choose a PNG, JPEG or WebP image of 2 MB or less.';
+            event.target.value = '';
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => {
+            data.poster_image = reader.result;
+            renderPoster();
+            el('status').textContent = 'Poster selected. Save Adventure to send it to Flask.';
+        };
+        reader.onerror = () => { el('status').textContent = 'Could not read poster image.'; };
+        reader.readAsDataURL(file);
+    });
+
+    el('removeAdventurePosterBtn').addEventListener('click', () => {
+        data.poster_image = null;
+        el('adventurePoster').value = '';
+        renderPoster();
+    });
+
+
 
     function capture() {
         if (selected === -1) {
@@ -392,7 +436,7 @@
             }
 
             // Preserve a reference if its persona is unavailable.
-            const currentPersonaId = data.scenes[selected].personaId;
+            const currentPersonaId = data.scenes[selected].persona_id;
 
             if (
                 currentPersonaId &&
@@ -483,6 +527,10 @@
     // Change this URL if your Flask Blueprint uses a different route.
     const ADVENTURE_API_URL = '/api/adventures';
     let savedAdventureId = null;
+    let existingPosterPath = null;
+    // Editor routes: /admin/adventures/new and /admin/adventures/<id>/edit.
+    const editRouteMatch = window.location.pathname.match(/^\/admin\/adventures\/([^/]+)\/edit\/?$/);
+    const editingId = editRouteMatch ? decodeURIComponent(editRouteMatch[1]) : null;
 
     el('saveAdventureBtn').addEventListener('click', async () => {
         capture();
@@ -491,11 +539,7 @@
             el('status').textContent = 'Please enter an adventure title first.';
             return;
         }
-        if (savedAdventureId !== null) {
-            el('status').textContent =
-                `Adventure #${savedAdventureId} was created already. Updating it requires the PUT endpoint.`;
-            return;
-        }
+
 
         const button = el('saveAdventureBtn');
         button.disabled = true;
@@ -503,11 +547,19 @@
         el('status').textContent = 'Saving adventure and scenes to SQLite...';
 
         try {
-            const response = await fetch(ADVENTURE_API_URL, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data)
-            });
+            const payload = {...data};
+            // A stored poster path is not an image upload. Leave it unchanged on update.
+            if (savedAdventureId !== null && !payload.poster_image && existingPosterPath) {
+                delete payload.poster_image;
+            }
+            const response = await fetch(
+                savedAdventureId === null ? ADVENTURE_API_URL : `${ADVENTURE_API_URL}/${encodeURIComponent(savedAdventureId)}`,
+                {
+                    method: savedAdventureId === null ? 'POST' : 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(payload)
+                }
+            );
 
             if (!response.ok) {
                 const detail = await response.text();
@@ -516,7 +568,8 @@
 
             const result = await response.json();
             // Backend should return {"id": <new adventure ID>}.
-            savedAdventureId = result.id ?? result.adventure_id ?? null;
+            savedAdventureId = result.id ?? result.adventure_id ?? savedAdventureId;
+            if (result.poster_path) existingPosterPath = result.poster_path;
             el('status').textContent = savedAdventureId !== null
                 ? `Adventure #${savedAdventureId} saved successfully to SQLite.`
                 : 'Adventure saved to SQLite. The API did not return an adventure ID.';
@@ -525,7 +578,7 @@
             el('status').textContent = `Save failed: ${error.message}`;
         } finally {
             button.disabled = false;
-            button.textContent = 'Save Adventure';
+            button.textContent = savedAdventureId === null ? 'Save Adventure' : 'Update Adventure';
         }
     });
 
@@ -574,6 +627,7 @@
         }
 
         data = example();
+        renderPoster();
         selected = -1;
         savedAdventureId = null;
         render();
@@ -613,9 +667,9 @@
         });
     }
 
-    // Restore the adventure draft, if one exists.
+    // Restore browser drafts only when creating a new adventure.
 
-    try {
+    if (!editingId) try {
         const saved = localStorage.getItem(
             'linguadventure_editor_draft_v3'
         );
@@ -634,10 +688,10 @@
                 // Clear them so the administrator can reassign personas.
                 for (const scene of data.scenes) {
                     if (
-                        typeof scene.personaId === 'string' &&
-                        scene.personaId.startsWith('p_')
+                        typeof scene.persona_id === 'string' &&
+                        scene.persona_id.startsWith('p_')
                     ) {
-                        scene.personaId = '';
+                        scene.persona_id = '';
                     }
                 }
 
@@ -672,12 +726,53 @@
 
         // Refresh the existing scene dropdown with database records.
         // Capture first to preserve any edits made during the request.
-        capture();
         render();
     }
 
+    // The detail endpoint returns one adventure, including its scenes array.
+    async function loadExistingAdventure(id) {
+        const response = await fetch(`${ADVENTURE_API_URL}/${encodeURIComponent(String(id))}`, {
+            headers: {'Accept': 'application/json'}
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const adventure = await response.json();
+        if (!adventure || typeof adventure !== 'object' || Array.isArray(adventure)) {
+            throw new Error('Expected a single adventure JSON object');
+        }
+        if (!Array.isArray(adventure.scenes)) throw new Error('Adventure has no scenes array in the API response');
+        data = {
+            ...example(),
+            ...adventure,
+            language: adventure.language ?? adventure.target_language ?? 'Portuguese',
+            level: adventure.level ?? adventure.target_level ?? 'A1',
+            storyOutline: adventure.storyOutline ?? adventure.story_outline ?? '',
+            poster_image: null,
+            scenes: adventure.scenes.map(scene => ({
+                ...blankScene(), ...scene,
+                persona_id: scene.persona_id ?? scene.persona_id ?? '',
+                must_not: scene.must_not ?? scene.must_not ?? '',
+            }))
+        };
+        savedAdventureId = adventure.adventure_id ?? adventure.id;
+        existingPosterPath = adventure.poster_path ?? null;
+        selected = -1;
+        renderPoster();
+        render();
+        el('saveAdventureBtn').textContent = 'Update Adventure';
+        el('status').textContent = `Editing adventure #${savedAdventureId} from SQLite.`;
+    }
+
     // Initialize editor.
+    renderPoster();
     render();
+    if (editingId) {
+        el('status').textContent = `Loading adventure #${editingId}...`;
+        loadExistingAdventure(editingId).catch(error => {
+            console.error('Could not load adventure:', error);
+            el('status').textContent = `Could not load adventure: ${error.message}`;
+            el('saveAdventureBtn').disabled = true;
+        });
+    }
 
     // Load the personas after the editor has been initialized.
     loadPersonas().catch(error => {

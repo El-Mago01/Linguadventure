@@ -94,11 +94,16 @@ class Adventure(db.Model):
         db.Integer, primary_key=True, nullable=False, autoincrement=True
     )
     title = db.Column(db.String(100), nullable=False)
-    creator = db.Column(db.String(1000))
-    description_link = db.Column(db.String, nullable=False)
-    status = db.Column(db.String(100))
+    creator = db.Column(db.String(100))
+    language = db.Column(db.String(100))
+    level = db.Column(db.String(10))
+    setting = db.Column(db.String(200))
+    premise = db.Column(db.String(200))
+    intro = db.Column(db.String(200))
+    objectives = db.Column(db.String(200))
+    story_outline = db.Column(db.String(500))
+    cliff_hanger = db.Column(db.String(200))
     poster_link = db.Column(db.String(100))
-    difficulty_level = db.Column(db.Integer, nullable=False, default=1)
     is_active = db.Column(db.Boolean, nullable=False, default=True)
 
     def __repr__(self):
@@ -106,10 +111,14 @@ class Adventure(db.Model):
             self.adventure_id}: {
             self.title},\n {
             self.creator},\n {
-            self.description_link},\n {
-            self.status},\n {
-            self.poster_link},\n {
-            self.difficulty_level}, \n {
+            self.language},\n {
+            self.level},\n {
+            self.setting},\n {
+            self.premise}, \n {
+            self.objectives}, \n {
+            self.story_outline}, \n {
+            self.cliff_hanger}, \n {
+            self.poster_link}, \n {
             self.is_active
             }"
 
@@ -118,18 +127,32 @@ class Adventure(db.Model):
             self.adventure_id}: {
             self.title},\n {
             self.creator},\n {
-            self.description_link},\n {
-            self.status},\n {
-            self.poster_link},\n {
-            self.difficulty_level}, \n {
+            self.language},\n {
+            self.level},\n {
+            self.setting},\n {
+            self.premise}, \n {
+            self.objectives}, \n {
+            self.story_outline}, \n {
+            self.cliff_hanger}, \n {
+            self.poster_link}, \n {
             self.is_active
             }"
 
-
-# user_id = db.Column(
-#         db.Integer,
-#         db.ForeignKey("users.user_id"),
-#         nullable=False)
+    def serialize(self)->dict:
+        adventure = {}
+        adventure["adventure_id"] = self.adventure_id
+        adventure["title"] = self.title
+        adventure["creator"] = self.creator
+        adventure["language"] = self.language
+        adventure["level"] = self.level
+        adventure["setting"] = self.setting
+        adventure["premise"] = self.premise
+        adventure["objectives"] = self.objectives
+        adventure["story_outline"] = self.story_outline
+        adventure["cliff_hanger"] = self.cliff_hanger
+        adventure["poster_link"] = self.poster_link
+        adventure["is_active"] = self.is_active
+        return adventure
 
 class Student_Adventure(db.Model):
     """
@@ -188,11 +211,18 @@ class Scene(db.Model):
     scene_order_nr = db.Column(
         db.Integer, nullable=False, default=0
     )
-    scene_description = db.Column(db.String)
-    persona_mood = db.Column(db.String)
-    stop_criteria = db.Column(db.String)
-    scene_poster = db.Column(db.String(100))
-
+    title = db.Column(db.String(150))
+    situation = db.Column(db.String)
+    goal = db.Column(db.String)
+    steps = db.Column(db.String)
+    location = db.Column(db.String(100))
+    intro = db.Column(db.String)
+    vocabulary = db.Column(db.String(400))
+    grammar = db.Column(db.String(400))
+    must=db.Column(db.String(400))
+    must_not=db.Column(db.String(400))
+    exit = db.Column(db.String(400))
+    ending=db.Column(db.String(400))
 
     def __repr__(self):
         return f"{

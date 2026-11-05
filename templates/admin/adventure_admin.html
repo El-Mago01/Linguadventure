@@ -7,22 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-100">
-    {#
-    Expected from Flask: adventures = list of objects/dicts with:
-    id, title, description, target_language, target_level, scene_count, status, is_active.
-    For previewing without data, the sample adventures below are used.
-    Replace URL paths with url_for(...) when your endpoint names are ready.
-    All POST routes require server-side admin authorization and CSRF protection.
-    #}
-    {% if adventures is not defined %}
-        {% set adventures = [
-        {'id': 1, 'title': 'The Lost Backpack', 'description': 'A missing backpack sends you through the streets of Lisbon.', 'target_language': 'Portuguese', 'target_level': 'A1–A2', 'scene_count': 5, 'status': 'Draft', 'is_active': False},
-        {'id': 2, 'title': 'Last Train to Porto', 'description': 'Find your way through a confusing station before the final train leaves.', 'target_language': 'Portuguese', 'target_level': 'A2', 'scene_count': 4, 'status': 'Published', 'is_active': True},
-        {'id': 3, 'title': 'The Wrong Coffee', 'description': 'A simple order turns into an unexpected conversation.', 'target_language': 'Portuguese', 'target_level': 'A1', 'scene_count': 3, 'status': 'Published', 'is_active': True},
-        {'id': 4, 'title': 'An Unexpected Invitation', 'description': 'A new acquaintance invites you to a mysterious celebration.', 'target_language': 'Portuguese', 'target_level': 'B1', 'scene_count': 6, 'status': 'Draft'}
-        ] %}
-    {% endif %}
-
     <main class="min-h-screen bg-slate-950 text-slate-100 px-5 py-10 sm:px-8">
         <div class="mx-auto max-w-7xl">
             <div class="mb-9 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
@@ -31,14 +15,9 @@
                     <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Adventure Library</h1>
                     <p class="mt-3 max-w-2xl text-slate-400">Manage your stories, edit scenes, and prepare new experiences for your learners.</p>
                 </div>
-        <!-- POST opens the new-adventure editor; creation itself occurs when its form is saved. -->
-                <form method="POST" action="/admin/adventures/new">
-                    {# Add CSRF token here when enabled, e.g. <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> #}
-                    <input type="hidden" name="email" value="{{ student.email }}">
-                    <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-teal-950/30 transition hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
-                        <span aria-hidden="true" class="text-xl leading-none">+</span> Create adventure
-                    </button>
-                </form>
+                <a href="/admin/adventures/new" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-teal-950/30 transition hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
+                    <span aria-hidden="true" class="text-xl leading-none">+</span> Create adventure
+                </a>
                 <form method="GET" action="/admin/personas/new">
                     {# Add CSRF token here when enabled, e.g. <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> #}
                     <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-teal-950/30 transition hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
@@ -51,19 +30,19 @@
                 <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                     <div class="text-sm text-slate-400">Total adventures
                 </div>
-                <div class="mt-1 text-3xl font-bold">{{ adventures | length }}
+                <div class="mt-1 text-3xl font-bold"><span id="total-count">0</span>
                 </div>
             </div>
             <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <div class="text-sm text-slate-400">Published
                 </div>
-                <div class="mt-1 text-3xl font-bold text-teal-300">{{ adventures | selectattr('status', 'equalto', 'Published') | list | length }}
+                <div class="mt-1 text-3xl font-bold text-teal-300"><span id="published-count">0</span>
                 </div>
             </div>
             <div class="col-span-2 rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:col-span-1">
                 <div class="text-sm text-slate-400">Drafts
                 </div>
-                <div class="mt-1 text-3xl font-bold">{{ adventures | selectattr('status', 'equalto', 'Draft') | list | length }}
+                <div class="mt-1 text-3xl font-bold"><span id="draft-count">0</span>
                 </div>
             </div>
         </div>
@@ -91,56 +70,7 @@
                     <tr><th class="px-6 py-4 font-medium">Adventure</th><th class="px-4 py-4 font-medium">Language / Level</th><th class="px-4 py-4 font-medium">Scenes</th><th class="px-4 py-4 font-medium">Status</th><th class="px-4 py-4 font-medium">Availability</th><th class="px-6 py-4 text-right font-medium">Actions</th></tr>
                     </thead>
                     <tbody id="adventure-table-body" class="divide-y divide-white/10">
-                        {% for adventure in adventures %}
-                            <tr class="adventure-row transition hover:bg-white/[0.04]" data-search="{{ (adventure.title ~ ' ' ~ (adventure.description or '') ~ ' ' ~ adventure.target_language) | lower }}" data-status="{{ adventure.status | lower }}">
-                                <td class="px-6 py-5">
-                                        <div class="font-semibold text-white">{{ adventure.title }}</div>
-                                        <p class="mt-1 max-w-sm text-xs leading-relaxed text-slate-400">{{ adventure.description or 'No description yet.' }}</p>
-                                </td>
-                                <td class="px-4 py-5">
-                                        <div class="text-slate-200">{{ adventure.target_language }}</div>
-                                        <div class="mt-1 text-xs text-slate-500">{{ adventure.target_level }}</div>
-                                </td>
-                                <td class="px-4 py-5 text-slate-300">{{ adventure.scene_count | default(0) }}
-                                </td>
-                                <td class="px-4 py-5">
-                                    {% if adventure.status == 'Published' %}
-                                            <span class="inline-flex rounded-full border border-teal-400/20 bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300">Published</span>
-                                    {% else %}
-                                            <span class="inline-flex rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-300">{{ adventure.status | default('Draft') }}</span>
-                                    {% endif %}
-                                </td>
-                                <td class="px-4 py-5">
-                                {% if adventure.is_active %}
-                                    <span class="inline-flex rounded-full border border-teal-400/20 bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300">Active</span>
-                                {% else %}
-                                    <span class="inline-flex rounded-full border border-slate-500/30 bg-slate-500/10 px-3 py-1 text-xs font-medium text-slate-300">Inactive</span>
-                                {% endif %}
-                                </td>
-                                <td class="px-6 py-5">
-                                    <div class="flex flex-wrap items-center justify-end gap-2">
-                                        <a href="/administration/adventures/{{ adventure.id }}" class="rounded-lg border border-white/10 px-3 py-2 text-slate-300 transition hover:border-white/30 hover:bg-white/10 hover:text-white">View</a>
-                                        <a href="/administration/adventures/{{ adventure.id }}/edit" class="rounded-lg border border-teal-400/30 bg-teal-400/10 px-3 py-2 font-medium text-teal-300 transition hover:bg-teal-400/20">Edit</a>
-                                        <form method="POST" action="/administration/adventures/{{ adventure.id }}/toggle-active">
-                                        {# Add CSRF token here when enabled. #}
-                                            <button type="submit" class="rounded-lg border border-sky-400/25 bg-sky-400/10 px-3 py-2 font-medium text-sky-200 transition hover:bg-sky-400/20" aria-label="{{ 'Deactivate' if adventure.is_active else 'Activate' }} {{ adventure.title }}">
-                                                {{ 'Deactivate' if adventure.is_active else 'Activate' }}
-                                            </button>
-                                        </form>
-                                        <form method="POST" action="/administration/adventures/{{ adventure.id }}/delete" class="delete-form">
-                                        {# If you use Flask-WTF CSRF protection, insert your CSRF hidden input here. #}
-                                            <button type="submit" class="rounded-lg border border-rose-400/20 px-3 py-2 text-rose-300 transition hover:bg-rose-400/10" aria-label="Delete {{ adventure.title }}">Delete
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                        {# else #}
-                            <tr>
-                                <td colspan="6" class="px-6 py-16 text-center text-slate-400">No adventures yet. Create your first adventure!
-                                </td>
-                            </tr>
-                        {% endfor %}
+                        <tr><td colspan="6" class="px-6 py-16 text-center text-slate-400">Loading adventures from SQLite...</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -159,37 +89,191 @@
 
 <script>
     (() => {
-    const search = document.getElementById('adventure-search');
-    const filter = document.getElementById('status-filter');
-    const rows = [...document.querySelectorAll('.adventure-row')];
-    const empty = document.getElementById('no-search-results');
-    function updateRows() {
-    const query = search.value.trim().toLowerCase();
-    const status = filter.value;
-    let shown = 0;
-    rows.forEach(row => {
-    const visible = row.dataset.search.includes(query) && (status === 'all' || row.dataset.status === status);
-    row.hidden = !visible;
-    row.style.display = visible ? '' : 'none';
-    if (visible) shown++;
-    });
-    empty.classList.toggle('hidden', shown !== 0 || rows.length === 0);
-    }
-    search.addEventListener('input', updateRows);
-    filter.addEventListener('change', updateRows);
-    
-    const dialog = document.getElementById('delete-dialog');
-    let pendingForm = null;
-    document.querySelectorAll('.delete-form').forEach(form => form.addEventListener('submit', event => {
-    event.preventDefault();
-    pendingForm = form;
-    dialog.showModal();
-    }));
-    document.getElementById('cancel-delete').addEventListener('click', () => dialog.close());
-    document.getElementById('confirm-delete').addEventListener('click', () => {
-    if (pendingForm) pendingForm.submit();
-    });
-    dialog.addEventListener('close', () => { pendingForm = null; });
+        const API_URL = '/api/adventures';
+        const tbody = document.getElementById('adventure-table-body');
+        const search = document.getElementById('adventure-search');
+        const filter = document.getElementById('status-filter');
+        const noResults = document.getElementById('no-search-results');
+        const dialog = document.getElementById('delete-dialog');
+        const cancelDelete = document.getElementById('cancel-delete');
+        const confirmDelete = document.getElementById('confirm-delete');
+        let adventures = [];
+        let pendingDelete = null;
+
+        function setCount(id, count) {
+            document.getElementById(id).textContent = String(count);
+        }
+
+        function showMessage(message) {
+            tbody.replaceChildren();
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 6;
+            cell.className = 'px-6 py-16 text-center text-slate-400';
+            cell.textContent = message;
+            row.append(cell);
+            tbody.append(row);
+        }
+
+        function makeElement(tag, className, text) {
+            const node = document.createElement(tag);
+            if (className) node.className = className;
+            if (text !== undefined) node.textContent = String(text);
+            return node;
+        }
+
+        function makeActionLink(label, href, className) {
+            const link = makeElement('a', className, label);
+            link.href = href;
+            return link;
+        }
+
+        function makeEditLink(id) {
+            return makeActionLink('Edit',
+                `/admin/adventures/${encodeURIComponent(String(id))}/edit`,
+                'rounded-lg border border-teal-400/30 bg-teal-400/10 px-3 py-2 font-medium text-teal-300 transition hover:bg-teal-400/20');
+        }
+
+        async function toggleActivation(id, currentlyActive, button) {
+            const nextActive = !currentlyActive;
+            button.disabled = true;
+            try {
+                console.log(${API_URL}/${encodeURIComponent(String(id)))
+                const response = await fetch(`${API_URL}/${encodeURIComponent(String(id))}`, {
+                    method: 'PATCH',
+                    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                    body: JSON.stringify({is_active: nextActive})
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 150)}`);
+                }
+                await loadAdventures();
+            } catch (error) {
+                console.error('Could not change adventure activation:', error);
+                alert(`Could not ${nextActive ? 'activate' : 'deactivate'} adventure: ${error.message}`);
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        function render() {
+            setCount('total-count', adventures.length);
+            setCount('published-count', adventures.filter(a => a.status === 'Published').length);
+            setCount('draft-count', adventures.filter(a => a.status === 'Draft').length);
+
+            const query = search.value.trim().toLowerCase();
+            const statusFilter = filter.value;
+            const matches = adventures.filter(a => {
+                const searchable = [a.title, a.description, a.target_language].join(' ').toLowerCase();
+                return searchable.includes(query) &&
+                    (statusFilter === 'all' || String(a.status).toLowerCase() === statusFilter);
+            });
+
+            tbody.replaceChildren();
+            noResults.classList.toggle('hidden', matches.length !== 0 || adventures.length === 0);
+            if (adventures.length === 0) {
+                showMessage('No adventures yet. Create your first adventure!');
+                return;
+            }
+            if (matches.length === 0) return;
+
+            matches.forEach(a => {
+                const id = a.adventure_id ?? a.id;
+                const title = a.title || 'Untitled adventure';
+                const status = a.status || 'Draft';
+                const active = a.is_active === true;
+                const row = makeElement('tr', 'adventure-row transition hover:bg-white/[0.04]');
+
+                const nameCell = makeElement('td', 'px-6 py-5');
+                nameCell.append(
+                    makeElement('div', 'font-semibold text-white', title),
+                    makeElement('p', 'mt-1 max-w-sm text-xs leading-relaxed text-slate-400',
+                        a.description || a.premise || 'No description yet.')
+                );
+                const langCell = makeElement('td', 'px-4 py-5');
+                langCell.append(
+                    makeElement('div', 'text-slate-200', a.target_language || a.language || '—'),
+                    makeElement('div', 'mt-1 text-xs text-slate-500', a.target_level || a.level || '—')
+                );
+                const sceneCount = a.scene_count ?? (Array.isArray(a.scenes) ? a.scenes.length : 0);
+                const scenesCell = makeElement('td', 'px-4 py-5 text-slate-300', sceneCount);
+                const statusCell = makeElement('td', 'px-4 py-5');
+                statusCell.append(makeElement('span',
+                    status === 'Published'
+                        ? 'inline-flex rounded-full border border-teal-400/20 bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300'
+                        : 'inline-flex rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-300',
+                    status));
+                const activeCell = makeElement('td', 'px-4 py-5');
+                activeCell.append(makeElement('span',
+                    active
+                        ? 'inline-flex rounded-full border border-teal-400/20 bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300'
+                        : 'inline-flex rounded-full border border-slate-500/30 bg-slate-500/10 px-3 py-1 text-xs font-medium text-slate-300',
+                    active ? 'Active' : 'Inactive'));
+
+                const actionsCell = makeElement('td', 'px-6 py-5');
+                const actions = makeElement('div', 'flex flex-wrap items-center justify-end gap-2');
+                if (id !== undefined && id !== null) {
+                    actions.append(makeEditLink(id));
+                    const activationButton = makeElement('button',
+                        active
+                            ? 'rounded-lg border border-amber-400/30 px-3 py-2 text-amber-300 transition hover:bg-amber-400/10 disabled:opacity-50'
+                            : 'rounded-lg border border-teal-400/30 px-3 py-2 text-teal-300 transition hover:bg-teal-400/10 disabled:opacity-50',
+                        active ? 'Deactivate' : 'Activate');
+                    activationButton.type = 'button';
+                    activationButton.addEventListener('click', () => toggleActivation(id, active, activationButton));
+                    actions.append(activationButton);
+                    const deleteButton = makeElement('button',
+                        'rounded-lg border border-rose-400/20 px-3 py-2 text-rose-300 transition hover:bg-rose-400/10', 'Delete');
+                    deleteButton.type = 'button';
+                    deleteButton.addEventListener('click', () => {
+                        pendingDelete = id;
+                        dialog.showModal();
+                    });
+                    actions.append(deleteButton);
+                }
+                actionsCell.append(actions);
+                row.append(nameCell, langCell, scenesCell, statusCell, activeCell, actionsCell);
+                tbody.append(row);
+            });
+        }
+
+        async function loadAdventures() {
+            try {
+                console.log('Loading adventures...', API_URL);
+                const response = await fetch(API_URL, {headers: {'Accept': 'application/json'}});
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const result = await response.json();
+                if (!Array.isArray(result)) throw new Error('Expected a JSON array from /api/adventures');
+                adventures = result;
+                render();
+            } catch (error) {
+                console.error('Could not load adventures:', error);
+                showMessage(`Could not load adventures from SQLite (${error.message}).`);
+            }
+        }
+
+        search.addEventListener('input', render);
+        filter.addEventListener('change', render);
+        cancelDelete.addEventListener('click', () => dialog.close());
+        confirmDelete.addEventListener('click', async () => {
+            if (pendingDelete === null) return;
+            const id = pendingDelete;
+            confirmDelete.disabled = true;
+            try {
+                const response = await fetch(`${API_URL}/${encodeURIComponent(String(id))}`, {method: 'DELETE'});
+                if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 150)}`);
+                adventures = adventures.filter(a => String(a.adventure_id ?? a.id) !== String(id));
+                dialog.close();
+                render();
+            } catch (error) {
+                console.error('Could not delete adventure:', error);
+                alert(`Could not delete adventure: ${error.message}`);
+            } finally {
+                confirmDelete.disabled = false;
+            }
+        });
+        dialog.addEventListener('close', () => { pendingDelete = null; });
+        loadAdventures();
     })();
 </script>
 

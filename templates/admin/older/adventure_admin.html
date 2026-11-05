@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adventure Administration · LinguAdventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100">
+    <main class="min-h-screen bg-slate-950 text-slate-100 px-5 py-10 sm:px-8">
+        <div class="mx-auto max-w-7xl">
+            <div class="mb-9 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                    <p class="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-teal-400">Administration · Adventures</p>
+                    <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Adventure Library</h1>
+                    <p class="mt-3 max-w-2xl text-slate-400">Manage your stories, edit scenes, and prepare new experiences for your learners.</p>
+                </div>
+        <!-- POST opens the new-adventure editor; creation itself occurs when its form is saved. -->
+                <form method="POST" action="/api/adventures">
+                    {# Add CSRF token here when enabled, e.g. <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> #}
+                    <input type="hidden" name="email" value="{{ student.email }}">
+                    <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-teal-950/30 transition hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
+                        <span aria-hidden="true" class="text-xl leading-none">+</span> Create adventure
+                    </button>
+                </form>
+                <form method="GET" action="/admin/personas/">
+                    {# Add CSRF token here when enabled, e.g. <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> #}
+                    <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-teal-950/30 transition hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
+                        <span aria-hidden="true" class="text-xl leading-none">+</span> Persona Administration
+                    </button>
+                </form>
+            </div>
+        
+            <div class="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                    <div class="text-sm text-slate-400">Total adventures
+                </div>
+                <div class="mt-1 text-3xl font-bold"><span id="total-count">0</span>
+                </div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                <div class="text-sm text-slate-400">Published
+                </div>
+                <div class="mt-1 text-3xl font-bold text-teal-300"><span id="published-count">0</span>
+                </div>
+            </div>
+            <div class="col-span-2 rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:col-span-1">
+                <div class="text-sm text-slate-400">Drafts
+                </div>
+                <div class="mt-1 text-3xl font-bold"><span id="draft-count">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <section class="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 shadow-2xl shadow-black/20" aria-label="Adventure list">
+            <div class="flex flex-col gap-4 border-b border-white/10 p-5 sm:flex-row sm:items-center sm:justify-between">
+                <div><h2 class="text-lg font-semibold">Your adventures</h2>
+                    <p class="mt-1 text-sm text-slate-400">View, edit, activate, deactivate, or delete an adventure.</p>
+                </div>
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <label class="sr-only" for="adventure-search">Search adventures</label>
+                    <input id="adventure-search" type="search" placeholder="Search adventures…" class="w-full rounded-xl border border-white/10 bg-slate-950 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-teal-400 sm:w-64" />
+                    <label class="sr-only" for="status-filter">Filter by status</label>
+                    <select id="status-filter" class="rounded-xl border border-white/10 bg-slate-950 px-4 py-2.5 text-sm text-white outline-none focus:border-teal-400">
+                        <option value="all">All statuses</option>
+                        <option value="published">Published</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-[1050px] text-left text-sm">
+                    <thead class="bg-white/[0.03] text-xs uppercase tracking-wider text-slate-400">
+                    <tr><th class="px-6 py-4 font-medium">Adventure</th><th class="px-4 py-4 font-medium">Language / Level</th><th class="px-4 py-4 font-medium">Scenes</th><th class="px-4 py-4 font-medium">Status</th><th class="px-4 py-4 font-medium">Availability</th><th class="px-6 py-4 text-right font-medium">Actions</th></tr>
+                    </thead>
+                    <tbody id="adventure-table-body" class="divide-y divide-white/10">
+                        <tr><td colspan="6" class="px-6 py-16 text-center text-slate-400">Loading adventures from SQLite...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p id="no-search-results" class="hidden border-t border-white/10 px-6 py-12 text-center text-sm text-slate-400">No adventures match your search.
+            </p>
+            <div class="border-t border-white/10 px-6 py-4 text-xs text-slate-500">Adventure administration · LinguAdventure
+            </div>
+            </section>
+        </div>
+    </main>
+
+<!-- Delete confirmation dialog: confirmation only; deletion happens on the server. -->
+<dialog id="delete-dialog" class="w-[min(92vw,420px)] rounded-2xl border border-white/10 bg-slate-900 p-0 text-white shadow-2xl backdrop:bg-black/70">
+<div class="p-7"><h2 class="text-xl font-semibold">Delete this adventure?</h2><p class="mt-3 text-sm leading-relaxed text-slate-400">This action may permanently remove the adventure and its scenes. Are you sure you want to continue?</p><div class="mt-7 flex justify-end gap-3"><button type="button" id="cancel-delete" class="rounded-xl border border-white/15 px-4 py-2.5 text-sm hover:bg-white/10">Cancel</button><button type="button" id="confirm-delete" class="rounded-xl bg-rose-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-rose-400">Delete adventure</button></div></div>
+</dialog>
+
+<script>
+    (() => {
+        const API_URL = '/api/adventures';
+        const tbody = document.getElementById('adventure-table-body');
+        const search = document.getElementById('adventure-search');
+        const filter = document.getElementById('status-filter');
+        const noResults = document.getElementById('no-search-results');
+        const dialog = document.getElementById('delete-dialog');
+        const cancelDelete = document.getElementById('cancel-delete');
+        const confirmDelete = document.getElementById('confirm-delete');
+        let adventures = [];
+        let pendingDelete = null;
+
+        function setCount(id, count) {
+            document.getElementById(id).textContent = String(count);
+        }
+
+        function showMessage(message) {
+            tbody.replaceChildren();
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 6;
+            cell.className = 'px-6 py-16 text-center text-slate-400';
+            cell.textContent = message;
+            row.append(cell);
+            tbody.append(row);
+        }
+
+        function makeElement(tag, className, text) {
+            const node = document.createElement(tag);
+            if (className) node.className = className;
+            if (text !== undefined) node.textContent = String(text);
+            return node;
+        }
+
+        function makeActionLink(label, href, className) {
+            const link = makeElement('a', className, label);
+            link.href = href;
+            return link;
+        }
+
+        function makeEditForm(id) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = `/api/adventures/new?id=${encodeURIComponent(String(id))}`;
+            const button = makeElement('button',
+                'rounded-lg border border-teal-400/30 bg-teal-400/10 px-3 py-2 font-medium text-teal-300 transition hover:bg-teal-400/20',
+                'Edit');
+            button.type = 'submit';
+            form.append(button);
+            return form;
+        }
+
+        function render() {
+            setCount('total-count', adventures.length);
+            setCount('published-count', adventures.filter(a => a.status === 'Published').length);
+            setCount('draft-count', adventures.filter(a => a.status === 'Draft').length);
+
+            const query = search.value.trim().toLowerCase();
+            const statusFilter = filter.value;
+            const matches = adventures.filter(a => {
+                const searchable = [a.title, a.description, a.target_language].join(' ').toLowerCase();
+                return searchable.includes(query) &&
+                    (statusFilter === 'all' || String(a.status).toLowerCase() === statusFilter);
+            });
+
+            tbody.replaceChildren();
+            noResults.classList.toggle('hidden', matches.length !== 0 || adventures.length === 0);
+            if (adventures.length === 0) {
+                showMessage('No adventures yet. Create your first adventure!');
+                return;
+            }
+            if (matches.length === 0) return;
+
+            matches.forEach(a => {
+                const id = a.adventure_id ?? a.id;
+                const title = a.title || 'Untitled adventure';
+                const status = a.status || 'Draft';
+                const active = a.is_active === true;
+                const row = makeElement('tr', 'adventure-row transition hover:bg-white/[0.04]');
+
+                const nameCell = makeElement('td', 'px-6 py-5');
+                nameCell.append(
+                    makeElement('div', 'font-semibold text-white', title),
+                    makeElement('p', 'mt-1 max-w-sm text-xs leading-relaxed text-slate-400',
+                        a.description || a.premise || 'No description yet.')
+                );
+                const langCell = makeElement('td', 'px-4 py-5');
+                langCell.append(
+                    makeElement('div', 'text-slate-200', a.target_language || a.language || '—'),
+                    makeElement('div', 'mt-1 text-xs text-slate-500', a.target_level || a.level || '—')
+                );
+                const sceneCount = a.scene_count ?? (Array.isArray(a.scenes) ? a.scenes.length : 0);
+                const scenesCell = makeElement('td', 'px-4 py-5 text-slate-300', sceneCount);
+                const statusCell = makeElement('td', 'px-4 py-5');
+                statusCell.append(makeElement('span',
+                    status === 'Published'
+                        ? 'inline-flex rounded-full border border-teal-400/20 bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300'
+                        : 'inline-flex rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-300',
+                    status));
+                const activeCell = makeElement('td', 'px-4 py-5');
+                activeCell.append(makeElement('span',
+                    active
+                        ? 'inline-flex rounded-full border border-teal-400/20 bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300'
+                        : 'inline-flex rounded-full border border-slate-500/30 bg-slate-500/10 px-3 py-1 text-xs font-medium text-slate-300',
+                    active ? 'Active' : 'Inactive'));
+
+                const actionsCell = makeElement('td', 'px-6 py-5');
+                const actions = makeElement('div', 'flex flex-wrap items-center justify-end gap-2');
+                if (id !== undefined && id !== null) {
+                    const encodedId = encodeURIComponent(String(id));
+                    actions.append(makeEditForm(id));
+                    const deleteButton = makeElement('button',
+                        'rounded-lg border border-rose-400/20 px-3 py-2 text-rose-300 transition hover:bg-rose-400/10', 'Delete');
+                    deleteButton.type = 'button';
+                    deleteButton.addEventListener('click', () => {
+                        pendingDelete = id;
+                        dialog.showModal();
+                    });
+                    actions.append(deleteButton);
+                }
+                actionsCell.append(actions);
+                row.append(nameCell, langCell, scenesCell, statusCell, activeCell, actionsCell);
+                tbody.append(row);
+            });
+        }
+
+        async function loadAdventures() {
+            try {
+                const response = await fetch(API_URL, {headers: {'Accept': 'application/json'}});
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const result = await response.json();
+                if (!Array.isArray(result)) throw new Error('Expected a JSON array from /api/adventures');
+                adventures = result;
+                render();
+            } catch (error) {
+                console.error('Could not load adventures:', error);
+                showMessage(`Could not load adventures from SQLite (${error.message}).`);
+            }
+        }
+
+        search.addEventListener('input', render);
+        filter.addEventListener('change', render);
+        cancelDelete.addEventListener('click', () => dialog.close());
+        confirmDelete.addEventListener('click', async () => {
+            if (pendingDelete === null) return;
+            const id = pendingDelete;
+            confirmDelete.disabled = true;
+            try {
+                const response = await fetch(`${API_URL}/${encodeURIComponent(String(id))}`, {method: 'DELETE'});
+                if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 150)}`);
+                adventures = adventures.filter(a => String(a.adventure_id ?? a.id) !== String(id));
+                dialog.close();
+                render();
+            } catch (error) {
+                console.error('Could not delete adventure:', error);
+                alert(`Could not delete adventure: ${error.message}`);
+            } finally {
+                confirmDelete.disabled = false;
+            }
+        });
+        dialog.addEventListener('close', () => { pendingDelete = null; });
+        loadAdventures();
+    })();
+</script>
+
+
+</body>
+</html>

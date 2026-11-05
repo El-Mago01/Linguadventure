@@ -89,8 +89,8 @@ class DataManager:
         return AdventureDataManager.get_adventure(adventure_id)
 
     @staticmethod
-    def create_adventure(adventure: dict) -> Adventure:
-        return AdventureDataManager.create_adventure(adventure)
+    def create_adventure(adventure: dict, creator) -> tuple[Adventure|None, str]:
+        return AdventureDataManager.create_adventure(adventure,creator)
 
     @staticmethod
     def adventure_exists(adventure_id: int) -> bool:
