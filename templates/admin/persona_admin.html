@@ -39,7 +39,7 @@
                 <p class="text-slate-400 mt-3">Create and maintain characters independently. Adventures can reuse them in their scenes.</p>
             </div>
             <div class="flex gap-2 flex-wrap">
-                <a class="btn btn-ghost" href="adventure_editor_separate_personas.html">← Adventure Editor</a>
+                <a class="btn btn-ghost" href="{{ url_for('admin.adventure_admin') }}">← Adventure Editor</a>
                 <button class="btn btn-ghost" type="button" id="exportBtn">↓ Export personas JSON</button>
                 <button class="btn btn-primary" type="button" id="addPersonaBtn">＋ New persona</button>
             </div>
@@ -350,7 +350,12 @@
 
         async function deletePersona() {
             if (busy || newPersona) return;
+            console.log(newPersona);
+            console.log('newPersona');
             const p = selectedPersona();
+            console.log('selectedPersona:', selectedPersona);
+            console.log('p:', p);
+
             if (!p) return;
             const name = personaName(p);
             if (!confirm(`Permanently delete ${name}? This cannot be undone. Scenes referencing this persona may prevent deletion.`)) return;

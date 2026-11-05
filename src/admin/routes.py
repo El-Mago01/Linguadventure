@@ -5,7 +5,7 @@ from flask_login import  login_required, current_user
 admin = Blueprint("admin", __name__)
 
 
-@admin.route("/adventure_admin/", methods=["POST"])
+@admin.route("/adventure_admin/", methods=["GET"])
 @login_required
 def adventure_admin():
     """
@@ -16,8 +16,9 @@ def adventure_admin():
     :param user_id:
     :return:
     """
-    email = request.form.get("email","")
-    print(email)
+    if not current_user.is_admin:
+        abort(403, message="You are not authorized to access this page")
+    email = current_user.email
     if is_valid_email_address(email):
         if dm.student_exists(email):
             student = dm.get_student(email)
@@ -26,6 +27,7 @@ def adventure_admin():
             return render_template("admin/adventure_admin.html", adventures=adventures, student=student)
 
     abort(404, message="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE
+
 
 @admin.route("/admin/adventures/new", methods=["POST"])
 @login_required
@@ -137,3 +139,17 @@ def update_persona(persona_id:int):
         "message": "Persona updated successfully"
     }), 200
 
+@admin.route("/api/personas/<int:persona_id>", methods=["DELETE"])
+@login_required
+def delete_persona(persona_id:int):
+    if not current_user.is_admin:
+        abort(403)
+
+
+    persona = dm.delete_persona(persona_id)
+    if persona is None:
+        abort(404, message="Persona not found")
+    return jsonify({
+        "id": persona.persona_id,
+        "message": "Persona updated successfully"
+    }), 200

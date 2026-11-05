@@ -3401,3 +3401,175 @@
 05-Nov-26 01:03:06 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
 05-Nov-26 01:03:06 - werkzeug - WARNING -  * Debugger is active!
 05-Nov-26 01:03:06 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+05-Nov-26 01:05:03 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 01:05:03] "PUT /api/personas/2 HTTP/1.1" 200 -
+05-Nov-26 01:05:03 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 01:05:03] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 01:07:26 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 01:07:26] "[31m[1mDELETE /api/personas/2 HTTP/1.1[0m" 405 -
+05-Nov-26 01:07:30 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 01:07:30] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 01:08:14 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 01:08:14] "[31m[1mDELETE /api/personas/2 HTTP/1.1[0m" 405 -
+05-Nov-26 08:50:09 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+05-Nov-26 08:50:09 - werkzeug - INFO -  * Restarting with stat
+05-Nov-26 08:50:12 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 08:50:12 - werkzeug - WARNING -  * Debugger is active!
+05-Nov-26 08:50:12 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+05-Nov-26 08:50:18 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:50:18] "[31m[1mDELETE /api/personas/2 HTTP/1.1[0m" 415 -
+05-Nov-26 08:51:15 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 08:51:15 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://100.65.226.119:5000
+05-Nov-26 08:51:15 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+05-Nov-26 08:51:15 - werkzeug - INFO -  * Restarting with stat
+05-Nov-26 08:51:29 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 08:51:29 - werkzeug - WARNING -  * Debugger is active!
+05-Nov-26 08:51:29 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+05-Nov-26 08:51:29 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:51:29] "GET / HTTP/1.1" 200 -
+05-Nov-26 08:51:29 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:51:29] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 08:51:29 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:51:29] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 08:52:47 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:52:47] "POST /login HTTP/1.1" 200 -
+05-Nov-26 08:52:47 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:52:47] "POST /login HTTP/1.1" 200 -
+05-Nov-26 08:52:47 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:52:47] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 08:52:48 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:52:48] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 08:52:54 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:52:54] "POST /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 08:52:54 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:52:54] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 08:52:54 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:52:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 08:53:22 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:53:22] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 08:53:22 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:53:22] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 08:53:22 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:53:22] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 08:53:23 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:53:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 08:56:18 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 08:56:18] "[31m[1mDELETE /api/personas/2 HTTP/1.1[0m" 415 -
+05-Nov-26 09:07:39 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:07:39] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:07:39 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:07:39] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+05-Nov-26 09:07:40 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:07:40] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:07:40 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:07:40] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:07:56 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:07:56] "[31m[1mDELETE /api/personas/2 HTTP/1.1[0m" 415 -
+05-Nov-26 09:11:37 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+05-Nov-26 09:11:38 - werkzeug - INFO -  * Restarting with stat
+05-Nov-26 09:11:52 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 09:11:52 - werkzeug - WARNING -  * Debugger is active!
+05-Nov-26 09:11:52 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+05-Nov-26 09:12:47 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:12:47] "DELETE /api/personas/2 HTTP/1.1" 200 -
+05-Nov-26 09:12:47 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:12:47] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:15:18 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:18] "GET / HTTP/1.1" 200 -
+05-Nov-26 09:15:18 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:18] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:15:30 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:30] "POST /login HTTP/1.1" 200 -
+05-Nov-26 09:15:30 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:30] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:15:32 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:32] "POST /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:15:33 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:33] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:15:45 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:45] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:15:45 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:45] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:15:45 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:45] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:15:54 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:54] "[33mGET /admin/personas/adventure_editor_separate_personas.html HTTP/1.1[0m" 404 -
+05-Nov-26 09:15:54 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:54] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:15:56 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:56] "GET / HTTP/1.1" 200 -
+05-Nov-26 09:15:56 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:15:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:16:06 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:06] "[32mPOST /login HTTP/1.1[0m" 302 -
+05-Nov-26 09:16:06 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:06] "GET / HTTP/1.1" 200 -
+05-Nov-26 09:16:06 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:06] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:16:18 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:18] "POST /login HTTP/1.1" 200 -
+05-Nov-26 09:16:18 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:18] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:16:21 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:21] "POST /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:16:21 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:16:35 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:35] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:16:35 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:35] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:16:36 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:16:36] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:17:55 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:17:55] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:17:56 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:17:56] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:17:56 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:17:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:17:58 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:17:58] "[33mGET /admin/personas/adventure_admin.html HTTP/1.1[0m" 404 -
+05-Nov-26 09:17:58 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:17:58] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:18:00 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:00] "GET / HTTP/1.1" 200 -
+05-Nov-26 09:18:00 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:00] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:18:10 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:10] "POST /login HTTP/1.1" 200 -
+05-Nov-26 09:18:10 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:18:14 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:14] "POST /login HTTP/1.1" 200 -
+05-Nov-26 09:18:14 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:14] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:18:17 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:17] "POST /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:18:17 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:17] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:18:20 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:20] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:18:20 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:20] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:18:20 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:20] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:18:21 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:21] "[33mGET /admin/personas/adventure_admin.html HTTP/1.1[0m" 404 -
+05-Nov-26 09:18:21 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:18:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:20:08 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:08] "GET / HTTP/1.1" 200 -
+05-Nov-26 09:20:08 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:08] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:20:10 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:10] "GET / HTTP/1.1" 200 -
+05-Nov-26 09:20:10 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:20:20 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:20] "POST /login HTTP/1.1" 200 -
+05-Nov-26 09:20:20 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:20] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:20:22 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:22] "POST /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:20:22 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:22] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:20:23 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:23] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:20:23 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:23] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:20:23 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:20:24 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:24] "[33mGET /admin/personas/adventure_admin.html HTTP/1.1[0m" 404 -
+05-Nov-26 09:20:24 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:24] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:20:36 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:36] "GET / HTTP/1.1" 200 -
+05-Nov-26 09:20:36 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:36] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:20:55 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:55] "POST /login HTTP/1.1" 200 -
+05-Nov-26 09:20:55 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:55] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:20:59 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:59] "POST /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:20:59 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:20:59] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:21:05 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:21:05] "POST /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:21:05 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:21:05] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:21:08 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:21:08] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:21:08 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:21:08] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:21:08 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:21:08] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:21:10 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:21:10] "[33mGET /admin/personas/adventure_admin.html HTTP/1.1[0m" 404 -
+05-Nov-26 09:21:10 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:21:10] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:23:02 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:02] "[33mGET /admin/personas/adventure_admin.html HTTP/1.1[0m" 404 -
+05-Nov-26 09:23:02 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:02] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:23:04 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:04] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:23:09 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:09] "[33mGET /admin/personas/adventure_admin.html HTTP/1.1[0m" 404 -
+05-Nov-26 09:23:09 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:09] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:23:12 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:12] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:23:16 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:16] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:23:16 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:16] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:23:16 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:16] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:23:21 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:21] "[31m[1mGET /adventure_admin.html HTTP/1.1[0m" 405 -
+05-Nov-26 09:23:21 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:23:21] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:25:08 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:08] "[31m[1mGET /adventure_admin.html HTTP/1.1[0m" 405 -
+05-Nov-26 09:25:08 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:08] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:25:11 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:25:13 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:13] "[35m[1mGET /admin/personas/new HTTP/1.1[0m" 500 -
+05-Nov-26 09:25:13 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:13] "GET /admin/personas/new?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+05-Nov-26 09:25:13 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:13] "GET /admin/personas/new?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+05-Nov-26 09:25:13 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:13] "GET /admin/personas/new?__debugger__=yes&cmd=resource&f=console.png&s=aVcKQDqY3YpbrioCe1lJ HTTP/1.1" 200 -
+05-Nov-26 09:25:13 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:13] "GET /admin/personas/new?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+05-Nov-26 09:25:41 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:41] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:25:44 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:44] "POST /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:25:44 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:44] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:25:46 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:46] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:25:46 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:46] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:25:46 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:46] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:25:47 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:47] "[31m[1mGET /adventure_admin/ HTTP/1.1[0m" 405 -
+05-Nov-26 09:25:47 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:25:47] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:29:23 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\admin\\routes.py', reloading
+05-Nov-26 09:29:23 - werkzeug - INFO -  * Restarting with stat
+05-Nov-26 09:29:37 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+05-Nov-26 09:29:37 - werkzeug - WARNING -  * Debugger is active!
+05-Nov-26 09:29:38 - werkzeug - INFO -  * Debugger PIN: 386-085-760
+05-Nov-26 09:29:38 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:29:38] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:29:38 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:29:38] "GET /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:29:38 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:29:38] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:29:48 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:29:48] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:29:48 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:29:48] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:29:48 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:29:48] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:29:52 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:29:52] "GET /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:29:52 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:29:52] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:30:55 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:30:55] "GET / HTTP/1.1" 200 -
+05-Nov-26 09:30:56 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:30:56] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:31:04 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:04] "POST /login HTTP/1.1" 200 -
+05-Nov-26 09:31:05 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:05] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:31:07 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:07] "GET /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:31:07 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:07] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:31:10 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:10] "GET /admin/personas/new HTTP/1.1" 200 -
+05-Nov-26 09:31:10 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:10] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:31:11 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:11] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:31:12 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:12] "GET /adventure_admin/ HTTP/1.1" 200 -
+05-Nov-26 09:31:12 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:12] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:31:23 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:23] "POST /admin/adventures/new HTTP/1.1" 200 -
+05-Nov-26 09:31:23 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:23] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:31:23 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:31:23] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
+05-Nov-26 09:37:43 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:37:43] "POST /admin/adventures/new HTTP/1.1" 200 -
+05-Nov-26 09:37:43 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:37:43] "GET /api/personas HTTP/1.1" 200 -
+05-Nov-26 09:37:43 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2026 09:37:43] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 405 -
