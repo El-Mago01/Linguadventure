@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My LinguAdventure</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-white">
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-teal-500/10 blur-3xl"></div>
+        <div class="absolute top-1/3 -right-40 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl"></div>
+    </div>
+
+    <header class="border-b border-white/10 bg-slate-950/80 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+            <a href="#home" class="text-xl font-bold tracking-tight">Lingu<span class="text-teal-400">Adventure</span></a>
+            <nav class="hidden items-center gap-8 text-sm text-slate-400 md:flex">
+                <a href="#home" class="text-white transition hover:text-teal-300">Home</a>
+                <a href="#discover" class="transition hover:text-white">Adventures</a>
+                <a href="#journey" class="transition hover:text-white">My Journey</a>
+            </nav>
+            <div class="relative" id="profile-menu">
+                <button type="button" id="profile-button" aria-label="Open profile menu" aria-expanded="false"
+                        aria-controls="profile-dropdown"
+                        class="flex h-10 w-10 items-center justify-center rounded-full bg-teal-400 font-bold text-slate-950 transition hover:bg-teal-300">
+                    {{ current_user.first_name[0] | upper if current_user.is_authenticated and current_user.first_name else 'U' }}
+                </button>
+                <div id="profile-dropdown" class="absolute right-0 z-50 mt-3 hidden w-56 rounded-xl border border-white/10 bg-slate-900 py-2 shadow-2xl">
+                    <p class="px-4 py-2 text-sm font-medium text-white">{{ current_user.first_name }} {{ current_user.last_name }}</p>
+                    <div class="my-2 border-t border-white/10"></div>
+                    <span class="block px-4 py-2 text-sm text-slate-500" title="Not implemented yet">Edit profile · Coming soon</span>
+                    <span class="block px-4 py-2 text-sm text-slate-500" title="Not implemented yet">Settings · Coming soon</span>
+                    {% if current_user.is_admin %}
+                    <div class="my-2 border-t border-white/10"></div>
+                    <a href="{{ url_for('admin.adventure_admin') }}" class="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10 hover:text-white">Adventure administration</a>
+                    {% endif %}
+                    <div class="my-2 border-t border-white/10"></div>
+                    <form method="POST" action="{{ url_for('site_landing.logout') }}">
+                        <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-slate-300 hover:bg-white/10 hover:text-white">Log out</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="home" class="mx-auto max-w-7xl px-6 py-10">
+        <section class="mb-10">
+            <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-teal-400">Welcome back</p>
+            <h1 class="text-4xl font-bold tracking-tight md:text-5xl">Ready for your next adventure, {{ current_user.first_name }}?</h1>
+            <p class="mt-4 max-w-2xl text-lg text-slate-400">Continue where you left off, or discover somewhere new. Every conversation moves your story forward.</p>
+        </section>
+
+        <div id="page-message" role="alert" class="mb-6 hidden rounded-xl border border-rose-400/30 bg-rose-400/10 p-4 text-sm text-rose-200"></div>
+
+        <section id="continue" class="mb-12 scroll-mt-8">
+            <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
+                <div>
+                    <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-teal-400">Pick up the story</p>
+                    <h2 class="text-2xl font-bold">Continue your adventures</h2>
+                </div>
+                <span id="in-progress-count" class="text-sm text-slate-400"></span>
+            </div>
+            <div id="continue-list" class="grid gap-6 md:grid-cols-2" aria-live="polite">
+                <p class="text-slate-400">Loading your adventures...</p>
+            </div>
+        </section>
+
+        <section id="discover" class="mb-12 scroll-mt-8">
+            <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+                <div>
+                    <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-teal-400">Where to next?</p>
+                    <h2 class="text-2xl font-bold">Discover new adventures</h2>
+                </div>
+                <label class="text-sm text-slate-400">Search adventures
+                    <input id="adventure-search" type="search" placeholder="Title or description..."
+                           class="mt-2 block w-64 max-w-full rounded-xl border border-white/15 bg-slate-900 px-4 py-2 text-white outline-none placeholder:text-slate-500 focus:border-teal-400">
+                </label>
+            </div>
+            <div id="discover-list" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3" aria-live="polite">
+                <p class="text-slate-400">Loading available adventures...</p>
+            </div>
+        </section>
+
+        <section id="journey" class="scroll-mt-8">
+            <div class="mb-6">
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-teal-400">Your progress</p>
+                <h2 class="text-2xl font-bold">My Learning Journey</h2>
+            </div>
+            <div id="journey-loading" class="text-slate-400">Loading learning progress...</div>
+            <div id="journey-content" class="hidden space-y-6">
+                <div id="stats" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"></div>
+                <div class="grid gap-6 lg:grid-cols-3">
+                    <section class="rounded-2xl border border-white/10 bg-white/5 p-6 lg:col-span-2">
+                        <h3 class="mb-4 text-lg font-semibold">Recent scene feedback</h3>
+                        <div id="recent-feedback" class="space-y-3"></div>
+                    </section>
+                    <section class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                        <h3 class="mb-4 text-lg font-semibold">Current learning focus</h3>
+                        <div id="learning-focus" class="text-sm leading-relaxed text-slate-300"></div>
+                    </section>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <section class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                        <div class="mb-4 flex items-center justify-between gap-3">
+                            <h3 class="text-lg font-semibold">Learned vocabulary</h3>
+                            <span id="vocab-status" class="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-400">Coming soon</span>
+                        </div>
+                        <p id="vocab-total" class="mb-3 text-sm text-slate-400"></p>
+                        <div id="vocab-items" class="space-y-2"></div>
+                    </section>
+                    <section class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                        <div class="mb-4 flex items-center justify-between gap-3">
+                            <h3 class="text-lg font-semibold">Learned grammar</h3>
+                            <span id="grammar-status" class="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-400">Coming soon</span>
+                        </div>
+                        <p id="grammar-total" class="mb-3 text-sm text-slate-400"></p>
+                        <div id="grammar-items" class="space-y-2"></div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-16 border-t border-white/10 py-8 text-center text-sm text-slate-600">LinguAdventure — Don't study a language. Live it.</footer>
+    </main>
+
+    <script>
+        (() => {
+            'use strict';
+
+            const API = {
+                studentAdventures: '/api/student_adventures',
+                allAdventures: '/api/all_adventures',
+                learningJourney: '/api/learning_journey'
+            };
+
+            // Frontend navigation contract (not a backend route implementation):
+            // The destination page will GET /api/play_scene/<adventure_id>/<scene_id>
+            // to load scene preparation/context before starting the conversation.
+            // Adapt this path if your Flask page route differs.
+            const scenePreparationUrl = (adventureId, sceneId) =>
+                `/play/${encodeURIComponent(adventureId)}/${encodeURIComponent(sceneId)}`;
+
+            const $ = (id) => document.getElementById(id);
+            const profileButton = $('profile-button');
+            const profileDropdown = $('profile-dropdown');
+            const profileMenu = $('profile-menu');
+            const setProfileOpen = (open) => {
+                profileDropdown.classList.toggle('hidden', !open);
+                profileButton.setAttribute('aria-expanded', String(open));
+            };
+            profileButton.addEventListener('click', () => setProfileOpen(profileDropdown.classList.contains('hidden')));
+            document.addEventListener('click', (event) => {
+                if (!profileMenu.contains(event.target)) setProfileOpen(false);
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') setProfileOpen(false);
+            });
+
+            const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            })[character]);
+            const clampPercent = (value) => Math.max(0, Math.min(100, Number(value) || 0));
+            const getId = (item) => item.adventure_id ?? item.id;
+            const getSceneId = (item) => item.current_scene_id ?? item.next_scene_id ?? item.scene_id ?? null;
+            const asArray = (data, keys) => {
+                if (Array.isArray(data)) return data;
+                for (const key of keys) {
+                    if (Array.isArray(data?.[key])) return data[key];
+                }
+                throw new Error(`Expected an array or an object with one of: ${keys.join(', ')}`);
+            };
+            const safeImageUrl = (value) => {
+                if (typeof value !== 'string' || !value.trim()) return null;
+                try {
+                    const url = new URL(value, window.location.origin);
+                    if (!['http:', 'https:'].includes(url.protocol)) return null;
+                    return url.href;
+                } catch (_) {
+                    return null;
+                }
+            };
+            const poster = (adventure, extraClass = '') => {
+                const url = safeImageUrl(adventure.poster_url ?? adventure.poster_path ?? adventure.image_url);
+                return url
+                    ? `<img src="${escapeHtml(url)}" alt="Poster for ${escapeHtml(adventure.title ?? 'adventure')}" loading="lazy" class="h-48 w-full object-cover ${extraClass}">`
+                    : `<div class="flex h-48 items-center justify-center bg-gradient-to-br from-teal-500/20 via-slate-900 to-cyan-500/10 text-5xl" aria-label="No poster available">🧭</div>`;
+            };
+            const showError = (message) => {
+                $('page-message').textContent = message;
+                $('page-message').classList.remove('hidden');
+            };
+            async function getJson(url) {
+                const response = await fetch(url, {headers: {'Accept': 'application/json'}});
+                if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
+                return response.json();
+            }
+            const emptyState = (message) => `<div class="rounded-2xl border border-dashed border-white/15 bg-white/5 p-7 text-sm text-slate-400">${escapeHtml(message)}</div>`;
+            const formatDate = (value) => {
+                if (!value) return '';
+                const date = new Date(value);
+                return Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString();
+            };
+
+            let studentAdventures = [];
+            let availableAdventures = [];
+
+            function renderContinue() {
+                const ongoing = studentAdventures.filter((item) => !['completed', 'cancelled'].includes(String(item.status ?? 'in_progress').toLowerCase()));
+                $('in-progress-count').textContent = `${ongoing.length} in progress`;
+                if (!ongoing.length) {
+                    $('continue-list').innerHTML = emptyState('No adventures in progress yet. Choose a new adventure below to begin!');
+                    return;
+                }
+                $('continue-list').innerHTML = ongoing.map((item) => {
+                    const id = getId(item);
+                    const sceneId = getSceneId(item);
+                    const percent = clampPercent(item.progress_percent ?? item.progress ?? 0);
+                    const destination = id != null && sceneId != null ? scenePreparationUrl(id, sceneId) : null;
+                    return `<article class="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-teal-400/15 to-cyan-400/5">
+                        ${poster(item)}
+                        <div class="p-6">
+                            <div class="mb-3 flex items-start justify-between gap-3">
+                                <h3 class="text-xl font-semibold">${escapeHtml(item.title ?? 'Untitled adventure')}</h3>
+                                <span class="shrink-0 rounded-full bg-teal-400/10 px-3 py-1 text-xs font-semibold text-teal-300">In progress</span>
+                            </div>
+                            <p class="mb-4 line-clamp-2 text-sm text-slate-300">${escapeHtml(item.description ?? '')}</p>
+                            <p class="mb-4 text-sm text-slate-400">${escapeHtml(item.current_scene_title ?? (sceneId != null ? `Scene ${sceneId}` : 'Scene not yet selected'))}</p>
+                            <div class="mb-2 flex justify-between text-xs text-slate-400"><span>Adventure progress</span><span>${Math.round(percent)}%</span></div>
+                            <div class="mb-5 h-2 overflow-hidden rounded-full bg-white/10"><div class="h-full rounded-full bg-teal-400" style="width:${percent}%"></div></div>
+                            ${destination
+                                ? `<a href="${escapeHtml(destination)}" class="inline-flex rounded-xl bg-teal-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-teal-300">Continue adventure →</a>`
+                                : `<span class="text-xs text-amber-200">Waiting for a current scene ID from the API</span>`}
+                        </div>
+                    </article>`;
+                }).join('');
+            }
+
+            function renderDiscover() {
+                const startedIds = new Set(studentAdventures.map((item) => String(getId(item))));
+                const query = $('adventure-search').value.trim().toLowerCase();
+                const unstarted = availableAdventures.filter((item) =>
+                    !startedIds.has(String(getId(item))) && item.is_active !== false
+                );
+                console.log(startedIds)
+                console.log(unstarted)
+                const matches = unstarted.filter((item) =>
+                    `${item.title ?? ''} ${item.description ?? ''} ${item.category ?? ''}`.toLowerCase().includes(query)
+                );
+                console.log(matches)
+                if (!matches.length) {
+                    $('discover-list').innerHTML = emptyState(query ? 'No adventures match your search.' : 'No new adventures are available right now.');
+                    return;
+                }
+                $('discover-list').innerHTML = matches.map((item) => {
+                    const id = getId(item);
+                    const firstScene = [...(item.scenes ?? [])]
+                        .sort((a, b) => a.scene_order_nr - b.scene_order_nr)[0];
+                    const sceneId = firstScene?.scene_id ?? null;
+                    const destination = id != null && sceneId != null ? scenePreparationUrl(id, sceneId) : null;
+                    return `<article class="overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:border-teal-400/40">
+                        ${poster(item)}
+                        <div class="p-6">
+                            <div class="mb-2 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wider text-teal-400">
+                                ${item.category ? `<span>${escapeHtml(item.category)}</span>` : ''}
+                                ${item.level ? `<span>· ${escapeHtml(item.level)}</span>` : ''}
+                            </div>
+                            <h3 class="text-xl font-semibold">${escapeHtml(item.title ?? 'Untitled adventure')}</h3>
+                            <p class="mt-3 min-h-12 text-sm leading-relaxed text-slate-400">${escapeHtml(item.description ?? '')}</p>
+                            ${destination
+                                ? `<a href="${escapeHtml(destination)}" class="mt-5 inline-flex text-sm font-semibold text-teal-400 hover:text-teal-300">Prepare adventure →</a>`
+                                : `<p class="mt-5 text-xs text-amber-200">Waiting for a first scene ID from the API</p>`}
+                        </div>
+                    </article>`;
+                }).join('');
+            }
+
+            function renderLearningList(section, items, implemented, total, label) {
+                $(`${section}-status`).textContent = implemented ? 'Tracking enabled' : 'Coming soon · sample data';
+                $(`${section}-total`).textContent = implemented ? `${total ?? items.length} ${label}` : 'Placeholder for future learning tracking';
+                $(`${section}-items`).innerHTML = items.length
+                    ? items.slice(0, 6).map((item) => {
+                        const name = typeof item === 'string' ? item : (item.word ?? item.term ?? item.topic ?? item.name ?? item.title ?? 'Untitled');
+                        const detail = typeof item === 'string' ? '' : (item.translation ?? item.description ?? item.example ?? '');
+                        return `<div class="rounded-lg bg-slate-900 p-3 text-sm"><span class="font-medium">${escapeHtml(name)}</span>${detail ? `<p class="mt-1 text-slate-400">${escapeHtml(detail)}</p>` : ''}</div>`;
+                    }).join('')
+                    : `<p class="text-sm text-slate-500">${implemented ? 'No items recorded yet.' : 'Your learned items will appear here.'}</p>`;
+            }
+
+            function renderJourney(data) {
+                const summary = data.summary ?? {};
+                const stats = [
+                    ['Adventures started', summary.adventures_started],
+                    ['Adventures completed', summary.adventures_completed],
+                    ['Scenes completed', summary.scenes_completed],
+                    ['Average score', summary.average_score == null ? null : `${summary.average_score}%`]
+                ];
+                $('stats').innerHTML = stats.map(([label, value]) => `<div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <p class="text-3xl font-bold">${escapeHtml(value ?? '—')}</p><p class="mt-2 text-sm text-slate-400">${escapeHtml(label)}</p>
+                </div>`).join('');
+                const feedback = Array.isArray(data.recent_feedback) ? data.recent_feedback : [];
+                $('recent-feedback').innerHTML = feedback.length ? feedback.slice(0, 5).map((item) => `<div class="rounded-xl bg-slate-900 p-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <p class="font-medium">${escapeHtml(item.scene_title ?? 'Scene feedback')}</p>
+                        <span class="text-xs text-slate-400">${escapeHtml(formatDate(item.completed_at))}${item.score == null ? '' : ` · Score: ${escapeHtml(item.score)}`}</span>
+                    </div>
+                    ${Array.isArray(item.strengths) && item.strengths.length ? `<p class="mt-2 text-sm text-teal-300">✓ ${escapeHtml(item.strengths[0])}</p>` : ''}
+                    ${Array.isArray(item.improvements) && item.improvements.length ? `<p class="mt-1 text-sm text-slate-400">Practice: ${escapeHtml(item.improvements[0])}</p>` : ''}
+                </div>`).join('') : `<p class="text-sm text-slate-400">Your feedback will appear after completing your first scene.</p>`;
+                const latestImprovement = feedback.flatMap((item) => Array.isArray(item.improvements) ? item.improvements : [])[0];
+                $('learning-focus').textContent = latestImprovement ?? 'Your next learning focus will appear after your first evaluated scene.';
+                const vocab = data.learned_vocabulary ?? {};
+                const grammar = data.learned_grammar ?? {};
+                renderLearningList('vocab', Array.isArray(vocab.items) ? vocab.items : [], vocab.implemented === true, vocab.total_words, 'words');
+                renderLearningList('grammar', Array.isArray(grammar.items) ? grammar.items : [], grammar.implemented === true, grammar.total_topics, 'topics');
+                $('journey-loading').classList.add('hidden');
+                $('journey-content').classList.remove('hidden');
+            }
+
+            $('adventure-search').addEventListener('input', renderDiscover);
+
+            async function initialize() {
+                // Independent requests: a missing endpoint does not prevent other sections from rendering.
+                const results = await Promise.allSettled([
+                    getJson(API.studentAdventures),
+                    getJson(API.allAdventures),
+                    getJson(API.learningJourney)
+                ]);
+                if (results[0].status === 'fulfilled') {
+                    try {
+                        studentAdventures = asArray(results[0].value, ['adventures', 'student_adventures']);
+                        renderContinue();
+                    } catch (error) {
+                        $('continue-list').innerHTML = emptyState('Could not read your adventures.');
+                        showError(error.message);
+                    }
+                } else {
+                    $('continue-list').innerHTML = emptyState('Could not load your adventures.');
+                    showError(results[0].reason.message);
+                }
+                if (results[1].status === 'fulfilled') {
+                    try {
+                        availableAdventures = asArray(results[1].value, ['adventures', 'all_adventures']);
+                        renderDiscover();
+                    } catch (error) {
+                        $('discover-list').innerHTML = emptyState('Could not read available adventures.');
+                        showError(error.message);
+                    }
+                } else {
+                    $('discover-list').innerHTML = emptyState('Could not load available adventures.');
+                    showError(results[1].reason.message);
+                }
+                if (results[2].status === 'fulfilled') {
+                    renderJourney(results[2].value);
+                } else {
+                    $('journey-loading').textContent = 'Learning progress is not available yet.';
+                    showError(results[2].reason.message);
+                }
+            }
+            initialize();
+        })();
+    </script>
+</body>
+</html>

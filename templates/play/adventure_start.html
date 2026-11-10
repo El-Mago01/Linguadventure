@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Choose a Scene · LinguAdventure</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+<header class="border-b border-white/10">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
+        <a href="/student_home" class="text-xl font-bold">Lingu<span class="text-teal-400">Adventure</span>
+        </a><a href="/student_home" class="rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/10">← Student Home</a>
+    </div>
+</header>
+<main class="mx-auto max-w-6xl px-5 py-10">
+    <div id="error" class="hidden rounded-2xl border border-rose-500/30 bg-rose-500/10 p-5 text-rose-200" role="alert">
+    </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div role="alert"
+                         class="mb-4 rounded-xl border px-4 py-3 text-sm
+                         {% if category in ['error', 'danger'] %}
+                             border-rose-400/40 bg-rose-500/10 text-rose-200
+                         {% else %}
+                             border-teal-400/40 bg-teal-500/10 text-teal-200
+                         {% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <section id="overview" class="hidden">
+            <p class="text-xs font-semibold uppercase tracking-[.25em] text-teal-400">Choose your next scene</p>
+            <div class="mt-4 grid gap-7 md:grid-cols-[minmax(0,1fr)_260px] md:items-start">
+                <div>
+                    <h1 id="adventure-title" class="text-4xl font-bold tracking-tight"></h1>
+                    <p id="premise" class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-300"></p>
+                    <div class="mt-5 flex flex-wrap gap-3 text-sm">
+                        <span id="level" class="hidden rounded-full border border-teal-400/40 px-3 py-1 text-teal-200">
+                        </span>
+                        <span id="progress" class="rounded-full border border-white/20 px-3 py-1 text-slate-300">
+                        </span>
+                    </div>
+                </div>
+            <img id="poster" alt="Adventure poster" class="hidden aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-white/10">
+        </div>
+        <div class="mt-9 h-2 overflow-hidden rounded-full bg-slate-800">
+            <div id="progress-bar" class="h-full rounded-full bg-teal-400 transition-all" style="width:0%">
+            </div>
+        </div>
+    <div class="mt-10 flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-2xl font-bold">Your scenes</h2>
+        <p class="text-sm text-slate-400">Finish each scene to unlock the next. Completed scenes can be replayed.</p>
+    </div>
+    <div id="scene-list" class="mt-5 grid gap-4">
+    </div>
+  </section>
+</main>
+<script>
+(() => {
+  'use strict';
+  // Flask should render a Python dict named student_adventure_status.
+  // Expected: {adventure_id, title, premise, level?, poster_url?, scenes:[{scene_id, scene_order_nr, title, status, can_play}]}.
+  // status is one of completed / available / locked. Backend enforces can_play again on GET /play_scene/<adventure_id>/<scene_id>.
+  // If no Jinja data is supplied, this page displays a clear configuration error rather than inventing scene access.
+  const adventure = {{ student_adventure_status | tojson }};
+  const $ = id => document.getElementById(id);
+  const str = (v, fallback = '') => v == null ? fallback : String(v);
+  function render() {
+    if (!adventure || typeof adventure !== 'object' || !Array.isArray(adventure.scenes)) throw new Error('The server did not supply student_adventure_status with a scenes array.');
+    const adventureId = adventure.adventure_id;
+    if (adventureId == null) throw new Error('Missing adventure_id.');
+    $('adventure-title').textContent = str(adventure.title, 'Your adventure');
+    $('premise').textContent = str(adventure.premise, 'Choose a scene to begin.');
+    if (adventure.level) { $('level').textContent = adventure.level; $('level').classList.remove('hidden'); }
+    const poster = adventure.poster_url ?? adventure.image_url;
+    if (poster) { $('poster').src = poster; $('poster').classList.remove('hidden'); }
+    const scenes = [...adventure.scenes].sort((a,b) => Number(a.scene_order_nr) - Number(b.scene_order_nr));
+    const completed = scenes.filter(s => s.status === 'completed').length;
+    $('progress').textContent = `${completed} of ${scenes.length} scenes completed`;
+    $('progress-bar').style.width = `${scenes.length ? 100 * completed / scenes.length : 0}%`;
+    const list = $('scene-list');
+    list.replaceChildren();
+    if (!scenes.length) { const p = document.createElement('p'); p.className = 'text-slate-400'; p.textContent = 'No scenes are available for this adventure yet.'; list.append(p); }
+    for (const scene of scenes) {
+      const done = scene.status === 'completed';
+      const locked = scene.can_play !== true;
+      const item = document.createElement('article');
+      item.className = `flex flex-col gap-4 rounded-2xl border p-5 sm:flex-row sm:items-center sm:justify-between ${locked ? 'border-white/10 bg-white/[.025]' : 'border-teal-400/20 bg-white/5'}`;
+      const body = document.createElement('div'); body.className = 'flex min-w-0 items-start gap-4';
+      const symbol = document.createElement('div'); symbol.className = 'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-800 text-xl'; symbol.textContent = locked ? '🔒' : done ? '✓' : '▶';
+      const details = document.createElement('div');
+      const index = document.createElement('p'); index.className = 'text-xs font-semibold uppercase tracking-wider text-teal-300'; index.textContent = `Scene ${str(scene.scene_order_nr, '')}`;
+      const title = document.createElement('h3'); title.className = `mt-1 text-lg font-semibold ${locked ? 'text-slate-400' : 'text-white'}`; title.textContent = str(scene.title, 'Untitled scene');
+      const state = document.createElement('p'); state.className = 'mt-1 text-sm text-slate-400'; state.textContent = locked ? 'Complete the previous scene to unlock' : done ? 'Completed · Available for replay' : 'Ready to play';
+      details.append(index,title,state); body.append(symbol,details);
+      const action = document.createElement(locked ? 'button' : 'a'); action.className = `shrink-0 rounded-xl px-5 py-3 text-center text-sm font-bold ${locked ? 'cursor-not-allowed bg-slate-800 text-slate-500' : 'bg-teal-400 text-slate-950 hover:bg-teal-300'}`;
+      action.textContent = locked ? 'Locked' : done ? 'Replay Scene →' : 'Play Scene →';
+      if (locked) action.disabled = true;
+      else action.href = `/play_scene/${encodeURIComponent(adventureId)}/${encodeURIComponent(scene.scene_id)}`;
+      item.append(body,action); list.append(item);
+    }
+    $('overview').classList.remove('hidden');
+  }
+  try { render(); } catch (err) { $('error').textContent = err.message; $('error').classList.remove('hidden'); }
+})();
+</script>
+</body>
+</html>

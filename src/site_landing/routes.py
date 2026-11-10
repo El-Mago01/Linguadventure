@@ -1,3 +1,11 @@
+"""
+Endpoint	                                    Frontend responsibility
+GET /                                           Providing the user with a site-landing screen to logon or register or explore
+GET /login
+
+"""
+
+
 from flask import Blueprint, render_template, request, abort
 from src.data_manager import DataManager, StudentStorageError
 from helper_functions import is_valid_email_address, check_admin_user
@@ -23,7 +31,7 @@ def index():
 def login():
     """
     After the user provided her/his email address and clicked login, this route is activated.
-    If the provided email address is registered, the user is forwarded to the user_home, with all
+    If the provided email address is registered, the user is forwarded to the student_home, with all
     relevant information about progress on adventures take and a possibility to select a new adventure
     or continue an ongoing one.
     :return:
@@ -50,7 +58,7 @@ def login():
     login_user(student)
     print(student)
 
-    return render_template("site_landing/user_home.html", student=student)
+    return render_template("site_landing/student_home.html", student=student)
 
 @site_landing.route("/register", methods=["GET","POST"])
 def register():
@@ -94,7 +102,7 @@ def register():
     except StudentStorageError as e:
         return render_template("site_landing/registration.html", message=str(e))
     login_user(stored_student)
-    return render_template("site_landing/user_home.html", student=stored_student)
+    return render_template("site_landing/student_home.html", student=stored_student)
 
 @site_landing.route("/logout", methods=["POST"])
 @login_required
@@ -110,14 +118,14 @@ def logout():
     return redirect(url_for("site_landing.index"))
 
 
-@site_landing.route("/<user_id>", methods=["POST"])
-def user_home(user_id:int):
+@site_landing.route("/student_home", methods=["POST", "GET"])
+def student_home():
     """
     A confirmed registered student will gain access via this route to the students home page
     :param user_id:
     :return:
     """
-    return render_template("site_landing/user_home.html")
+    return render_template("site_landing/student_home.html")
 
 
 @site_landing.route("/view_profile/<user_id>", methods=["GET"])
@@ -127,7 +135,7 @@ def view_profile(user_id:int):
     :param user_id:
     :return:
     """
-    return render_template("site_landing/user_home.html")
+    return render_template("site_landing/student_home.html")
 
 
 @site_landing.route("/update_profile/<user_id>", methods=["POST"])
@@ -137,7 +145,7 @@ def update_profile(user_id:int):
     :param user_id:
     :return:
     """
-    return render_template("site_landing/user_home.html")
+    return render_template("site_landing/student_home.html")
 
 
 @site_landing.route("/delete_user/<int:user_id>/", methods=["DELETE"])

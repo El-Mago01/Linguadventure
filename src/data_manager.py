@@ -10,7 +10,7 @@ import logging
 
 from sqlalchemy.exc import IntegrityError, OperationalError
 
-from models import db, Adventure, Student, Student_Adventure, login_manager, Persona
+from models import db, Adventure, Student, Student_Adventure, login_manager, Persona, Scene
 from src.errors import StudentStorageError, AdventureStorageError
 from src.site_landing.data_manager import StudentDataManager
 from src.adventures.data_manager import AdventureDataManager, PersonaDataManager
@@ -59,6 +59,10 @@ class DataManager:
         return StudentDataManager.add_student(registration_info)
 
     @staticmethod
+    def student_is_active(student_id: int) -> bool:
+        return StudentDataManager.student_is_active(student_id)
+
+    @staticmethod
     def delete_student(student_data: int | str | Student) -> tuple:
         return StudentDataManager.delete_student(student_data)
 
@@ -76,16 +80,15 @@ class DataManager:
     # =========================================================================
 
     @staticmethod
-    def get_all_adventures() -> list[Adventure]:
+    def get_all_adventures() -> list[dict]|None:
         return AdventureDataManager.get_all_adventures()
 
+    @staticmethod
+    def get_all_student_adventures(student_id: int) -> list[dict] | None:
+        return AdventureDataManager.get_all_student_adventures(student_id)
 
     @staticmethod
-    def get_all_adventures_of_student(student_id: int, sorting_command: dict) -> list[Adventure | None]:
-        return AdventureDataManager.get_all_adventures(student_id, sorting_command)
-
-    @staticmethod
-    def get_adventure(adventure_id: int) -> Adventure | None:
+    def get_adventure(adventure_id: int) -> dict | None:
         return AdventureDataManager.get_adventure(adventure_id)
 
     @staticmethod
@@ -97,8 +100,53 @@ class DataManager:
         return AdventureDataManager.adventure_exists(adventure_id)
 
     @staticmethod
+    def act_deact_adventure(adventure_id: int, act_deact: bool) -> bool | None:
+        return AdventureDataManager.act_deact_adventure(adventure_id, act_deact)
+
+    @staticmethod
+    def update_adventure(adventure_id: int, updated_adventure_data: dict) -> Adventure | None:
+        return AdventureDataManager.update_adventure(adventure_id, updated_adventure_data)
+
+    @staticmethod
     def delete_adventure(adventure_id: int, commit: bool = True) -> Adventure | None:
         return AdventureDataManager.delete_adventure(adventure_id, commit)
+
+    @staticmethod
+    def reserve_adventure(adventure_id:int, student_id:int) -> tuple[list[Student_Adventure] | None, str]:
+        return  AdventureDataManager.reserve_adventure(adventure_id, student_id)
+
+    @staticmethod
+    def get_full_student_adventure_data(adventure_id, student_id) -> tuple[dict|None, str]:
+        return AdventureDataManager.get_full_student_adventure_data(adventure_id, student_id)
+
+    @staticmethod
+    def change_adventure_status(adventure_id:int, student_id:int, new_status: str) -> tuple[bool, str]:
+        return AdventureDataManager.change_adventure_status(adventure_id, student_id, new_status)
+
+    @staticmethod
+    def student_adventure_exists(adventure_id: int, student_id: int) -> bool:
+        return AdventureDataManager.student_adventure_exists(adventure_id, student_id)
+
+
+    @staticmethod
+    def get_student_adventure(adventure_id: int, student_id: int, sorting_command:dict|None=None) -> list[Student_Adventure] | None:
+        return AdventureDataManager.get_student_adventure(adventure_id, student_id)
+
+    @staticmethod
+    def scene_exists(adventure_id: int, scene_id: int) -> bool:
+        return AdventureDataManager.scene_exists(adventure_id, scene_id)
+
+    @staticmethod
+    def set_current_scene(adventure_id: int, student_id: int, current_scene: int) -> tuple[bool, str]:
+        return AdventureDataManager.set_current_scene(adventure_id, student_id, current_scene)
+
+    @staticmethod
+    def get_number_of_scenes(adventure_id: int) -> int:
+        return AdventureDataManager.get_number_of_scenes(adventure_id)
+
+    # =============================================================================================
+    # ======================********* Persona Data Management ********=============================
+    # =============================================================================================
 
     @staticmethod
     def create_persona(persona: dict) -> tuple[Persona|None, str]:
@@ -115,3 +163,4 @@ class DataManager:
     @staticmethod
     def delete_persona(persona_id: int, commit: bool = True) -> Persona | None:
         return PersonaDataManager.delete_persona(persona_id, commit)
+

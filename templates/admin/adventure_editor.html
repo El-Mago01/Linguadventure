@@ -559,6 +559,7 @@
             if (savedAdventureId !== null && !payload.poster_image && existingPosterPath) {
                 delete payload.poster_image;
             }
+            console.log(payload);
             const response = await fetch(
                 savedAdventureId === null ? ADVENTURE_API_URL : `${ADVENTURE_API_URL}/${encodeURIComponent(savedAdventureId)}`,
                 {

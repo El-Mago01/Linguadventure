@@ -60,7 +60,7 @@ class Student(UserMixin, db.Model):
         student_data["first_name"] = self.first_name
         student_data["last_name"] = self.last_name
         student_data["email"] = self.email
-        student_data["password_hash"] = self.password_hash
+        # student_data["password_hash"] = self.password_hash
         student_data["gender"] = self.gender
         student_data["age"] = self.age
         student_data["occupation"] = self.occupation
@@ -97,6 +97,8 @@ class Adventure(db.Model):
     creator = db.Column(db.String(100))
     language = db.Column(db.String(100))
     level = db.Column(db.String(10))
+    minutes = db.Column(db.Integer)
+    current_scene = db.Column(db.Integer)
     setting = db.Column(db.String(200))
     premise = db.Column(db.String(200))
     intro = db.Column(db.String(200))
@@ -147,6 +149,7 @@ class Adventure(db.Model):
         adventure["level"] = self.level
         adventure["setting"] = self.setting
         adventure["premise"] = self.premise
+        adventure["minutes"] = self.minutes
         adventure["objectives"] = self.objectives
         adventure["story_outline"] = self.story_outline
         adventure["cliff_hanger"] = self.cliff_hanger
@@ -172,22 +175,29 @@ class Student_Adventure(db.Model):
     current_scene_id = db.Column(
         db.Integer, db.ForeignKey("scene.scene_id")
     )
-    completed = db.Column(db.Boolean, nullable=False, default=False)
+    status = db.Column(db.String(100), nullable=False, default=False)
 
     def __repr__(self):
         return f"{
             self.adventure_id}: {
             self.student_id},\n {
             self.current_scene_id},\n {
-            self.completed}"
+            self.status}"
 
     def __str__(self):
         return f"{
             self.adventure_id}: {
             self.student_id},\n {
             self.current_scene_id},\n {
-            self.completed}"
+            self.status}"
 
+    def serialize(self) -> dict:
+            student_adventure = {}
+            student_adventure["adventure_id"] = self.adventure_id
+            student_adventure["student_id"] = self.student_id
+            student_adventure["current_scene_id"] = self.current_scene_id
+            student_adventure["status"] = self.status
+            return student_adventure
 
 class Scene(db.Model):
     """
@@ -229,10 +239,10 @@ class Scene(db.Model):
         self.adventure_id}: {
         self.scene_id},\n {
         self.scene_order_nr},\n {
-        self.scene_description},\n {
-        self.persona_mood}, \n {
-        self.stop_criteria} \n{
-        self.scene_poster
+        self.goal},\n {
+        self.intro}, \n {
+        self.must} \n{
+        self.steps
         }"
 
 
@@ -241,12 +251,31 @@ class Scene(db.Model):
         self.adventure_id}: {
         self.scene_id},\n {
         self.scene_order_nr},\n {
-        self.scene_description},\n {
-        self.persona_mood}, \n {
-        self.stop_criteria} \n{
-        self.scene_poster
+        self.goal},\n {
+        self.intro}, \n {
+        self.must} \n{
+        self.steps
         }"
 
+    def serialize(self)->dict:
+        scene = {}
+        scene["scene_id"] = self.scene_id
+        scene["adventure_id"] = self.adventure_id
+        scene["scene_order_nr"] = self.scene_order_nr
+        scene["persona_id"] = self.persona_id
+        scene["title"] = self.title
+        scene["situation"] = self.situation
+        scene["goal"] = self.goal
+        scene["steps"] = self.steps
+        scene["location"] = self.location
+        scene["intro"] = self.intro
+        scene["vocabulary"] = self.vocabulary
+        scene["grammar"] = self.grammar
+        scene["must"] = self.must
+        scene["must_not"] = self.must_not
+        scene["exit"] = self.exit
+        scene["ending"] = self.ending
+        return scene
 
 class Session(db.Model):
     """

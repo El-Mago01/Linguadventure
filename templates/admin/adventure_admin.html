@@ -15,9 +15,16 @@
                     <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Adventure Library</h1>
                     <p class="mt-3 max-w-2xl text-slate-400">Manage your stories, edit scenes, and prepare new experiences for your learners.</p>
                 </div>
+                <a href="{{ url_for('site_landing.student_home') }}"
+                   class="inline-flex items-center gap-2 mb-5
+                          text-sm font-medium text-teal-300
+                          hover:text-teal-200 transition">
+                    ← Back to Learning Journey
+                </a>
                 <a href="/admin/adventures/new" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-teal-950/30 transition hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
                     <span aria-hidden="true" class="text-xl leading-none">+</span> Create adventure
                 </a>
+
                 <form method="GET" action="/admin/personas/new">
                     {# Add CSRF token here when enabled, e.g. <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> #}
                     <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-teal-950/30 transition hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
@@ -25,7 +32,12 @@
                     </button>
                 </form>
             </div>
-        
+            <div id="action-message"
+                 role="status"
+                 aria-live="polite"
+                 class="hidden mb-4 rounded-xl border border-teal-500/30
+                        bg-teal-500/10 px-5 py-3 text-sm text-teal-300">
+            </div>
             <div class="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
                 <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                     <div class="text-sm text-slate-400">Total adventures
@@ -42,7 +54,8 @@
             <div class="col-span-2 rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:col-span-1">
                 <div class="text-sm text-slate-400">Drafts
                 </div>
-                <div class="mt-1 text-3xl font-bold"><span id="draft-count">0</span>
+                <div class="mt-1 text-3xl font-bold">
+                    <span id="draft-count">0</span>
                 </div>
             </div>
         </div>
@@ -84,7 +97,17 @@
 
 <!-- Delete confirmation dialog: confirmation only; deletion happens on the server. -->
 <dialog id="delete-dialog" class="w-[min(92vw,420px)] rounded-2xl border border-white/10 bg-slate-900 p-0 text-white shadow-2xl backdrop:bg-black/70">
-<div class="p-7"><h2 class="text-xl font-semibold">Delete this adventure?</h2><p class="mt-3 text-sm leading-relaxed text-slate-400">This action may permanently remove the adventure and its scenes. Are you sure you want to continue?</p><div class="mt-7 flex justify-end gap-3"><button type="button" id="cancel-delete" class="rounded-xl border border-white/15 px-4 py-2.5 text-sm hover:bg-white/10">Cancel</button><button type="button" id="confirm-delete" class="rounded-xl bg-rose-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-rose-400">Delete adventure</button></div></div>
+<div class="p-7">
+    <h2 class="text-xl font-semibold">Delete this adventure?</h2>
+    <p class="mt-3 text-sm leading-relaxed text-slate-400">This action may permanently remove the adventure and its scenes. Are you sure you want to continue?
+</p>
+    <div class="mt-7 flex justify-end gap-3">
+        <button type="button" id="cancel-delete" class="rounded-xl border border-white/15 px-4 py-2.5 text-sm hover:bg-white/10">Cancel
+        </button>
+        <button type="button" id="confirm-delete" class="rounded-xl bg-rose-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-rose-400">Delete adventure
+        </button>
+    </div>
+</div>
 </dialog>
 
 <script>
@@ -103,7 +126,11 @@
         function setCount(id, count) {
             document.getElementById(id).textContent = String(count);
         }
-
+        function showSuccessMessage(message) {
+            const messageElement = document.getElementById('action-message');
+            messageElement.textContent = message;
+            messageElement.classList.remove('hidden');
+}
         function showMessage(message) {
             tbody.replaceChildren();
             const row = document.createElement('tr');
@@ -137,20 +164,39 @@
         async function toggleActivation(id, currentlyActive, button) {
             const nextActive = !currentlyActive;
             button.disabled = true;
+        
             try {
-                console.log(${API_URL}/${encodeURIComponent(String(id)))
                 const response = await fetch(`${API_URL}/${encodeURIComponent(String(id))}`, {
                     method: 'PATCH',
-                    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
                     body: JSON.stringify({is_active: nextActive})
                 });
+        
                 if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 150)}`);
+                    throw new Error(
+                        `HTTP ${response.status}: ${(await response.text()).slice(0, 150)}`
+                    );
                 }
+        
+                // Read the backend response.
+                const result = await response.json();
+        
+                // Refresh the adventure list.
                 await loadAdventures();
+        
+                // Show confirmation.
+                showSuccessMessage(
+                    result.message ||
+                    `Adventure ${nextActive ? 'activated' : 'deactivated'} successfully.`
+                );
+        
             } catch (error) {
                 console.error('Could not change adventure activation:', error);
                 alert(`Could not ${nextActive ? 'activate' : 'deactivate'} adventure: ${error.message}`);
+        
             } finally {
                 button.disabled = false;
             }
@@ -257,17 +303,40 @@
         cancelDelete.addEventListener('click', () => dialog.close());
         confirmDelete.addEventListener('click', async () => {
             if (pendingDelete === null) return;
+        
             const id = pendingDelete;
             confirmDelete.disabled = true;
+        
             try {
-                const response = await fetch(`${API_URL}/${encodeURIComponent(String(id))}`, {method: 'DELETE'});
-                if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 150)}`);
-                adventures = adventures.filter(a => String(a.adventure_id ?? a.id) !== String(id));
+                const response = await fetch(
+                    `${API_URL}/${encodeURIComponent(String(id))}`,
+                    {method: 'DELETE'}
+                );
+        
+                if (!response.ok) {
+                    throw new Error(
+                        `HTTP ${response.status}: ${(await response.text()).slice(0, 150)}`
+                    );
+                }
+        
+                // Read the confirmation returned by Flask.
+                const result = await response.json();
+        
+                // Remove the deleted adventure from the frontend list.
+                adventures = adventures.filter(
+                    a => String(a.adventure_id ?? a.id) !== String(id)
+                );
+        
                 dialog.close();
                 render();
+        
+                // Display the backend's success message.
+                showSuccessMessage(result.message || 'Adventure deleted successfully.');
+        
             } catch (error) {
                 console.error('Could not delete adventure:', error);
                 alert(`Could not delete adventure: ${error.message}`);
+        
             } finally {
                 confirmDelete.disabled = false;
             }
@@ -276,7 +345,5 @@
         loadAdventures();
     })();
 </script>
-
-
 </body>
 </html>

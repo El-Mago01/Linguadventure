@@ -75,6 +75,21 @@ class StudentDataManager:
         return None
 
     @staticmethod
+    def student_is_active(student_id: int) -> bool:
+        """
+        checks if the student is active
+        :param: student_id
+        """
+        if not isinstance(student_id, int):
+            return False
+
+        student = StudentDataManager.get_student(student_id)
+
+        if student is None:
+            return False
+        return student.get("is_active", False)
+
+    @staticmethod
     def get_student_object(received_student_data) -> Student | None:
         """
         Returns the student information based on received student data.

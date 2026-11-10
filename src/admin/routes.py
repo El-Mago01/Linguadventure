@@ -45,7 +45,6 @@ def adventure_admin():
             print(student)
             adventures = dm.get_all_adventures()
             return render_template("/admin/adventure_admin.html", adventures=adventures, student=student)
-            return render_template(url_for("admin.adventure_admin"), adventures=adventures, student=student)
 
     abort(404, description="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE
 
@@ -60,9 +59,11 @@ def add_adventure():
     :param adventure:
     :return:
     """
+
     if not current_user.is_admin:
         abort(404, description="method not allowed by this user")
     email = current_user.email
+
     if is_valid_email_address(email):
         if dm.student_exists(email):
             student = dm.get_student(email)
@@ -81,9 +82,12 @@ def create_adventure():
     :return:
     """
     if not current_user.is_admin:
-        abort(403, message="You are not authorized to perform this action")
+        return jsonify({"id": -1,
+                        "message": "User not authorized to perform this action"
+                        }), 404
     if is_valid_email_address(current_user.email):
         adventure_data = request.get_json()
+
         adventure, message = dm.create_adventure(adventure_data, current_user.email)
         if adventure:
             return jsonify({
@@ -95,64 +99,170 @@ def create_adventure():
                 "id": -1,
                 "message": f"Could not save adventure due to internal issues: {message}"
             }),404
-    abort(404, message="wrong email address used in session") #XXXX FIND THE RIGHT ERROR CODE
+
+    abort(404, description="wrong email address used in session") #XXXX FIND THE RIGHT ERROR CODE
 
 
 @admin.route("/api/adventures", methods=["GET"])
 @login_required
 def list_adventures():
     if not current_user.is_admin:
-        abort(403)
-
+        return jsonify({"id": -1,
+                        "message": "User not authorized to perform this action"
+                        }), 404
     all_adventures = dm.get_all_adventures()
-    serialized_adventures = [adventure.serialize() for adventure in all_adventures]
-    return jsonify(serialized_adventures)
+    return jsonify(all_adventures)
 
 
-@admin.route("/api/adventure/<adventure_id>", methods=["PATCH"])
+@admin.route("/api/adventures/<int:adventure_id>", methods=["GET"])
 @login_required
-def act_deact_adventure(adventure_id:int):
+def fetch_adventure(adventure_id:str):
+
+    if not current_user.is_admin:
+        return jsonify({"id": -1,
+                        "message": "User not authorized to perform this action"
+                        }), 404
+    if not isinstance(adventure_id, str):
+        return jsonify({"id": -1,
+                        "message": "wrong adventure_id received"
+                        }), 404
+    adventure_id = int(adventure_id)
+    if adventure_id < 0:
+        return jsonify({"id": -1,
+                "message": "wrong adventure_id received"
+            }), 404
+    if not dm.adventure_exists(adventure_id):
+        return jsonify({"id": adventure_id,
+                "message": "adventure not found"
+            }), 404
+    adventure = dm.get_adventure(adventure_id)
+    if adventure:
+        return adventure
+    return jsonify({"id": -1,
+                "message": "Adventure not found, or scenes might be missing"
+            }), 404
+
+
+@admin.route("/api/adventures/<adventure_id>", methods=["PATCH"])
+@login_required
+def act_deact_adventure(adventure_id:str):
     """
     The administrator decided to deactivate or activate an adventure
     :param adventure_id:
     :return:
     """
     if not current_user.is_admin:
-        act_deact = request.get_json()
-    if not isinstance(adventure_id, int):
         return jsonify({"id": -1,
-                "message": "wrong adventure_id received"
+                        "message": "User not authorized to perform this action"
+                        }), 404
+    if not isinstance(adventure_id, str):
+        return jsonify({"id": -1,
+                        "message": "wrong adventure_id received"
+                        }), 404
+    adventure_id = int(adventure_id)
+    act_deact = request.get_json()
+    if not isinstance(act_deact, dict):
+        return jsonify({"id": -1,
+                "message": "wrong act_deact value received"
             }), 404
-    adventure = dm.get_adventure(adventure_id)
+    act_deact_order = act_deact.get("is_active", False)
+
+    if not isinstance(act_deact_order, bool):
+        return jsonify({"id": -1,
+                "message": "wrong act_deact value received"
+            }), 404
+
+    adventure = dm.act_deact_adventure(adventure_id, act_deact_order)
     return jsonify({
-                "id": adventure[0].adventure_id,
-                "message": "Adventure saved successfully"
+                "id": adventure_id,
+                "message": "Activation / deactivation was successful"
             }), 201
 
 
-@admin.route("/api/adventure/<adventure_id>/'", methods=["PUT"])
+@admin.route("/admin/adventures/<adventure_id>/edit", methods=["GET"])
 @login_required
-def update_adventure(adventure_id:int):
+def edit_adventure(adventure_id:str):
     """
     The admin indicated that an adventure needs an update. The admin first receive a pre-filled form (GET) where-after
-    the admin can make the updates. After the submit button is pressed, the form is return to this route as POST message
-    with the request to store the provided data in the DB.
+    the admin can make the updates. After the submit button is pressed, the form is return to the
+    /api/adventures/<adventure_id> route as POST message with the request to store the provided data in the DB.
     :param adventure_id:
     :param user_id:
     :return:
     """
     if not current_user.is_admin:
-        abort(403)
+        return jsonify({"id": -1,
+                        "message": "User not authorized to perform this action"
+                        }), 404
+    if not isinstance(adventure_id, str):
+        return jsonify({"id": -1,
+                        "message": "wrong adventure_id received"
+                        }), 404
+    adventure_id = int(adventure_id)
+
+    return render_template("admin/adventure_editor.html", adventure_id=adventure_id, student=current_user)
+
+
+@admin.route("/api/adventures/<adventure_id>", methods=["PUT"])
+@login_required
+def update_adventure(adventure_id:str):
+    """
+    The admin indicated that an adventure needs an update. The admin first receive a pre-filled form (GET) where-after
+    the admin can make the updates. After the submit button is pressed, the form is return to this route as POST message
+    with the request to store the provided data in the DB.
+    :param adventure_id:
+    :return:
+    """
+
+    if not current_user.is_admin:
+        return jsonify({"id": -1,
+                        "message": "User not authorized to perform this action"
+                        }), 404
+    if not isinstance(adventure_id, str):
+        return jsonify({"id": -1,
+                        "message": "wrong adventure_id received"
+                        }), 404
+
+    adventure_id = int(adventure_id)
 
     adventure_data = request.get_json()
-    adventure = dm.update_persona(adventure_id, adventure_data)
-    if adventure[0] is None:
-        abort(404, message="Adventure not found")
+    adventure = dm.update_adventure(adventure_id, adventure_data)
+    if adventure is None:
+        return jsonify({
+            "id": -1,
+            "message": "Adventure not updated due to internal error"
+        }), 404
     return jsonify({
-        "id": adventure[0].adventure_id,
+        "id": adventure.adventure_id,
         "message": "Adventure updated successfully"
     }), 200
-"""
+
+@admin.route("/api/adventures/<adventure_id>", methods=["DELETE"])
+@login_required
+def delete_adventure(adventure_id:str):
+    """
+    The admin indicated that an adventure needs an update. The admin first receive a pre-filled form (GET) where-after
+    the admin can make the updates. After the submit button is pressed, the form is return to this route as POST message
+    with the request to store the provided data in the DB.
+    :param adventure_id:
+    :return:
+    """
+    if not current_user.is_admin:
+        return jsonify({"id": -1,
+                        "message": "User not authorized to perform this action"
+                        }), 404
+    if not isinstance(adventure_id, str):
+        return jsonify({"id": -1,
+                        "message": "wrong adventure_id received"
+                        }), 404
+
+    adventure_id = int(adventure_id)
+    deleted_adventure = dm.delete_adventure(adventure_id)
+    return jsonify({"id": adventure_id,
+                    "message": "Adventure deleted"
+                    }), 200
+
+    """
 ========================================================================================
 =========****************** Persona Administration **************************===========
 ========================================================================================

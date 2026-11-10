@@ -53,7 +53,7 @@ def prompt_generator(role:str, prompt:str, transcript:Transcript):
     prompt += str(transcript)
     return {"role": role, "content": prompt}
 
-def play_scene(student_id:int, scene_id:int, adventure_id:int) -> Transcript:
+def play_the_scene(student_id:int, scene_id:int, adventure_id:int) -> Transcript:
     ts = Transcript(student_id, adventure_id, scene_id, 0)
     goal_reached = False
     timeout = False
