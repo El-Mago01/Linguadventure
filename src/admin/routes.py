@@ -42,7 +42,6 @@ def adventure_admin():
     if is_valid_email_address(email):
         if dm.student_exists(email):
             student = dm.get_student(email)
-            print(student)
             adventures = dm.get_all_adventures()
             return render_template("/admin/adventure_admin.html", adventures=adventures, student=student)
 
@@ -116,17 +115,17 @@ def list_adventures():
 
 @admin.route("/api/adventures/<int:adventure_id>", methods=["GET"])
 @login_required
-def fetch_adventure(adventure_id:str):
+def fetch_adventure(adventure_id:int):
 
     if not current_user.is_admin:
         return jsonify({"id": -1,
                         "message": "User not authorized to perform this action"
                         }), 404
-    if not isinstance(adventure_id, str):
+    if not isinstance(adventure_id, int):
         return jsonify({"id": -1,
                         "message": "wrong adventure_id received"
                         }), 404
-    adventure_id = int(adventure_id)
+    # adventure_id = int(adventure_id)
     if adventure_id < 0:
         return jsonify({"id": -1,
                 "message": "wrong adventure_id received"
@@ -277,13 +276,10 @@ def persona_admin():
     :param adventure:
     :return:
     """
-    print("persona_admin")
     email = request.form.get("email","")
-    print(email)
     if is_valid_email_address(email):
         if dm.student_exists(email):
             student = dm.get_student(email)
-            print(student)
             return render_template("admin/persona_admin.html", student=student)
 
     abort(404, message="Invalid email address") #XXXX FIND THE RIGHT ERROR CODE

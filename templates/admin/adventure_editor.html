@@ -259,7 +259,7 @@
 
     const example = () => ({
         title: 'The Lost Backpack',
-        poster_image: null,
+        image_url: null,
         language: 'Portuguese',
         level: 'A1–A2',
         minutes: '5',
@@ -321,12 +321,12 @@
 
     const el = id => document.getElementById(id);
 
-    // Poster lives in editor state as a data URL, not as a local filesystem path.
+    // image_url contains a browser URL for saved images or a data URL for new uploads.
     function renderPoster() {
         const preview = el('adventurePosterPreview');
-        const hasPoster = typeof data.poster_image === 'string' && data.poster_image.startsWith('data:image/');
+        const hasPoster = typeof data.image_url === 'string' && /^(?:data:image\/|https?:\/\/|\/(?!\/))/i.test(data.image_url);
         preview.classList.toggle('hidden', !hasPoster);
-        if (hasPoster) preview.src = data.poster_image;
+        if (hasPoster) preview.src = data.image_url;
         else preview.removeAttribute('src');
         el('removeAdventurePosterBtn').disabled = !hasPoster;
     }
@@ -341,7 +341,8 @@
         }
         const reader = new FileReader();
         reader.onload = () => {
-            data.poster_image = reader.result;
+            data.image_url = reader.result;
+            imageChanged = true;
             renderPoster();
             el('status').textContent = 'Poster selected. Save Adventure to send it to Flask.';
         };
@@ -350,7 +351,8 @@
     });
 
     el('removeAdventurePosterBtn').addEventListener('click', () => {
-        data.poster_image = null;
+        data.image_url = null;
+        imageChanged = true;
         el('adventurePoster').value = '';
         renderPoster();
     });
@@ -529,7 +531,7 @@
     const ADVENTURE_API_URL = '/api/adventures';
     let savedAdventureId = null;
     let saveWithoutId = false;
-    let existingPosterPath = null;
+    let imageChanged = false;
     // Editor routes: /admin/adventures/new and /admin/adventures/<id>/edit.
     const editRouteMatch = window.location.pathname.match(/^\/admin\/adventures\/([^/]+)\/edit\/?$/);
     const editingId = editRouteMatch ? decodeURIComponent(editRouteMatch[1]) : null;
@@ -555,9 +557,9 @@
 
         try {
             const payload = {...data};
-            // A stored poster path is not an image upload. Leave it unchanged on update.
-            if (savedAdventureId !== null && !payload.poster_image && existingPosterPath) {
-                delete payload.poster_image;
+            // Omit unchanged images on update; send null for an explicit removal.
+            if (savedAdventureId !== null && !imageChanged) {
+                delete payload.image_url;
             }
             console.log(payload);
             const response = await fetch(
@@ -581,7 +583,11 @@
             if (returnedId !== undefined && returnedId !== null && String(returnedId).trim() !== '') {
                 savedAdventureId = returnedId;
             }
-            if (result.poster_path) existingPosterPath = result.poster_path;
+            if (Object.prototype.hasOwnProperty.call(result, 'image_url')) {
+                data.image_url = result.image_url;
+                renderPoster();
+            }
+            imageChanged = false;
             if (savedAdventureId === null) {
                 // Avoid creating duplicate records if a successful POST omitted the ID.
                 saveWithoutId = true;
@@ -764,7 +770,7 @@
             language: adventure.language ?? adventure.target_language ?? 'Portuguese',
             level: adventure.level ?? adventure.target_level ?? 'A1',
             storyOutline: adventure.storyOutline ?? adventure.story_outline ?? '',
-            poster_image: null,
+            image_url: adventure.image_url ?? null,
             scenes: adventure.scenes.map(scene => ({
                 ...blankScene(), ...scene,
                 persona_id: scene.persona_id ?? '',
@@ -772,7 +778,7 @@
             }))
         };
         savedAdventureId = adventure.adventure_id ?? adventure.id;
-        existingPosterPath = adventure.poster_path ?? null;
+        imageChanged = false;
         selected = -1;
         renderPoster();
         render();

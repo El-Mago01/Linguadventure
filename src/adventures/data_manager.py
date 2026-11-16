@@ -7,11 +7,12 @@ of these requests by using the partners models and adventure_data_fetcher.
 """
 
 import logging
-
+import os
 from sqlalchemy.exc import IntegrityError, OperationalError
 from src.errors import AdventureStorageError
 from src.site_landing.data_manager import StudentDataManager as sdm
 from sqlalchemy import and_
+from src.adventures.helper_functions import save_as_image
 
 from models import db, Adventure, Student, Student_Adventure, Persona, Scene
 
@@ -57,28 +58,33 @@ class AdventureDataManager:
         if len(adventure) == 0:
             return None, "Error: Invalid adventure details"
 
-        print(adventure)
+        try:
+            if adventure.get("image_url", ""):
+                saved_image_link = save_as_image(adventure.get("image_url", ""), "Adventures")
+            else:
+                saved_image_link = ""
+            new_adventure = Adventure(
+                title = adventure.get("title",""),
+                creator = creator,
+                language = adventure.get("language",""),
+                level = adventure.get("level",""),
+                setting = adventure.get("setting",""),
+                premise = adventure.get("premise",""),
+                objectives = adventure.get("objectives",""),
+                story_outline = adventure.get("storyOutline",""),
+                cliff_hanger = adventure.get("cliffhanger",""),
+                image_url = saved_image_link,
+                is_active = adventure.get("is_active", False)
+            )
 
-        new_adventure = Adventure(
-            title = adventure.get("title",""),
-            creator = creator,
-            language = adventure.get("language",""),
-            level = adventure.get("level",""),
-            setting = adventure.get("setting",""),
-            premise = adventure.get("premise",""),
-            objectives = adventure.get("objectives",""),
-            story_outline = adventure.get("storyOutline",""),
-            cliff_hanger = adventure.get("cliffhanger",""),
-            poster_link = adventure.get("poster_link",""),
-            is_active = adventure.get("is_active", False)
-        )
-        db.session.add(new_adventure)
+            db.session.add(new_adventure)
 
         # db.session.flush sends the INSERT to the database so movie.movie_id is generated,
         # but the transaction is not permanently committed yet. Commitment follows at
         # db.session.commit
-        db.session.flush()
-        print(new_adventure.adventure_id)
+            db.session.flush()
+        except (ValueError, OperationalError) as e:
+            return None, str(e)
         if not new_adventure.adventure_id:
             return None, "Adventure ID not generated"
         count = 0
@@ -112,7 +118,6 @@ class AdventureDataManager:
             count += 1
             db.session.add(new_scene)
             db.session.flush()
-            print(f"new_scene.scene_id: {new_scene.scene_id}")
 
         db.session.commit()
         return (
@@ -156,7 +161,6 @@ class AdventureDataManager:
                 return None
             a_serialized_adventure["scenes"] = [scene.serialize() for scene in scenes]
             all_adventures.append(a_serialized_adventure)
-        print(all_adventures)
         return all_adventures
 
 
@@ -195,7 +199,6 @@ class AdventureDataManager:
                 return None
             a_serialized_adventure["scenes"] = [scene.serialize() for scene in scenes]
             all_adventures.append(a_serialized_adventure)
-        print(all_adventures)
         return all_adventures
 
 
@@ -258,26 +261,50 @@ class AdventureDataManager:
         if not AdventureDataManager.adventure_exists(adventure_id):
             return None
         stmt = db.select(Adventure).where(Adventure.adventure_id == adventure_id)
-        adventure_to_update = db.session.execute(stmt).scalars().all()
-        if len(adventure_to_update) != 1:
+        adventure_to_update = db.session.execute(stmt).scalars().one()
+        if adventure_to_update is None:
             return None
+        if updated_adventure_data.get("image_url", ""):
+            saved_image_link = save_as_image(updated_adventure_data.get("image_url", ""), "Adventures")
+        else:
+            saved_image_link = ""
+        adventure_to_update.title = updated_adventure_data.get("title",adventure_to_update.title)
+        adventure_to_update.creator = updated_adventure_data.get("creator", adventure_to_update.creator)
+        adventure_to_update.language = updated_adventure_data.get("language", adventure_to_update.language)
+        adventure_to_update.minutes = updated_adventure_data.get("minutes", adventure_to_update.minutes)
+        adventure_to_update.premise = updated_adventure_data.get("premise", adventure_to_update.premise)
+        adventure_to_update.intro = updated_adventure_data.get("intro", adventure_to_update.intro)
+        adventure_to_update.objectives = updated_adventure_data.get("objectives", adventure_to_update.objectives)
+        adventure_to_update.story_outline = updated_adventure_data.get("storyOutline", adventure_to_update.story_outline)
+        adventure_to_update.cliff_hanger = updated_adventure_data.get("cliffhanger", adventure_to_update.cliff_hanger)
+        if saved_image_link: # By default the FE uses an empty image. Not already filled. This might overwrite this image.
+            adventure_to_update.image_url = saved_image_link # If the image is not empty, then you can overwrite the link
 
-        adventure_to_update[0].title = updated_adventure_data.get("title",adventure_to_update[0].title)
-        adventure_to_update[0].creator = updated_adventure_data.get("creator", adventure_to_update[0].creator)
-        adventure_to_update[0].language = updated_adventure_data.get("language", adventure_to_update[0].language)
-        adventure_to_update[0].minutes = updated_adventure_data.get("minutes", adventure_to_update[0].minutes)
-        adventure_to_update[0].premise = updated_adventure_data.get("premise", adventure_to_update[0].premise)
-        adventure_to_update[0].intro = updated_adventure_data.get("intro", adventure_to_update[0].intro)
-        adventure_to_update[0].objectives = updated_adventure_data.get("objectives", adventure_to_update[0].objectives)
-        adventure_to_update[0].story_outline = updated_adventure_data.get("storyOutline", adventure_to_update[0].story_outline)
-        adventure_to_update[0].cliff_hanger = updated_adventure_data.get("cliffhanger", adventure_to_update[0].cliff_hanger)
-        adventure_to_update[0].scenes = []
-
+        updated_scene_data = updated_adventure_data['scenes']
+        # adventure_to_update.scenes = []
+        if len(updated_scene_data) != len(updated_scene_data):
+            return None
+        index=0
         for scene in updated_adventure_data.get("scenes", []):
-            adventure_to_update[0].scenes.append(scene)
-
-        db.session.commit()
-        return adventure_to_update[0]
+            scene_to_update = AdventureDataManager.get_scene_by_id(scene.get("scene_id", -1))
+            if scene_to_update is None:
+                return None
+            scene_to_update.scene_order_nr = updated_scene_data[index].get("scene_order_nr", -1)
+            scene_to_update.title = updated_scene_data[index].get("title", "no title")
+            scene_to_update.goal = updated_scene_data[index].get("goal", "no goal defined")
+            scene_to_update.situation = updated_scene_data[index].get("situation", "-")
+            scene_to_update.steps = updated_scene_data[index].get("steps", "-")
+            scene_to_update.location = updated_scene_data[index].get("location", "-")
+            scene_to_update.intro = updated_scene_data[index].get("into", "-")
+            scene_to_update.vocabulary = updated_scene_data[index].get("vocabulary", "-")
+            scene_to_update.grammar = updated_scene_data[index].get("grammar", "-")
+            scene_to_update.must = updated_scene_data[index].get("must", "-")
+            scene_to_update.must_not = updated_scene_data[index].get("must_not", "-")
+            scene_to_update.exit = updated_scene_data[index].get("exit", "-")
+            scene_to_update.ending = updated_scene_data[index].get("ending", "-")
+            db.session.commit()
+            index += 1
+        return adventure_to_update
 
 
     @staticmethod
@@ -339,6 +366,12 @@ class AdventureDataManager:
                 f"Fatal error while deleting adventure {adventure_id} from database")
             db.session.rollback()
             return None
+        image_to_delete = adventure_to_delete.image_url
+        if image_to_delete:
+            try:
+                os.remove(image_to_delete)
+            except FileNotFoundError:
+                logging.error(f"Image {image_to_delete} not found")
 
         return adventure_to_delete
 
@@ -427,7 +460,6 @@ class AdventureDataManager:
         student_adventure, student, adventure = full_student_overview[0]
 
 
-        print(f"{student_adventure}\n\n\n{student}\n\n\n {adventure}")
         student_adventure_d = student_adventure.serialize()
         student_d = student.serialize()
         adventure_d = adventure.serialize()
@@ -646,6 +678,21 @@ class AdventureDataManager:
             return []
 
 
+    @staticmethod
+    def get_scene_by_id(scene_id:int)-> Scene | None:
+        if not isinstance(scene_id, int):
+            return None
+
+        try:
+            stmt = db.select(Scene).where(
+                Scene.scene_id == scene_id)
+            scene = db.session.execute(stmt).scalars().one()
+            if scene is None:
+                return None
+            return scene
+        except OperationalError as e:
+            return None
+
 # =========================================================================
 # -------------------------------------------------------------------------
 # *************************** PersonaDataManager **************************
@@ -725,27 +772,32 @@ class PersonaDataManager:
             if not isinstance(persona, dict):
                 return None, "received persona is not a string"
 
-            if len(persona) != 0:
+            if len(persona) == 0:
+                return None, "received persona is empty"
+
+            try:
+                if persona.get("photo", ""):
+                    saved_image_link = save_as_image(persona.get("photo", ""), "Personas")
+                else:
+                    saved_image_link = ""
                 new_persona = Persona(
                     first_name=persona.get("first_name", ""),
                     last_name=persona.get("last_name", ""),
                     nationality=persona.get("nationality", ""),
                     description=persona.get("description", ""),
                     gender=persona.get("gender", ""),
+                    image_url=saved_image_link,
                     age=persona.get("age", ""),
                     role=persona.get("role",""),
-                    image=persona.get("image","")
                 )
                 db.session.add(new_persona)
-
-                # db.session.flush sends the INSERT to the database so movie.movie_id is generated,
-                # but the transaction is not permanently committed yet. Commitment follows at
-                # db.session.commit
                 db.session.flush()
                 db.session.commit()
-                return (
-                    new_persona, f"persona {new_persona.first_name} {new_persona.last_name} created successfully!",)
-            return None, "Error: adventure details could not be fetched. Please try again later"
+            except (ValueError, OperationalError) as e:
+                return None, f"Error: adventure details could not be fetched. Reason: {str(e)}"
+
+            return (
+                new_persona, f"persona {new_persona.first_name} {new_persona.last_name} created successfully!",)
 
         @staticmethod
         def persona_exists(persona_id: int) -> bool:
@@ -766,6 +818,54 @@ class PersonaDataManager:
                 return True
             return False
 
+
+        @staticmethod
+        def update_persona(persona_id: int, updated_persona_data:dict) -> Persona | None:
+            """
+            Update the user_name of the User object that has the provided user_id
+            :param persona_id:
+            :param new_user_name:
+            :param updated_persona_data:
+            :return:
+            """
+            if not isinstance(persona_id, int):
+                if not isinstance(persona_id, str):
+                    return None
+            try:
+                persona_id = int(persona_id)
+            except ValueError:
+                return None
+            if not isinstance(updated_persona_data, dict):
+                return None
+            if not PersonaDataManager.persona_exists(persona_id):
+                return None
+            stmt = db.select(Persona).where(Persona.persona_id == persona_id)
+            persona_to_update = db.session.execute(stmt).scalars().all()
+            if updated_persona_data.get("photo","") == "" and persona_to_update[0].image:
+                try:
+                    os.remove(persona_to_update[0].image)
+                except FileNotFoundError:
+                    logging.error(f"Image {persona_to_update[0].image} not found")
+            if len(persona_to_update) != 1:
+                return None
+
+            if updated_persona_data.get("photo", ""):
+                saved_image_link = save_as_image(updated_persona_data.get("photo", ""), "Personas")
+            else:
+                saved_image_link = ""
+            persona_to_update[0].first_name = updated_persona_data.get("first_name",persona_to_update[0].first_name)
+            persona_to_update[0].last_name = updated_persona_data.get("last_name",persona_to_update[0].last_name)
+            persona_to_update[0].image_url =saved_image_link
+            persona_to_update[0].age = updated_persona_data.get("age", persona_to_update[0].age)
+            persona_to_update[0].role = updated_persona_data.get("role", persona_to_update[0].role)
+            persona_to_update[0].nationality = updated_persona_data.get("nationality", persona_to_update[0].nationality)
+            persona_to_update[0].description = updated_persona_data.get("description", persona_to_update[0].description)
+            persona_to_update[0].gender = updated_persona_data.get("gender", persona_to_update[0].gender)
+            persona_to_update[0].last_name = updated_persona_data.get("last_name", persona_to_update[0].last_name)
+            db.session.commit()
+            return persona_to_update[0]
+
+
         @staticmethod
         def delete_persona(persona_id: int, commit: bool = True) -> Persona | None:
             """
@@ -785,6 +885,12 @@ class PersonaDataManager:
             persona_to_delete = db.session.execute(stmt).scalars().one_or_none()
             if persona_to_delete is None:
                 return None
+            image_to_delete = persona_to_delete.image_url
+            if image_to_delete:
+                try:
+                    os.remove(image_to_delete)
+                except FileNotFoundError:
+                    logging.error(f"Image {image_to_delete} not found")
             try:
                 db.session.delete(persona_to_delete)
                 if commit:
@@ -796,40 +902,4 @@ class PersonaDataManager:
                 return None
 
             return persona_to_delete
-
-
-        @staticmethod
-        def update_persona(persona_id: int, updated_persona_data:dict) -> Persona | None:
-            """
-            Update the user_name of the User object that has the provided user_id
-            :param persona_id:
-            :param new_user_name:
-            :return:
-            """
-            if not isinstance(persona_id, int):
-                if not isinstance(persona_id, str):
-                    return None
-            try:
-                persona_id = int(persona_id)
-            except ValueError:
-                return None
-            if not isinstance(updated_persona_data, dict):
-                return None
-            if not PersonaDataManager.persona_exists(persona_id):
-                return None
-            stmt = db.select(Persona).where(Persona.persona_id == persona_id)
-            persona_to_update = db.session.execute(stmt).scalars().all()
-            if len(persona_to_update) != 1:
-                return None
-
-            persona_to_update[0].first_name = updated_persona_data.get("first_name",persona_to_update[0].first_name)
-            persona_to_update[0].last_name = updated_persona_data.get("last_name",persona_to_update[0].last_name)
-            persona_to_update[0].age = updated_persona_data.get("age", persona_to_update[0].age)
-            persona_to_update[0].role = updated_persona_data.get("role", persona_to_update[0].role)
-            persona_to_update[0].nationality = updated_persona_data.get("nationality", persona_to_update[0].nationality)
-            persona_to_update[0].description = updated_persona_data.get("description", persona_to_update[0].description)
-            persona_to_update[0].gender = updated_persona_data.get("gender", persona_to_update[0].gender)
-            persona_to_update[0].last_name = updated_persona_data.get("last_name", persona_to_update[0].last_name)
-            db.session.commit()
-            return persona_to_update[0]
 

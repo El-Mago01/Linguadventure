@@ -9,13 +9,14 @@ GET /api/play_scene/<adventure_id>/<scene_id>   Retrieve the scene context, pers
                                                 grammar tips, and existing conversation when resuming.
 """
 
+from uuid import uuid4
 from data_manager import DataManager
+from src.play.session import get_persona_reply, State
 import logging
 
-from flask import Blueprint, render_template, request, abort, jsonify, url_for, redirect, flash
+from flask import Blueprint, render_template, request, abort, jsonify, url_for, redirect, flash, session
 from src.data_manager import DataManager as dm
 from flask_login import  login_required, current_user
-
 
 play = Blueprint("play", __name__)
 
@@ -74,6 +75,7 @@ def start_adventure(adventure_id:int):
         student_adventure_status=student_adventure_status
     )
 
+
 @play.route("/play_scene/<adventure_id>/<scene_id>", methods=["GET"])
 def play_scene(adventure_id: int, scene_id: int):
     if not current_user.is_active:
@@ -81,9 +83,13 @@ def play_scene(adventure_id: int, scene_id: int):
         return redirect(url_for("site_landing.login"))
     return render_template("play/scene_player.html")
 
+
 @play.route("/api/play_scene/<int:adventure_id>/<int:scene_id>", methods=["GET"])
 def scene_execution(adventure_id:int, scene_id:int):
     """
+    Fetches all relevant information for the use of a scene and displays this to the adventure_start.html before
+    kicking of the scene_player.
+
     Fields used by the player:
     Field	                Required?	        Usage
     scene.title	            Recommended	        Scene heading
@@ -189,22 +195,39 @@ def receive_chat(adventure_id:int, scene_id:int):
         return jsonify({
             "message": "You need to be logged in to play a scene."
         }), 403
-    print("Received chat message for adventure_id:", adventure_id, "scene_id:", scene_id)
-    chat_data = request.get_json()
-    print("Received chat data:", chat_data.get("message", ""))
+    # Differentiate between text and audio input
+    if request.is_json:
+        data = request.get_json()
+        message = data.get("message","")
 
+    elif "audio" in request.files:
+        audio_file = request.files["audio"]
+        message = "ola"
+        # message = transcribe(audio_file)  # Your speech-to-text function
+
+    else:
+        return jsonify({"message" : "Expected a text message or audio file."})
+
+    if not session.get("thread_id", ""):
+        session["thread_id"] = str(uuid4())
+
+    persona_reply, state = get_persona_reply(adventure_id, scene_id, message, session["thread_id"])
+    corrected_text = state["corrected_text"]
     answer = {
+        # "state": state,
         "student_turn": {
             "role": "student",
-            "text": chat_data.get("message", "")
+            "text": message,
+            'correction':  corrected_text
         },
         "persona_turn": {
             "role": "persona",
-            "text": "Bom dia! Sim, vi uma mochila preta.",
+            "text": persona_reply,
             "audio_url": ""
         },
-        "scene_finished": True
+        "scene_finished": False
     }
+    print(answer)
     return jsonify(answer), 200
 
 
@@ -239,4 +262,5 @@ def complete_session(adventure_id:int, scene_id:int):
       },
       "next_scene_id": 3
     }
+
     return jsonify(answer), 200

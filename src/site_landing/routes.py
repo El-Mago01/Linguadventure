@@ -56,7 +56,6 @@ def login():
         flash("This account is inactive.", "login_error")
         return redirect(url_for("site_landing.index"))
     login_user(student)
-    print(student)
 
     return render_template("site_landing/student_home.html", student=student)
 

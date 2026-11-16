@@ -8,15 +8,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 #
-# class WorkingClass(db.Model):
-#
-#     test = db.Column(db.String(100), primary_key=True)
-#     def __init__(self):
-#         pass
-#
-# test = WorkingClass()
-# test.test="Hello Dolly"
-# print(test.test)
 
 class WorkingClass():
 

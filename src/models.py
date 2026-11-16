@@ -105,7 +105,7 @@ class Adventure(db.Model):
     objectives = db.Column(db.String(200))
     story_outline = db.Column(db.String(500))
     cliff_hanger = db.Column(db.String(200))
-    poster_link = db.Column(db.String(100))
+    image_url = db.Column(db.String(100))
     is_active = db.Column(db.Boolean, nullable=False, default=True)
 
     def __repr__(self):
@@ -120,7 +120,7 @@ class Adventure(db.Model):
             self.objectives}, \n {
             self.story_outline}, \n {
             self.cliff_hanger}, \n {
-            self.poster_link}, \n {
+            self.image_url}, \n {
             self.is_active
             }"
 
@@ -136,7 +136,7 @@ class Adventure(db.Model):
             self.objectives}, \n {
             self.story_outline}, \n {
             self.cliff_hanger}, \n {
-            self.poster_link}, \n {
+            self.image_url}, \n {
             self.is_active
             }"
 
@@ -153,7 +153,7 @@ class Adventure(db.Model):
         adventure["objectives"] = self.objectives
         adventure["story_outline"] = self.story_outline
         adventure["cliff_hanger"] = self.cliff_hanger
-        adventure["poster_link"] = self.poster_link
+        adventure["image_url"] = self.image_url
         adventure["is_active"] = self.is_active
         return adventure
 
@@ -327,12 +327,12 @@ class Persona(db.Model):
     )
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
-    nationality = db.Column(db.String(100), nullable=False)
+    nationality = db.Column(db.String(100))
     description = db.Column(db.String(400), nullable=False)
     gender = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     role = db.Column(db.String, nullable=False)
-    image = db.Column(db.String(100), nullable=False)
+    image_url = db.Column(db.String(100))
 
     def __repr__(self):
         return f"{
@@ -343,7 +343,7 @@ class Persona(db.Model):
         self.gender},\n {
         self.age},\n {
         self.role},\n {
-        self.image}"
+        self.image_url}"
 
 
     def __str__(self):
@@ -355,7 +355,7 @@ class Persona(db.Model):
         self.gender},\n {
         self.age},\n {
         self.role},\n {
-        self.image}"
+        self.image_url}"
 
     def serialize(self)->dict:
         persona_data = {}
@@ -367,7 +367,7 @@ class Persona(db.Model):
         persona_data["gender"] = self.gender
         persona_data["age"] = self.age
         persona_data["role"] = self.role
-        persona_data["image"] = self.image
+        persona_data["image_url"] = self.image_url
         return persona_data
 
 

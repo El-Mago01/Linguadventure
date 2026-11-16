@@ -182,7 +182,7 @@
                 }
             };
             const poster = (adventure, extraClass = '') => {
-                const url = safeImageUrl(adventure.poster_url ?? adventure.poster_path ?? adventure.image_url);
+                const url = safeImageUrl(adventure.image_url);
                 return url
                     ? `<img src="${escapeHtml(url)}" alt="Poster for ${escapeHtml(adventure.title ?? 'adventure')}" loading="lazy" class="h-48 w-full object-cover ${extraClass}">`
                     : `<div class="flex h-48 items-center justify-center bg-gradient-to-br from-teal-500/20 via-slate-900 to-cyan-500/10 text-5xl" aria-label="No poster available">🧭</div>`;

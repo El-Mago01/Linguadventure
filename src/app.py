@@ -34,7 +34,7 @@ def create_app(database_uri=None):
     :param database_uri:
     :return:
     """
-    this_app = Flask(__name__, template_folder="../templates")
+    this_app = Flask(__name__, template_folder="../templates", static_folder="../static")
     if database_uri:
         this_app.config["SQLALCHEMY_DATABASE_URI"] = database_uri
     else:
@@ -57,7 +57,7 @@ def create_app(database_uri=None):
     return this_app
 
 app = create_app()
-
+print("Static folder: ", app.static_folder)
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 load_dotenv()  # Load environment variables from .env file

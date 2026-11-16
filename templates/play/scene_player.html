@@ -198,6 +198,7 @@
     const match = window.location.pathname.match(/^\/play_scene\/(\d+)\/(\d+)\/?$/);
     const adventureId = match?.[1] ?? null;
     const sceneId = match?.[2] ?? null;
+    const chatInput = document.getElementById("message-input");
     const API_URL = adventureId && sceneId ? `/api/play_scene/${adventureId}/${sceneId}` : null;
     // Change this if your Student Home uses a different page URL.
     const HOME_URL = '/student_home';
@@ -458,6 +459,12 @@
     $('vocab-tab').addEventListener('click', () => setTab('vocabulary'));
     $('grammar-tab').addEventListener('click', () => setTab('grammar'));
 
+    chatInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+        event.preventDefault();
+        document.getElementById("message-form").requestSubmit();
+    }
+    });
     $('message-form').addEventListener('submit', (event) => {
         event.preventDefault();
         const text = $('message-input').value.trim();

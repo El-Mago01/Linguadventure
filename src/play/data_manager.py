@@ -18,54 +18,54 @@ from models import db, Adventure, Student, Student_Adventure, Persona, Scene
 
 
 
-    # =========================================================================
-    # -------------------------------------------------------------------------
-    # ************************** SessionDataManager *************************
-    # -------------------------------------------------------------------------
-    # =========================================================================
+# =========================================================================
+# -------------------------------------------------------------------------
+# ************************** SessionDataManager *************************
+# -------------------------------------------------------------------------
+# =========================================================================
 
-    class SessionDataManager:
-        """
-        Data manager class.
-        Data manager controls all the db services and the fetching of the required data
-        and storing them in the right format
+class SessionDataManager:
+    """
+    Data manager class.
+    Data manager controls all the db services and the fetching of the required data
+    and storing them in the right format
 
-        Knows HOW to retrieve adventure/scene/session/student information
-        Knows HOW to store adventure/scene/session/student data
-        Knows HOW to update adventure/scene/session/student data
-        Knows HOW to delete adventure/scene/session/student data
-        """
+    Knows HOW to retrieve adventure/scene/session/student information
+    Knows HOW to store adventure/scene/session/student data
+    Knows HOW to update adventure/scene/session/student data
+    Knows HOW to delete adventure/scene/session/student data
+    """
 
-        def __init__(self):
-            pass
-
-        # =========================================================================
-        # All method  definitions related to session management
-        # =========================================================================
-
-
+    def __init__(self):
+        pass
 
     # =========================================================================
-    # -------------------------------------------------------------------------
-    # ************************** FeedbackDataManager *************************
-    # -------------------------------------------------------------------------
+    # All method  definitions related to session management
     # =========================================================================
 
-    class FeedbackDataManager:
-        """
-        Data manager class.
-        Data manager controls all the db services and the fetching of the required data
-        and storing them in the right format
 
-        Knows HOW to retrieve adventure/scene/session/student information
-        Knows HOW to store adventure/scene/session/student data
-        Knows HOW to update adventure/scene/session/student data
-        Knows HOW to delete adventure/scene/session/student data
-        """
 
-        def __init__(self):
-            pass
+# =========================================================================
+# -------------------------------------------------------------------------
+# ************************** FeedbackDataManager *************************
+# -------------------------------------------------------------------------
+# =========================================================================
 
-        # =========================================================================
-        # All method definitions related to feedback management
-        # =========================================================================
+class FeedbackDataManager:
+    """
+    Data manager class.
+    Data manager controls all the db services and the fetching of the required data
+    and storing them in the right format
+
+    Knows HOW to retrieve adventure/scene/session/student information
+    Knows HOW to store adventure/scene/session/student data
+    Knows HOW to update adventure/scene/session/student data
+    Knows HOW to delete adventure/scene/session/student data
+    """
+
+    def __init__(self):
+        pass
+
+    # =========================================================================
+    # All method definitions related to feedback management
+    # =========================================================================
