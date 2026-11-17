@@ -14,6 +14,4 @@ def talk_to_student(prompt : list, role):
     text = response.choices[0].message.content
     usage = response.usage
     finish_reason = response.choices[0].finish_reason
-    print(f"{role}:", end=" ")
-    print(text)
     return text, usage, finish_reason

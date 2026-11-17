@@ -10,16 +10,18 @@ take care of the fulfillment of these requests by using the partners models and
 movie_data_fetcher.
 """
 import datetime
+from flask_login import LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
 
 # from app import app
 
-db = SQLAlchemy()
+db = SQLAlchemy()              #initialize SQLAlchemy
+login_manager = LoginManager() #Initialize Flask-Login
 
 # ================================================================================
 # User class (inheriting from db.Model class)
 # ================================================================================
-class Student(db.Model):
+class Student(UserMixin, db.Model):
     """
     Student model
 
@@ -32,6 +34,7 @@ class Student(db.Model):
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
+    password_hash = db.Column(db.String(255), nullable=False)
     gender = db.Column(db.String(10))
     registration_date = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now(datetime.UTC))
     age = db.Column(db.Integer)
@@ -42,6 +45,9 @@ class Student(db.Model):
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
     is_active = db.Column(db.Boolean, nullable=False, default=True)
     # movies = db.relationship("Movie", backref="user", cascade="all, delete-orphan")
+
+    def get_id(self):
+        return str(self.student_id)
 
     def __repr__(self):
         return f"{self.student_id}: {self.first_name} {self.last_name},\n"
@@ -54,6 +60,7 @@ class Student(db.Model):
         student_data["first_name"] = self.first_name
         student_data["last_name"] = self.last_name
         student_data["email"] = self.email
+        # student_data["password_hash"] = self.password_hash
         student_data["gender"] = self.gender
         student_data["age"] = self.age
         student_data["occupation"] = self.occupation
@@ -66,8 +73,14 @@ class Student(db.Model):
         student_data["student_id"] = self.student_id
         return student_data
 
+@login_manager.user_loader
+def load_user(user_id):
+    try:
+        return db.session.get(Student, int(user_id))
+    except (TypeError, ValueError):
+        return None
 # ================================================================================
-# Movie class (inheriting from db.Model class)
+# Adventure class (inheriting from db.Model class)
 # ================================================================================
 class Adventure(db.Model):
     """
@@ -81,11 +94,18 @@ class Adventure(db.Model):
         db.Integer, primary_key=True, nullable=False, autoincrement=True
     )
     title = db.Column(db.String(100), nullable=False)
-    creator = db.Column(db.String(1000))
-    description_link = db.Column(db.String, nullable=False)
-    status = db.Column(db.String(100))
-    poster_link = db.Column(db.String(100))
-    difficulty_level = db.Column(db.Integer, nullable=False, default=1)
+    creator = db.Column(db.String(100))
+    language = db.Column(db.String(100))
+    level = db.Column(db.String(10))
+    minutes = db.Column(db.Integer)
+    current_scene = db.Column(db.Integer)
+    setting = db.Column(db.String(200))
+    premise = db.Column(db.String(200))
+    intro = db.Column(db.String(200))
+    objectives = db.Column(db.String(200))
+    story_outline = db.Column(db.String(500))
+    cliff_hanger = db.Column(db.String(200))
+    image_url = db.Column(db.String(100))
     is_active = db.Column(db.Boolean, nullable=False, default=True)
 
     def __repr__(self):
@@ -93,10 +113,14 @@ class Adventure(db.Model):
             self.adventure_id}: {
             self.title},\n {
             self.creator},\n {
-            self.description_link},\n {
-            self.status},\n {
-            self.poster_link},\n {
-            self.difficulty_level}, \n {
+            self.language},\n {
+            self.level},\n {
+            self.setting},\n {
+            self.premise}, \n {
+            self.objectives}, \n {
+            self.story_outline}, \n {
+            self.cliff_hanger}, \n {
+            self.image_url}, \n {
             self.is_active
             }"
 
@@ -105,18 +129,33 @@ class Adventure(db.Model):
             self.adventure_id}: {
             self.title},\n {
             self.creator},\n {
-            self.description_link},\n {
-            self.status},\n {
-            self.poster_link},\n {
-            self.difficulty_level}, \n {
+            self.language},\n {
+            self.level},\n {
+            self.setting},\n {
+            self.premise}, \n {
+            self.objectives}, \n {
+            self.story_outline}, \n {
+            self.cliff_hanger}, \n {
+            self.image_url}, \n {
             self.is_active
             }"
 
-
-# user_id = db.Column(
-#         db.Integer,
-#         db.ForeignKey("users.user_id"),
-#         nullable=False)
+    def serialize(self)->dict:
+        adventure = {}
+        adventure["adventure_id"] = self.adventure_id
+        adventure["title"] = self.title
+        adventure["creator"] = self.creator
+        adventure["language"] = self.language
+        adventure["level"] = self.level
+        adventure["setting"] = self.setting
+        adventure["premise"] = self.premise
+        adventure["minutes"] = self.minutes
+        adventure["objectives"] = self.objectives
+        adventure["story_outline"] = self.story_outline
+        adventure["cliff_hanger"] = self.cliff_hanger
+        adventure["image_url"] = self.image_url
+        adventure["is_active"] = self.is_active
+        return adventure
 
 class Student_Adventure(db.Model):
     """
@@ -136,22 +175,29 @@ class Student_Adventure(db.Model):
     current_scene_id = db.Column(
         db.Integer, db.ForeignKey("scene.scene_id")
     )
-    completed = db.Column(db.Boolean, nullable=False, default=False)
+    status = db.Column(db.String(100), nullable=False, default=False)
 
     def __repr__(self):
         return f"{
             self.adventure_id}: {
             self.student_id},\n {
             self.current_scene_id},\n {
-            self.completed}"
+            self.status}"
 
     def __str__(self):
         return f"{
             self.adventure_id}: {
             self.student_id},\n {
             self.current_scene_id},\n {
-            self.completed}"
+            self.status}"
 
+    def serialize(self) -> dict:
+            student_adventure = {}
+            student_adventure["adventure_id"] = self.adventure_id
+            student_adventure["student_id"] = self.student_id
+            student_adventure["current_scene_id"] = self.current_scene_id
+            student_adventure["status"] = self.status
+            return student_adventure
 
 class Scene(db.Model):
     """
@@ -175,21 +221,28 @@ class Scene(db.Model):
     scene_order_nr = db.Column(
         db.Integer, nullable=False, default=0
     )
-    scene_description = db.Column(db.String)
-    persona_mood = db.Column(db.String)
-    stop_criteria = db.Column(db.String)
-    scene_poster = db.Column(db.String(100))
-
+    title = db.Column(db.String(150))
+    situation = db.Column(db.String)
+    goal = db.Column(db.String)
+    steps = db.Column(db.String)
+    location = db.Column(db.String(100))
+    intro = db.Column(db.String)
+    vocabulary = db.Column(db.String(400))
+    grammar = db.Column(db.String(400))
+    must=db.Column(db.String(400))
+    must_not=db.Column(db.String(400))
+    exit = db.Column(db.String(400))
+    ending=db.Column(db.String(400))
 
     def __repr__(self):
         return f"{
         self.adventure_id}: {
         self.scene_id},\n {
         self.scene_order_nr},\n {
-        self.scene_description},\n {
-        self.persona_mood}, \n {
-        self.stop_criteria} \n{
-        self.scene_poster
+        self.goal},\n {
+        self.intro}, \n {
+        self.must} \n{
+        self.steps
         }"
 
 
@@ -198,12 +251,31 @@ class Scene(db.Model):
         self.adventure_id}: {
         self.scene_id},\n {
         self.scene_order_nr},\n {
-        self.scene_description},\n {
-        self.persona_mood}, \n {
-        self.stop_criteria} \n{
-        self.scene_poster
+        self.goal},\n {
+        self.intro}, \n {
+        self.must} \n{
+        self.steps
         }"
 
+    def serialize(self)->dict:
+        scene = {}
+        scene["scene_id"] = self.scene_id
+        scene["adventure_id"] = self.adventure_id
+        scene["scene_order_nr"] = self.scene_order_nr
+        scene["persona_id"] = self.persona_id
+        scene["title"] = self.title
+        scene["situation"] = self.situation
+        scene["goal"] = self.goal
+        scene["steps"] = self.steps
+        scene["location"] = self.location
+        scene["intro"] = self.intro
+        scene["vocabulary"] = self.vocabulary
+        scene["grammar"] = self.grammar
+        scene["must"] = self.must
+        scene["must_not"] = self.must_not
+        scene["exit"] = self.exit
+        scene["ending"] = self.ending
+        return scene
 
 class Session(db.Model):
     """
@@ -255,11 +327,12 @@ class Persona(db.Model):
     )
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
-    nationality = db.Column(db.String(100), nullable=False)
+    nationality = db.Column(db.String(100))
+    description = db.Column(db.String(400), nullable=False)
     gender = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     role = db.Column(db.String, nullable=False)
-    image = db.Column(db.String(100), nullable=False)
+    image_url = db.Column(db.String(100))
 
     def __repr__(self):
         return f"{
@@ -270,7 +343,7 @@ class Persona(db.Model):
         self.gender},\n {
         self.age},\n {
         self.role},\n {
-        self.image}"
+        self.image_url}"
 
 
     def __str__(self):
@@ -282,6 +355,19 @@ class Persona(db.Model):
         self.gender},\n {
         self.age},\n {
         self.role},\n {
-        self.image}"
+        self.image_url}"
+
+    def serialize(self)->dict:
+        persona_data = {}
+        persona_data["persona_id"] = self.persona_id
+        persona_data["first_name"] = self.first_name
+        persona_data["last_name"] = self.last_name
+        persona_data["nationality"] = self.nationality
+        persona_data["description"] = self.description
+        persona_data["gender"] = self.gender
+        persona_data["age"] = self.age
+        persona_data["role"] = self.role
+        persona_data["image_url"] = self.image_url
+        return persona_data
 
 

@@ -75,6 +75,44 @@ class StudentDataManager:
         return None
 
     @staticmethod
+    def student_is_active(student_id: int) -> bool:
+        """
+        checks if the student is active
+        :param: student_id
+        """
+        if not isinstance(student_id, int):
+            return False
+
+        student = StudentDataManager.get_student(student_id)
+
+        if student is None:
+            return False
+        return student.get("is_active", False)
+
+    @staticmethod
+    def get_student_object(received_student_data) -> Student | None:
+        """
+        Returns the student information based on received student data.
+        :param received_student_data:
+                - a str: received_student_data contains the email address
+                - an int: recieved_student_data contains the student_id
+                - a Student object: received_student_data contains a Student object
+        :return:
+        """
+        all_students = StudentDataManager.get_all_students()
+        for student in all_students:
+            if isinstance(received_student_data, Student):
+                if student.student_id == received_student_data.student_id:
+                    return student
+            if isinstance(received_student_data, int):
+                if student.student_id == received_student_data:
+                    return student
+            if isinstance(received_student_data, str):
+                if student.email == received_student_data:
+                    return student
+        return None
+
+    @staticmethod
     def student_exists(received_student_data) -> bool:
         """
         Checks if the received student exists in the student table
@@ -130,6 +168,7 @@ class StudentDataManager:
         new_student.first_name = registration_info.get("first_name", "")
         new_student.last_name = registration_info.get("last_name", "")
         new_student.email = email_address
+        new_student.password_hash = registration_info["password_hash"]
         new_student.target_language = registration_info.get("target_language", "")
         new_student.original_language = registration_info.get("original_language", "")
         if new_student.first_name == "" or new_student.last_name == "":
@@ -142,6 +181,8 @@ class StudentDataManager:
         new_student.gender = registration_info.get("gender", "")
         new_student.occupation = registration_info.get("occupation", "")
         new_student.current_level = registration_info.get("current_level", "")
+        if registration_info.get("is_admin", False):
+            new_student.is_admin = True
         db.session.add(new_student)
         db.session.commit()
         logging.info(

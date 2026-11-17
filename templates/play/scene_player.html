@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Scene · LinguAdventure</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+    <header class="border-b border-white/10 bg-slate-950/90">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4">
+            <a href="#" id="home-link" class="text-xl font-bold">Lingu<span class="text-teal-400">Adventure</span></a>
+            <div class="flex items-center gap-2">
+                <span id="scene-position" class="hidden text-sm text-slate-400 sm:inline"></span>
+                <a id="scenes-link" href="#" class="rounded-xl border border-white/20 px-3 py-2 text-sm hover:bg-white/10">← Scenes</a>
+                <button id="pause-button" type="button" class="rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10">⏸ Pause</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-5 py-7">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div role="alert"
+                         class="mb-4 rounded-xl border px-4 py-3 text-sm
+                         {% if category in ['error', 'danger'] %}
+                             border-rose-400/40 bg-rose-500/10 text-rose-200
+                         {% else %}
+                             border-teal-400/40 bg-teal-500/10 text-teal-200
+                         {% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div id="notification" role="status" aria-live="polite" class="hidden mb-5 rounded-xl border px-4 py-3 text-sm">
+        </div>
+        <div id="loading" class="rounded-2xl border border-white/10 bg-white/5 p-8 text-slate-300">Loading your scene…
+        </div>
+        <div id="error-state" class="hidden rounded-2xl border border-rose-500/30 bg-rose-500/10 p-6">
+            <h2 class="text-xl font-semibold">Couldn't load this scene</h2>
+            <p id="error-message" class="mt-2 text-sm text-rose-200"></p>
+            <button id="retry-button" type="button" class="mt-4 rounded-xl bg-teal-400 px-4 py-2 font-semibold text-slate-950">Try again</button>
+        </div>
+
+        <div id="player" class="hidden">
+            <div class="mb-6">
+                <p id="adventure-title" class="text-sm font-semibold uppercase tracking-widest text-teal-400"></p>
+                <h1 id="scene-title" class="mt-1 text-3xl font-bold tracking-tight md:text-4xl"></h1>
+                <p id="scene-location" class="mt-2 text-sm text-slate-400"></p>
+            </div>
+
+            <!-- Preparation is a natural entry to the story, not a separate page. -->
+            <section id="preparation" class="grid gap-6 lg:grid-cols-3">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-6 lg:col-span-2">
+                    <p class="text-xs font-semibold uppercase tracking-widest text-teal-400">Your story begins</p>
+                    <p id="scene-intro" class="mt-4 text-lg leading-relaxed text-slate-200"></p>
+                    <div class="mt-6 rounded-xl bg-slate-900 p-5">
+                        <h2 class="font-semibold">Your mission</h2>
+                        <p id="scene-goal" class="mt-2 text-slate-300"></p>
+                    </div>
+                    <button id="enter-scene" type="button" class="mt-7 rounded-xl bg-teal-400 px-6 py-3 font-bold text-slate-950 hover:bg-teal-300">Start conversation →</button>
+                </div>
+                <aside class="space-y-4">
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <h2 class="font-semibold">📖 Vocabulary to practice</h2>
+                        <div id="prep-vocabulary" class="mt-3 space-y-2 text-sm text-slate-300">
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <h2 class="font-semibold">💡 Grammar tips</h2>
+                        <div id="prep-grammar" class="mt-3 space-y-2 text-sm text-slate-300">
+                        </div>
+                    </div>
+                </aside>
+            </section>
+
+            <!-- The same scene becomes a conversational experience. -->
+            <section id="conversation" class="hidden grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
+                <div class="space-y-5">
+                    <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+                        <div class="relative flex min-h-64 items-center justify-center bg-gradient-to-br from-slate-800 to-teal-950 sm:min-h-80">
+                            <img id="persona-image" class="hidden h-72 w-full object-cover sm:h-96" alt="Portrait of the person you are speaking with">
+                            <div id="persona-placeholder" class="text-center text-slate-400">
+                                <div class="text-6xl">👤
+                                </div>
+                                <p class="mt-3 text-sm">Your conversation partner</p>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/95 to-transparent p-5 pt-12">
+                                <p id="persona-name" class="text-xl font-semibold"></p>
+                                <p id="persona-role" class="text-sm text-slate-300"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+                            <h2 class="font-semibold">Conversation</h2>
+                            <label class="flex items-center gap-2 text-xs text-slate-300">
+                                <input id="auto-audio" type="checkbox" checked class="accent-teal-400"> Play persona audio automatically
+                            </label>
+                        </div>
+                        <div id="transcript" aria-live="polite" aria-relevant="additions" class="max-h-[460px] min-h-48 space-y-4 overflow-y-auto pr-1">
+                        </div>
+                        <div id="busy-indicator" class="mt-3 hidden text-sm text-teal-300">Your conversation partner is responding…
+                        </div>
+                        <form id="message-form" class="mt-5 space-y-3 border-t border-white/10 pt-4">
+                            <label for="message-input" class="block text-sm font-medium">Your response</label>
+                            <textarea id="message-input" rows="3" class="w-full rounded-xl border border-white/20 bg-slate-900 px-4 py-3 text-white outline-none focus:border-teal-400" placeholder="Speak or type what you want to say…">
+                            </textarea>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <button id="record-button" type="button" class="rounded-xl border border-teal-400/40 px-4 py-2.5 font-semibold text-teal-300 hover:bg-teal-400/10">🎙 Record</button>
+                                <button id="stop-record-button" type="button" class="hidden rounded-xl border border-rose-400/40 px-4 py-2.5 font-semibold text-rose-300">■ Stop</button>
+                                <button id="send-button" type="submit" class="rounded-xl bg-teal-400 px-5 py-2.5 font-bold text-slate-950 hover:bg-teal-300">Send message →</button>
+                                <span id="recording-status" role="status" class="text-xs text-slate-400"></span>
+                            </div>
+                            <div id="recording-review" class="hidden rounded-xl border border-white/10 bg-slate-900 p-3">
+                                <p class="mb-2 text-xs text-slate-400">Review your recording before sending</p>
+                                <audio id="recorded-audio" controls class="w-full"></audio>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <button id="send-recording" type="button" class="rounded-lg bg-teal-400 px-4 py-2 text-sm font-semibold text-slate-950">Send voice message</button>
+                                    <button id="discard-recording" type="button" class="rounded-lg border border-white/20 px-4 py-2 text-sm">Discard</button>
+                                </div>
+                                <p class="mt-2 text-xs text-slate-500">The backend will transcribe the recording; the recognized words will appear in the transcript. Voice and text use the same conversation.</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <button id="finish-button" type="button" class="rounded-xl border border-white/20 px-4 py-2.5 text-sm font-semibold hover:bg-white/10">Finish scene &amp; view feedback</button>
+                        <span class="text-xs text-slate-500">Leaving before completion means restarting this scene.</span>
+                    </div>
+                </div>
+                <aside class="lg:sticky lg:top-5 lg:self-start">
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <button id="tips-toggle" type="button" aria-expanded="true" class="flex w-full items-center justify-between text-left font-semibold">
+                            <span>📚 Learning assistance</span>
+                            <span id="tips-arrow">⌃</span></button>
+                        <div id="tips-content" class="mt-4">
+                            <div class="mb-4 flex gap-2">
+                                <button id="vocab-tab" type="button" class="rounded-lg bg-teal-400 px-3 py-2 text-sm font-semibold text-slate-950">Vocabulary</button>
+                                <button id="grammar-tab" type="button" class="rounded-lg bg-slate-800 px-3 py-2 text-sm text-slate-300">Grammar</button>
+                            </div>
+                            <div id="vocab-panel" class="space-y-2 text-sm text-slate-300">
+                            </div>
+                            <div id="grammar-panel" class="hidden space-y-2 text-sm text-slate-300">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <h2 class="font-semibold">Your mission</h2>
+                        <p id="live-goal" class="mt-2 text-sm leading-relaxed text-slate-300"></p>
+                    </div>
+                </aside>
+            </section>
+
+            <section id="reflection" class="hidden max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-7">
+                <p class="text-xs font-semibold uppercase tracking-widest text-teal-400">Reflection</p>
+                <h2 class="mt-2 text-2xl font-bold">Scene finished</h2>
+                <p id="feedback-message" class="mt-3 text-slate-300">Your conversation is complete.</p>
+                <div id="feedback-details" class="mt-5 space-y-3">
+                </div>
+                <div class="mt-7 flex flex-wrap gap-3">
+                    <button id="next-scene-button" type="button" class="hidden rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950">Back to scenes →</button>
+                    <a id="reflection-home" href="#" class="rounded-xl border border-white/20 px-5 py-3 font-semibold">Return to Learning Journey</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <dialog id="leave-dialog" class="m-auto w-[min(92vw,440px)] rounded-2xl border border-white/10 bg-slate-900 p-6 text-white backdrop:bg-black/70">
+        <h2 class="text-xl font-bold">Leave this scene?</h2>
+        <p class="mt-3 text-sm leading-relaxed text-slate-300">Unfinished conversation progress will be lost. You will start this scene from the beginning next time.</p>
+        <div class="mt-6 flex justify-end gap-2">
+            <button id="stay-button" type="button" class="rounded-xl border border-white/20 px-4 py-2">Stay here</button>
+            <button id="leave-button" type="button" class="rounded-xl bg-rose-400 px-4 py-2 font-semibold text-slate-950">Leave scene</button>
+        </div>
+    </dialog>
+    <div id="paused-overlay" class="fixed inset-0 z-40 hidden items-center justify-center bg-slate-950/95 p-6">
+        <div class="w-full max-w-md rounded-2xl border border-white/15 bg-slate-900 p-8 text-center shadow-2xl">
+            <p class="text-5xl">⏸</p><h2 class="mt-4 text-2xl font-bold">Scene paused</h2>
+            <p class="mt-3 text-sm text-slate-300">Your conversation stays here while this page remains open. Leaving means starting again.</p>
+            <button id="resume-button" class="mt-6 w-full rounded-xl bg-teal-400 px-5 py-3 font-bold text-slate-950">▶ Resume conversation</button>
+            <button id="paused-leave-button" class="mt-3 w-full rounded-xl border border-white/20 px-5 py-3">Leave scene</button>
+        </div>
+    </div>
+
+<script>
+(() => {
+    'use strict';
+    // Flask HTML route: GET /play_scene/<adventure_id>/<scene_id>
+    // JSON API: GET /api/play_scene/<adventure_id>/<scene_id>
+    // JSON API: PUT /api/play_scene/<adventure_id>/<scene_id> for text or voice turns
+    // Completion API: POST /api/play_scene/<adventure_id>/<scene_id>/complete
+    // Completion is verified by backend; no minimum language score is required.
+    // NOTE: These payload shapes are the proposed handshake, not existing backend guarantees.
+    const $ = (id) => document.getElementById(id);
+    const match = window.location.pathname.match(/^\/play_scene\/(\d+)\/(\d+)\/?$/);
+    const adventureId = match?.[1] ?? null;
+    const sceneId = match?.[2] ?? null;
+    const chatInput = document.getElementById("message-input");
+    const API_URL = adventureId && sceneId ? `/api/play_scene/${adventureId}/${sceneId}` : null;
+    // Change this if your Student Home uses a different page URL.
+    const HOME_URL = '/student_home';
+    const SCENES_URL = adventureId ? `/start_adventure/${encodeURIComponent(adventureId)}` : HOME_URL;
+    $('scenes-link').href = SCENES_URL;
+    $('home-link').href = HOME_URL;
+    $('reflection-home').href = HOME_URL;
+
+    let context = null;
+    let busy = false;
+    let recorder = null;
+    let mediaStream = null;
+    let chunks = [];
+    let recordedBlob = null;
+    let recordingUrl = null;
+    let activeAudio = null;
+    let finished = false;
+    let paused = false;
+    // Unfinished attempts are deliberately not restored across page visits.
+
+    function notify(message, error = false) {
+        const el = $('notification');
+        el.textContent = message;
+        el.className = `mb-5 rounded-xl border px-4 py-3 text-sm ${error ? 'border-rose-400/40 bg-rose-500/10 text-rose-200' : 'border-teal-400/40 bg-teal-500/10 text-teal-200'}`;
+    }
+    function safeText(value, fallback = '') {
+        return value == null || value === '' ? fallback : String(value);
+    }
+    function lines(value) {
+        if (Array.isArray(value)) return value.map((x) => typeof x === 'string' ? x : safeText(x?.text ?? x?.term ?? JSON.stringify(x))).filter(Boolean);
+        return safeText(value).split(/\n|,/).map((s) => s.trim()).filter(Boolean);
+    }
+    function fillLines(element, value, empty) {
+        element.replaceChildren();
+        const items = lines(value);
+        if (!items.length) items.push(empty);
+        items.forEach((line) => {
+            const p = document.createElement('p');
+            p.className = 'rounded-lg bg-slate-900/70 px-3 py-2';
+            p.textContent = line;
+            element.appendChild(p);
+        });
+    }
+    function stopAudio() {
+        if (activeAudio) { activeAudio.pause(); activeAudio = null; }
+    }
+    function playAudio(url) {
+        if (paused) return;
+        if (!url) { notify('No audio was provided for this message.', true); return; }
+        stopAudio();
+        activeAudio = new Audio(url);
+        activeAudio.play().catch(() => notify('Audio playback was blocked. Use the replay button to try again.', true));
+    }
+    function appendTurn(turn, fallbackRole = 'persona', autoPlay = false) {
+        if (!turn) return;
+        const role = safeText(turn.role ?? turn.speaker ?? fallbackRole).toLowerCase();
+        const student = ['student', 'user', 'learner'].includes(role);
+        const text = safeText(turn.text ?? turn.content ?? turn.transcript);
+        const audioUrl = turn.audio_url ?? turn.tts_url ?? null;
+        if (!text && !audioUrl) return;
+        const row = document.createElement('div');
+        row.className = `flex ${student ? 'justify-end' : 'justify-start'}`;
+        const bubble = document.createElement('div');
+        bubble.className = `max-w-[90%] rounded-2xl px-4 py-3 ${student ? 'bg-teal-400/15 border border-teal-400/25' : 'bg-slate-800 border border-white/10'}`;
+        const who = document.createElement('p');
+        who.className = 'mb-1 text-xs font-semibold text-teal-300';
+        who.textContent = student ? 'You' : safeText(context?.persona?.name ?? context?.persona_name, 'Conversation partner');
+        const content = document.createElement('p');
+        content.className = 'whitespace-pre-wrap text-sm leading-relaxed';
+        content.textContent = text || '(Audio message)';
+        bubble.append(who, content);
+        const correction = safeText(turn.correction);
+        console.log("Hello:")
+        console.log(correction)
+        if (student && correction && correction !== text) {
+            const correctionLine = document.createElement('p');
+            correctionLine.className =
+                'mt-2 border-t border-teal-400/20 pt-2 ' +
+                'text-xs italic text-teal-200/80';
+            correctionLine.textContent = `-> ${correction}`;
+            bubble.appendChild(correctionLine);
+        }
+        if (audioUrl) {
+            const replay = document.createElement('button');
+            replay.type = 'button';
+            replay.className = 'mt-2 text-xs font-semibold text-teal-300 hover:text-teal-200';
+            replay.textContent = '🔊 Replay audio';
+            replay.addEventListener('click', () => playAudio(audioUrl));
+            bubble.appendChild(replay);
+        }
+        row.appendChild(bubble);
+        $('transcript').appendChild(row);
+        $('transcript').scrollTop = $('transcript').scrollHeight;
+        if (!student && autoPlay && $('auto-audio').checked && audioUrl) playAudio(audioUrl);
+    }
+    function setBusy(value) {
+        busy = value;
+        $('busy-indicator').classList.toggle('hidden', !value);
+        $('send-button').disabled = value;
+        $('record-button').disabled = value;
+        $('send-recording').disabled = value;
+        $('finish-button').disabled = value;
+        for (const id of ['send-button', 'record-button', 'send-recording', 'finish-button']) {
+            $(id).classList.toggle('opacity-50', value);
+        }
+    }
+    function setTab(name) {
+        const vocabulary = name === 'vocabulary';
+        $('vocab-panel').classList.toggle('hidden', !vocabulary);
+        $('grammar-panel').classList.toggle('hidden', vocabulary);
+        for (const [id, selected] of [['vocab-tab', vocabulary], ['grammar-tab', !vocabulary]]) {
+            $(id).className = selected ? 'rounded-lg bg-teal-400 px-3 py-2 text-sm font-semibold text-slate-950' : 'rounded-lg bg-slate-800 px-3 py-2 text-sm text-slate-300';
+        }
+    }
+    function showConversation() {
+        $('preparation').classList.add('hidden');
+        $('conversation').classList.remove('hidden');
+        $('reflection').classList.add('hidden');
+    
+        // Start at the top of the conversation
+        // $('conversation').scrollIntoView({
+        //     behavior: 'smooth',
+        //     block: 'start'
+        // });
+        $('persona-image').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+    function showReflection(feedback, nextSceneId) {
+        finished = true;
+        stopAudio();
+        $('preparation').classList.add('hidden');
+        $('conversation').classList.add('hidden');
+        $('reflection').classList.remove('hidden');
+        const details = $('feedback-details');
+        details.replaceChildren();
+        $('feedback-message').textContent = safeText(feedback?.summary ?? feedback?.message, 'You finished this scene. Your feedback will appear here when the backend provides it.');
+        for (const [label, value] of [['Goal achieved', feedback?.goal_achieved], ['Score', feedback?.score], ['Strengths', feedback?.strengths], ['To practice', feedback?.improvements]]) {
+            if (value == null) continue;
+            const box = document.createElement('div');
+            box.className = 'rounded-xl bg-slate-900 p-4';
+            const heading = document.createElement('p');
+            heading.className = 'text-xs font-semibold uppercase tracking-wider text-teal-300';
+            heading.textContent = label;
+            const body = document.createElement('p');
+            body.className = 'mt-2 text-sm text-slate-200';
+            body.textContent = Array.isArray(value) ? value.join(' · ') : typeof value === 'boolean' ? (value ? 'Yes' : 'Not yet') : String(value);
+            box.append(heading, body);
+            details.appendChild(box);
+        }
+        const next = $('next-scene-button');
+        next.classList.remove('hidden');
+        next.onclick = () => { window.location.href = SCENES_URL; };
+
+    }
+    async function loadScene() {
+        $('loading').classList.remove('hidden');
+        $('error-state').classList.add('hidden');
+        $('player').classList.add('hidden');
+        try {
+            if (!API_URL) throw new Error('Expected a page URL such as /play_scene/2/3.');
+            const response = await fetch(API_URL, {headers: {'Accept': 'application/json'}});
+            if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 180)}`);
+            const data = await response.json();
+            context = data.scene ?? data;
+            const persona = data.persona ?? context.persona ?? {};
+            context.persona = persona;
+            $('adventure-title').textContent = safeText(data.adventure?.title ?? data.adventure_title, 'Your adventure');
+            $('scene-title').textContent = safeText(context.title, 'Your next scene');
+            $('scene-location').textContent = safeText(context.location);
+            $('scene-position').textContent = context.scene_order_nr != null ? `Scene ${context.scene_order_nr}` : '';
+            $('scene-intro').textContent = safeText(context.intro ?? context.situation, 'A new encounter awaits you.');
+            $('scene-goal').textContent = safeText(context.goal, 'Speak with the person you meet and discover what happens next.');
+            $('live-goal').textContent = $('scene-goal').textContent;
+            fillLines($('prep-vocabulary'), context.vocabulary, 'No vocabulary tips for this scene.');
+            fillLines($('vocab-panel'), context.vocabulary, 'No vocabulary tips for this scene.');
+            fillLines($('prep-grammar'), context.grammar, 'No grammar tips for this scene.');
+            fillLines($('grammar-panel'), context.grammar, 'No grammar tips for this scene.');
+            $('persona-name').textContent = safeText(persona.name ?? data.persona_name, 'Your conversation partner');
+            $('persona-role').textContent = safeText(persona.role ?? persona.description, '');
+            const portrait = persona.image_url ?? persona.portrait_url ?? persona.image_path ?? null;
+            $('persona-image').classList.toggle('hidden', !portrait);
+            $('persona-placeholder').classList.toggle('hidden', !!portrait);
+            if (portrait) $('persona-image').src = portrait;
+            $('transcript').replaceChildren();
+            const turns = []; // New page visit always starts a fresh attempt; no unfinished history restored.
+            if (Array.isArray(turns)) turns.forEach((turn) => appendTurn(turn, turn.role, false));
+            $('message-input').value = '';
+            $('loading').classList.add('hidden');
+            $('player').classList.remove('hidden');
+            if (data.can_play === false) throw new Error('This scene is locked. Complete the preceding scene first.');
+        } catch (error) {
+            $('loading').classList.add('hidden');
+            $('error-state').classList.remove('hidden');
+            $('error-message').textContent = error.message;
+        }
+    }
+    async function sendTurn(payload, voice = false) {
+        if (busy || finished || paused) return;
+        setBusy(true);
+        try {
+            const response = await fetch(API_URL, voice ? {method: 'PUT', body: payload} : {
+                method: 'PUT', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(payload)
+            });
+            if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 180)}`);
+            const result = await response.json();
+            if (result.student_turn) appendTurn(result.student_turn, 'student');
+            else if (!voice) appendTurn({role: 'student', text: payload.message}, 'student');
+            if (result.persona_turn) appendTurn(result.persona_turn, 'persona', true);
+            else if (result.persona_message || result.response) appendTurn({role: 'persona', text: result.persona_message ?? result.response, audio_url: result.audio_url}, 'persona', true);
+            if (!voice) { $('message-input').value = ''; }
+            else clearRecording();
+            if (result.scene_finished || result.scene_completed) {
+                notify('Story ending reached! Choose Finish scene to receive your feedback.');
+                $('finish-button').classList.add('border-teal-400', 'text-teal-300');
+            }
+        } catch (error) {
+            notify(`Could not send your message: ${error.message}`, true);
+        } finally {
+            setBusy(false);
+        }
+    }
+    function stopRecording() {
+        if (recorder?.state === 'recording') recorder.stop();
+    }
+    function clearRecording() {
+        recordedBlob = null;
+        if (recordingUrl) URL.revokeObjectURL(recordingUrl);
+        recordingUrl = null;
+        $('recorded-audio').removeAttribute('src');
+        $('recording-review').classList.add('hidden');
+    }
+    async function startRecording() {
+        if (busy || paused || recorder?.state === 'recording') return;
+        if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
+            notify('Microphone recording is not supported by this browser.', true);
+            return;
+        }
+        try {
+            clearRecording();
+            mediaStream = await navigator.mediaDevices.getUserMedia({audio: true});
+            const mimeType = ['audio/webm;codecs=opus', 'audio/mp4', 'audio/webm'].find((type) => MediaRecorder.isTypeSupported(type));
+            recorder = new MediaRecorder(mediaStream, mimeType ? {mimeType} : undefined);
+            chunks = [];
+            recorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
+            recorder.onstop = () => {
+                recordedBlob = new Blob(chunks, {type: recorder.mimeType || 'audio/webm'});
+                mediaStream?.getTracks().forEach((track) => track.stop());
+                mediaStream = null;
+                $('record-button').classList.remove('hidden');
+                $('stop-record-button').classList.add('hidden');
+                $('recording-status').textContent = '';
+                if (recordedBlob.size) {
+                    recordingUrl = URL.createObjectURL(recordedBlob);
+                    $('recorded-audio').src = recordingUrl;
+                    $('recording-review').classList.remove('hidden');
+                }
+            };
+            recorder.start();
+            $('record-button').classList.add('hidden');
+            $('stop-record-button').classList.remove('hidden');
+            $('recording-status').textContent = '● Recording…';
+        } catch (error) {
+            mediaStream?.getTracks().forEach((track) => track.stop());
+            mediaStream = null;
+            notify(`Microphone unavailable: ${error.message}`, true);
+        }
+    }
+    $('retry-button').addEventListener('click', loadScene);
+    $('enter-scene').addEventListener('click', showConversation);
+    $('tips-toggle').addEventListener('click', () => {
+        const open = $('tips-content').classList.contains('hidden');
+        $('tips-content').classList.toggle('hidden', !open);
+        $('tips-toggle').setAttribute('aria-expanded', String(open));
+        $('tips-arrow').textContent = open ? '⌃' : '⌄';
+    });
+    $('vocab-tab').addEventListener('click', () => setTab('vocabulary'));
+    $('grammar-tab').addEventListener('click', () => setTab('grammar'));
+
+    chatInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+        event.preventDefault();
+        document.getElementById("message-form").requestSubmit();
+    }
+    });
+    $('message-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const text = $('message-input').value.trim();
+        if (text) sendTurn({message: text});
+    });
+    $('record-button').addEventListener('click', startRecording);
+    $('stop-record-button').addEventListener('click', stopRecording);
+    $('discard-recording').addEventListener('click', clearRecording);
+    $('send-recording').addEventListener('click', () => {
+        if (!recordedBlob) return;
+        const data = new FormData();
+
+        data.append('audio', recordedBlob, recordedBlob.type.includes('mp4') ? 'speech.mp4' : 'speech.webm');
+        sendTurn(data, true);
+    });
+    function openLeaveDialog() {
+        if (busy) { notify('Please wait for the current response before leaving.', true); return; }
+        $('leave-dialog').showModal();
+    }
+    function resumeScene() {
+        paused = false;
+        $('paused-overlay').classList.add('hidden');
+        $('paused-overlay').classList.remove('flex');
+        $('pause-button').textContent = '⏸ Pause';
+    }
+    $('pause-button').addEventListener('click', () => {
+        if (busy || finished) return;
+        if (recorder?.state === 'recording') stopRecording();
+        stopAudio();
+        paused = true;
+        $('paused-overlay').classList.remove('hidden');
+        $('paused-overlay').classList.add('flex');
+        $('pause-button').textContent = '▶ Resume';
+    });
+    $('resume-button').addEventListener('click', resumeScene);
+    $('paused-leave-button').addEventListener('click', openLeaveDialog);
+    $('scenes-link').addEventListener('click', (event) => {
+        if (finished) return;
+        event.preventDefault();
+        openLeaveDialog();
+    });
+    $('home-link').addEventListener('click', (event) => {
+        if (finished) return;
+        event.preventDefault();
+        openLeaveDialog();
+    });
+    $('stay-button').addEventListener('click', () => $('leave-dialog').close());
+    $('leave-button').addEventListener('click', () => { window.location.href = SCENES_URL; });
+    $('finish-button').addEventListener('click', async () => {
+        if (busy || paused || finished) return;
+        if (!window.confirm('Submit this scene for completion? The story goal must have been reached; language score is not a pass/fail requirement.')) return;
+        setBusy(true);
+        try {
+            const response = await fetch(`${API_URL}/complete`, {method: 'POST', headers: {'Accept': 'application/json'}});
+            if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 180)}`);
+            const result = await response.json();
+            if (result.status !== 'completed') {
+                notify(result.message ?? 'The story is not finished yet. Continue the conversation.', true);
+                return;
+            }
+            showReflection(result.feedback, result.next_scene_id);
+        } catch (error) { notify(`Could not finish the scene: ${error.message}`, true); }
+        finally { setBusy(false); }
+    });
+    window.addEventListener('pagehide', () => {
+        stopAudio();
+        mediaStream?.getTracks().forEach((track) => track.stop());
+        if (recordingUrl) URL.revokeObjectURL(recordingUrl);
+    });
+    loadScene();
+})();
+</script>
+</body>
+</html>

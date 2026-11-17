@@ -1,6 +1,19 @@
+"""
+Endpoint	                                    Frontend responsibility
+GET /                                           Providing the user with a site-landing screen to logon or register or explore
+GET /login
+
+"""
+
+
 from flask import Blueprint, render_template, request, abort
 from src.data_manager import DataManager, StudentStorageError
-from helper_functions import is_valid_email_address, promote_to_admin
+from helper_functions import is_valid_email_address, check_admin_user
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask import request, redirect, url_for, flash
+from flask_login import login_user, logout_user, login_required, current_user
+from models import Student
+
 
 site_landing = Blueprint("site_landing", __name__, static_folder="static", template_folder="../templates")
 dm = DataManager()
@@ -11,19 +24,40 @@ def index():
     For loging on, the user will need to provide her/his email address and click the logon button.
     :return:
     """
-    return render_template("site_landing/index.html")
+    return render_template("site_landing/index.html", app_name="LinguAdventure")
 
 
 @site_landing.route("/login", methods=["GET", "POST"])
 def login():
     """
     After the user provided her/his email address and clicked login, this route is activated.
-    If the provided email address is registered, the user is forwarded to the user_home, with all
+    If the provided email address is registered, the user is forwarded to the student_home, with all
     relevant information about progress on adventures take and a possibility to select a new adventure
     or continue an ongoing one.
     :return:
     """
-    return render_template("site_landing/user_home.html")
+
+    email = request.form.get("email", "").strip().lower()
+    if not is_valid_email_address(email) or not dm.student_exists(email):
+        flash("received email is not valid", "login_error")
+        return redirect(url_for("site_landing.index"))
+    password = request.form.get("password", "")
+    student = dm.get_student_object(email)
+
+    if (
+            student is None
+            or not student.password_hash
+            or not check_password_hash(student.password_hash, password)
+    ):
+        flash("Invalid email address or password.", "login_error")
+        return redirect(url_for("site_landing.index"))
+
+    if not student.is_active:
+        flash("This account is inactive.", "login_error")
+        return redirect(url_for("site_landing.index"))
+    login_user(student)
+
+    return render_template("site_landing/student_home.html", student=student)
 
 @site_landing.route("/register", methods=["GET","POST"])
 def register():
@@ -40,10 +74,17 @@ def register():
     email = request.form.get("email","")
     if not is_valid_email_address(email):
         return render_template("site_landing/registration.html", message="Invalid email address")
+    password = request.form.get("password", "")
+
+    if not password:
+        return render_template("site_landing/registration.html", message="Password is required")
+    if len(password) < 8 or len(password) > 128:
+        return render_template("site_landing/registration.html", message="Password must be between 12 and 128 characters")
 
     first_name = request.form.get("first_name")
     last_name = request.form.get("last_name")
     new_student = {}
+    new_student["password_hash"] = generate_password_hash(password)
     new_student["first_name"] = first_name
     new_student["last_name"] = last_name
     new_student["email"] = email
@@ -53,33 +94,37 @@ def register():
     new_student["gender"] = request.form.get("gender")
     new_student["occupation"] = request.form.get("occupation")
     new_student["current_level"] = request.form.get("current_level")
+    if check_admin_user(email,at_registration=True):
+        new_student["is_admin"] = True
     try:
         stored_student = dm.add_student(new_student)
     except StudentStorageError as e:
         return render_template("site_landing/registration.html", message=str(e))
-    promote_to_admin(email) # if the student's email address appears in the list of admin users, then promote this user
+    login_user(stored_student)
+    return render_template("site_landing/student_home.html", student=stored_student)
 
-    return render_template("site_landing/user_home.html")
+@site_landing.route("/logout", methods=["POST"])
+@login_required
+def logout():
 
-# @site_landing.route("/<new_user>/confirm_registration", methods=["POST"])
-# def confirm_registration(new_user:int):
-#     """
-#     After the new student registered with email address, the student receives a confirmation email with a link.
-#     Clicking on this link this route is activated and the registration status is changed to confirmed.
-#     :param new_user:
-#     :return:
-#     """
-#     return render_template("index.html")
+    """
+    After the user clicked logout, this route is activated and the flash is contact to release this user.
+    logout_user() removes the Flask-Login authentication information from the session
+    :return:
+    """
+
+    logout_user()
+    return redirect(url_for("site_landing.index"))
 
 
-@site_landing.route("/<user_id>", methods=["POST"])
-def user_home(user_id:int):
+@site_landing.route("/student_home", methods=["POST", "GET"])
+def student_home():
     """
     A confirmed registered student will gain access via this route to the students home page
     :param user_id:
     :return:
     """
-    return render_template("site_landing/user_home.html")
+    return render_template("site_landing/student_home.html")
 
 
 @site_landing.route("/view_profile/<user_id>", methods=["GET"])
@@ -89,7 +134,7 @@ def view_profile(user_id:int):
     :param user_id:
     :return:
     """
-    return render_template("site_landing/user_home.html")
+    return render_template("site_landing/student_home.html")
 
 
 @site_landing.route("/update_profile/<user_id>", methods=["POST"])
@@ -99,7 +144,7 @@ def update_profile(user_id:int):
     :param user_id:
     :return:
     """
-    return render_template("site_landing/user_home.html")
+    return render_template("site_landing/student_home.html")
 
 
 @site_landing.route("/delete_user/<int:user_id>/", methods=["DELETE"])
