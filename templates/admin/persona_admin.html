@@ -41,6 +41,8 @@
             <div class="flex gap-2 flex-wrap">
                 <a class="btn btn-ghost" href="{{ url_for('admin.adventure_admin') }}">← Adventure Editor</a>
                 <button class="btn btn-ghost" type="button" id="exportBtn">↓ Export personas JSON</button>
+                <button class="btn btn-ghost" type="button" id="importBtn">↑ Import personas JSON</button>
+                <input id="importFile" type="file" accept=".json,application/json" class="hidden">
                 <button class="btn btn-primary" type="button" id="addPersonaBtn">＋ New persona</button>
             </div>
         </div>
@@ -81,12 +83,13 @@
                                    class="mb-2 block text-sm font-medium text-slate-300">
                                 Gender
                             </label>
-    
+
                             <select
                                 id="personaGender"
                                 class="w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3
                                        text-white outline-none transition
                                        focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20">
+                                <option value="">— Not specified —</option>
                                 <option value="female">Female</option>
                                 <option value="male">Male</option>
                                 <option value="non_binary">Non-binary</option>
@@ -382,6 +385,81 @@
 
         el('savePersonaBtn').addEventListener('click', savePersona);
         el('deletePersonaBtn').addEventListener('click', deletePersona);
+        // Import exported persona arrays as NEW SQLite records. Never reuse old IDs.
+        el('importBtn').addEventListener('click', () => {
+            if (!busy) el('importFile').click();
+        });
+
+        el('importFile').addEventListener('change', async event => {
+            const file = event.target.files?.[0];
+            event.target.value = '';
+            if (!file || busy) return;
+
+            let imported;
+            try {
+                imported = JSON.parse(await file.text());
+                if (!Array.isArray(imported) || !imported.every(
+                    item => item && typeof item === 'object' && !Array.isArray(item)
+                )) throw new Error('Expected a JSON array of persona objects.');
+                if (!imported.length) throw new Error('The persona list is empty.');
+            } catch (error) {
+                el('status').textContent = `Import failed: ${error.message}`;
+                return;
+            }
+
+            // Existing API requires first_name and last_name. Other missing fields are empty.
+            const normalized = imported.map(p => ({
+                first_name: p.first_name ?? '',
+                last_name: p.last_name ?? '',
+                age: p.age ?? '',
+                gender: p.gender ?? '',
+                role: p.role ?? '',
+                description: p.description ?? '',
+                photo: p.photo ?? ''
+            }));
+            const invalid = normalized.findIndex(p =>
+                !String(p.first_name).trim() || !String(p.last_name).trim()
+            );
+            if (invalid !== -1) {
+                el('status').textContent = `Import cancelled: persona ${invalid + 1} has no first or last name (required by the current API).`;
+                return;
+            }
+            if (!confirm(`Import ${normalized.length} persona(s) as new SQLite records? Existing personas will not be replaced. Importing the same file twice creates duplicates.`)) return;
+
+            busy = true;
+            render();
+            let created = 0;
+            let errorMessage = '';
+            try {
+                for (const persona of normalized) {
+                    el('status').textContent = `Importing persona ${created + 1} of ${normalized.length}...`;
+                    const response = await fetch(API_CREATE, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(persona)
+                    });
+                    if (!response.ok) {
+                        const details = await response.text();
+                        throw new Error(`persona ${created + 1}: HTTP ${response.status} ${details.slice(0, 150)}`);
+                    }
+                    created++;
+                }
+            } catch (error) {
+                errorMessage = error.message;
+                console.error('Persona import:', error);
+            } finally {
+                newPersona = null;
+                selectedId = null;
+                busy = false;
+                try { await loadPersonas(); }
+                catch (error) { errorMessage += ` Could not refresh: ${error.message}`; }
+                el('status').textContent = errorMessage
+                    ? `Imported ${created} of ${normalized.length} persona(s). ${errorMessage}`
+                    : `Successfully imported ${created} persona(s) into SQLite.`;
+                render();
+            }
+        });
+
         el('exportBtn').addEventListener('click', () => {
             capture();
             const blob = new Blob([JSON.stringify(personas, null, 4)],

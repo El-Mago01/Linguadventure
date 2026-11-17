@@ -159,7 +159,7 @@ class AdventureDataManager:
             scenes = db.session.execute(stmt).scalars().all()
             if len(scenes) < 1:
                 return None
-            a_serialized_adventure["scenes"] = [scene.serialize() for scene in scenes]
+            a_serialized_adventure["scenes"] = [scene.serialize() for scene in scenes if scene.adventure_id == a_serialized_adventure.get("adventure_id",-1)]
             all_adventures.append(a_serialized_adventure)
         return all_adventures
 

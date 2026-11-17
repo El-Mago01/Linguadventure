@@ -1,6 +1,8 @@
 .idea/
 .venv/
 .run/
+.uv.lock/
+pyproject.toml
 .pytest_cache/
 data/test_db.sqlite
 app.log

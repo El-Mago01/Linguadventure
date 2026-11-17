@@ -12,6 +12,9 @@ dependencies = [
     "dotenv>=0.9.9",
     "flask-login>=0.6.3",
     "flask-sqlalchemy>=3.1.1",
+    "langchain>=1.5.0",
+    "langchain-openai>=1.8.0",
+    "langgraph>=1.2.22",
     "openai>=3.42.1",
     "sqlalchemy>=2.1.6",
 ]

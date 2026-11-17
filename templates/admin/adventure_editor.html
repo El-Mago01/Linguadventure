@@ -42,6 +42,8 @@
             <div class="flex flex-wrap gap-2">
                 <button class="btn btn-ghost" type="button" id="resetBtn">↺ Reset example
                 </button>
+                <button class="btn btn-ghost" type="button" id="importBtn">↑ Import JSON</button>
+                <input id="importFile" type="file" accept=".json,application/json" class="hidden">
                 <button class="btn btn-primary" type="button" id="exportBtn">↓ Export JSON
                 </button>
             </div>
@@ -622,6 +624,69 @@
             el('status').textContent =
                 'Browser storage unavailable or image too large. Use Export JSON.';
         }
+    });
+
+    // Load an exported adventure as a NEW draft, then use Save Adventure to persist it.
+    // Old database IDs are intentionally ignored: a rebuilt DB may assign different IDs.
+    el('importBtn').addEventListener('click', () => el('importFile').click());
+
+    el('importFile').addEventListener('change', async event => {
+        const file = event.target.files?.[0];
+        event.target.value = '';
+        if (!file) return;
+
+        let imported;
+        try {
+            imported = JSON.parse(await file.text());
+            if (!imported || typeof imported !== 'object' || Array.isArray(imported)) {
+                throw new Error('Expected a JSON object describing one adventure.');
+            }
+            if (!Array.isArray(imported.scenes) || imported.scenes.length < 1 || imported.scenes.length > 30) {
+                throw new Error('An adventure needs between 1 and 30 scenes.');
+            }
+            if (!imported.scenes.every(scene => scene && typeof scene === 'object' && !Array.isArray(scene))) {
+                throw new Error('Each scene must be a JSON object.');
+            }
+        } catch (error) {
+            el('status').textContent = `Import failed: ${error.message}`;
+            return;
+        }
+
+        if (!confirm('Load this JSON into the editor as a NEW adventure? Unsaved editor changes will be lost. You will need to reassign scene personas and click Save Adventure.')) return;
+
+        // Build from EMPTY fields, not from the example adventure.
+        const normalized = Object.fromEntries(overviewFields.map(key => [key, '']));
+        for (const key of overviewFields) {
+            const value = imported[key] ?? (
+                key === 'language' ? imported.target_language :
+                key === 'level' ? imported.target_level :
+                key === 'storyOutline' ? imported.story_outline : undefined
+            );
+            normalized[key] = value == null ? '' : String(value);
+        }
+        normalized.image_url = imported.image_url ?? null;
+        normalized.scenes = imported.scenes.map(scene => {
+            const result = blankScene();
+            for (const key of Object.keys(result)) {
+                if (key === 'persona_id') continue;
+                result[key] = scene[key] == null ? '' : String(scene[key]);
+            }
+            // Persona IDs from the exported database must not point to unrelated new records.
+            result.persona_id = '';
+            return result;
+        });
+
+        data = normalized;
+        selected = -1;
+        savedAdventureId = null;
+        saveWithoutId = false;
+        imageChanged = !!data.image_url;
+        el('adventurePoster').value = '';
+        el('saveAdventureBtn').disabled = false;
+        el('saveAdventureBtn').textContent = 'Save Adventure';
+        renderPoster();
+        render();
+        el('status').textContent = `Imported ${data.scenes.length} scene(s) into a new draft. Reassign personas, then click Save Adventure to store in SQLite.`;
     });
 
     el('exportBtn').addEventListener('click', () => {
