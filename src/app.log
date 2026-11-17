@@ -6990,3 +6990,8 @@
 17-Nov-26 10:29:31 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 10:29:31] "[36mGET /static/images/adventures/0f95694f114c43b3ad4295bab1497aab.jpg HTTP/1.1[0m" 304 -
 17-Nov-26 10:42:37 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 10:42:37] "PUT /api/adventures/1 HTTP/1.1" 200 -
 17-Nov-26 10:58:08 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 10:58:08] "PUT /api/adventures/1 HTTP/1.1" 200 -
+17-Nov-26 11:02:33 - werkzeug - INFO -  * Detected change in 'C:\\Users\\marti\\My_Code\\LinguAdventure\\Linguadventure\\src\\play\\session.py', reloading
+17-Nov-26 11:02:34 - werkzeug - INFO -  * Restarting with stat
+17-Nov-26 11:03:09 - root - INFO - User with martin.gorren@gmail.com has been promoted to admin
+17-Nov-26 11:03:09 - werkzeug - WARNING -  * Debugger is active!
+17-Nov-26 11:03:09 - werkzeug - INFO -  * Debugger PIN: 386-085-760

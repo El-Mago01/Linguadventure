@@ -237,6 +237,10 @@ def router(state:State):
 
 
 def session_evaluator(state:State):
+    """
+    The scene was completed by the student. All relevant information must be extracted from the transcript and stored
+    in the session table. Also
+    """
     return state
 
 
