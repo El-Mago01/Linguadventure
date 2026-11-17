@@ -1657,3 +1657,11 @@
 31-Oct-26 18:06:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 31-Oct-26 18:06:04 - httpx2 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
 31-Oct-26 18:06:04 - openai._base_client - INFO - Retrying request in 12.000000 seconds (retry 1 of 2)
+17-Nov-26 11:36:47 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.203:5000
+17-Nov-26 11:36:47 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+17-Nov-26 11:36:47 - werkzeug - INFO -  * Restarting with stat
+17-Nov-26 11:36:47 - werkzeug - WARNING -  * Debugger is active!
+17-Nov-26 11:36:47 - werkzeug - INFO -  * Debugger PIN: 782-319-555

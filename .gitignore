@@ -1,5 +1,6 @@
 .idea/
 .venv/
+.run/
 .pytest_cache/
 data/test_db.sqlite
 app.log
