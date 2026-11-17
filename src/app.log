@@ -1822,3 +1822,10 @@
 17-Nov-26 17:28:29 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:28:29] "GET /api/all_adventures HTTP/1.1" 200 -
 17-Nov-26 17:28:29 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:28:29] "[36mGET /static/images/adventures/5ddb9791cfaa49609ef6be8e6b3f85a9.jpg HTTP/1.1[0m" 304 -
 17-Nov-26 17:28:29 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:28:29] "[36mGET /static/images/adventures/1432650f03164d5b82ffb239a47ef9f3.jpg HTTP/1.1[0m" 304 -
+17-Nov-26 17:32:35 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:32:35] "GET /admin/adventure_admin/ HTTP/1.1" 200 -
+17-Nov-26 17:32:35 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:32:35] "GET /api/adventures HTTP/1.1" 200 -
+17-Nov-26 17:32:37 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:32:37] "GET /admin/adventures/2/edit HTTP/1.1" 200 -
+17-Nov-26 17:32:37 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:32:37] "GET /api/personas HTTP/1.1" 200 -
+17-Nov-26 17:32:37 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:32:37] "GET /api/adventures/2 HTTP/1.1" 200 -
+17-Nov-26 17:32:37 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:32:37] "[36mGET /static/images/adventures/5ddb9791cfaa49609ef6be8e6b3f85a9.jpg HTTP/1.1[0m" 304 -
+17-Nov-26 17:32:45 - werkzeug - INFO - 127.0.0.1 - - [17/Nov/2026 17:32:45] "PUT /api/adventures/2 HTTP/1.1" 200 -
