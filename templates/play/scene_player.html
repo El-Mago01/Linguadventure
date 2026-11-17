@@ -270,6 +270,17 @@
         content.className = 'whitespace-pre-wrap text-sm leading-relaxed';
         content.textContent = text || '(Audio message)';
         bubble.append(who, content);
+        const correction = safeText(turn.correction);
+        console.log("Hello:")
+        console.log(correction)
+        if (student && correction && correction !== text) {
+            const correctionLine = document.createElement('p');
+            correctionLine.className =
+                'mt-2 border-t border-teal-400/20 pt-2 ' +
+                'text-xs italic text-teal-200/80';
+            correctionLine.textContent = `-> ${correction}`;
+            bubble.appendChild(correctionLine);
+        }
         if (audioUrl) {
             const replay = document.createElement('button');
             replay.type = 'button';
@@ -306,7 +317,16 @@
         $('preparation').classList.add('hidden');
         $('conversation').classList.remove('hidden');
         $('reflection').classList.add('hidden');
-        $('message-input').focus();
+    
+        // Start at the top of the conversation
+        // $('conversation').scrollIntoView({
+        //     behavior: 'smooth',
+        //     block: 'start'
+        // });
+        $('persona-image').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
     }
     function showReflection(feedback, nextSceneId) {
         finished = true;

@@ -212,13 +212,15 @@ def receive_chat(adventure_id:int, scene_id:int):
         session["thread_id"] = str(uuid4())
 
     persona_reply, state = get_persona_reply(adventure_id, scene_id, message, session["thread_id"])
-    corrected_text = state["corrected_text"]
+    if persona_reply is None:
+        return jsonify({"message" : "Could not derive persona information."}), 500
+    corrected_text = state["evaluations"][-1]
     answer = {
         # "state": state,
         "student_turn": {
             "role": "student",
             "text": message,
-            'correction':  corrected_text
+            'correction':  corrected_text.content
         },
         "persona_turn": {
             "role": "persona",

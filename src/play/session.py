@@ -68,9 +68,20 @@ class Transcript():
 
         return transcription
 
+
+class MessageClassifier(BaseModel):
+    action_to_take: Literal["continue", "finish"] = Field(
+        ...,         # make this argument mandatory
+        description="Classify if the goal of the conversation is achieved or not."
+    )
+    missing: str|None = Field(
+        default=None, # make this argument optional
+        description="What is currently missing in the conversation to achieve the goal?"
+    )
+
 class State(TypedDict):
     messages: Annotated[list, add_messages] # Annotated[type, information that tells Langgraph what function to execute ádd_messages]
-    corrected_text: Annotated[list, add_messages]
+    evaluations: Annotated[list, add_messages]
     scene_info: dict
     goal_achieved: bool
 
@@ -109,15 +120,20 @@ def actor_setup(scene_info):
         )
     return system_prompt
 
-def verification_prompt_definition(state: State) -> str:
-    language = state["scene_info"].get("target_language", "Portuguese")
+def verification_prompt_definition(scene_info: dict) -> str:
+    language = scene_info.get("target_language", "Portuguese")
 
     system_prompt = f"""
-    You are a language use corrector for the target language {language}. Your task is to correct the language of the phrase provided by the student. It is important to realize
+    You are a language corrector for the target language {language}. Your task is to correct the language of the phrase provided by the student. It is important to realize
     that the language is spoken, not written. Please take this in consideration when correcting.
-    Example for portugues language:
-    Student: 'Eu viu uma gato'
-    You: 'Eu vi um gato'
+    You are provided with the full conversation so far. IMPORTANT: You only evaluate and correct the last message HumanMessage in the conversation. 
+    You do not evaluate any other message nor you invent a message to evaluate.
+    Example in Portugues language:
+    HumanMessage: 'Eu viu uma gato'
+    Correction: 'Eu vi um gato'
+    HumanMessage: 'Eu vi um gato'
+    Correction: '✔'
+    The same handling applies to other languages.
     """
     return system_prompt
 
@@ -145,29 +161,79 @@ def persona_actor(state:State):
 
 def message_evaluator(state:State):
     print(f"message_evaluator received state: \n{state}")
-    system_prompt=verification_prompt_definition(state)
-    return {"messages" : []}
-
-#     try:
-#         prompt = ("Evaluate the following message on used vocabulary, grammar and fluency. "
-#               "Take a note that the person spoke this message which should change the evaluation from a written interaction"
-#               "Provide the evaluation constructively, start with a positive remark, followed by a constructive remark"
-#               "followed again with a positive remark what would occur if the person improved a next time"
-#               f" message:\n{state['messages'][-2]}"
-#               "Example: Well done, you were almost perfect, but you used the word 'house' in stead of 'casa'"
-#               "if you improve this a next time, it will be even better")
-#
-#         evaluations = {"evaluations" : [llm.invoke(state["messages"][-1].content)]}
-#         print("content of evaluations within state:")
-#         for message in state["messages"]:
-#             print(message)
-#         return evaluations
-#     except (APIConnectionError, openai.BadRequestError) as e:
-#         return f"Agent not available: {e}"
+    background = []
+    background.append(state['evaluations'][0])
+    for message in state['messages'][1:-1]:
+        background.append(message)
+    print("background: \n", background)
+    try:
+        response = llm.invoke(background)
+        state = {
+            "evaluations" : [
+                AIMessage(content=response.content)
+            ]
+        }
+        print("content of added message")
+        print(state)
+        return state
+    except (APIConnectionError, openai.BadRequestError) as e:
+        return f"Agent not available: {e}"
 
 
 def router(state:State):
-    return state
+    conversation = state["messages"][1:]
+    goal = state["scene_info"].get("goal", "No goal defined")
+    language = state["scene_info"].get("target_language", "Portuguese")
+
+    print(f"conversation so far: \n{conversation}")
+    print(f"goal: {goal}")
+    system_prompt = f"""
+    You are evaluating a role-play between a language student and an actor playing a specific role where the actor should help 
+    the student to achieve the goal of this conversation (see Goal definition below). The role play is in {language} language. Please analyze carefully the conversation
+    and check if the goal of the conversation was achieved, ie. based upon the conversation in {language} you make a decision if the goal was achieved or not. 
+    Based on the outcome you will decide the values of 2 fields
+    Field 1: 'action_to_take' : 
+        - 'finish': if the goal of the conversation is achieved
+        - 'continue': if the goal of the conversation is not achieved and the student need to provide more input
+    
+    Respond in JSON with 'action_to_take' key containing 'finish' or 'continue'    
+    in case no goal is defined use output 'finish'
+    Field 2: 'missing' : A string
+        - In case action_to_take is 'continue', list here what is currently missing in the conversation to achieve the goal?
+        - In case action_to_take is 'finish', return an empty string
+
+    GOAL DEFINITION:
+    {goal}
+    
+    CONVERSATION:
+    {conversation}
+
+    """
+    state = {
+        "messages": [
+            SystemMessage(content=system_prompt)
+        ]
+    }
+
+    message_list = []
+    human_messages = [msg for msg in state["messages"] if isinstance ( msg, HumanMessage)]
+    ai_messages = [msg for msg in state["messages"] if isinstance ( msg, AIMessage)]
+    system_message = [msg for msg in state["messages"] if isinstance ( msg, SystemMessage)]
+    messages = system_message + human_messages + ai_messages
+
+    classifier_llm = llm.with_structured_output(MessageClassifier, method="json_mode")
+
+    next_step = classifier_llm.invoke(messages)
+    print(next_step, type(next_step))
+
+    if next_step.action_to_take == "finish":
+        goal_achieved = True
+    elif next_step.action_to_take == "continue":
+        goal_achieved = False
+        print("goal_achieved = False, this is missing: ", next_step.missing)
+    else:
+        goal_achieved = False
+    return { "goal_achieved": goal_achieved }
 
 
 def session_evaluator(state:State):
@@ -194,6 +260,8 @@ def prompt_generator(role:str, prompt:str, transcript:Transcript):
 def get_persona_reply(scene_id:int, adventure_id:int, student_message:str, thread_id) -> tuple:
     ts = Transcript(adventure_id, scene_id, 0)
     student_adventure_status, result = dm.get_full_student_adventure_data(adventure_id, current_user.student_id)
+    if "successful" not in result or not student_adventure_status:
+        return None, "could not derive the scene"
     scene_info = {}
     scene_info["target_language"] = student_adventure_status["target_language"]
     scene_info["title"] = student_adventure_status["title"]
@@ -211,7 +279,6 @@ def get_persona_reply(scene_id:int, adventure_id:int, student_message:str, threa
     scene_info["steps"] = scene[0]["steps"]
     scene_info["exit"] = scene[0]["exit"]
     scene_info["ending"] = scene[0]["ending"]
-
 
     config = {
         "configurable": {
@@ -238,7 +305,10 @@ def get_persona_reply(scene_id:int, adventure_id:int, student_message:str, threa
                 HumanMessage(content=student_message)
             ],
             "scene_info": scene_info,
-            "corrected_text": [],
+            "evaluations": [
+                SystemMessage(content=verification_prompt_definition(scene_info)),
+                HumanMessage(content=student_message)
+            ],
             "goal_achieved": False
         }
         print("the state is:", state)
