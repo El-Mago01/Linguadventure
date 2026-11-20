@@ -91,7 +91,7 @@ class Adventure(db.Model):
     __tablename__ = "adventure"
     # Link Movie to User
     adventure_id = db.Column(
-        db.Integer, primary_key=True, nullable=False, autoincrement=True
+        db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True
     )
     title = db.Column(db.String(100), nullable=False)
     creator = db.Column(db.String(100))
@@ -175,28 +175,28 @@ class Student_Adventure(db.Model):
     current_scene_id = db.Column(
         db.Integer, db.ForeignKey("scene.scene_id")
     )
-    status = db.Column(db.String(100), nullable=False, default=False)
+    status_code = db.Column(db.String(100), nullable=False, default=False)
 
     def __repr__(self):
         return f"{
             self.adventure_id}: {
             self.student_id},\n {
             self.current_scene_id},\n {
-            self.status}"
+            self.status_code}"
 
     def __str__(self):
         return f"{
             self.adventure_id}: {
             self.student_id},\n {
             self.current_scene_id},\n {
-            self.status}"
+            self.status_code}"
 
     def serialize(self) -> dict:
             student_adventure = {}
             student_adventure["adventure_id"] = self.adventure_id
             student_adventure["student_id"] = self.student_id
             student_adventure["current_scene_id"] = self.current_scene_id
-            student_adventure["status"] = self.status
+            student_adventure["status_code"] = self.status_code
             return student_adventure
 
 class Scene(db.Model):
@@ -210,7 +210,7 @@ class Scene(db.Model):
     __tablename__ = "scene"
     # Link Movie to User
     scene_id= db.Column(
-        db.Integer, primary_key=True, nullable=False, autoincrement=True
+        db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True
     )
     adventure_id = db.Column(
         db.Integer, db.ForeignKey("adventure.adventure_id")
@@ -288,29 +288,114 @@ class Session(db.Model):
     __tablename__ = "session"
     # Link Movie to User
     session_id = db.Column(
-        db.Integer, primary_key=True, nullable=False, autoincrement=True
+        db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True
+    )
+    adventure_id = db.Column(
+        db.Integer, db.ForeignKey("adventure.adventure_id")
     )
     scene_id = db.Column(
         db.Integer, db.ForeignKey("scene.scene_id")
     )
-    transcript = db.Column(db.String)
-    corrected_transcript = db.Column(db.String)
-    verbal_feedback_transcript = db.Column(db.String)
-    detected_level = db.Column(db.String)
+    student_id = db.Column(
+        db.Integer, db.ForeignKey("student.student_id")
+    )
+    session_achievement = db.Column(db.String)
+    used_words = db.Column(db.String)
+    used_phrases = db.Column(db.String)
+    grammar_tips = db.Column(db.String)
+    improve_next = db.Column(db.String)
+    scene_status = db.Column(db.String)
+    estimated_CEFR_level = db.Column(db.String)
+
+    def serialize(self)->dict:
+        session_data = {}
+        session_data["adventure_id"] = self.adventure_id
+        session_data["session_id"] = self.session_id
+        session_data["scene_id"] = self.scene_id
+        session_data["student_id"] = self.student_id
+        session_data["session_achievement"] = self.session_achievement
+        session_data["used_words"] = self.used_words
+        session_data["used_phrases"] = self.used_phrases
+        session_data["grammar_tips"] = self.grammar_tips
+        session_data["improve_next"] = self.improve_next
+        session_data["scene_status"] = self.scene_status
+        session_data["estimated_CEFR_level"] = self.estimated_CEFR_level
+        return session_data
+
 
     def __repr__(self):
         return f"{
         self.session_id}: {
         self.scene_id},\n {
-        self.feedback_id},\n {
-        self.transcript}"
+        self.used_words},\n {
+        self.session_achievement}"
 
     def __str__(self):
         return f"{
         self.session_id}: {
         self.scene_id},\n {
-        self.feedback_id},\n {
-        self.transcript}"
+        self.used_words},\n {
+        self.session_achievement}"
+
+
+class Message(db.Model):
+    """
+    A message is a conversation element either coming from the Student or the AI-actor. The base data consists of
+    the entry + a correction in case the message comes from the student and there is something to improve in the
+    text. A message can have its origin from an audio message or from a text chat.
+    """
+    __tablename__ = "message"
+
+    message_id = db.Column(
+        db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True
+    )
+
+    session_id = db.Column(
+        db.Integer, db.ForeignKey("session.session_id")
+    )
+
+    sequence_nr = db.Column(db.Integer)
+    __table_args__ = (
+        db.UniqueConstraint(
+            session_id, sequence_nr,
+            name="uq_message_session_sequence"
+        ),
+    )
+    student_message = db.Column(db.String) # Either HumanMessage or AIMessage
+    persona_message = db.Column(db.String)
+    correction = db.Column(db.String) # only for HumanMessage
+    audio_content = db.Column(db.String) # the transcribed audio message or chat message
+    source = db.Column(db.String) # audio or chat
+    audio_link = db.Column(db.String) # linked to the stored audio message
+
+    def serialize(self)->dict:
+        message_data = {}
+        message_data["message_id"] = self.message_id
+        message_data["session_id"] = self.session_id
+        message_data["sequence_nr"] = self.sequence_nr
+        message_data["student_message"] = self.student_message
+        message_data["persona_message"] = self.persona_message
+        message_data["correction"] = self.correction
+        message_data["audio_content"] = self.audio_content
+        message_data["source"] = self.source
+        message_data["audio_link"] = self.audio_link
+        return message_data
+
+
+    def __repr__(self):
+        return f"{
+        self.message_id}: {
+        self.session_id},\n {
+        self.sequence_nr},\n {
+        self.student_message}"
+
+
+    def __str__(self):
+        return f"{
+        self.message_id}: {
+        self.session_id},\n {
+        self.sequence_nr},\n {
+        self.student_message}"
 
 
 class Persona(db.Model):
@@ -323,7 +408,7 @@ class Persona(db.Model):
     __tablename__ = "persona"
     # Link Movie to User
     persona_id = db.Column(
-        db.Integer, primary_key=True, nullable=False, autoincrement=True
+        db.Integer, primary_key=True, nullable=False, autoincrement=True, unique=True
     )
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)

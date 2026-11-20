@@ -1,0 +1,24 @@
+[
+    {
+        "age": "62",
+        "description": "Helpful and he is a bit shy. Underneath he has a dark sense of humor and he is quite sarcastic that he demonstrates from time to time.",
+        "first_name": "Francisco",
+        "gender": "male",
+        "image_url": "/static/images/personas/fcaead6746874545bd0bc202cc11a41c.jpg",
+        "last_name": "Costa",
+        "nationality": "",
+        "persona_id": 2,
+        "role": "Taxi driver "
+    },
+    {
+        "age": 49,
+        "description": "A warm, friendly and very helpful emphatic person, easy to relate to.",
+        "first_name": "Miguel",
+        "gender": "male",
+        "image_url": "/static/images/personas/8fded875dd684417b426a77d2cbddc44.jpg",
+        "last_name": "Pereira",
+        "nationality": "",
+        "persona_id": 1,
+        "role": "Owner of a cafe"
+    }
+]

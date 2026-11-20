@@ -9,12 +9,14 @@ of these requests by using the partners models and adventure_data_fetcher.
 import logging
 import os
 from sqlalchemy.exc import IntegrityError, OperationalError
+
+from models import Student_Adventure
 from src.errors import AdventureStorageError
 from src.site_landing.data_manager import StudentDataManager as sdm
 from sqlalchemy import and_
 from src.adventures.helper_functions import save_as_image
 
-from models import db, Adventure, Student, Student_Adventure, Persona, Scene
+from src.models import db, Adventure, Student, Student_Adventure, Persona, Scene
 
 # from adventure_data_fetcher import fetch_adventure_general_data, fetch_adventure_data
 
@@ -380,19 +382,20 @@ class AdventureDataManager:
     def reserve_adventure(adventure_id: int, student_id: int) -> tuple[list[Student_Adventure] | None, str]:
         """
         Reserves an adventure for a student and returns the student adventure object
-        The status_code that is stored in the student_adventure object has the following codification:
-        Each character in the status_code represents the status of a scene played by a student.
+        The scene_status that is stored in the student_adventure object has the following codification:
+        Each character in the scene_status represents if a scene is locked played by a student together
+        with the status of that scene ("achieved", "started" "blocked").
         '0' indicates that the scene is blocked,
-        '1' indicates that the scene is available
-        '2' indicates that the scene was already played by the student.
+        '1' indicates that the scene is available / unblocked
+        '2' indicates that the scene was already played by the student and he/she achieved the goal.
 
-        E.g. status_code = "2100" means:
+        E.g. scene_status = "2100" means:
         Scene 0 was already played by the student
         Scene 1 is available to be played by the student
         Scene 2 is blocked
         Scene 3 is blocked
 
-        The initial code for a 4 scene adventure is : "1000
+        The initial code for a 4-scene adventure is : "1000
         """
         if not AdventureDataManager.adventure_exists(adventure_id):
             return None, "Adventure does not exist"
@@ -423,7 +426,7 @@ class AdventureDataManager:
             adventure_id=adventure_id,
             student_id=student_id,
             current_scene_id=-1,  # No current_scene selected yet
-            status=status_code,
+            status_code=status_code,
         )
         try:
             db.session.add(new_student_adventure)
@@ -433,9 +436,117 @@ class AdventureDataManager:
 
         return [new_student_adventure], "Storage successful!"
 
+
+    @staticmethod
+    def get_scene_status(adventure_id:int, scene_id:int, student_id:int)->tuple[bool, str]:
+        """
+        Fetch and analyze the status_code
+        E.g. status_code = "2100" means:
+        Scene 0 was already played by the student
+        Scene 1 is available to be played by the student
+        Scene 2 is blocked
+        Scene 3 is blocked
+        if is_scene_unlocked is requested for
+        :param adventure_id:
+        :param scene_id:
+        :param student_id:
+        :return:
+        """
+        adventure = AdventureDataManager.get_adventure(adventure_id)
+        if adventure is None:
+            return False, "No adventure found"
+        if not adventure.get("is_active", False):
+            return False, "Adventure is not active"
+        if not sdm.student_is_active(student_id):
+            return False, "Student is not active"
+
+        # check if the student has already reserved this adventure
+        if not AdventureDataManager.student_adventure_exists(student_id, adventure_id):
+            return False, "Adventure not yet reserved for this student"
+        student_adventure = AdventureDataManager.get_student_adventure(student_id, adventure_id)
+        if not student_adventure:
+            return False, "Adventure reserved for this student, but was not found in the database"
+        status_code = student_adventure[0].status_code
+        scene_to_check = AdventureDataManager.get_scene_by_id(scene_id)
+        if scene_to_check is None:
+            return False, "Scene not found"
+        scene_to_check = scene_to_check.serialize()
+        if not "scene_order_nr" in scene_to_check:
+            return False, "Scene order number not found"
+        scene_order_nr = scene_to_check["scene_order_nr"]
+        if not isinstance(status_code, str) or not isinstance(scene_order_nr, int):
+            return False, "status_code must be a string"
+        status_code_scene = status_code[scene_order_nr-1]
+        if status_code_scene == '2':
+            return True, "Achieved"
+        elif status_code_scene == '1':
+            return True, "Ongoing"
+        elif status_code_scene == '0':
+            return False, "Blocked"
+
+        return False, "WRONGLY STORED STATUS_CODE"
+
+
+    @staticmethod
+    def complete_and_unlock_scene(adventure_id: int, current_scene_id: int, student_id: int) -> tuple[bool|None, str]:
+        """
+        Update the status code of current and next scene in the list. E.g. if such a request arrives the following
+        take place to update the status_code in the student_adventure table:
+        1. get the scene details for received adventure_id
+        2. get the student_adventure details for the received adventure_id and student_id
+        3. using the current_scene_id, identify the current and next scene_index.
+        4. Update the status code for the current and next scene_index
+        E.g. if current status_code = "2100" and the received current_scene_id indicates the 2nd index :
+        "2100" should become "2210". Each index has the following meaning:
+        Scene 0 was already played by the student
+        Scene 1 is available to be played by the student
+        Scene 2 is blocked
+        Scene 3 is blocked
+        if is_scene_unlocked is requested for
+        :param adventure_id:
+        :param current_scene_id:
+        :param student_id:
+        :return: bool
+        """
+        scenes = AdventureDataManager.get_all_scenes(adventure_id)
+        # The scenes are already ordered by the scene_order_nr
+
+        if scenes is None or len(scenes) == 0:
+            return None, "No scenes found"
+
+        # check if the student has already reserved this adventure
+        if not AdventureDataManager.student_adventure_exists(student_id, adventure_id):
+            return None, "Adventure not yet reserved for this student"
+        student_adventure = AdventureDataManager.get_student_adventure(student_id, adventure_id)
+        if student_adventure is None:
+            return None, "No adventure registration found for this student"
+
+        if not student_adventure:
+            return None, "Adventure reserved for this student, but was not found in the database"
+
+        #from the student_adventure table, fetch the status_code
+        status_code = student_adventure[0].status_code
+        if len(status_code) != len(scenes):
+            return None, "There is a mismatch in length between number of scenes and number of status codes"
+
+        for index in range(len(scenes)):
+            if scenes[index].get("scene_id", -1) == current_scene_id:
+                status_code = status_code[:index] + '2' + status_code[index+1:]
+                if index < len(scenes) - 1:
+                    status_code = status_code[:index+1] + '1' + status_code[index+2:]
+                student_adventure[0].status_code = status_code
+        db.session.commit()
+        return True, "Status updated. Next scene unlocked"
+
+
     @staticmethod
     def get_full_student_adventure_data(adventure_id, student_id) -> tuple[dict | None, str]:
+        """
 
+        :param adventure_id:
+        :param student_id:
+        :return:
+        """
         if not AdventureDataManager.adventure_exists(adventure_id):
             return None, "Adventure does not exist"
 
@@ -459,14 +570,13 @@ class AdventureDataManager:
             return {}, f"Could not fetch the data from the database: See also error description\n {e}"
         student_adventure, student, adventure = full_student_overview[0]
 
-
         student_adventure_d = student_adventure.serialize()
         student_d = student.serialize()
         adventure_d = adventure.serialize()
         all_scenes = AdventureDataManager.get_all_scenes(adventure_id)
-        all_scenes_status = student_adventure_d.get("status","")
+        all_scenes_status = student_adventure_d.get("status_code","")
         if len(all_scenes) != len(all_scenes_status):
-            return {}, f"Student adventure data retrieval failed: The number of scenes ({len(all_scenes)})do not match with the length of status (len(all_scenes_status))"
+            return {}, f"Student adventure data retrieval failed: The number of scenes ({len(all_scenes)})do not match with the length of status {len(all_scenes_status)}"
         for scene in all_scenes:
             # Decide if this scene should be locked or available and if it can be played
             this_scene_status =  all_scenes_status[0]
@@ -491,6 +601,7 @@ class AdventureDataManager:
                 scene["persona"] = {}
         adventure_d["scenes"] = all_scenes
         return student_adventure_d | student_d | adventure_d, "Student adventure data retrieval successful"
+
 
     @staticmethod
     def change_adventure_status(adventure_id: int, student_id: int, new_status: str) -> tuple[bool, str]:
@@ -579,7 +690,7 @@ class AdventureDataManager:
         return existing_student_adventures
 
 
-    # =========================================================================
+# =========================================================================
 # -------------------------------------------------------------------------
 # *************************** SCENE RELATED DATA **************************
 # -------------------------------------------------------------------------
@@ -669,7 +780,7 @@ class AdventureDataManager:
 
         try:
             stmt = db.select(Scene).where(
-                Scene.adventure_id == adventure_id)
+                Scene.adventure_id == adventure_id).order_by(Scene.scene_order_nr)
             scenes = db.session.execute(stmt).scalars().all()
             if len(scenes) < 1:
                 return []
@@ -677,6 +788,21 @@ class AdventureDataManager:
         except OperationalError as e:
             return []
 
+
+    # @staticmethod
+    # def index_in_adventure_scenes(adventure_id:int):
+    #     scenes = AdventureDataManager.get_all_scenes(adventure_id)
+    #     indexed_scenes = {}
+    #     for scene in scenes:
+    #         indexed_scenes[scene["scene_id"]] = scene["scene_order_nr"]
+    #     sorted_scene_ids = sorted(
+    #         indexed_scenes.items(), key=lambda x:x[1]
+    #     )
+    #     sorted_scenes = []
+    #     for scene_id in sorted_scene_ids:
+    #         sorted_scenes.append(AdventureDataManager.get_scene_by_id(scene_id[0]))
+    #
+    #     return sorted_scenes
 
     @staticmethod
     def get_scene_by_id(scene_id:int)-> Scene | None:

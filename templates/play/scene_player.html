@@ -96,7 +96,7 @@
 
                     <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
                         <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
-                            <h2 class="font-semibold">Conversation</h2>
+                            <h2 class="font-semibold">Conversation <span id="attempt-label" class="ml-2 text-xs font-normal text-slate-400"></span></h2>
                             <label class="flex items-center gap-2 text-xs text-slate-300">
                                 <input id="auto-audio" type="checkbox" checked class="accent-teal-400"> Play persona audio automatically
                             </label>
@@ -105,6 +105,7 @@
                         </div>
                         <div id="busy-indicator" class="mt-3 hidden text-sm text-teal-300">Your conversation partner is responding…
                         </div>
+                        <p id="closed-note" class="mt-4 hidden border-t border-white/10 pt-4 text-sm text-teal-300">✓ Conversation completed. You can review all messages and corrections above.</p>
                         <form id="message-form" class="mt-5 space-y-3 border-t border-white/10 pt-4">
                             <label for="message-input" class="block text-sm font-medium">Your response</label>
                             <textarea id="message-input" rows="3" class="w-full rounded-xl border border-white/20 bg-slate-900 px-4 py-3 text-white outline-none focus:border-teal-400" placeholder="Speak or type what you want to say…">
@@ -127,9 +128,32 @@
                         </form>
                     </div>
                     <div class="flex flex-wrap items-center justify-between gap-3">
-                        <button id="finish-button" type="button" class="rounded-xl border border-white/20 px-4 py-2.5 text-sm font-semibold hover:bg-white/10">Finish scene &amp; view feedback</button>
+                        <span id="scene-progress" class="text-sm text-slate-400">Conversation in progress</span>
                         <span class="text-xs text-slate-500">Leaving before completion means restarting this scene.</span>
                     </div>
+                    <section id="reflection" class="hidden rounded-2xl border border-teal-400/30 bg-white/5 p-6" aria-live="polite">
+                        <p class="text-xs font-semibold uppercase tracking-widest text-teal-400">Your scene feedback</p>
+                        <h2 class="mt-2 text-2xl font-bold">Scene completed!</h2>
+                        <p id="feedback-message" class="mt-3 text-slate-300"></p>
+                        <div class="mt-5 grid gap-3 sm:grid-cols-3">
+                            <div class="rounded-xl bg-slate-900 p-4"><p class="text-xs text-slate-400">Story goal</p><p id="goal-status" class="mt-1 font-semibold text-teal-300">Achieved</p></div>
+                            <div class="rounded-xl bg-slate-900 p-4"><p class="text-xs text-slate-400">Estimated scene level</p><p id="estimated-level" class="mt-1 text-2xl font-bold">—</p><p class="text-xs text-slate-500">Provisional CEFR estimate</p></div>
+                            <div class="rounded-xl bg-slate-900 p-4"><p class="text-xs text-slate-400">Next scene</p><p id="unlock-status" class="mt-1 font-semibold text-teal-300">—</p></div>
+                        </div>
+                        <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                            <div><h3 class="font-semibold text-teal-300">✓ Words successfully used</h3><div id="words-used" class="mt-2 space-y-2 text-sm text-slate-300"></div><p class="mt-2 text-xs text-slate-500">Observed use, not proof of mastery.</p></div>
+                            <div><h3 class="font-semibold text-teal-300">✓ Phrases that went well</h3><div id="phrases-well" class="mt-2 space-y-2 text-sm text-slate-300"></div></div>
+                            <div><h3 class="font-semibold text-amber-300">↗ Words & phrases to improve</h3><div id="phrases-improve" class="mt-2 space-y-2 text-sm text-slate-300"></div></div>
+                            <div><h3 class="font-semibold text-sky-300">📖 Grammar tips</h3><div id="grammar-tips" class="mt-2 space-y-2 text-sm text-slate-300"></div></div>
+                        </div>
+                        <div class="mt-6 rounded-xl border border-white/10 bg-slate-900 p-4"><h3 class="font-semibold">🎯 What to practice next</h3><p id="practice-next" class="mt-2 text-sm text-slate-300"></p></div>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <button id="next-scene-button" type="button" class="hidden rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950">Continue to next scene →</button>
+                            <button id="retake-button" type="button" class="rounded-xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/10">↻ Retake scene</button>
+                            <button id="review-button" type="button" class="rounded-xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/10">Review conversation ↑</button>
+                            <a id="reflection-home" href="#" class="rounded-xl border border-white/20 px-5 py-3 font-semibold">Return to Learning Journey</a>
+                        </div>
+                    </section>
                 </div>
                 <aside class="lg:sticky lg:top-5 lg:self-start">
                     <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
@@ -152,18 +176,6 @@
                         <p id="live-goal" class="mt-2 text-sm leading-relaxed text-slate-300"></p>
                     </div>
                 </aside>
-            </section>
-
-            <section id="reflection" class="hidden max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-7">
-                <p class="text-xs font-semibold uppercase tracking-widest text-teal-400">Reflection</p>
-                <h2 class="mt-2 text-2xl font-bold">Scene finished</h2>
-                <p id="feedback-message" class="mt-3 text-slate-300">Your conversation is complete.</p>
-                <div id="feedback-details" class="mt-5 space-y-3">
-                </div>
-                <div class="mt-7 flex flex-wrap gap-3">
-                    <button id="next-scene-button" type="button" class="hidden rounded-xl bg-teal-400 px-5 py-3 font-semibold text-slate-950">Back to scenes →</button>
-                    <a id="reflection-home" href="#" class="rounded-xl border border-white/20 px-5 py-3 font-semibold">Return to Learning Journey</a>
-                </div>
             </section>
         </div>
     </main>
@@ -191,9 +203,11 @@
     // Flask HTML route: GET /play_scene/<adventure_id>/<scene_id>
     // JSON API: GET /api/play_scene/<adventure_id>/<scene_id>
     // JSON API: PUT /api/play_scene/<adventure_id>/<scene_id> for text or voice turns
-    // Completion API: POST /api/play_scene/<adventure_id>/<scene_id>/complete
-    // Completion is verified by backend; no minimum language score is required.
-    // NOTE: These payload shapes are the proposed handshake, not existing backend guarantees.
+    // Proposed API contract (backend implementation required):
+    // GET /api/play_scene/<adventure_id>/<scene_id> includes latest completed attempt if no active attempt.
+    // POST /api/play_scene/<adventure_id>/<scene_id>/attempts creates a NEW attempt.
+    // PUT /api/play_scene/<adventure_id>/<scene_id> processes a turn and may complete the attempt.
+    // No separate /complete endpoint. Completion and feedback are persisted server-side.
     const $ = (id) => document.getElementById(id);
     const match = window.location.pathname.match(/^\/play_scene\/(\d+)\/(\d+)\/?$/);
     const adventureId = match?.[1] ?? null;
@@ -216,6 +230,8 @@
     let recordingUrl = null;
     let activeAudio = null;
     let finished = false;
+    let attemptId = null;
+    let nextSceneId = null;
     let paused = false;
     // Unfinished attempts are deliberately not restored across page visits.
 
@@ -271,8 +287,6 @@
         content.textContent = text || '(Audio message)';
         bubble.append(who, content);
         const correction = safeText(turn.correction);
-        console.log("Hello:")
-        console.log(correction)
         if (student && correction && correction !== text) {
             const correctionLine = document.createElement('p');
             correctionLine.className =
@@ -300,8 +314,8 @@
         $('send-button').disabled = value;
         $('record-button').disabled = value;
         $('send-recording').disabled = value;
-        $('finish-button').disabled = value;
-        for (const id of ['send-button', 'record-button', 'send-recording', 'finish-button']) {
+        $('retake-button').disabled = value;
+        for (const id of ['send-button', 'record-button', 'send-recording', 'retake-button']) {
             $(id).classList.toggle('opacity-50', value);
         }
     }
@@ -317,7 +331,7 @@
         $('preparation').classList.add('hidden');
         $('conversation').classList.remove('hidden');
         $('reflection').classList.add('hidden');
-    
+
         // Start at the top of the conversation
         // $('conversation').scrollIntoView({
         //     behavior: 'smooth',
@@ -328,33 +342,71 @@
             block: 'start'
         });
     }
-    function showReflection(feedback, nextSceneId) {
+    function showReflection(feedback, nextId, unlocked = false) {
         finished = true;
+        nextSceneId = nextId ?? null;
         stopAudio();
         $('preparation').classList.add('hidden');
-        $('conversation').classList.add('hidden');
+        $('conversation').classList.remove('hidden');
+        $('message-form').classList.add('hidden');
+        $('closed-note').classList.remove('hidden');
+        $('scene-progress').textContent = '✓ Completed · Read-only';
         $('reflection').classList.remove('hidden');
-        const details = $('feedback-details');
-        details.replaceChildren();
-        $('feedback-message').textContent = safeText(feedback?.summary ?? feedback?.message, 'You finished this scene. Your feedback will appear here when the backend provides it.');
-        for (const [label, value] of [['Goal achieved', feedback?.goal_achieved], ['Score', feedback?.score], ['Strengths', feedback?.strengths], ['To practice', feedback?.improvements]]) {
-            if (value == null) continue;
-            const box = document.createElement('div');
-            box.className = 'rounded-xl bg-slate-900 p-4';
-            const heading = document.createElement('p');
-            heading.className = 'text-xs font-semibold uppercase tracking-wider text-teal-300';
-            heading.textContent = label;
-            const body = document.createElement('p');
-            body.className = 'mt-2 text-sm text-slate-200';
-            body.textContent = Array.isArray(value) ? value.join(' · ') : typeof value === 'boolean' ? (value ? 'Yes' : 'Not yet') : String(value);
-            box.append(heading, body);
-            details.appendChild(box);
-        }
+        $('feedback-message').textContent = safeText(feedback?.summary ?? feedback?.message, 'You completed this scene.');
+        $('goal-status').textContent = feedback?.goal_achieved === false ? 'Not yet' : '✓ Achieved';
+        const level = safeText(feedback?.estimated_level ?? feedback?.cefr_level, 'Not estimated');
+        $('estimated-level').textContent = /^(A1|A2|B1|B2|C1|C2)$/.test(level) ? level : 'Not estimated';
+        $('unlock-status').textContent = nextId && unlocked ? '🔓 Unlocked' : nextId ? 'Not yet unlocked' : 'Adventure complete';
+        console.debug("[LinguAdventure] Scene completion UI", {nextId, unlocked, finished});
+        fillLines($('words-used'), feedback?.words_used, 'Not available yet.');
+        fillLines($('phrases-well'), feedback?.phrases_well, 'Not available yet.');
+        fillLines($('phrases-improve'), feedback?.phrases_to_improve, 'Not available yet.');
+        fillLines($('grammar-tips'), feedback?.grammar_tips, 'Not available yet.');
+        $('practice-next').textContent = safeText(feedback?.practice_next, 'Review your corrections before your next scene.');
         const next = $('next-scene-button');
-        next.classList.remove('hidden');
-        next.onclick = () => { window.location.href = SCENES_URL; };
-
+        next.classList.toggle('hidden', !(nextId && unlocked));
+        next.onclick = () => {
+            if (!nextSceneId) return;
+            const target = `/play_scene/${encodeURIComponent(adventureId)}/${encodeURIComponent(nextSceneId)}`;
+            console.debug('[LinguAdventure] Navigating to next scene:', target);
+            window.location.href = target;
+        };
+        $('reflection').scrollIntoView({behavior:'smooth', block:'start'});
     }
+
+    function resetForAttempt(id) {
+        attemptId = id;
+        finished = false;
+        nextSceneId = null;
+        stopAudio();
+        clearRecording();
+        $('transcript').replaceChildren();
+        $('message-input').value = '';
+        $('message-form').classList.remove('hidden');
+        $('closed-note').classList.add('hidden');
+        $('reflection').classList.add('hidden');
+        $('scene-progress').textContent = 'Conversation in progress';
+        $('attempt-label').textContent = id != null ? `· Attempt ${id}` : '';
+        $('conversation').classList.remove('hidden');
+        $('preparation').classList.add('hidden');
+    }
+
+    async function startNewAttempt() {
+        if (busy || paused) return;
+        if (!window.confirm('Start a new attempt? Your completed attempt remains saved, but this page will show a fresh conversation.')) return;
+        setBusy(true);
+        try {
+            const response = await fetch(`${API_URL}/attempts`, {method:'POST', headers:{'Accept':'application/json'}});
+            if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0,180)}`);
+            const result = await response.json();
+            if (result.attempt_id == null) throw new Error('Backend did not return attempt_id.');
+            resetForAttempt(result.attempt_id);
+            if (result.persona_turn) appendTurn(result.persona_turn, 'persona', true);
+            $('conversation').scrollIntoView({behavior:'smooth',block:'start'});
+        } catch (error) { notify(`Could not start a new attempt: ${error.message}`, true); }
+        finally { setBusy(false); }
+    }
+
     async function loadScene() {
         $('loading').classList.remove('hidden');
         $('error-state').classList.add('hidden');
@@ -385,12 +437,17 @@
             $('persona-placeholder').classList.toggle('hidden', !!portrait);
             if (portrait) $('persona-image').src = portrait;
             $('transcript').replaceChildren();
-            const turns = []; // New page visit always starts a fresh attempt; no unfinished history restored.
-            if (Array.isArray(turns)) turns.forEach((turn) => appendTurn(turn, turn.role, false));
+            attemptId = data.attempt_id ?? null;
+            $('attempt-label').textContent = data.attempt_number != null ? `· Attempt ${data.attempt_number}` : '';
+            const turns = Array.isArray(data.turns) ? data.turns : [];
+            turns.forEach((turn) => appendTurn(turn, turn.role, false));
             $('message-input').value = '';
             $('loading').classList.add('hidden');
             $('player').classList.remove('hidden');
             if (data.can_play === false) throw new Error('This scene is locked. Complete the preceding scene first.');
+            console.debug('[LinguAdventure] Loaded scene:', {can_play: data.can_play, scene_completed: data.scene_completed, next_scene_id: data.next_scene_id, next_scene_unlocked: data.next_scene_unlocked});
+            if (data.scene_completed === true) showReflection(data.feedback, data.next_scene_id, data.next_scene_unlocked === true);
+            else if (data.attempt_id != null) showConversation();
         } catch (error) {
             $('loading').classList.add('hidden');
             $('error-state').classList.remove('hidden');
@@ -406,15 +463,15 @@
             });
             if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 180)}`);
             const result = await response.json();
+            console.debug('[LinguAdventure] Turn response:', {scene_completed: result.scene_completed, next_scene_id: result.next_scene_id, next_scene_unlocked: result.next_scene_unlocked});
             if (result.student_turn) appendTurn(result.student_turn, 'student');
             else if (!voice) appendTurn({role: 'student', text: payload.message}, 'student');
             if (result.persona_turn) appendTurn(result.persona_turn, 'persona', true);
             else if (result.persona_message || result.response) appendTurn({role: 'persona', text: result.persona_message ?? result.response, audio_url: result.audio_url}, 'persona', true);
             if (!voice) { $('message-input').value = ''; }
             else clearRecording();
-            if (result.scene_finished || result.scene_completed) {
-                notify('Story ending reached! Choose Finish scene to receive your feedback.');
-                $('finish-button').classList.add('border-teal-400', 'text-teal-300');
+            if (result.scene_completed === true) {
+                showReflection(result.feedback, result.next_scene_id, result.next_scene_unlocked === true);
             }
         } catch (error) {
             notify(`Could not send your message: ${error.message}`, true);
@@ -533,22 +590,8 @@
     });
     $('stay-button').addEventListener('click', () => $('leave-dialog').close());
     $('leave-button').addEventListener('click', () => { window.location.href = SCENES_URL; });
-    $('finish-button').addEventListener('click', async () => {
-        if (busy || paused || finished) return;
-        if (!window.confirm('Submit this scene for completion? The story goal must have been reached; language score is not a pass/fail requirement.')) return;
-        setBusy(true);
-        try {
-            const response = await fetch(`${API_URL}/complete`, {method: 'POST', headers: {'Accept': 'application/json'}});
-            if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 180)}`);
-            const result = await response.json();
-            if (result.status !== 'completed') {
-                notify(result.message ?? 'The story is not finished yet. Continue the conversation.', true);
-                return;
-            }
-            showReflection(result.feedback, result.next_scene_id);
-        } catch (error) { notify(`Could not finish the scene: ${error.message}`, true); }
-        finally { setBusy(false); }
-    });
+    $('retake-button').addEventListener('click', startNewAttempt);
+    $('review-button').addEventListener('click', () => $('transcript').scrollIntoView({behavior:'smooth',block:'start'}));
     window.addEventListener('pagehide', () => {
         stopAudio();
         mediaStream?.getTracks().forEach((track) => track.stop());

@@ -1,72 +1,27 @@
 import datetime
-import src.play.openai_gpt_4o_mini as current_model
-import src.play.openai_gpt_4o_mini as current_model
 import openai
 from openai import OpenAI, APIConnectionError
 from flask_login import current_user
+from flask import session
 import os
+import json
 from dotenv import load_dotenv
 load_dotenv()  # Load environment variables from .env file
-from typing import Annotated, Literal
+
+from typing import Literal
 from langgraph.graph import StateGraph, START, END
-from langgraph.graph.message import add_messages
+# from langgraph.graph.message import add_messages
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langgraph.checkpoint.memory import InMemorySaver
 from langchain.chat_models import init_chat_model
 from pydantic import BaseModel, Field
-from typing_extensions import TypedDict
+from src.play.state import State
 from src.data_manager import DataManager as dm
 
 api_key = os.environ.get("OPENAI_API_KEY")
-
+MAX_CYCLE = 0
 
 llm=init_chat_model(model="gpt-4.1-mini", temperature=0.4)
-
-class Transcript():
-    def __init__(self, adventure_id:int, scene_id:int, persona_id):
-        start_time = datetime.datetime.now(datetime.UTC)
-        end_time = datetime.datetime.now(datetime.UTC)
-        # transcript = client.transcribe_audio()
-        self.transcript = {}
-        self.transcript["start_time"] = start_time
-        self.transcript["end_time"] = end_time
-        self.transcript["adventure_id"] = adventure_id
-        self.transcript["scene_id"] = scene_id
-        self.transcript["student_id"] = current_user.student_id
-        self.transcript["persona"] = persona_id
-        self.scene_transcript = [{}]
-
-    def add_conversation_part(self, individual:str, conversation_part:str):
-        conversation_part = {"speaker": individual,
-                             "conversation": conversation_part.strip()
-                             }
-        self.scene_transcript.append(conversation_part)
-
-    def get_start_time(self):
-        return self.transcript["start_time"]
-
-    def set_end_time(self, new_end_time):
-        self.transcript["end_time"] = new_end_time
-
-    def summarize_transcript(self):
-        pass
-
-    def __str__(self):
-        transcription =  f"{self.transcript['start_time']} - {self.transcript['end_time']}\n"
-        transcription += f"Adventure_id: {self.transcript['adventure_id']}\n"
-        transcription += f"Scene_id: {self.transcript['scene_id']}\n"
-        transcription += f"Student_id: {self.transcript['student_id']}\n"
-        transcription += f"Persona: {self.transcript['persona']}\n"
-        for conversation in self.scene_transcript:
-            if len(conversation) != 0:
-                transcription += f"Conversation: {conversation.get("speaker","")}: {conversation.get("conversation", "")}\n"
-
-        return transcription
-
-    def __repr__(self):
-        transcription =  f"{self.transcript['start_time']}"
-
-        return transcription
 
 
 class MessageClassifier(BaseModel):
@@ -79,18 +34,36 @@ class MessageClassifier(BaseModel):
         description="What is currently missing in the conversation to achieve the goal?"
     )
 
-class State(TypedDict):
-    messages: Annotated[list, add_messages] # Annotated[type, information that tells Langgraph what function to execute ádd_messages]
-    evaluations: Annotated[list, add_messages]
-    scene_info: dict
-    goal_achieved: bool
 
+class SessionEvaluationScheme(BaseModel):
+    session_achievement: str = Field(
+        ...,         # make this argument mandatory
+        description="What did the student achieve in this session? E.g. what information did the student gain?"
+    )
+
+    estimated_CEFR_level: Literal["A1", "A2", "B1", "B2", "C1", "C2"] = Field(
+        ...,         # make this argument mandatory
+        description="Classify the CEFR level of the student use of communication. Make an estimate as good as you can."
+    )
+    words_successfully_used: str|None = Field(
+        default=None, # make this argument optional
+        description="What words did the student use that were correct and part of the provided vocabulary. Separate the words via ';'"
+    )
+    phrases_successfully_used: str|None = Field(
+        default=None, # make this argument optional
+        description="What phrases did the student use that were grammatically correct. Separate phrases via ';'"
+    )
+    grammar_tips: str|None = Field(
+        default=None, # make this argument optional
+        description="What tips can you give the student to improve for a next session"
+    )
 
 graph_builder = StateGraph(State)
 
 
 def actor_setup(scene_info):
     language = scene_info.get("target_language", "Portuguese")
+
     system_prompt = (
         "You are a language teacher, playing a role in an adventure. You stick to your role. Your task is to speak in the target language and force "
         "the student to speak in the target language. E.g. if the student says something in English and the target language is Italian, you should state that you don't understand in Italian. "
@@ -139,55 +112,45 @@ def verification_prompt_definition(scene_info: dict) -> str:
 
 
 def persona_actor(state:State):
-    # prompt = "Please check the current state of the conversation and provide a next message which is aligned with the steps. "
     try:
-        print("Used prompt:")
-        for message in state["messages"]:
-            print("Prompt part: ", message)
+        print_state("Persona_actor received state: \n:", state)
+
         response = llm.invoke(state["messages"])
-
-        # added_message = {"messages" : [response.content]}
-
-        state = {
+        return {
             "messages" : [
-                AIMessage(content=response.content)
+                AIMessage(content=response.content, type="ai")
             ]
         }
-        print("content of added message")
-        print(state)
-        return state
     except (APIConnectionError, openai.BadRequestError) as e:
         return f"Agent not available: {e}"
 
-def message_evaluator(state:State):
-    print(f"message_evaluator received state: \n{state}")
+
+def message_corrector(state:State):
+    print_state(f"message_corrector received state: \n", state)
     background = []
-    background.append(state['evaluations'][0])
+    background.append(state['corrections'][0])
     for message in state['messages'][1:-1]:
         background.append(message)
     print("background: \n", background)
     try:
         response = llm.invoke(background)
-        state = {
-            "evaluations" : [
-                AIMessage(content=response.content)
+        return {
+            "corrections" : [
+                AIMessage(content=response.content, type="ai")
             ]
         }
-        print("content of added message")
-        print(state)
-        return state
     except (APIConnectionError, openai.BadRequestError) as e:
-        return f"Agent not available: {e}"
+        return None, None
 
 
 def router(state:State):
     conversation = state["messages"][1:]
     goal = state["scene_info"].get("goal", "No goal defined")
     language = state["scene_info"].get("target_language", "Portuguese")
-
+    cycle_counter = session['cycle_count']
     print(f"conversation so far: \n{conversation}")
     print(f"goal: {goal}")
-    system_prompt = f"""
+    prompt = f"""
     You are evaluating a role-play between a language student and an actor playing a specific role where the actor should help 
     the student to achieve the goal of this conversation (see Goal definition below). The role play is in {language} language. Please analyze carefully the conversation
     and check if the goal of the conversation was achieved, ie. based upon the conversation in {language} you make a decision if the goal was achieved or not. 
@@ -209,24 +172,24 @@ def router(state:State):
     {conversation}
 
     """
-    state = {
-        "messages": [
-            SystemMessage(content=system_prompt)
-        ]
-    }
+    # the system_prompt need to be added to the messages. This can not be done by updating the
+    # state within the node as updating a state within a node is not allowed. Therefor
+    # the following lines extract the required information from the state and places it in
+    # messages
+    system_message = [SystemMessage(content=prompt, type="system")]
 
-    message_list = []
     human_messages = [msg for msg in state["messages"] if isinstance ( msg, HumanMessage)]
     ai_messages = [msg for msg in state["messages"] if isinstance ( msg, AIMessage)]
-    system_message = [msg for msg in state["messages"] if isinstance ( msg, SystemMessage)]
     messages = system_message + human_messages + ai_messages
 
-    classifier_llm = llm.with_structured_output(MessageClassifier, method="json_mode")
-
+    classifier_llm = llm.with_structured_output(MessageClassifier, method="json_schema")
+    # Here the method 'json_schema' is used which is keeping the output limited to the provided BaseModel
+    # There is also the option of 'json_mode' which would only return a json object, but possibly with other
+    # keys
     next_step = classifier_llm.invoke(messages)
     print(next_step, type(next_step))
 
-    if next_step.action_to_take == "finish":
+    if next_step.action_to_take == "finish" or cycle_counter > (MAX_CYCLE-1):
         goal_achieved = True
     elif next_step.action_to_take == "continue":
         goal_achieved = False
@@ -241,28 +204,103 @@ def session_evaluator(state:State):
     The scene was completed by the student. All relevant information must be extracted from the transcript and stored
     in the session table. Also
     """
-    return state
+    print_state("Session_Evaluator:\n", state)
+    if not current_user.is_authenticated:
+        return state
 
+    level = state["scene_info"]["level"]
+    language = state["scene_info"]["target_language"]
+    title = state['scene_info']['title']
+    goal = state['scene_info']['goal']
+    premise = state['scene_info']['premise']
+    goal_achieved = state["goal_achieved"]
+    prompt = f"""
+    You are a language professor evaluating a role-play conversation between a student (HumanMessage) and a persona (AIMessage).
+
+    The student's current CEFR level for the {language} language is: {level} 
+    
+    The scene with title : {title} has the following goal:
+    {goal}
+    
+    This is the premise of the scene: {premise} 
+    The goal achievement status is:
+    {goal_achieved}
+    
+    Evaluate ONLY the student's messages.
+    
+    Evaluation guidelines:
+    - Describe what the student achieved during the scene.
+    - Estimate the CEFR level demonstrated in this conversation.
+    - Identify vocabulary that the student used correctly.
+    - Identify successful phrases, quoting the student's actual words.
+    - Provide specific grammatical tips based on observed mistakes.
+    - Do not invent words or phrases the student did not use.
+    - Be encouraging, constructive, and concise.
+    - If a category has no examples, return an empty list.and you are evaluating a role-play session between a student (HumanMessage) and a 
+        persona (AIMessage). 
+        The student currently has level {level} and it is your task to evaluate the conversation and 
+        use the provided model to answer the following:
+    
+    The output must be provided in a JSON format.
+    """
+    system_message = [SystemMessage(content=prompt, type="system")]
+    human_messages = [msg for msg in state["messages"] if isinstance ( msg, HumanMessage)]
+    ai_messages = [msg for msg in state["messages"] if isinstance ( msg, AIMessage)]
+    evaluations = system_message + human_messages + ai_messages
+
+    evaluator_llm = llm.with_structured_output(SessionEvaluationScheme, method="json_schema")
+    evaluation = evaluator_llm.invoke(evaluations)
+    evaluation_dict = evaluation.model_dump()
+
+    # Prepare the state for storage. State is only updated on return. We'd like to
+    # store the updated state in the DB, including the evaluation_dict
+    # 1. Prepare state updates
+    updates = {
+        "session_evaluation": evaluation_dict
+    }
+
+    # 3. Create an updated copy of the state
+    updated_state = {**state, **updates}
+    dm.store_session_data(state["adventure_id"], state["scene_id"], state["student_id"], updated_state)
+    return {"session_evaluation": evaluation_dict}
+
+
+def print_state(opening_text:str, state:State):
+    print("Printing the state" + opening_text + "\n")
+    for keys in state.keys():
+        print(f"{keys}: {state[keys]}")
+
+def routing_check(state:State)->bool:
+    print("ROUTING_CHECK", state.get("goal_achieved", False))
+    return state.get("goal_achieved", False)
 
 graph_builder.add_node("persona_actor", persona_actor)
-graph_builder.add_node("message_evaluator", message_evaluator)
+graph_builder.add_node("message_corrector", message_corrector)
 graph_builder.add_node("router", router)
 graph_builder.add_node("session_evaluator", session_evaluator)
 
 graph_builder.add_edge(START, "persona_actor")
-graph_builder.add_edge("persona_actor", "message_evaluator")
-graph_builder.add_edge("message_evaluator", "router")
-graph_builder.add_edge("router", "session_evaluator")
+graph_builder.add_edge("persona_actor", "message_corrector")
+graph_builder.add_edge("message_corrector", "router")
+graph_builder.add_conditional_edges(
+    "router",
+    routing_check,
+    {
+        True: "session_evaluator",
+        False: END
+    }
+)
+# graph_builder.add_conditional_edges(
+#     "routing_check",
+#     lambda state: state.get("goal_achieved"),
+#     {True: "session_evaluator", False: "END"})
+# graph_builder.add_edge("router", "session_evaluator")
 graph_builder.add_edge("session_evaluator", END)
 checkpointer = InMemorySaver()
 graph = graph_builder.compile(checkpointer)
 
 
-def prompt_generator(role:str, prompt:str, transcript:Transcript):
-    pass
-
 def get_persona_reply(scene_id:int, adventure_id:int, student_message:str, thread_id) -> tuple:
-    ts = Transcript(adventure_id, scene_id, 0)
     student_adventure_status, result = dm.get_full_student_adventure_data(adventure_id, current_user.student_id)
     if "successful" not in result or not student_adventure_status:
         return None, "could not derive the scene"
@@ -290,13 +328,19 @@ def get_persona_reply(scene_id:int, adventure_id:int, student_message:str, threa
         }
     }
     state = graph.get_state(config)
-
+    print("state: ", type(state))
     if state.values:
         print("Existing conversation. Here is state: ", state.values)
         state = {
             "messages" : [
                 HumanMessage(content=student_message)
-            ]
+            ],
+            "corrections": [
+                HumanMessage(content=student_message)
+            ],
+            "adventure_id": adventure_id,
+            "scene_id": scene_id,
+            "student_id": current_user.student_id,
         }
         state = graph.invoke(state, config=config)
 
@@ -309,13 +353,15 @@ def get_persona_reply(scene_id:int, adventure_id:int, student_message:str, threa
                 HumanMessage(content=student_message)
             ],
             "scene_info": scene_info,
-            "evaluations": [
+            "corrections": [
                 SystemMessage(content=verification_prompt_definition(scene_info)),
                 HumanMessage(content=student_message)
             ],
-            "goal_achieved": False
+            "goal_achieved": False,
+            "adventure_id": adventure_id,
+            "scene_id": scene_id,
+            "student_id": current_user.student_id,
         }
-        print("the state is:", state)
+        print_state("the state is:", state)
         state = graph.invoke(state, config=config)
     return state["messages"][-1].content, state
-

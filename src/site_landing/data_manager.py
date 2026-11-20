@@ -12,7 +12,7 @@ from sqlalchemy import func, or_
 from sqlalchemy.exc import IntegrityError, OperationalError
 
 import re
-from models import db, Adventure, Student, Student_Adventure
+from src.models import db, Adventure, Student, Student_Adventure
 
 
 logging.basicConfig(

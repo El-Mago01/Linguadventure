@@ -13,12 +13,12 @@ Important clarification. The jargon in this application distinguishes 3 types of
 import os
 from dotenv import load_dotenv
 from flask import Flask
-from data_manager import DataManager, db, login_manager
-from src.site_landing import site_landing
+from src.data_manager import DataManager, db, login_manager
+from src.site_landing.routes import site_landing
 from src.adventures import adventures
 from src.admin import admin
 # from site_landing import admin
-from src.play import play
+from src.play.routes import play
 from src.learning import learning
 from src.wrapup import wrapup
 from src.errors import register_error_handlers

@@ -8,7 +8,7 @@ GET /login
 
 from flask import Blueprint, render_template, request, abort
 from src.data_manager import DataManager, StudentStorageError
-from helper_functions import is_valid_email_address, check_admin_user
+from src.helper_functions import is_valid_email_address, check_admin_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import request, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
